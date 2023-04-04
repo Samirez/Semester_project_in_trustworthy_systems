@@ -4,14 +4,12 @@ generate gSelfOperatingHeuristicText "http://www.xtext.org/gsht/GSelfOperatingHe
 
 Model:
 	'DRONE' name=ID
-	(global=Props)?
-	(states+=State | alters+=Alter)*;
-
-Props:
-	{Props} 'GLOBAL' '{'
+	('GLOBAL'
+	'{'
     	(globals+=Global)*
-    	//(locals+=Local)*
-	'}';
+    	
+	'}')?
+	(states+=State | alters+=Alter)*;
 
 Global:
 	name=ID 'as' type=DataType ('=' value=STRING)?;
@@ -47,7 +45,7 @@ Alter:
 ;
 
 Transition:
-	'ON' event=[Event] 'TO' state=[State] (condition=Condition? ('SET' assignment=Assignment)? )?;
+	'ON' event=[Event] 'TO' state=[State] ('IF' condition=Condition? ('SET' assignment=Assignment)? )?;
 
 Event:
 	name=ID;
@@ -56,7 +54,7 @@ Condition:
 	left=ID operator=ComparisonOperator right=ID;
 
 Assignment:
-	var=ID '=' value=STRING;
+	currentVar=ID '=' value=STRING;
 
 enum DataType:
 	INT='int' | BOOL='boolean' | CHAR='char' | BYTE='byte' | SHORT='short' | LONG='long' | FLOAT='float' | DOUBLE='double' | STRING='String';
