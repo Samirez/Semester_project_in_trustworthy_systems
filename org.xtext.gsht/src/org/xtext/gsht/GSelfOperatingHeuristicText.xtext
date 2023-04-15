@@ -2,6 +2,8 @@ grammar org.xtext.gsht.GSelfOperatingHeuristicText with org.eclipse.xtext.common
 
 generate gSelfOperatingHeuristicText "http://www.xtext.org/gsht/GSelfOperatingHeuristicText"
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 Model:
 	'DRONE' name=ID
 	('GLOBAL'
@@ -51,13 +53,13 @@ Event:
 	name=ID;
 
 Condition:
-	left=VariableReference operator=ComparisonOperator right=ID;
+	left=VariableReference operator=ComparisonOperator right=Value;
 
 Assignment:
-	currentVar=VariableReference '=' value=STRING;
+	currentVar=VariableReference '=' value=Value;
 
 enum DataType:
-	INT='int' | BOOL='boolean' | CHAR='char' | BYTE='byte' | SHORT='short' | LONG='long' | FLOAT='float' | DOUBLE='double' | STRING='String';
+	INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
 
 enum ComparisonOperator:
 	EQUALS='==' | NOT_EQUALS='!=' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
@@ -68,4 +70,17 @@ VariableReference:
 
 Variable:
     Global | Local;
+    
+Value:
+  BOOL | STRING | INT | DOUBLE;
+  
+ 
+@Override 
+terminal INT returns ecore::EInt:
+    ('0'..'9')+;
 
+terminal BOOL returns ecore::EBoolean:
+    'TRUE' | 'FALSE';
+
+terminal DOUBLE returns ecore::EDouble:
+    ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;

@@ -55,9 +55,6 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("\t\t");
       _builder.append("ON BatteryCharged TO Standby IF Charge >= 0.7");
       _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
       _builder.newLine();
       _builder.append("STATE Standby");
       _builder.newLine();
@@ -310,7 +307,7 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("{");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorNotDepleted = TRUE");
+      _builder.append("ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorIsDepleted = TRUE");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");

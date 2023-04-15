@@ -34,7 +34,6 @@ class GSelfOperatingHeuristicTextParsingTest {
 				TRANSITIONS 
 				{
 					ON BatteryCharged TO Standby IF Charge >= 0.7
-				}
 			
 			STATE Standby
 				PROPS
@@ -129,7 +128,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 				}
 				TRANSITIONS
 				{
-					ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorNotDepleted = TRUE
+					ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorIsDepleted = TRUE
 				}
 			
 			
