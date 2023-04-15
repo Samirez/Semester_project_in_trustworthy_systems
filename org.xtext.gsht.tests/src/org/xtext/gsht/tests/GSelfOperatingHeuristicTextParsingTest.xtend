@@ -46,7 +46,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 					ON MissionReceived TO Airborne IF RevievedMission ==  TRUE
 					ON StandbyFailure TO Failed IF Error == TRUE SET ErrorCode = 'Standby Failure'
 				}
-			 
+				
 			STATE Airborne
 				PROPS
 				{
