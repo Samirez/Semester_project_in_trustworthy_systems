@@ -5,6 +5,7 @@ package org.xtext.gsht.generator;
 
 import com.google.common.collect.Iterators;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -27,6 +28,15 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     IteratorExtensions.<Model>forEach(Iterators.<Model>filter(resource.getAllContents(), Model.class), _function);
   }
 
-  public void generateFile(final Model model, final IFileSystemAccess2 access2) {
+  public void generateFile(final Model model, final IFileSystemAccess2 fsa) {
+    String _plus = (model + ".java");
+    fsa.generateFile(_plus, this.generate(model));
+  }
+
+  public CharSequence generate(final Model model) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t\t\t");
+    _builder.newLine();
+    return _builder;
   }
 }
