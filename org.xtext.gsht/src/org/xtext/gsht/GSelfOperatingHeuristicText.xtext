@@ -52,9 +52,33 @@ Transition:
 Event:
 	name=ID;
 
-Condition:
-	left=VariableReference operator=ComparisonOperator right=Value;
+Condition returns Expression:
+	element+=conditionElement (',' elements+=conditionElement*)?
+;
+conditionElement:
+	name=ID (operator=ComparisonOperator) exp=Expression
+;
+Expression:
+	or=Or
+;
+Or returns Expression:
+	And ({Or.left=current} "or" right=And)*;
+And returns Expression:
+	Equality ({And.left=current} "and" right=Equality)*;
+Equality returns Expression:
+	Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*;
+Comparison returns Expression:
+	Primary ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=Primary)*
+;
+Primary returns Expression:
+	'(' Expression ')' |
+	{Not} "not" expression=Primary |
+	Atomic
+;
 
+Atomic:
+	{BoolConstant} value=('true' | 'false')
+;
 Assignment:
 	currentVar=VariableReference '=' value=Value;
 

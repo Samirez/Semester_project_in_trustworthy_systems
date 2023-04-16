@@ -88,7 +88,7 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("\t");
       _builder.append("}");
       _builder.newLine();
-      _builder.append(" ");
+      _builder.append("\t");
       _builder.newLine();
       _builder.append("STATE Airborne");
       _builder.newLine();
