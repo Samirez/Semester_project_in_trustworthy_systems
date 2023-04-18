@@ -53,9 +53,15 @@ Event:
 	name=ID;
 
 Condition returns Expression:
-	element+=conditionElement (',' elements+=conditionElement*)?
+	Primary ({element.left=current} (operator=ComparisonOperator) right=Primary)*
 ;
-conditionElement:
+element returns Expression:
+	VariableReference=ID
+;
+Primary returns Expression:
+	Variable
+;
+/*conditionElement:
 	name=ID (operator=ComparisonOperator) exp=Expression
 ;
 Expression:
@@ -74,7 +80,7 @@ Primary returns Expression:
 	'(' Expression ')' |
 	{Not} "not" expression=Primary |
 	Atomic
-;
+;*/
 
 Atomic:
 	{BoolConstant} value=('true' | 'false')
