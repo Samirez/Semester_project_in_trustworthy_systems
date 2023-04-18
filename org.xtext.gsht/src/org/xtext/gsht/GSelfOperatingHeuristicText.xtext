@@ -83,7 +83,7 @@ Primary returns Expression:
 	Atomic
 ;*/
 
-Atomic:
+Atomic returns Expression:
 	{BoolConstant} value=('true' | 'false')
 ;
 Assignment:
