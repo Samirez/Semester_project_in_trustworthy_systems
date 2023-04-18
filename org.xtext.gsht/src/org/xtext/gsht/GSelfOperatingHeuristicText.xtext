@@ -59,7 +59,8 @@ element returns Expression:
 	VariableReference=ID
 ;
 Primary returns Expression:
-	Variable
+	Variable |
+	Atomic
 ;
 /*conditionElement:
 	name=ID (operator=ComparisonOperator) exp=Expression
