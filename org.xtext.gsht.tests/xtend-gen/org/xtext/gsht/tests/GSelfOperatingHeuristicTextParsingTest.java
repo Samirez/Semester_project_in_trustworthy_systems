@@ -55,6 +55,9 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("\t\t");
       _builder.append("ON BatteryCharged TO Standby IF Charge >= 0.7");
       _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
       _builder.newLine();
       _builder.append("STATE Standby");
       _builder.newLine();
