@@ -59,6 +59,7 @@ element returns Expression:
 	VariableReference=ID
 ;
 Primary returns Expression:
+	//Variable |
 	Atomic
 ;
 /*conditionElement:
