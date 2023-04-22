@@ -27,13 +27,35 @@ class GSelfOperatingHeuristicTextParsingTest {
 			{
 				Charge as double
 				ErrorCode as String
-				DefibrillatorIsDepleted as int
+				DefibrillatorIsDepleted as boolean
 			}
+			
+			EVENT BatteryCharged
+			
+			EVENT MissionReceived
+			EVENT StandbyFailure
+			    
+			EVENT FlyToTarget
+			EVENT AbortMission
+			EVENT AirborneFailure
+			    
+			EVENT Landing
+			EVENT ArrivedFailure
+			    
+			EVENT TakingOff
+			EVENT LandedFailure
+			    
+			EVENT Returned
+			EVENT ReturningFailure
+			    
+			EVENT DefibrillatorDepleted
+			EVENT DefibrillatorNotDepleted
 			
 			STATE Charging
 				TRANSITIONS 
 				{
 					ON BatteryCharged TO Standby IF Charge >= 0.7
+				}
 			
 			STATE Standby
 				PROPS
@@ -43,7 +65,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 				}
 				TRANSITIONS
 				{
-					ON MissionReceived TO Airborne IF RevievedMission !=  TRUE
+					ON MissionReceived TO Airborne IF ReceivedMission ==  TRUE
 					ON StandbyFailure TO Failed IF Error == TRUE SET ErrorCode = 'Standby Failure'
 				}
 				
@@ -110,6 +132,9 @@ class GSelfOperatingHeuristicTextParsingTest {
 			
 			STATE Failed
 			
+			EVENT DefibrillatorReady
+										
+			EVENT DefibrillatorUsed
 			
 			ALTER STATE Landed
 				PROPS
