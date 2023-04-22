@@ -8,4 +8,3 @@ org.xtext.gsht.tests/xtend-gen/org/xtext/gsht/tests/GSelfOperatingHeuristicTextP
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.java._trace
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.xtendbin
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/GSelfOperatingHeuristicTextGenerator.java
-*.g

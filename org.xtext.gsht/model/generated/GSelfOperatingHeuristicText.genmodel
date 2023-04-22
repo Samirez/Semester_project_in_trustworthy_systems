@@ -7,16 +7,14 @@
   <genPackages prefix="GSelfOperatingHeuristicText" basePackage="org.xtext.gsht" disposableProviderFactory="true"
       fileExtensions="gsht" ecorePackage="GSelfOperatingHeuristicText.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GSelfOperatingHeuristicText.ecore#//DataType">
-      <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//DataType/NOT"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//DataType/INT"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//DataType/BOOL"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//DataType/DOUBLE"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//DataType/STRING"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GSelfOperatingHeuristicText.ecore#//ComparisonOperator">
-      <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/NOT_BOOL"/>
-      <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/NOT_EQUALS"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/NOT_EQUALS"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/GREATER_THAN"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/LESS_THAN"/>
       <genEnumLiterals ecoreEnumLiteral="GSelfOperatingHeuristicText.ecore#//ComparisonOperator/GREATER_THAN_OR_EQUALS"/>
@@ -25,7 +23,6 @@
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/globals"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/events"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/alters"/>
     </genClasses>
@@ -50,10 +47,8 @@
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Event/name"/>
     </genClasses>
-    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Condition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Condition/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Condition/operator"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Condition/right"/>
+    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Expression/VariableReference"/>
     </genClasses>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Assignment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Assignment/currentVar"/>
@@ -66,6 +61,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Variable/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Variable/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Variable/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//element">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//element/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//element/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//element/right"/>
+    </genClasses>
+    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//BoolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//BoolConstant/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
