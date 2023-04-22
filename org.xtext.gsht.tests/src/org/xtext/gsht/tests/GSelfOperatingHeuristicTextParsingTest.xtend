@@ -30,6 +30,8 @@ class GSelfOperatingHeuristicTextParsingTest {
 				DefibrillatorIsDepleted as boolean
 			}
 			
+			EVENT BatteryCharged
+			
 			EVENT MissionReceived
 			EVENT StandbyFailure
 			    
@@ -38,6 +40,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 			EVENT AirborneFailure
 			    
 			EVENT Landing
+			EVENT ArrivedFailure
 			    
 			EVENT TakingOff
 			EVENT LandedFailure
@@ -61,7 +64,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 				}
 				TRANSITIONS
 				{
-					ON MissionReceived TO Airborne IF RevievedMission ==  TRUE
+					ON MissionReceived TO Airborne IF ReceivedMission ==  TRUE
 					ON StandbyFailure TO Failed IF Error == TRUE SET ErrorCode = 'Standby Failure'
 				}
 				
