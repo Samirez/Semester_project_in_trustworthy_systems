@@ -9,7 +9,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model
 import org.xtext.gsht.gSelfOperatingHeuristicText.State
-import org.xtext.gsht.gSelfOperatingHeuristicText.Local
 
 /**
  * Generates code from your model files on save.
@@ -31,8 +30,8 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				«FOR event: model.events»
 					private String «event»;
 				«ENDFOR»
-				«FOR states: model.states»
-					public class «states.generateState»;
+				«FOR state: model.states»
+					public «state.generateState»
 				«ENDFOR»
 				«FOR alter: model.alters»
 					«alter»;
@@ -43,6 +42,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		
 	def generateState(State state){
 		'''
+		«State» «state.name»()
 			{
 				«FOR local: state.locals»
 					private «local.type» «local.name»;

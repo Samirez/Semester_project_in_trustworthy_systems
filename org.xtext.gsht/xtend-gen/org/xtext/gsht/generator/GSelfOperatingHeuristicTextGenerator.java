@@ -57,12 +57,11 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     }
     {
       EList<State> _states = model.getStates();
-      for(final State states : _states) {
+      for(final State state : _states) {
         _builder.append("\t");
-        _builder.append("public class ");
-        CharSequence _generateState = this.generateState(states);
+        _builder.append("public ");
+        CharSequence _generateState = this.generateState(state);
         _builder.append(_generateState, "\t");
-        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -82,18 +81,25 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
   public CharSequence generateState(final State state) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append(State.class);
+    _builder.append(" ");
+    String _name = state.getName();
+    _builder.append(_name);
+    _builder.append("()");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     _builder.append("{");
     _builder.newLine();
     {
       EList<Local> _locals = state.getLocals();
       for(final Local local : _locals) {
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("private ");
         DataType _type = local.getType();
-        _builder.append(_type, "\t");
+        _builder.append(_type, "\t\t");
         _builder.append(" ");
-        String _name = local.getName();
-        _builder.append(_name, "\t");
+        String _name_1 = local.getName();
+        _builder.append(_name_1, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
@@ -101,51 +107,52 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     {
       EList<Local> _locals_1 = state.getLocals();
       for(final Local local_1 : _locals_1) {
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.newLine();
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("public ");
         DataType _type_1 = local_1.getType();
-        _builder.append(_type_1, "\t");
+        _builder.append(_type_1, "\t\t");
         _builder.append(" get");
-        String _name_1 = local_1.getName();
-        _builder.append(_name_1, "\t");
+        String _name_2 = local_1.getName();
+        _builder.append(_name_2, "\t\t");
         _builder.append("(){");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("\t\t");
         _builder.append("return ");
-        String _name_2 = local_1.getName();
-        _builder.append(_name_2, "\t\t\t");
+        String _name_3 = local_1.getName();
+        _builder.append(_name_3, "\t\t\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.newLine();
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("public void set");
-        String _name_3 = local_1.getName();
-        _builder.append(_name_3, "\t");
-        _builder.append("(");
-        DataType _type_2 = local_1.getType();
-        _builder.append(_type_2, "\t");
-        _builder.append(" name){");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
         String _name_4 = local_1.getName();
         _builder.append(_name_4, "\t\t");
+        _builder.append("(");
+        DataType _type_2 = local_1.getType();
+        _builder.append(_type_2, "\t\t");
+        _builder.append(" name){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        String _name_5 = local_1.getName();
+        _builder.append(_name_5, "\t\t\t");
         _builder.append("=name;");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("}");
         _builder.newLine();
       }
     }
-    _builder.append("\t");
+    _builder.append("\t\t");
     _builder.newLine();
+    _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
     return _builder;
