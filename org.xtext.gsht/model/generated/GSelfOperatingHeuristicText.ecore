@@ -6,6 +6,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="globals" upperBound="-1"
         eType="#//Global" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="alters" upperBound="-1"
@@ -30,7 +32,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignment" eType="#//Assignment"
         containment="true"/>
@@ -38,8 +40,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Event">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VariableReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//VariableReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="right" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="currentVar" eType="#//VariableReference"
@@ -47,18 +52,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
-    <eLiterals name="INT" literal="int"/>
-    <eLiterals name="BOOL" value="1" literal="boolean"/>
-    <eLiterals name="DOUBLE" value="2" literal="double"/>
-    <eLiterals name="STRING" value="3" literal="String"/>
+    <eLiterals name="NOT" literal="??"/>
+    <eLiterals name="INT" value="1" literal="int"/>
+    <eLiterals name="BOOL" value="2" literal="boolean"/>
+    <eLiterals name="DOUBLE" value="3" literal="double"/>
+    <eLiterals name="STRING" value="4" literal="String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
-    <eLiterals name="EQUALS" literal="=="/>
+    <eLiterals name="NOT_BOOL" literal="¤¤"/>
     <eLiterals name="NOT_EQUALS" value="1" literal="!="/>
-    <eLiterals name="GREATER_THAN" value="2" literal=">"/>
-    <eLiterals name="LESS_THAN" value="3" literal="&lt;"/>
-    <eLiterals name="GREATER_THAN_OR_EQUALS" value="4" literal=">="/>
-    <eLiterals name="LESS_THAN_OR_EQUALS" value="5" literal="&lt;="/>
+    <eLiterals name="EQUALS" value="2" literal="=="/>
+    <eLiterals name="GREATER_THAN" value="3" literal=">"/>
+    <eLiterals name="LESS_THAN" value="4" literal="&lt;"/>
+    <eLiterals name="GREATER_THAN_OR_EQUALS" value="5" literal=">="/>
+    <eLiterals name="LESS_THAN_OR_EQUALS" value="6" literal="&lt;="/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
@@ -66,16 +73,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="element" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperator"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BoolConstant" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

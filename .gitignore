@@ -8,3 +8,13 @@ org.xtext.gsht.tests/xtend-gen/org/xtext/gsht/tests/GSelfOperatingHeuristicTextP
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.java._trace
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.xtendbin
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/GSelfOperatingHeuristicTextGenerator.java
+org.xtext.gsht.ide/src-gen/org/xtext/gsht/ide/contentassist/antlr/internal/InternalGSelfOperatingHeuristicText.g
+org.xtext.gsht.ide/src-gen/org/xtext/gsht/ide/contentassist/antlr/internal/InternalGSelfOperatingHeuristicText.tokens
+org.xtext.gsht.tests/src-gen/org/xtext/gsht/tests/GSelfOperatingHeuristicTextInjectorProvider.java
+org.xtext.gsht.tests/xtend-gen/org/xtext/gsht/tests/.GSelfOperatingHeuristicTextParsingTest.xtendbin
+org.xtext.gsht/model/generated/GSelfOperatingHeuristicText.ecore
+org.xtext.gsht/model/generated/GSelfOperatingHeuristicText.genmodel
+org.xtext.gsht/src-gen/org/xtext/gsht/GSelfOperatingHeuristicText.xtextbin
+org.xtext.gsht/src-gen/org/xtext/gsht/parser/antlr/internal/InternalGSelfOperatingHeuristicText.g
+org.xtext.gsht/src-gen/org/xtext/gsht/parser/antlr/internal/InternalGSelfOperatingHeuristicText.tokens
+org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.xtendbin
