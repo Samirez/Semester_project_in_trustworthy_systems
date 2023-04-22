@@ -11,7 +11,7 @@ Model:
     	(globals+=Global)*
     	
 	'}')?
-	(states+=State | alters+=Alter)*;
+	(events+=Event | states+=State | alters+=Alter)*;
 
 Global:
 	name=ID 'as' type=DataType ('=' value=STRING)?;
@@ -50,50 +50,19 @@ Transition:
 	'ON' event=[Event] 'TO' state=[State] ('IF' condition=Condition? ('SET' assignment=Assignment)? )?;
 
 Event:
-	name=ID;
+    'EVENT' name=ID;
 
-Condition returns Expression:
-	Primary ({element.left=current} (operator=ComparisonOperator) right=Primary)*
-;
-element returns Expression:
-	VariableReference=ID
-;
-Primary returns Expression:
-	//Variable |
-	Atomic
-;
-/*conditionElement:
-	name=ID (operator=ComparisonOperator) exp=Expression
-;
-Expression:
-	or=Or
-;
-Or returns Expression:
-	And ({Or.left=current} "or" right=And)*;
-And returns Expression:
-	Equality ({And.left=current} "and" right=Equality)*;
-Equality returns Expression:
-	Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*;
-Comparison returns Expression:
-	Primary ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=Primary)*
-;
-Primary returns Expression:
-	'(' Expression ')' |
-	{Not} "not" expression=Primary |
-	Atomic
-;*/
+Condition:
+	left=VariableReference operator=ComparisonOperator right=Value;
 
-Atomic returns Expression:
-	{BoolConstant} value=('true' | 'false')
-;
 Assignment:
 	currentVar=VariableReference '=' value=Value;
 
 enum DataType:
-	INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
+	NOT='??' | INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
 
 enum ComparisonOperator:
-	EQUALS='==' | NOT_EQUALS='!=' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
+	NOT_BOOL='¤¤' | NOT_EQUALS='!=' | EQUALS='==' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
 	
 	
 VariableReference:
@@ -115,3 +84,35 @@ terminal BOOL returns ecore::EBoolean:
 
 terminal DOUBLE returns ecore::EDouble:
     ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;
+    
+
+
+
+
+//ON BatteryCharged TO Standby IF Charge >= 0.7
+/* 
+conditionElement:
+	name=VariableReference (operator=ComparisonOperator) exp=Expression
+;
+Expression:
+	or=Or
+;
+Or returns Expression:
+	And ({Or.left=current} "or" right=And)*;
+And returns Expression:
+	Equality ({And.left=current} "and" right=Equality)*;
+Equality returns Expression:
+	Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*;
+Comparison returns Expression:
+	Primary ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=Primary)*
+;
+Primary returns Expression:
+	'(' Expression ')' |
+	{Not} "not" expression=Primary |
+	Atomic
+;
+
+Atomic returns Expression: 
+	{BoolConstant} value=('true' | 'false')
+;
+*/
