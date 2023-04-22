@@ -53,9 +53,39 @@ Event:
 	name=ID;
 
 Condition:
-	left=VariableReference operator=ComparisonOperator right=Value
-	//element+=conditionElement (',' elements+=conditionElement*)?
-;
+	left=VariableReference operator=ComparisonOperator right=Value;
+
+Assignment:
+	currentVar=VariableReference '=' value=Value;
+
+enum DataType:
+	NOT='??' |INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
+
+enum ComparisonOperator:
+	NOT_BOOL='¤¤' | NOT_EQUALS='!=' | EQUALS='==' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
+	
+	
+VariableReference:
+    variable=[Variable];
+
+Variable:
+    Global | Local;
+    
+Value:
+  BOOL | STRING | INT | DOUBLE;
+  
+ 
+@Override 
+terminal INT returns ecore::EInt:
+    ('0'..'9')+;
+
+terminal BOOL returns ecore::EBoolean:
+    'TRUE' | 'FALSE';
+
+terminal DOUBLE returns ecore::EDouble:
+    ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;
+    
+
 
 
 
@@ -86,33 +116,3 @@ Atomic returns Expression:
 	{BoolConstant} value=('true' | 'false')
 ;
 */
-
-Assignment:
-	currentVar=VariableReference '=' value=Value;
-
-enum DataType:
-	INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
-
-enum ComparisonOperator:
-	EQUALS='==' | NOT_EQUALS='!=' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
-	
-	
-VariableReference:
-    variable=[Variable];
-
-Variable:
-    Global | Local;
-    
-Value:
-  BOOL | STRING | INT | DOUBLE;
-  
- 
-@Override 
-terminal INT returns ecore::EInt:
-    ('0'..'9')+;
-
-terminal BOOL returns ecore::EBoolean:
-    'TRUE' | 'FALSE';
-
-terminal DOUBLE returns ecore::EDouble:
-    ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;

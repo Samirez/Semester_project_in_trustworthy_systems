@@ -39,7 +39,7 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("ErrorCode as String");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("DefibrillatorIsDepleted as boolean");
+      _builder.append("DefibrillatorIsDepleted as int");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
@@ -80,7 +80,7 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("{");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("ON MissionReceived TO Airborne IF RevievedMission ==  TRUE");
+      _builder.append("ON MissionReceived TO Airborne IF RevievedMission !=  TRUE");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("ON StandbyFailure TO Failed IF Error == TRUE SET ErrorCode = \'Standby Failure\'");
