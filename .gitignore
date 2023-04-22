@@ -18,3 +18,6 @@ org.xtext.gsht/src-gen/org/xtext/gsht/GSelfOperatingHeuristicText.xtextbin
 org.xtext.gsht/src-gen/org/xtext/gsht/parser/antlr/internal/InternalGSelfOperatingHeuristicText.g
 org.xtext.gsht/src-gen/org/xtext/gsht/parser/antlr/internal/InternalGSelfOperatingHeuristicText.tokens
 org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.xtendbin
+org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.java._trace
+org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/.GSelfOperatingHeuristicTextGenerator.xtendbin
+org.xtext.gsht/xtend-gen/org/xtext/gsht/generator/GSelfOperatingHeuristicTextGenerator.java
