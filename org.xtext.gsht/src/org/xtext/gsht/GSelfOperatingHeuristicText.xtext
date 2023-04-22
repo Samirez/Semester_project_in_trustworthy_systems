@@ -11,7 +11,7 @@ Model:
     	(globals+=Global)*
     	
 	'}')?
-	(states+=State | alters+=Alter)*;
+	(events+=Event | states+=State | alters+=Alter)*;
 
 Global:
 	name=ID 'as' type=DataType ('=' value=STRING)?;
@@ -50,7 +50,7 @@ Transition:
 	'ON' event=[Event] 'TO' state=[State] ('IF' condition=Condition? ('SET' assignment=Assignment)? )?;
 
 Event:
-	name=ID;
+    'EVENT' name=ID;
 
 Condition:
 	left=VariableReference operator=ComparisonOperator right=Value;
@@ -59,7 +59,7 @@ Assignment:
 	currentVar=VariableReference '=' value=Value;
 
 enum DataType:
-	NOT='??' |INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
+	NOT='??' | INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
 
 enum ComparisonOperator:
 	NOT_BOOL='¤¤' | NOT_EQUALS='!=' | EQUALS='==' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
