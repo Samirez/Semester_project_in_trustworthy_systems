@@ -1,0 +1,4 @@
+https://github.com/eclipse/xtext-core/blob/master/org.eclipse.xtext/src/org/eclipse/xtext/Xtext.xtext // grammar example
+https://www.eclipse.org/forums/index.php/t/1095997/ grammar example and some explanation
+https://mehmetsalgar.wordpress.com/2016/01/20/xtext-domain-specific-language-and-spring-state-machine/ example of state machine 
+

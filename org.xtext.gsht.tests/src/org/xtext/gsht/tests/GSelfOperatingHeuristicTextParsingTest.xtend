@@ -55,6 +55,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 				TRANSITIONS 
 				{
 					ON BatteryCharged TO Standby IF Charge >= 0.7
+				}
 			
 			STATE Standby
 				PROPS
