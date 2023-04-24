@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,22 +22,58 @@ import org.xtext.gsht.services.GSelfOperatingHeuristicTextGrammarAccess;
 public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GSelfOperatingHeuristicTextGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Alter___PROPSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
-	protected AbstractElementAlias match_Alter___TRANSITIONSKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q;
-	protected AbstractElementAlias match_Model___GLOBALKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
-	protected AbstractElementAlias match_State___PROPSKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
-	protected AbstractElementAlias match_State___TRANSITIONSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
-	protected AbstractElementAlias match_Transition_IFKeyword_4_0_q;
+	protected AbstractElementAlias match_Alter_ALTERKeyword_0_0_or_AlterKeyword_0_1;
+	protected AbstractElementAlias match_Alter_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1;
+	protected AbstractElementAlias match_Alter_STATEKeyword_1_0_or_StateKeyword_1_1;
+	protected AbstractElementAlias match_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1;
+	protected AbstractElementAlias match_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
+	protected AbstractElementAlias match_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q;
+	protected AbstractElementAlias match_Global_ASKeyword_1_0_or_AsKeyword_1_1;
+	protected AbstractElementAlias match_Local_ASKeyword_1_0_or_AsKeyword_1_1;
+	protected AbstractElementAlias match_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1;
+	protected AbstractElementAlias match_Model_GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1;
+	protected AbstractElementAlias match_Model___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a;
+	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a;
+	protected AbstractElementAlias match_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a;
+	protected AbstractElementAlias match_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
+	protected AbstractElementAlias match_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1;
+	protected AbstractElementAlias match_State_STATEKeyword_0_0_or_StateKeyword_0_1;
+	protected AbstractElementAlias match_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1;
+	protected AbstractElementAlias match_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
+	protected AbstractElementAlias match_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
+	protected AbstractElementAlias match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1;
+	protected AbstractElementAlias match_Transition_ONKeyword_0_0_or_OnKeyword_0_1;
+	protected AbstractElementAlias match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1;
+	protected AbstractElementAlias match_Transition_TOKeyword_2_0_or_ToKeyword_2_1;
+	protected AbstractElementAlias match_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GSelfOperatingHeuristicTextGrammarAccess) access;
-		match_Alter___PROPSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAlterAccess().getPROPSKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getRightCurlyBracketKeyword_3_3()));
-		match_Alter___TRANSITIONSKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAlterAccess().getTRANSITIONSKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getRightCurlyBracketKeyword_4_3()));
-		match_Model___GLOBALKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getGLOBALKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_2_3()));
-		match_State___PROPSKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_2_3()));
-		match_State___TRANSITIONSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()));
-		match_Transition_IFKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getTransitionAccess().getIFKeyword_4_0());
+		match_Alter_ALTERKeyword_0_0_or_AlterKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getALTERKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getAlterKeyword_0_1()));
+		match_Alter_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getPROPSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getPropsKeyword_3_0_1()));
+		match_Alter_STATEKeyword_1_0_or_StateKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getSTATEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getStateKeyword_1_1()));
+		match_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getTransitionsKeyword_4_0_1()));
+		match_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getPROPSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getPropsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getRightCurlyBracketKeyword_3_3()));
+		match_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getTransitionsKeyword_4_0_1())), new TokenAlias(false, false, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getRightCurlyBracketKeyword_4_3()));
+		match_Global_ASKeyword_1_0_or_AsKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGlobalAccess().getASKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getGlobalAccess().getAsKeyword_1_1()));
+		match_Local_ASKeyword_1_0_or_AsKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLocalAccess().getASKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getLocalAccess().getAsKeyword_1_1()));
+		match_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getDRONEKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getDroneKeyword_0_1()));
+		match_Model_GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getGLOBALKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getGlobalKeyword_2_0_1()));
+		match_Model___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEVENTSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getEventsKeyword_3_0_1()));
+		match_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3()), new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEVENTSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getEventsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_3_1()));
+		match_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a = new GroupAlias(true, true, new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEVENTSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getEventsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3()));
+		match_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getGLOBALKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getGlobalKeyword_2_0_1())), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_2_3()));
+		match_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getPropsKeyword_2_0_1()));
+		match_State_STATEKeyword_0_0_or_StateKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getSTATEKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getStateKeyword_0_1()));
+		match_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_3_0_1()));
+		match_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getPropsKeyword_2_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_2_3()));
+		match_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()));
+		match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIFKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIfKeyword_4_0_1()));
+		match_Transition_ONKeyword_0_0_or_OnKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getONKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getOnKeyword_0_1()));
+		match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSETKeyword_4_2_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSetKeyword_4_2_0_1()));
+		match_Transition_TOKeyword_2_0_or_ToKeyword_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getTOKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getToKeyword_2_1()));
+		match_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIFKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIfKeyword_4_0_1()));
 	}
 	
 	@Override
@@ -51,18 +88,54 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Alter___PROPSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
-				emit_Alter___PROPSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Alter___TRANSITIONSKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q.equals(syntax))
-				emit_Alter___TRANSITIONSKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Model___GLOBALKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
-				emit_Model___GLOBALKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State___PROPSKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
-				emit_State___PROPSKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State___TRANSITIONSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
-				emit_State___TRANSITIONSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Transition_IFKeyword_4_0_q.equals(syntax))
-				emit_Transition_IFKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Alter_ALTERKeyword_0_0_or_AlterKeyword_0_1.equals(syntax))
+				emit_Alter_ALTERKeyword_0_0_or_AlterKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Alter_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1.equals(syntax))
+				emit_Alter_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Alter_STATEKeyword_1_0_or_StateKeyword_1_1.equals(syntax))
+				emit_Alter_STATEKeyword_1_0_or_StateKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1.equals(syntax))
+				emit_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
+				emit_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q.equals(syntax))
+				emit_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Global_ASKeyword_1_0_or_AsKeyword_1_1.equals(syntax))
+				emit_Global_ASKeyword_1_0_or_AsKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Local_ASKeyword_1_0_or_AsKeyword_1_1.equals(syntax))
+				emit_Local_ASKeyword_1_0_or_AsKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1.equals(syntax))
+				emit_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model_GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1.equals(syntax))
+				emit_Model_GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a.equals(syntax))
+				emit_Model___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a.equals(syntax))
+				emit_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a.equals(syntax))
+				emit_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
+				emit_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1.equals(syntax))
+				emit_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_STATEKeyword_0_0_or_StateKeyword_0_1.equals(syntax))
+				emit_State_STATEKeyword_0_0_or_StateKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1.equals(syntax))
+				emit_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
+				emit_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
+				emit_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1.equals(syntax))
+				emit_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Transition_ONKeyword_0_0_or_OnKeyword_0_1.equals(syntax))
+				emit_Transition_ONKeyword_0_0_or_OnKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1.equals(syntax))
+				emit_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Transition_TOKeyword_2_0_or_ToKeyword_2_1.equals(syntax))
+				emit_Transition_TOKeyword_2_0_or_ToKeyword_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q.equals(syntax))
+				emit_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -70,91 +143,358 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     ('PROPS' '{' '}')?
+	 *     'ALTER' | 'alter'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     state=[State|ID] (ambiguity) 'TRANSITIONS' '{' transitions+=Transition
-	 *     state=[State|ID] (ambiguity) ('TRANSITIONS' '{' '}')? (rule end)
+	 *     (rule start) (ambiguity) ('STATE' | 'state') state=[State|ID]
 	 
 	 * </pre>
 	 */
-	protected void emit_Alter___PROPSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Alter_ALTERKeyword_0_0_or_AlterKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     ('TRANSITIONS' '{' '}')?
+	 *     'PROPS' | 'props'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     state=[State|ID] (ambiguity) '{' locals+=Local
+	 
+	 * </pre>
+	 */
+	protected void emit_Alter_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'STATE' | 'state'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('ALTER' | 'alter') (ambiguity) state=[State|ID]
+	 
+	 * </pre>
+	 */
+	protected void emit_Alter_STATEKeyword_1_0_or_StateKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'TRANSITIONS' | 'transitions'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     locals+=Local '}' (ambiguity) '{' transitions+=Transition
+	 *     state=[State|ID] (('PROPS' | 'props') '{' '}')? (ambiguity) '{' transitions+=Transition
+	 
+	 * </pre>
+	 */
+	protected void emit_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (('PROPS' | 'props') '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     state=[State|ID] (ambiguity) ('TRANSITIONS' | 'transitions') '{' transitions+=Transition
+	 *     state=[State|ID] (ambiguity) (('TRANSITIONS' | 'transitions') '{' '}')? (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (('TRANSITIONS' | 'transitions') '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     locals+=Local '}' (ambiguity) (rule end)
-	 *     state=[State|ID] ('PROPS' '{' '}')? (ambiguity) (rule end)
+	 *     state=[State|ID] (('PROPS' | 'props') '{' '}')? (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
-	protected void emit_Alter___TRANSITIONSKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     ('GLOBAL' '{' '}')?
+	 *     'AS' | 'as'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) (rule end)
-	 *     name=ID (ambiguity) alters+=Alter
-	 *     name=ID (ambiguity) events+=Event
-	 *     name=ID (ambiguity) states+=State
+	 *     name=ID (ambiguity) type=DataType
 	 
 	 * </pre>
 	 */
-	protected void emit_Model___GLOBALKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Global_ASKeyword_1_0_or_AsKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     ('PROPS' '{' '}')?
+	 *     'AS' | 'as'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) 'TRANSITIONS' '{' transitions+=Transition
-	 *     name=ID (ambiguity) ('TRANSITIONS' '{' '}')? (rule end)
+	 *     name=ID (ambiguity) type=DataType
 	 
 	 * </pre>
 	 */
-	protected void emit_State___PROPSKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Local_ASKeyword_1_0_or_AsKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     ('TRANSITIONS' '{' '}')?
+	 *     'DRONE' | 'drone'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) name=ID
+	 
+	 * </pre>
+	 */
+	protected void emit_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'GLOBAL' | 'global'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) '{' globals+=Global
+	 
+	 * </pre>
+	 */
+	protected void emit_Model_GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('EVENTS' | 'events')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     globals+=Global '}' (ambiguity) '{' ('}' (ambiguity) '{')* events+=Event
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) '{' ('}' (ambiguity) '{')* events+=Event
+	 
+	 * </pre>
+	 */
+	protected void emit_Model___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('}' ('EVENTS' | 'events')* '{')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     events+=Event (ambiguity) events+=Event
+	 *     globals+=Global '}' ('EVENTS' | 'events')* '{' (ambiguity) events+=Event
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? ('EVENTS' | 'events')* '{' (ambiguity) events+=Event
+	 
+	 * </pre>
+	 */
+	protected void emit_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (('EVENTS' | 'events')* '{' '}')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     events+=Event '}' (ambiguity) (rule end)
+	 *     events+=Event '}' (ambiguity) alters+=Alter
+	 *     events+=Event '}' (ambiguity) states+=State
+	 *     globals+=Global '}' (ambiguity) (rule end)
+	 *     globals+=Global '}' (ambiguity) alters+=Alter
+	 *     globals+=Global '}' (ambiguity) states+=State
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) (rule end)
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) alters+=Alter
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) states+=State
+	 
+	 * </pre>
+	 */
+	protected void emit_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (('GLOBAL' | 'global') '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) ('EVENTS' | 'events')* '{' ('}' ('EVENTS' | 'events')* '{')* events+=Event
+	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* (rule end)
+	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* alters+=Alter
+	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* states+=State
+	 
+	 * </pre>
+	 */
+	protected void emit_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'PROPS' | 'props'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) '{' locals+=Local
+	 
+	 * </pre>
+	 */
+	protected void emit_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'STATE' | 'state'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) name=ID
+	 
+	 * </pre>
+	 */
+	protected void emit_State_STATEKeyword_0_0_or_StateKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'TRANSITIONS' | 'transitions'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     locals+=Local '}' (ambiguity) '{' transitions+=Transition
+	 *     name=ID (('PROPS' | 'props') '{' '}')? (ambiguity) '{' transitions+=Transition
+	 
+	 * </pre>
+	 */
+	protected void emit_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (('PROPS' | 'props') '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) ('TRANSITIONS' | 'transitions') '{' transitions+=Transition
+	 *     name=ID (ambiguity) (('TRANSITIONS' | 'transitions') '{' '}')? (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (('TRANSITIONS' | 'transitions') '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     locals+=Local '}' (ambiguity) (rule end)
-	 *     name=ID ('PROPS' '{' '}')? (ambiguity) (rule end)
+	 *     name=ID (('PROPS' | 'props') '{' '}')? (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
-	protected void emit_State___TRANSITIONSKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     'IF'?
+	 *     'IF' | 'if'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     state=[State|ID] (ambiguity) ('SET' | 'set') assignment=Assignment
+	 *     state=[State|ID] (ambiguity) condition=Condition
+	 
+	 * </pre>
+	 */
+	protected void emit_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'ON' | 'on'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) event=[Event|ID]
+	 
+	 * </pre>
+	 */
+	protected void emit_Transition_ONKeyword_0_0_or_OnKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'SET' | 'set'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     condition=Condition (ambiguity) assignment=Assignment
+	 *     state=[State|ID] ('IF' | 'if') (ambiguity) assignment=Assignment
+	 
+	 * </pre>
+	 */
+	protected void emit_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'TO' | 'to'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     event=[Event|ID] (ambiguity) state=[State|ID]
+	 
+	 * </pre>
+	 */
+	protected void emit_Transition_TOKeyword_2_0_or_ToKeyword_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('IF' | 'if')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     state=[State|ID] (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
-	protected void emit_Transition_IFKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -154,7 +154,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.EVENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -195,7 +195,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=ID globals+=Global* (events+=Event | states+=State | alters+=Alter)*)
+	 *     (name=ID globals+=Global* events+=Event* (states+=State | alters+=Alter)*)
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {

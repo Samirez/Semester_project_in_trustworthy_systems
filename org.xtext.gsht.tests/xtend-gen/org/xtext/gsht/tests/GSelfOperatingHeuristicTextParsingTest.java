@@ -361,8 +361,6 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("\t");
       _builder.append("}");
       _builder.newLine();
-      _builder.newLine();
-      _builder.newLine();
       final Model result = this.parseHelper.parse(_builder);
       InputOutput.<String>println(EmfFormatter.objToStr(result));
     } catch (Throwable _e) {
