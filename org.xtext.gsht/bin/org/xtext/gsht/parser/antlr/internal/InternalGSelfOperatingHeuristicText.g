@@ -1177,7 +1177,7 @@ ruleComparisonOperator returns [Enumerator current=null]
 
 RULE_INT : ('0'..'9')+;
 
-RULE_BOOL : (('TRUE'|'true')|('FALSE'|'false'));
+RULE_BOOL : (('TRUE'|'true'|'True')|('FALSE'|'false'|'False'));
 
 RULE_DOUBLE : ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;
 

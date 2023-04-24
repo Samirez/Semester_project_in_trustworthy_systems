@@ -1165,7 +1165,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//terminal BOOL returns ecore::EBoolean:
-	//    ('TRUE' | 'true') | ('FALSE' | 'false');
+	//    ('TRUE' | 'true' | 'True') | ('FALSE' | 'false' | 'False');
 	public TerminalRule getBOOLRule() {
 		return tBOOL;
 	}

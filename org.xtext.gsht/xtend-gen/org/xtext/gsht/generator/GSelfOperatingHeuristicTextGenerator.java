@@ -18,6 +18,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
 
 /**
  * Generates code from your model files on save.
@@ -41,35 +42,52 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
   public CharSequence generate(final Model model) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
     _builder.append("public class ");
-    _builder.append(model);
+    String _name = model.getName();
+    _builder.append(_name, "\t");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("private State currentState;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
     {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("private String ");
-        _builder.append(event, "\t");
-        _builder.append(";");
+        String _name_1 = event.getName();
+        _builder.append(_name_1, "\t\t");
+        _builder.append(" = \"");
+        String _name_2 = event.getName();
+        _builder.append(_name_2, "\t\t");
+        _builder.append("\";");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    _builder.newLine();
     {
       EList<State> _states = model.getStates();
       for(final State state : _states) {
-        _builder.append("\t");
-        _builder.append("public ");
+        _builder.append("\t\t");
+        _builder.append("public State ");
         CharSequence _generateState = this.generateState(state);
-        _builder.append(_generateState, "\t");
+        _builder.append(_generateState, "\t\t");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    _builder.newLine();
     {
       EList<Alter> _alters = model.getAlters();
       for(final Alter alter : _alters) {
-        _builder.append("\t");
-        _builder.append(alter, "\t");
+        _builder.append("\t\t");
+        _builder.append(alter, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
@@ -81,78 +99,100 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
   public CharSequence generateState(final State state) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append(State.class);
-    _builder.append(" ");
     String _name = state.getName();
     _builder.append(_name);
-    _builder.append("()");
+    _builder.append("() {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("{");
+    _builder.append(" \t");
     _builder.newLine();
     {
       EList<Local> _locals = state.getLocals();
       for(final Local local : _locals) {
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("private ");
         DataType _type = local.getType();
-        _builder.append(_type, "\t\t");
+        _builder.append(_type, "\t");
         _builder.append(" ");
         String _name_1 = local.getName();
-        _builder.append(_name_1, "\t\t");
+        _builder.append(_name_1, "\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      EList<Local> _locals_1 = state.getLocals();
-      for(final Local local_1 : _locals_1) {
-        _builder.append("\t\t");
-        _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("public ");
-        DataType _type_1 = local_1.getType();
-        _builder.append(_type_1, "\t\t");
-        _builder.append(" get");
-        String _name_2 = local_1.getName();
-        _builder.append(_name_2, "\t\t");
-        _builder.append("(){");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("\t\t");
-        _builder.append("return ");
-        String _name_3 = local_1.getName();
-        _builder.append(_name_3, "\t\t\t\t");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("}");
-        _builder.newLine();
-        _builder.append("\t\t");
-        _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("public void set");
-        String _name_4 = local_1.getName();
-        _builder.append(_name_4, "\t\t");
-        _builder.append("(");
-        DataType _type_2 = local_1.getType();
-        _builder.append(_type_2, "\t\t");
-        _builder.append(" name){");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("\t");
-        String _name_5 = local_1.getName();
-        _builder.append(_name_5, "\t\t\t");
-        _builder.append("=name;");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("}");
-        _builder.newLine();
       }
     }
     _builder.append("\t\t");
     _builder.newLine();
+    {
+      EList<Local> _locals_1 = state.getLocals();
+      for(final Local local_1 : _locals_1) {
+        _builder.append("\t");
+        _builder.append("public ");
+        DataType _type_1 = local_1.getType();
+        _builder.append(_type_1, "\t");
+        _builder.append(" get");
+        String _name_2 = local_1.getName();
+        _builder.append(_name_2, "\t");
+        _builder.append("() {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("return this.");
+        String _name_3 = local_1.getName();
+        _builder.append(_name_3, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public void set");
+        String _name_4 = local_1.getName();
+        _builder.append(_name_4, "\t");
+        _builder.append("(");
+        DataType _type_2 = local_1.getType();
+        _builder.append(_type_2, "\t");
+        _builder.append(" name){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _name_5 = local_1.getName();
+        _builder.append(_name_5, "\t\t");
+        _builder.append(" = name;");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     _builder.append("\t");
+    _builder.append("public void onEvent(String event) {");
+    _builder.newLine();
+    {
+      EList<Transition> _transitions = state.getTransitions();
+      for(final Transition transition : _transitions) {
+        _builder.append("\t\t");
+        _builder.append("if (");
+        String _name_6 = transition.getEvent().getName();
+        _builder.append(_name_6, "\t\t");
+        _builder.append(".Equals(event)) {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("this.currentState = ");
+        String _name_7 = transition.getState().getName();
+        _builder.append(_name_7, "\t\t\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}\t");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
