@@ -26,39 +26,50 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 	}
 	def generate(Model model){
 		'''
-			public class «model» {
+			public class «model.name» {
+				
+				private State currentState;
+				
 				«FOR event: model.events»
-					private String «event»;
+					private String «event.name» = "«event.name»";
 				«ENDFOR»
+				
 				«FOR state: model.states»
-					public «state.generateState»
+					public State «state.generateState»
 				«ENDFOR»
+				
 				«FOR alter: model.alters»
 					«alter»;
 				«ENDFOR»
-			}
+		}
 		'''
 	}
 		
 	def generateState(State state){
 		'''
-		«State» «state.name»()
-			{
-				«FOR local: state.locals»
-					private «local.type» «local.name»;
-				«ENDFOR»
-				«FOR local: state.locals»
+		«state.name»() {
+		 	
+			«FOR local: state.locals»
+			private «local.type» «local.name»;
+			«ENDFOR»
 				
-				public «local.type» get«local.name»(){
-						return «local.name»;
-				}
-				
-				public void set«local.name»(«local.type» name){
-					«local.name»=name;
-				}
-				«ENDFOR»
-				
+			«FOR local: state.locals»
+			public «local.type» get«local.name»() {
+				return this.«local.name»;
 			}
+				
+			public void set«local.name»(«local.type» name){
+				this.«local.name» = name;
+			}
+			«ENDFOR»
+			public void onEvent(String event) {
+				«FOR transition : state.transitions»
+				if («transition.event.name».Equals(event)) {
+					this.currentState = «transition.state.name»
+				}
+				«ENDFOR»
+			}	
+		}
 		'''
 	}
 }

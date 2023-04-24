@@ -155,8 +155,6 @@ class GSelfOperatingHeuristicTextParsingTest {
 				{
 					ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorIsDepleted = TRUE
 				}
-			
-			
 		''')
 		println(EmfFormatter.objToStr(result))
 		//Assertions.assertNotNull(result)

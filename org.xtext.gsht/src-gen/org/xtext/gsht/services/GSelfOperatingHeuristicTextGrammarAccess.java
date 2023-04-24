@@ -28,42 +28,67 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDRONEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cDRONEKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cDroneKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cGLOBALKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
+		private final Keyword cGLOBALKeyword_2_0_0 = (Keyword)cAlternatives_2_0.eContents().get(0);
+		private final Keyword cGlobalKeyword_2_0_1 = (Keyword)cAlternatives_2_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Assignment cGlobalsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cGlobalsGlobalParserRuleCall_2_2_0 = (RuleCall)cGlobalsAssignment_2_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cEventsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cEventsEventParserRuleCall_3_0_0 = (RuleCall)cEventsAssignment_3_0.eContents().get(0);
-		private final Assignment cStatesAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cStatesStateParserRuleCall_3_1_0 = (RuleCall)cStatesAssignment_3_1.eContents().get(0);
-		private final Assignment cAltersAssignment_3_2 = (Assignment)cAlternatives_3.eContents().get(2);
-		private final RuleCall cAltersAlterParserRuleCall_3_2_0 = (RuleCall)cAltersAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Keyword cEVENTSKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cEventsKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cEventsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cEventsEventParserRuleCall_3_2_0 = (RuleCall)cEventsAssignment_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cStatesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cStatesStateParserRuleCall_4_0_0 = (RuleCall)cStatesAssignment_4_0.eContents().get(0);
+		private final Assignment cAltersAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cAltersAlterParserRuleCall_4_1_0 = (RuleCall)cAltersAssignment_4_1.eContents().get(0);
 		
 		//Model:
-		//    'DRONE' name=ID
-		//    ('GLOBAL'
+		//    ('DRONE' | 'drone' ) name=ID
+		//    (('GLOBAL' | 'global')
 		//    '{'
 		//        (globals+=Global)*
 		//    '}')?
-		//    (events+=Event | states+=State | alters+=Alter)*;
+		//     (('EVENTS' | 'events')*
+		//    '{'
+		//        (events+=Event)*
+		//    '}')*
+		//    (states+=State | alters+=Alter)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'DRONE' name=ID
-		//('GLOBAL'
+		//('DRONE' | 'drone' ) name=ID
+		//(('GLOBAL' | 'global')
 		//'{'
 		//    (globals+=Global)*
 		//'}')?
-		//(events+=Event | states+=State | alters+=Alter)*
+		// (('EVENTS' | 'events')*
+		//'{'
+		//    (events+=Event)*
+		//'}')*
+		//(states+=State | alters+=Alter)*
 		public Group getGroup() { return cGroup; }
 		
+		//('DRONE' | 'drone' )
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//'DRONE'
-		public Keyword getDRONEKeyword_0() { return cDRONEKeyword_0; }
+		public Keyword getDRONEKeyword_0_0() { return cDRONEKeyword_0_0; }
+		
+		//'drone'
+		public Keyword getDroneKeyword_0_1() { return cDroneKeyword_0_1; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -71,14 +96,20 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('GLOBAL'
+		//(('GLOBAL' | 'global')
 		//'{'
 		//    (globals+=Global)*
 		//'}')?
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//('GLOBAL' | 'global')
+		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
+		
 		//'GLOBAL'
-		public Keyword getGLOBALKeyword_2_0() { return cGLOBALKeyword_2_0; }
+		public Keyword getGLOBALKeyword_2_0_0() { return cGLOBALKeyword_2_0_0; }
+		
+		//'global'
+		public Keyword getGlobalKeyword_2_0_1() { return cGlobalKeyword_2_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
@@ -92,33 +123,56 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 		
-		//(events+=Event | states+=State | alters+=Alter)*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		// (('EVENTS' | 'events')*
+		//'{'
+		//    (events+=Event)*
+		//'}')*
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//events+=Event
-		public Assignment getEventsAssignment_3_0() { return cEventsAssignment_3_0; }
+		//('EVENTS' | 'events')*
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		
+		//'EVENTS'
+		public Keyword getEVENTSKeyword_3_0_0() { return cEVENTSKeyword_3_0_0; }
+		
+		//'events'
+		public Keyword getEventsKeyword_3_0_1() { return cEventsKeyword_3_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		
+		//(events+=Event)*
+		public Assignment getEventsAssignment_3_2() { return cEventsAssignment_3_2; }
 		
 		//Event
-		public RuleCall getEventsEventParserRuleCall_3_0_0() { return cEventsEventParserRuleCall_3_0_0; }
+		public RuleCall getEventsEventParserRuleCall_3_2_0() { return cEventsEventParserRuleCall_3_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+		
+		//(states+=State | alters+=Alter)*
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
 		//states+=State
-		public Assignment getStatesAssignment_3_1() { return cStatesAssignment_3_1; }
+		public Assignment getStatesAssignment_4_0() { return cStatesAssignment_4_0; }
 		
 		//State
-		public RuleCall getStatesStateParserRuleCall_3_1_0() { return cStatesStateParserRuleCall_3_1_0; }
+		public RuleCall getStatesStateParserRuleCall_4_0_0() { return cStatesStateParserRuleCall_4_0_0; }
 		
 		//alters+=Alter
-		public Assignment getAltersAssignment_3_2() { return cAltersAssignment_3_2; }
+		public Assignment getAltersAssignment_4_1() { return cAltersAssignment_4_1; }
 		
 		//Alter
-		public RuleCall getAltersAlterParserRuleCall_3_2_0() { return cAltersAlterParserRuleCall_3_2_0; }
+		public RuleCall getAltersAlterParserRuleCall_4_1_0() { return cAltersAlterParserRuleCall_4_1_0; }
 	}
 	public class GlobalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Global");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cAsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cASKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cAsKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeDataTypeEnumRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -127,10 +181,10 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		
 		//Global:
-		//    name=ID 'as' type=DataType ('=' value=STRING)?;
+		//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID 'as' type=DataType ('=' value=STRING)?
+		//name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -139,8 +193,14 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
+		//('AS' | 'as')
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'AS'
+		public Keyword getASKeyword_1_0() { return cASKeyword_1_0; }
+		
 		//'as'
-		public Keyword getAsKeyword_1() { return cAsKeyword_1; }
+		public Keyword getAsKeyword_1_1() { return cAsKeyword_1_1; }
 		
 		//type=DataType
 		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
@@ -165,7 +225,9 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cAsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cASKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cAsKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeDataTypeEnumRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -174,10 +236,10 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		
 		//Local:
-		//    name=ID 'as' type=DataType ('=' value=STRING)?;
+		//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID 'as' type=DataType ('=' value=STRING)?
+		//name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -186,8 +248,14 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
+		//('AS' | 'as')
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'AS'
+		public Keyword getASKeyword_1_0() { return cASKeyword_1_0; }
+		
 		//'as'
-		public Keyword getAsKeyword_1() { return cAsKeyword_1; }
+		public Keyword getAsKeyword_1_1() { return cAsKeyword_1_1; }
 		
 		//type=DataType
 		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
@@ -210,29 +278,36 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSTATEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cSTATEKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cStateKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cPROPSKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
+		private final Keyword cPROPSKeyword_2_0_0 = (Keyword)cAlternatives_2_0.eContents().get(0);
+		private final Keyword cPropsKeyword_2_0_1 = (Keyword)cAlternatives_2_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Assignment cLocalsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cLocalsLocalParserRuleCall_2_2_0 = (RuleCall)cLocalsAssignment_2_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cTRANSITIONSKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Keyword cTRANSITIONSKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cTransitionsKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cTransitionsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cTransitionsTransitionParserRuleCall_3_2_0 = (RuleCall)cTransitionsAssignment_3_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
 		//State:
-		//    'STATE' name=ID
-		//    ('PROPS'
+		//    ('STATE' | 'state') name=ID
+		//    (('PROPS' | 'props')
 		//    '{'
 		//        (locals+=Local)*
-		//    '}')?
-		//    ('TRANSITIONS'
+		//    '}'
+		//    )?
+		//    (('TRANSITIONS' | 'transitions')
 		//    '{'
 		//        (transitions+=Transition)*
 		//    '}'
@@ -240,20 +315,27 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'STATE' name=ID
-		//('PROPS'
+		//('STATE' | 'state') name=ID
+		//(('PROPS' | 'props')
 		//'{'
 		//    (locals+=Local)*
-		//'}')?
-		//('TRANSITIONS'
+		//'}'
+		//)?
+		//(('TRANSITIONS' | 'transitions')
 		//'{'
 		//    (transitions+=Transition)*
 		//'}'
 		//)?
 		public Group getGroup() { return cGroup; }
 		
+		//('STATE' | 'state')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//'STATE'
-		public Keyword getSTATEKeyword_0() { return cSTATEKeyword_0; }
+		public Keyword getSTATEKeyword_0_0() { return cSTATEKeyword_0_0; }
+		
+		//'state'
+		public Keyword getStateKeyword_0_1() { return cStateKeyword_0_1; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -261,14 +343,21 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('PROPS'
+		//(('PROPS' | 'props')
 		//'{'
 		//    (locals+=Local)*
-		//'}')?
+		//'}'
+		//)?
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//('PROPS' | 'props')
+		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
+		
 		//'PROPS'
-		public Keyword getPROPSKeyword_2_0() { return cPROPSKeyword_2_0; }
+		public Keyword getPROPSKeyword_2_0_0() { return cPROPSKeyword_2_0_0; }
+		
+		//'props'
+		public Keyword getPropsKeyword_2_0_1() { return cPropsKeyword_2_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
@@ -282,15 +371,21 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 		
-		//('TRANSITIONS'
+		//(('TRANSITIONS' | 'transitions')
 		//'{'
 		//    (transitions+=Transition)*
 		//'}'
 		//)?
 		public Group getGroup_3() { return cGroup_3; }
 		
+		//('TRANSITIONS' | 'transitions')
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		
 		//'TRANSITIONS'
-		public Keyword getTRANSITIONSKeyword_3_0() { return cTRANSITIONSKeyword_3_0; }
+		public Keyword getTRANSITIONSKeyword_3_0_0() { return cTRANSITIONSKeyword_3_0_0; }
+		
+		//'transitions'
+		public Keyword getTransitionsKeyword_3_0_1() { return cTransitionsKeyword_3_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
@@ -307,31 +402,40 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	public class AlterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Alter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cALTERKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cSTATEKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cALTERKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cAlterKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cSTATEKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cStateKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cStateStateCrossReference_2_0 = (CrossReference)cStateAssignment_2.eContents().get(0);
 		private final RuleCall cStateStateIDTerminalRuleCall_2_0_1 = (RuleCall)cStateStateCrossReference_2_0.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cPROPSKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Keyword cPROPSKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cPropsKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cLocalsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cLocalsLocalParserRuleCall_3_2_0 = (RuleCall)cLocalsAssignment_3_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cTRANSITIONSKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
+		private final Keyword cTRANSITIONSKeyword_4_0_0 = (Keyword)cAlternatives_4_0.eContents().get(0);
+		private final Keyword cTransitionsKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Assignment cTransitionsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
 		private final RuleCall cTransitionsTransitionParserRuleCall_4_2_0 = (RuleCall)cTransitionsAssignment_4_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
 		//Alter:
-		//    'ALTER' 'STATE' state=[State]
-		//    ('PROPS'
+		//    ('ALTER' | 'alter') ('STATE' | 'state') state=[State]
+		//    (('PROPS' | 'props')
 		//    '{'
 		//        (locals+=Local)*
-		//    '}')?
-		//    ('TRANSITIONS'
+		//    '}'
+		//    )?
+		//    (('TRANSITIONS' | 'transitions')
 		//    '{'
 		//        (transitions+=Transition)*
 		//    '}'
@@ -339,23 +443,36 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ALTER' 'STATE' state=[State]
-		//('PROPS'
+		//('ALTER' | 'alter') ('STATE' | 'state') state=[State]
+		//(('PROPS' | 'props')
 		//'{'
 		//    (locals+=Local)*
-		//'}')?
-		//('TRANSITIONS'
+		//'}'
+		//)?
+		//(('TRANSITIONS' | 'transitions')
 		//'{'
 		//    (transitions+=Transition)*
 		//'}'
 		//)?
 		public Group getGroup() { return cGroup; }
 		
+		//('ALTER' | 'alter')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//'ALTER'
-		public Keyword getALTERKeyword_0() { return cALTERKeyword_0; }
+		public Keyword getALTERKeyword_0_0() { return cALTERKeyword_0_0; }
+		
+		//'alter'
+		public Keyword getAlterKeyword_0_1() { return cAlterKeyword_0_1; }
+		
+		//('STATE' | 'state')
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//'STATE'
-		public Keyword getSTATEKeyword_1() { return cSTATEKeyword_1; }
+		public Keyword getSTATEKeyword_1_0() { return cSTATEKeyword_1_0; }
+		
+		//'state'
+		public Keyword getStateKeyword_1_1() { return cStateKeyword_1_1; }
 		
 		//state=[State]
 		public Assignment getStateAssignment_2() { return cStateAssignment_2; }
@@ -366,14 +483,21 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getStateStateIDTerminalRuleCall_2_0_1() { return cStateStateIDTerminalRuleCall_2_0_1; }
 		
-		//('PROPS'
+		//(('PROPS' | 'props')
 		//'{'
 		//    (locals+=Local)*
-		//'}')?
+		//'}'
+		//)?
 		public Group getGroup_3() { return cGroup_3; }
 		
+		//('PROPS' | 'props')
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		
 		//'PROPS'
-		public Keyword getPROPSKeyword_3_0() { return cPROPSKeyword_3_0; }
+		public Keyword getPROPSKeyword_3_0_0() { return cPROPSKeyword_3_0_0; }
+		
+		//'props'
+		public Keyword getPropsKeyword_3_0_1() { return cPropsKeyword_3_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
@@ -387,15 +511,21 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
 		
-		//('TRANSITIONS'
+		//(('TRANSITIONS' | 'transitions')
 		//'{'
 		//    (transitions+=Transition)*
 		//'}'
 		//)?
 		public Group getGroup_4() { return cGroup_4; }
 		
+		//('TRANSITIONS' | 'transitions')
+		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
+		
 		//'TRANSITIONS'
-		public Keyword getTRANSITIONSKeyword_4_0() { return cTRANSITIONSKeyword_4_0; }
+		public Keyword getTRANSITIONSKeyword_4_0_0() { return cTRANSITIONSKeyword_4_0_0; }
+		
+		//'transitions'
+		public Keyword getTransitionsKeyword_4_0_1() { return cTransitionsKeyword_4_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
@@ -412,32 +542,46 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	public class TransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Transition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cONKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cONKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cOnKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cEventAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cEventEventCrossReference_1_0 = (CrossReference)cEventAssignment_1.eContents().get(0);
 		private final RuleCall cEventEventIDTerminalRuleCall_1_0_1 = (RuleCall)cEventEventCrossReference_1_0.eContents().get(1);
-		private final Keyword cTOKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Keyword cTOKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
+		private final Keyword cToKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
 		private final Assignment cStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cStateStateCrossReference_3_0 = (CrossReference)cStateAssignment_3.eContents().get(0);
 		private final RuleCall cStateStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStateStateCrossReference_3_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIFKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
+		private final Keyword cIFKeyword_4_0_0 = (Keyword)cAlternatives_4_0.eContents().get(0);
+		private final Keyword cIfKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
 		private final Assignment cConditionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cConditionConditionParserRuleCall_4_1_0 = (RuleCall)cConditionAssignment_4_1.eContents().get(0);
 		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Keyword cSETKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Alternatives cAlternatives_4_2_0 = (Alternatives)cGroup_4_2.eContents().get(0);
+		private final Keyword cSETKeyword_4_2_0_0 = (Keyword)cAlternatives_4_2_0.eContents().get(0);
+		private final Keyword cSetKeyword_4_2_0_1 = (Keyword)cAlternatives_4_2_0.eContents().get(1);
 		private final Assignment cAssignmentAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
 		private final RuleCall cAssignmentAssignmentParserRuleCall_4_2_1_0 = (RuleCall)cAssignmentAssignment_4_2_1.eContents().get(0);
 		
 		//Transition:
-		//    'ON' event=[Event] 'TO' state=[State] ('IF' condition=Condition? ('SET' assignment=Assignment)? )?;
+		//    ('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ON' event=[Event] 'TO' state=[State] ('IF' condition=Condition? ('SET' assignment=Assignment)? )?
+		//('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?
 		public Group getGroup() { return cGroup; }
 		
+		//('ON' | 'on')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//'ON'
-		public Keyword getONKeyword_0() { return cONKeyword_0; }
+		public Keyword getONKeyword_0_0() { return cONKeyword_0_0; }
+		
+		//'on'
+		public Keyword getOnKeyword_0_1() { return cOnKeyword_0_1; }
 		
 		//event=[Event]
 		public Assignment getEventAssignment_1() { return cEventAssignment_1; }
@@ -448,8 +592,14 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getEventEventIDTerminalRuleCall_1_0_1() { return cEventEventIDTerminalRuleCall_1_0_1; }
 		
+		//('TO' | 'to')
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
 		//'TO'
-		public Keyword getTOKeyword_2() { return cTOKeyword_2; }
+		public Keyword getTOKeyword_2_0() { return cTOKeyword_2_0; }
+		
+		//'to'
+		public Keyword getToKeyword_2_1() { return cToKeyword_2_1; }
 		
 		//state=[State]
 		public Assignment getStateAssignment_3() { return cStateAssignment_3; }
@@ -460,11 +610,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getStateStateIDTerminalRuleCall_3_0_1() { return cStateStateIDTerminalRuleCall_3_0_1; }
 		
-		//('IF' condition=Condition? ('SET' assignment=Assignment)? )?
+		//(('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?
 		public Group getGroup_4() { return cGroup_4; }
 		
+		//('IF' | 'if' )
+		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
+		
 		//'IF'
-		public Keyword getIFKeyword_4_0() { return cIFKeyword_4_0; }
+		public Keyword getIFKeyword_4_0_0() { return cIFKeyword_4_0_0; }
+		
+		//'if'
+		public Keyword getIfKeyword_4_0_1() { return cIfKeyword_4_0_1; }
 		
 		//condition=Condition?
 		public Assignment getConditionAssignment_4_1() { return cConditionAssignment_4_1; }
@@ -472,11 +628,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//Condition
 		public RuleCall getConditionConditionParserRuleCall_4_1_0() { return cConditionConditionParserRuleCall_4_1_0; }
 		
-		//('SET' assignment=Assignment)?
+		//(('SET' | 'set') assignment=Assignment)?
 		public Group getGroup_4_2() { return cGroup_4_2; }
 		
+		//('SET' | 'set')
+		public Alternatives getAlternatives_4_2_0() { return cAlternatives_4_2_0; }
+		
 		//'SET'
-		public Keyword getSETKeyword_4_2_0() { return cSETKeyword_4_2_0; }
+		public Keyword getSETKeyword_4_2_0_0() { return cSETKeyword_4_2_0_0; }
+		
+		//'set'
+		public Keyword getSetKeyword_4_2_0_1() { return cSetKeyword_4_2_0_1; }
 		
 		//assignment=Assignment
 		public Assignment getAssignmentAssignment_4_2_1() { return cAssignmentAssignment_4_2_1; }
@@ -486,26 +648,18 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Event");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEVENTKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//Event:
-		//    'EVENT' name=ID;
+		//    name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'EVENT' name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'EVENT'
-		public Keyword getEVENTKeyword_0() { return cEVENTKeyword_0; }
-		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment() { return cNameAssignment; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Condition");
@@ -832,12 +986,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 
 	
 	//Model:
-	//    'DRONE' name=ID
-	//    ('GLOBAL'
+	//    ('DRONE' | 'drone' ) name=ID
+	//    (('GLOBAL' | 'global')
 	//    '{'
 	//        (globals+=Global)*
 	//    '}')?
-	//    (events+=Event | states+=State | alters+=Alter)*;
+	//     (('EVENTS' | 'events')*
+	//    '{'
+	//        (events+=Event)*
+	//    '}')*
+	//    (states+=State | alters+=Alter)*
+	//;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -847,7 +1006,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Global:
-	//    name=ID 'as' type=DataType ('=' value=STRING)?;
+	//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
 	public GlobalElements getGlobalAccess() {
 		return pGlobal;
 	}
@@ -857,7 +1016,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Local:
-	//    name=ID 'as' type=DataType ('=' value=STRING)?;
+	//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
 	public LocalElements getLocalAccess() {
 		return pLocal;
 	}
@@ -867,12 +1026,13 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//State:
-	//    'STATE' name=ID
-	//    ('PROPS'
+	//    ('STATE' | 'state') name=ID
+	//    (('PROPS' | 'props')
 	//    '{'
 	//        (locals+=Local)*
-	//    '}')?
-	//    ('TRANSITIONS'
+	//    '}'
+	//    )?
+	//    (('TRANSITIONS' | 'transitions')
 	//    '{'
 	//        (transitions+=Transition)*
 	//    '}'
@@ -887,12 +1047,13 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Alter:
-	//    'ALTER' 'STATE' state=[State]
-	//    ('PROPS'
+	//    ('ALTER' | 'alter') ('STATE' | 'state') state=[State]
+	//    (('PROPS' | 'props')
 	//    '{'
 	//        (locals+=Local)*
-	//    '}')?
-	//    ('TRANSITIONS'
+	//    '}'
+	//    )?
+	//    (('TRANSITIONS' | 'transitions')
 	//    '{'
 	//        (transitions+=Transition)*
 	//    '}'
@@ -907,7 +1068,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Transition:
-	//    'ON' event=[Event] 'TO' state=[State] ('IF' condition=Condition? ('SET' assignment=Assignment)? )?;
+	//    ('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -917,7 +1078,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Event:
-	//    'EVENT' name=ID;
+	//    name=ID;
 	public EventElements getEventAccess() {
 		return pEvent;
 	}
@@ -1004,7 +1165,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//terminal BOOL returns ecore::EBoolean:
-	//    'TRUE' | 'FALSE';
+	//    ('TRUE' | 'true' | 'True') | ('FALSE' | 'false' | 'False');
 	public TerminalRule getBOOLRule() {
 		return tBOOL;
 	}
