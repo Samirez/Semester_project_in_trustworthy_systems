@@ -54,6 +54,10 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("package gsht;");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("import statemachines.GState;");
+    _builder.newLine();
+    _builder.append("import statemachines.Transition;");
+    _builder.newLine();
     _builder.append("import java.util.ArrayList;");
     _builder.newLine();
     _builder.append("import java.util.HashMap;");
@@ -68,7 +72,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("private State currentState;");
+    _builder.append("private GState currentState;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("private HashMap<String, Object> globalProps = new HashMap<>() {");
@@ -124,7 +128,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("private HashMap<String, State> states = new HashMap<>() {");
+    _builder.append("private HashMap<String, GState> states = new HashMap<>() {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("{");
@@ -187,7 +191,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         _builder.append("put(\"");
         String _name = state.getName();
         _builder.append(_name);
-        _builder.append("\", new State() {");
+        _builder.append("\", new GState() {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("{");
