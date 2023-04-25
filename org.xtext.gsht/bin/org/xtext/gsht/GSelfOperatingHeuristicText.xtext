@@ -21,9 +21,9 @@ Model:
 
 
 Global:
-	name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+	name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
 Local:
-	name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+	name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
 
 State:
 	('STATE' | 'state') name=ID

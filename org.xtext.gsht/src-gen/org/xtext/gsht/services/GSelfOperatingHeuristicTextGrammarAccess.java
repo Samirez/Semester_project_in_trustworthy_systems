@@ -178,13 +178,13 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cValueValueParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		
 		//Global:
-		//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+		//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?
+		//name=ID ('AS' | 'as') type=DataType ('=' value=Value)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -208,17 +208,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//DataType
 		public RuleCall getTypeDataTypeEnumRuleCall_2_0() { return cTypeDataTypeEnumRuleCall_2_0; }
 		
-		//('=' value=STRING)?
+		//('=' value=Value)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
 		
-		//value=STRING
+		//value=Value
 		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_1_0() { return cValueSTRINGTerminalRuleCall_3_1_0; }
+		//Value
+		public RuleCall getValueValueParserRuleCall_3_1_0() { return cValueValueParserRuleCall_3_1_0; }
 	}
 	public class LocalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Local");
@@ -233,13 +233,13 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cValueValueParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		
 		//Local:
-		//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+		//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?
+		//name=ID ('AS' | 'as') type=DataType ('=' value=Value)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -263,17 +263,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//DataType
 		public RuleCall getTypeDataTypeEnumRuleCall_2_0() { return cTypeDataTypeEnumRuleCall_2_0; }
 		
-		//('=' value=STRING)?
+		//('=' value=Value)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
 		
-		//value=STRING
+		//value=Value
 		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_1_0() { return cValueSTRINGTerminalRuleCall_3_1_0; }
+		//Value
+		public RuleCall getValueValueParserRuleCall_3_1_0() { return cValueValueParserRuleCall_3_1_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.State");
@@ -1006,7 +1006,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Global:
-	//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+	//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
 	public GlobalElements getGlobalAccess() {
 		return pGlobal;
 	}
@@ -1016,7 +1016,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Local:
-	//    name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+	//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
 	public LocalElements getLocalAccess() {
 		return pLocal;
 	}

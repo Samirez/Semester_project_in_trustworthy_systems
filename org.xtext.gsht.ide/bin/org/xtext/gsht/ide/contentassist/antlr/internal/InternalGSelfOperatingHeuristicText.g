@@ -2729,9 +2729,9 @@ rule__Global__ValueAssignment_3_1
 	}
 :
 	(
-		{ before(grammarAccess.getGlobalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getGlobalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); }
+		{ before(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_3_1_0()); }
+		ruleValue
+		{ after(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_3_1_0()); }
 	)
 ;
 finally {
@@ -2774,9 +2774,9 @@ rule__Local__ValueAssignment_3_1
 	}
 :
 	(
-		{ before(grammarAccess.getLocalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getLocalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); }
+		{ before(grammarAccess.getLocalAccess().getValueValueParserRuleCall_3_1_0()); }
+		ruleValue
+		{ after(grammarAccess.getLocalAccess().getValueValueParserRuleCall_3_1_0()); }
 	)
 ;
 finally {

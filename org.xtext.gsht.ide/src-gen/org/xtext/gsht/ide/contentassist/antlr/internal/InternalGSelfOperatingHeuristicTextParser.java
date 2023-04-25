@@ -8021,7 +8021,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
             // InternalGSelfOperatingHeuristicText.g:2490:1: ( rule__Condition__Group__1__Impl rule__Condition__Group__2 )
             // InternalGSelfOperatingHeuristicText.g:2491:2: rule__Condition__Group__1__Impl rule__Condition__Group__2
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_15);
             rule__Condition__Group__1__Impl();
 
             state._fsp--;
@@ -8271,7 +8271,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
             // InternalGSelfOperatingHeuristicText.g:2571:1: ( rule__Assignment__Group__1__Impl rule__Assignment__Group__2 )
             // InternalGSelfOperatingHeuristicText.g:2572:2: rule__Assignment__Group__1__Impl rule__Assignment__Group__2
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_15);
             rule__Assignment__Group__1__Impl();
 
             state._fsp--;
@@ -8696,21 +8696,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Global__ValueAssignment_3_1"
-    // InternalGSelfOperatingHeuristicText.g:2726:1: rule__Global__ValueAssignment_3_1 : ( RULE_STRING ) ;
+    // InternalGSelfOperatingHeuristicText.g:2726:1: rule__Global__ValueAssignment_3_1 : ( ruleValue ) ;
     public final void rule__Global__ValueAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2730:1: ( ( RULE_STRING ) )
-            // InternalGSelfOperatingHeuristicText.g:2731:2: ( RULE_STRING )
+            // InternalGSelfOperatingHeuristicText.g:2730:1: ( ( ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:2731:2: ( ruleValue )
             {
-            // InternalGSelfOperatingHeuristicText.g:2731:2: ( RULE_STRING )
-            // InternalGSelfOperatingHeuristicText.g:2732:3: RULE_STRING
+            // InternalGSelfOperatingHeuristicText.g:2731:2: ( ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:2732:3: ruleValue
             {
-             before(grammarAccess.getGlobalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getGlobalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); 
+             before(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_3_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleValue();
+
+            state._fsp--;
+
+             after(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_3_1_0()); 
 
             }
 
@@ -8811,21 +8815,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Local__ValueAssignment_3_1"
-    // InternalGSelfOperatingHeuristicText.g:2771:1: rule__Local__ValueAssignment_3_1 : ( RULE_STRING ) ;
+    // InternalGSelfOperatingHeuristicText.g:2771:1: rule__Local__ValueAssignment_3_1 : ( ruleValue ) ;
     public final void rule__Local__ValueAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2775:1: ( ( RULE_STRING ) )
-            // InternalGSelfOperatingHeuristicText.g:2776:2: ( RULE_STRING )
+            // InternalGSelfOperatingHeuristicText.g:2775:1: ( ( ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:2776:2: ( ruleValue )
             {
-            // InternalGSelfOperatingHeuristicText.g:2776:2: ( RULE_STRING )
-            // InternalGSelfOperatingHeuristicText.g:2777:3: RULE_STRING
+            // InternalGSelfOperatingHeuristicText.g:2776:2: ( ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:2777:3: ruleValue
             {
-             before(grammarAccess.getLocalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getLocalAccess().getValueSTRINGTerminalRuleCall_3_1_0()); 
+             before(grammarAccess.getLocalAccess().getValueValueParserRuleCall_3_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleValue();
+
+            state._fsp--;
+
+             after(grammarAccess.getLocalAccess().getValueValueParserRuleCall_3_1_0()); 
 
             }
 
@@ -9570,7 +9578,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000180000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000003E000000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000000000F0L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000007800000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0004000060000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000060000002L});
@@ -9579,6 +9587,5 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000600000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000001800000100L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0001FC0000000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x00000000000000F0L});
 
 }

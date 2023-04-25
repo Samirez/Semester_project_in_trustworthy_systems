@@ -166,7 +166,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Variable returns Global
 	 *
 	 * Constraint:
-	 *     (name=ID type=DataType value=STRING?)
+	 *     (name=ID type=DataType value=Value?)
 	 * </pre>
 	 */
 	protected void sequence_Global(ISerializationContext context, Global semanticObject) {
@@ -181,7 +181,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Variable returns Local
 	 *
 	 * Constraint:
-	 *     (name=ID type=DataType value=STRING?)
+	 *     (name=ID type=DataType value=Value?)
 	 * </pre>
 	 */
 	protected void sequence_Local(ISerializationContext context, Local semanticObject) {

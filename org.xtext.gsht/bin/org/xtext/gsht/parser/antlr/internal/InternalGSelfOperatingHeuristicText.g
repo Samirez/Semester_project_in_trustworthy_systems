@@ -301,19 +301,20 @@ ruleGlobal returns [EObject current=null]
 			}
 			(
 				(
-					lv_value_5_0=RULE_STRING
 					{
-						newLeafNode(lv_value_5_0, grammarAccess.getGlobalAccess().getValueSTRINGTerminalRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_3_1_0());
 					}
+					lv_value_5_0=ruleValue
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getGlobalRule());
+							$current = createModelElementForParent(grammarAccess.getGlobalRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"value",
 							lv_value_5_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"org.xtext.gsht.GSelfOperatingHeuristicText.Value");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -392,19 +393,20 @@ ruleLocal returns [EObject current=null]
 			}
 			(
 				(
-					lv_value_5_0=RULE_STRING
 					{
-						newLeafNode(lv_value_5_0, grammarAccess.getLocalAccess().getValueSTRINGTerminalRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getLocalAccess().getValueValueParserRuleCall_3_1_0());
 					}
+					lv_value_5_0=ruleValue
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getLocalRule());
+							$current = createModelElementForParent(grammarAccess.getLocalRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"value",
 							lv_value_5_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"org.xtext.gsht.GSelfOperatingHeuristicText.Value");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
