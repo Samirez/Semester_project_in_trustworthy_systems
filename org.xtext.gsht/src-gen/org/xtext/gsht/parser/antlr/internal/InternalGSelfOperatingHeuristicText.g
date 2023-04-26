@@ -294,31 +294,29 @@ ruleGlobal returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_4='='
+		{
+			newLeafNode(otherlv_4, grammarAccess.getGlobalAccess().getEqualsSignKeyword_3());
+		}
 		(
-			otherlv_4='='
-			{
-				newLeafNode(otherlv_4, grammarAccess.getGlobalAccess().getEqualsSignKeyword_3_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_3_1_0());
+				{
+					newCompositeNode(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_4_0());
+				}
+				lv_value_5_0=ruleValue
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGlobalRule());
 					}
-					lv_value_5_0=ruleValue
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getGlobalRule());
-						}
-						set(
-							$current,
-							"value",
-							lv_value_5_0,
-							"org.xtext.gsht.GSelfOperatingHeuristicText.Value");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"value",
+						lv_value_5_0,
+						"org.xtext.gsht.GSelfOperatingHeuristicText.Value");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)
 	)
 ;
 
@@ -386,31 +384,29 @@ ruleLocal returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_4='='
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLocalAccess().getEqualsSignKeyword_3());
+		}
 		(
-			otherlv_4='='
-			{
-				newLeafNode(otherlv_4, grammarAccess.getLocalAccess().getEqualsSignKeyword_3_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getLocalAccess().getValueValueParserRuleCall_3_1_0());
+				{
+					newCompositeNode(grammarAccess.getLocalAccess().getValueValueParserRuleCall_4_0());
+				}
+				lv_value_5_0=ruleValue
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLocalRule());
 					}
-					lv_value_5_0=ruleValue
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getLocalRule());
-						}
-						set(
-							$current,
-							"value",
-							lv_value_5_0,
-							"org.xtext.gsht.GSelfOperatingHeuristicText.Value");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"value",
+						lv_value_5_0,
+						"org.xtext.gsht.GSelfOperatingHeuristicText.Value");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)
 	)
 ;
 
@@ -431,21 +427,53 @@ ruleState returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='STATE'
+			(
+				otherlv_0='INIT'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getStateAccess().getINITKeyword_0_0_0());
+				}
+				    |
+				otherlv_1='init'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getStateAccess().getInitKeyword_0_0_1());
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getInitInitialParserRuleCall_0_1_0());
+					}
+					lv_init_2_0=ruleInitial
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_2_0,
+							"org.xtext.gsht.GSelfOperatingHeuristicText.Initial");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_3='STATE'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getStateAccess().getSTATEKeyword_0_0());
+				newLeafNode(otherlv_3, grammarAccess.getStateAccess().getSTATEKeyword_1_0());
 			}
 			    |
-			otherlv_1='state'
+			otherlv_4='state'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getStateAccess().getStateKeyword_0_1());
+				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getStateKeyword_1_1());
 			}
 		)
 		(
 			(
-				lv_name_2_0=RULE_ID
+				lv_name_5_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_5_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -454,33 +482,33 @@ ruleState returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_5_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
 		(
 			(
-				otherlv_3='PROPS'
+				otherlv_6='PROPS'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getStateAccess().getPROPSKeyword_2_0_0());
+					newLeafNode(otherlv_6, grammarAccess.getStateAccess().getPROPSKeyword_3_0_0());
 				}
 				    |
-				otherlv_4='props'
+				otherlv_7='props'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getStateAccess().getPropsKeyword_2_0_1());
+					newLeafNode(otherlv_7, grammarAccess.getStateAccess().getPropsKeyword_3_0_1());
 				}
 			)
-			otherlv_5='{'
+			otherlv_8='{'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2_1());
+				newLeafNode(otherlv_8, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStateAccess().getLocalsLocalParserRuleCall_2_2_0());
+						newCompositeNode(grammarAccess.getStateAccess().getLocalsLocalParserRuleCall_3_2_0());
 					}
-					lv_locals_6_0=ruleLocal
+					lv_locals_9_0=ruleLocal
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -488,39 +516,39 @@ ruleState returns [EObject current=null]
 						add(
 							$current,
 							"locals",
-							lv_locals_6_0,
+							lv_locals_9_0,
 							"org.xtext.gsht.GSelfOperatingHeuristicText.Local");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
-			otherlv_7='}'
+			otherlv_10='}'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_2_3());
+				newLeafNode(otherlv_10, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3());
 			}
 		)?
 		(
 			(
-				otherlv_8='TRANSITIONS'
+				otherlv_11='TRANSITIONS'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getStateAccess().getTRANSITIONSKeyword_3_0_0());
+					newLeafNode(otherlv_11, grammarAccess.getStateAccess().getTRANSITIONSKeyword_4_0_0());
 				}
 				    |
-				otherlv_9='transitions'
+				otherlv_12='transitions'
 				{
-					newLeafNode(otherlv_9, grammarAccess.getStateAccess().getTransitionsKeyword_3_0_1());
+					newLeafNode(otherlv_12, grammarAccess.getStateAccess().getTransitionsKeyword_4_0_1());
 				}
 			)
-			otherlv_10='{'
+			otherlv_13='{'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1());
+				newLeafNode(otherlv_13, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_3_2_0());
+						newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_2_0());
 					}
-					lv_transitions_11_0=ruleTransition
+					lv_transitions_14_0=ruleTransition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -528,17 +556,41 @@ ruleState returns [EObject current=null]
 						add(
 							$current,
 							"transitions",
-							lv_transitions_11_0,
+							lv_transitions_14_0,
 							"org.xtext.gsht.GSelfOperatingHeuristicText.Transition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
-			otherlv_12='}'
+			otherlv_15='}'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3());
+				newLeafNode(otherlv_15, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4_3());
 			}
 		)?
+	)
+;
+
+// Entry rule entryRuleInitial
+entryRuleInitial returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInitialRule()); }
+	iv_ruleInitial=ruleInitial
+	{ $current=$iv_ruleInitial.current; }
+	EOF;
+
+// Rule Initial
+ruleInitial returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			$current = forceCreateModelElement(
+				grammarAccess.getInitialAccess().getInitStateAction(),
+				$current);
+		}
 	)
 ;
 

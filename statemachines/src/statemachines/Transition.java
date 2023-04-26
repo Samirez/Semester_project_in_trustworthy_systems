@@ -2,16 +2,25 @@ package statemachines;
 
 public class Transition {
 
+	private String event;
     private String toState;
-    private String event;
     private String operatorType;
     private String evaluatedValueName;
+    private String globalPropName;
     private boolean hasCondition = false;
     private boolean hasSetAction = false;
     private Object operatingValue;
     private Object setValue;
 
     public Transition() {
+    }
+    
+    public void setEvent(String event) {
+    	this.event = event;
+    }
+    
+    public String getEvent() {
+    	return this.event;
     }
 
     public void setToState(String toState) {
@@ -20,10 +29,6 @@ public class Transition {
 
     public String getToState() {
         return toState;
-    }
-
-    public void setEvent(String event) {
-        this.event = event;
     }
 
     public void setOperatorType(String operatorType) {
@@ -58,6 +63,14 @@ public class Transition {
         return setValue;
     }
     
+    public void setGlobalPropName(String globalPropName) {
+    	this.globalPropName = globalPropName;
+    }
+    
+    public String getGlobalPropName() {
+    	return this.globalPropName;
+    }
+    
 	public boolean hasCondition() {
 		return hasCondition;
 	}
@@ -69,22 +82,22 @@ public class Transition {
 
     public boolean evaluateCondition(Object evaluatedValue) {
         switch (this.operatorType){
-            case "EQUALS":
+            case "==":
                 return this.operatingValue.equals(evaluatedValue);
 
-            case "NOT_EQUALS":
+            case "!=":
                 return !this.operatingValue.equals(evaluatedValue);
 
-            case "GREATER_THAN_OR_EQUALS":
+            case ">=":
                 return (double)this.operatingValue >= (double)evaluatedValue;
 
-            case "GREATER_THAN":
+            case ">":
                 return (double)this.operatingValue > (double)evaluatedValue;
 
-            case "LESS_THAN":
+            case "<":
                 return (double)this.operatingValue < (double)evaluatedValue;
 
-            case "LESS_THAN_OR_EQUALS":
+            case "<=":
                 return (double)this.operatingValue <= (double)evaluatedValue;
 
             default:

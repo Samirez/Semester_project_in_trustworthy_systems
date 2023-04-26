@@ -42,7 +42,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 			private HashMap<String, Object> globalProps = new HashMap<>() {
 				{
 				«FOR p : model.globals»
-				put("«p.name»", «p.value»);
+				put("«p.name»", «p.value»");
 				«ENDFOR»
 				}
 			};
@@ -60,6 +60,14 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 					«model.generateState()»
 				}
 			};
+			
+			public «model.name»() {
+				«FOR s : model.states»
+				«IF s.init != null»
+				currentState = states.get("«s.name»");
+				«ENDIF»
+				«ENDFOR»
+			}
 
 		    public void processEvent(String event) {
 		        String nextStateName = currentState.onEvent(event);
@@ -115,9 +123,9 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				setOperatingValue(«t.condition.right»);
 				«ENDIF»
 				«ENDIF»
-				«IF t.assignment  != null»
+				«IF t.assignment != null»
 				setHasSetAction(true);
-				setGlobalPropName("«t.assignment.currentVar»");
+				setGlobalPropName("«t.assignment.currentVar.variable.name»");
 				setSetValue("«t.assignment.value»");
 				«ENDIF»
 			}

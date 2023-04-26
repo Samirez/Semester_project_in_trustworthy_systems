@@ -60,6 +60,15 @@ public interface GSelfOperatingHeuristicTextFactory extends EFactory
   State createState();
 
   /**
+   * Returns a new object of class '<em>Initial</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initial</em>'.
+   * @generated
+   */
+  Initial createInitial();
+
+  /**
    * Returns a new object of class '<em>Alter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -121,6 +130,15 @@ public interface GSelfOperatingHeuristicTextFactory extends EFactory
    * @generated
    */
   Variable createVariable();
+
+  /**
+   * Returns a new object of class '<em>Init State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Init State</em>'.
+   * @generated
+   */
+  InitState createInitState();
 
   /**
    * Returns the package supported by this factory.

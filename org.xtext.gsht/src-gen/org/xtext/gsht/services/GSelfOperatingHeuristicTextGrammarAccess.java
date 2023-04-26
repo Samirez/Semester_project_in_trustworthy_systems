@@ -6,6 +6,7 @@ package org.xtext.gsht.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -175,16 +176,15 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Keyword cAsKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeDataTypeEnumRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueValueParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueValueParserRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		
 		//Global:
-		//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
+		//    name=ID ('AS' | 'as') type=DataType '=' value=Value;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('AS' | 'as') type=DataType ('=' value=Value)?
+		//name=ID ('AS' | 'as') type=DataType '=' value=Value
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -208,17 +208,14 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//DataType
 		public RuleCall getTypeDataTypeEnumRuleCall_2_0() { return cTypeDataTypeEnumRuleCall_2_0; }
 		
-		//('=' value=Value)?
-		public Group getGroup_3() { return cGroup_3; }
-		
 		//'='
-		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
 		//value=Value
-		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
 		
 		//Value
-		public RuleCall getValueValueParserRuleCall_3_1_0() { return cValueValueParserRuleCall_3_1_0; }
+		public RuleCall getValueValueParserRuleCall_4_0() { return cValueValueParserRuleCall_4_0; }
 	}
 	public class LocalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Local");
@@ -230,16 +227,15 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Keyword cAsKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeDataTypeEnumRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueValueParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueValueParserRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		
 		//Local:
-		//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
+		//    name=ID ('AS' | 'as') type=DataType '=' value=Value;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('AS' | 'as') type=DataType ('=' value=Value)?
+		//name=ID ('AS' | 'as') type=DataType '=' value=Value
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -263,44 +259,49 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//DataType
 		public RuleCall getTypeDataTypeEnumRuleCall_2_0() { return cTypeDataTypeEnumRuleCall_2_0; }
 		
-		//('=' value=Value)?
-		public Group getGroup_3() { return cGroup_3; }
-		
 		//'='
-		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
 		//value=Value
-		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
 		
 		//Value
-		public RuleCall getValueValueParserRuleCall_3_1_0() { return cValueValueParserRuleCall_3_1_0; }
+		public RuleCall getValueValueParserRuleCall_4_0() { return cValueValueParserRuleCall_4_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cSTATEKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cStateKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
-		private final Keyword cPROPSKeyword_2_0_0 = (Keyword)cAlternatives_2_0.eContents().get(0);
-		private final Keyword cPropsKeyword_2_0_1 = (Keyword)cAlternatives_2_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cLocalsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cLocalsLocalParserRuleCall_2_2_0 = (RuleCall)cLocalsAssignment_2_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0_0 = (Alternatives)cGroup_0.eContents().get(0);
+		private final Keyword cINITKeyword_0_0_0 = (Keyword)cAlternatives_0_0.eContents().get(0);
+		private final Keyword cInitKeyword_0_0_1 = (Keyword)cAlternatives_0_0.eContents().get(1);
+		private final Assignment cInitAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cInitInitialParserRuleCall_0_1_0 = (RuleCall)cInitAssignment_0_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cSTATEKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cStateKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
-		private final Keyword cTRANSITIONSKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
-		private final Keyword cTransitionsKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
+		private final Keyword cPROPSKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cPropsKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cTransitionsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cTransitionsTransitionParserRuleCall_3_2_0 = (RuleCall)cTransitionsAssignment_3_2.eContents().get(0);
+		private final Assignment cLocalsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cLocalsLocalParserRuleCall_3_2_0 = (RuleCall)cLocalsAssignment_3_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
+		private final Keyword cTRANSITIONSKeyword_4_0_0 = (Keyword)cAlternatives_4_0.eContents().get(0);
+		private final Keyword cTransitionsKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cTransitionsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cTransitionsTransitionParserRuleCall_4_2_0 = (RuleCall)cTransitionsAssignment_4_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
 		//State:
+		//    (('INIT' | 'init') init=Initial)?
+		//    //({InitState}('INIT' | 'init'))?
 		//    ('STATE' | 'state') name=ID
 		//    (('PROPS' | 'props')
 		//    '{'
@@ -315,6 +316,8 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//(('INIT' | 'init') init=Initial)?
+		////({InitState}('INIT' | 'init'))?
 		//('STATE' | 'state') name=ID
 		//(('PROPS' | 'props')
 		//'{'
@@ -328,76 +331,107 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//)?
 		public Group getGroup() { return cGroup; }
 		
+		//(('INIT' | 'init') init=Initial)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//('INIT' | 'init')
+		public Alternatives getAlternatives_0_0() { return cAlternatives_0_0; }
+		
+		//'INIT'
+		public Keyword getINITKeyword_0_0_0() { return cINITKeyword_0_0_0; }
+		
+		//'init'
+		public Keyword getInitKeyword_0_0_1() { return cInitKeyword_0_0_1; }
+		
+		//init=Initial
+		public Assignment getInitAssignment_0_1() { return cInitAssignment_0_1; }
+		
+		//Initial
+		public RuleCall getInitInitialParserRuleCall_0_1_0() { return cInitInitialParserRuleCall_0_1_0; }
+		
+		////({InitState}('INIT' | 'init'))?
 		//('STATE' | 'state')
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//'STATE'
-		public Keyword getSTATEKeyword_0_0() { return cSTATEKeyword_0_0; }
+		public Keyword getSTATEKeyword_1_0() { return cSTATEKeyword_1_0; }
 		
 		//'state'
-		public Keyword getStateKeyword_0_1() { return cStateKeyword_0_1; }
+		public Keyword getStateKeyword_1_1() { return cStateKeyword_1_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//(('PROPS' | 'props')
 		//'{'
 		//    (locals+=Local)*
 		//'}'
 		//)?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//('PROPS' | 'props')
-		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
 		
 		//'PROPS'
-		public Keyword getPROPSKeyword_2_0_0() { return cPROPSKeyword_2_0_0; }
+		public Keyword getPROPSKeyword_3_0_0() { return cPROPSKeyword_3_0_0; }
 		
 		//'props'
-		public Keyword getPropsKeyword_2_0_1() { return cPropsKeyword_2_0_1; }
+		public Keyword getPropsKeyword_3_0_1() { return cPropsKeyword_3_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
 		
 		//(locals+=Local)*
-		public Assignment getLocalsAssignment_2_2() { return cLocalsAssignment_2_2; }
+		public Assignment getLocalsAssignment_3_2() { return cLocalsAssignment_3_2; }
 		
 		//Local
-		public RuleCall getLocalsLocalParserRuleCall_2_2_0() { return cLocalsLocalParserRuleCall_2_2_0; }
+		public RuleCall getLocalsLocalParserRuleCall_3_2_0() { return cLocalsLocalParserRuleCall_3_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
 		
 		//(('TRANSITIONS' | 'transitions')
 		//'{'
 		//    (transitions+=Transition)*
 		//'}'
 		//)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//('TRANSITIONS' | 'transitions')
-		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
 		
 		//'TRANSITIONS'
-		public Keyword getTRANSITIONSKeyword_3_0_0() { return cTRANSITIONSKeyword_3_0_0; }
+		public Keyword getTRANSITIONSKeyword_4_0_0() { return cTRANSITIONSKeyword_4_0_0; }
 		
 		//'transitions'
-		public Keyword getTransitionsKeyword_3_0_1() { return cTransitionsKeyword_3_0_1; }
+		public Keyword getTransitionsKeyword_4_0_1() { return cTransitionsKeyword_4_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 		
 		//(transitions+=Transition)*
-		public Assignment getTransitionsAssignment_3_2() { return cTransitionsAssignment_3_2; }
+		public Assignment getTransitionsAssignment_4_2() { return cTransitionsAssignment_4_2; }
 		
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_3_2_0() { return cTransitionsTransitionParserRuleCall_3_2_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_4_2_0() { return cTransitionsTransitionParserRuleCall_4_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+		public Keyword getRightCurlyBracketKeyword_4_3() { return cRightCurlyBracketKeyword_4_3; }
+	}
+	public class InitialElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Initial");
+		private final Action cInitStateAction = (Action)rule.eContents().get(1);
+		
+		//Initial:
+		//    {InitState}
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{InitState}
+		public Action getInitStateAction() { return cInitStateAction; }
 	}
 	public class AlterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Alter");
@@ -916,6 +950,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	private final GlobalElements pGlobal;
 	private final LocalElements pLocal;
 	private final StateElements pState;
+	private final InitialElements pInitial;
 	private final AlterElements pAlter;
 	private final TransitionElements pTransition;
 	private final EventElements pEvent;
@@ -943,6 +978,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		this.pGlobal = new GlobalElements();
 		this.pLocal = new LocalElements();
 		this.pState = new StateElements();
+		this.pInitial = new InitialElements();
 		this.pAlter = new AlterElements();
 		this.pTransition = new TransitionElements();
 		this.pEvent = new EventElements();
@@ -1006,7 +1042,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Global:
-	//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
+	//    name=ID ('AS' | 'as') type=DataType '=' value=Value;
 	public GlobalElements getGlobalAccess() {
 		return pGlobal;
 	}
@@ -1016,7 +1052,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Local:
-	//    name=ID ('AS' | 'as') type=DataType ('=' value=Value)?;
+	//    name=ID ('AS' | 'as') type=DataType '=' value=Value;
 	public LocalElements getLocalAccess() {
 		return pLocal;
 	}
@@ -1026,6 +1062,8 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//State:
+	//    (('INIT' | 'init') init=Initial)?
+	//    //({InitState}('INIT' | 'init'))?
 	//    ('STATE' | 'state') name=ID
 	//    (('PROPS' | 'props')
 	//    '{'
@@ -1044,6 +1082,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	
 	public ParserRule getStateRule() {
 		return getStateAccess().getRule();
+	}
+	
+	//Initial:
+	//    {InitState}
+	//;
+	public InitialElements getInitialAccess() {
+		return pInitial;
+	}
+	
+	public ParserRule getInitialRule() {
+		return getInitialAccess().getRule();
 	}
 	
 	//Alter:

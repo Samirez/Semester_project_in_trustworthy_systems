@@ -91,4 +91,10 @@ public class GState {
             return name;
         }
     }
+    
+    public void printState() {
+    	this.props.entrySet().forEach(entry -> {
+    		System.out.println(String.format("%s\t%s", entry.getKey(), entry.getValue().toString()));
+    	});
+    }
 }

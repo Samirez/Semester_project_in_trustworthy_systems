@@ -48,7 +48,7 @@ class GSelfOperatingHeuristicTextParsingTest {
 				DefibrillatorNotDepleted
 			}
 			
-			STATE Charging
+			INIT STATE Charging
 				TRANSITIONS 
 				{
 					ON BatteryCharged TO Standby IF Charge >= 0.7

@@ -70,6 +70,7 @@ public class GSelfOperatingHeuristicTextFactoryImpl extends EFactoryImpl impleme
       case GSelfOperatingHeuristicTextPackage.GLOBAL: return createGlobal();
       case GSelfOperatingHeuristicTextPackage.LOCAL: return createLocal();
       case GSelfOperatingHeuristicTextPackage.STATE: return createState();
+      case GSelfOperatingHeuristicTextPackage.INITIAL: return createInitial();
       case GSelfOperatingHeuristicTextPackage.ALTER: return createAlter();
       case GSelfOperatingHeuristicTextPackage.TRANSITION: return createTransition();
       case GSelfOperatingHeuristicTextPackage.EVENT: return createEvent();
@@ -77,6 +78,7 @@ public class GSelfOperatingHeuristicTextFactoryImpl extends EFactoryImpl impleme
       case GSelfOperatingHeuristicTextPackage.ASSIGNMENT: return createAssignment();
       case GSelfOperatingHeuristicTextPackage.VARIABLE_REFERENCE: return createVariableReference();
       case GSelfOperatingHeuristicTextPackage.VARIABLE: return createVariable();
+      case GSelfOperatingHeuristicTextPackage.INIT_STATE: return createInitState();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -174,6 +176,18 @@ public class GSelfOperatingHeuristicTextFactoryImpl extends EFactoryImpl impleme
    * @generated
    */
   @Override
+  public Initial createInitial()
+  {
+    InitialImpl initial = new InitialImpl();
+    return initial;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Alter createAlter()
   {
     AlterImpl alter = new AlterImpl();
@@ -250,6 +264,18 @@ public class GSelfOperatingHeuristicTextFactoryImpl extends EFactoryImpl impleme
   {
     VariableImpl variable = new VariableImpl();
     return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InitState createInitState()
+  {
+    InitStateImpl initState = new InitStateImpl();
+    return initState;
   }
 
   /**

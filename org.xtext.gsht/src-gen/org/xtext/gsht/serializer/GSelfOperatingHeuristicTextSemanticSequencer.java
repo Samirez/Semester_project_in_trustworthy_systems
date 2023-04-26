@@ -20,6 +20,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Condition;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
+import org.xtext.gsht.gSelfOperatingHeuristicText.InitState;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
@@ -55,6 +56,9 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 				return; 
 			case GSelfOperatingHeuristicTextPackage.GLOBAL:
 				sequence_Global(context, (Global) semanticObject); 
+				return; 
+			case GSelfOperatingHeuristicTextPackage.INIT_STATE:
+				sequence_Initial(context, (InitState) semanticObject); 
 				return; 
 			case GSelfOperatingHeuristicTextPackage.LOCAL:
 				sequence_Local(context, (Local) semanticObject); 
@@ -166,10 +170,36 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Variable returns Global
 	 *
 	 * Constraint:
-	 *     (name=ID type=DataType value=Value?)
+	 *     (name=ID type=DataType value=Value)
 	 * </pre>
 	 */
 	protected void sequence_Global(ISerializationContext context, Global semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGlobalAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGlobalAccess().getTypeDataTypeEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_4_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Initial returns InitState
+	 *
+	 * Constraint:
+	 *     {InitState}
+	 * </pre>
+	 */
+	protected void sequence_Initial(ISerializationContext context, InitState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -181,11 +211,23 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Variable returns Local
 	 *
 	 * Constraint:
-	 *     (name=ID type=DataType value=Value?)
+	 *     (name=ID type=DataType value=Value)
 	 * </pre>
 	 */
 	protected void sequence_Local(ISerializationContext context, Local semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.VARIABLE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLocalAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLocalAccess().getTypeDataTypeEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getLocalAccess().getValueValueParserRuleCall_4_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -209,7 +251,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (name=ID locals+=Local* transitions+=Transition*)
+	 *     (init=Initial? name=ID locals+=Local* transitions+=Transition*)
 	 * </pre>
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {

@@ -36,11 +36,12 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a;
 	protected AbstractElementAlias match_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a;
 	protected AbstractElementAlias match_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
-	protected AbstractElementAlias match_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1;
-	protected AbstractElementAlias match_State_STATEKeyword_0_0_or_StateKeyword_0_1;
-	protected AbstractElementAlias match_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1;
-	protected AbstractElementAlias match_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q;
-	protected AbstractElementAlias match_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
+	protected AbstractElementAlias match_State_INITKeyword_0_0_0_or_InitKeyword_0_0_1;
+	protected AbstractElementAlias match_State_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1;
+	protected AbstractElementAlias match_State_STATEKeyword_1_0_or_StateKeyword_1_1;
+	protected AbstractElementAlias match_State_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1;
+	protected AbstractElementAlias match_State_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
+	protected AbstractElementAlias match_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q;
 	protected AbstractElementAlias match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1;
 	protected AbstractElementAlias match_Transition_ONKeyword_0_0_or_OnKeyword_0_1;
 	protected AbstractElementAlias match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1;
@@ -64,11 +65,12 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 		match_Model___RightCurlyBracketKeyword_3_3___EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3()), new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEVENTSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getEventsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_3_1()));
 		match_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a = new GroupAlias(true, true, new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEVENTSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getEventsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3()));
 		match_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getGLOBALKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getGlobalKeyword_2_0_1())), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_2_3()));
-		match_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getPropsKeyword_2_0_1()));
-		match_State_STATEKeyword_0_0_or_StateKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getSTATEKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getStateKeyword_0_1()));
-		match_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_3_0_1()));
-		match_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getPropsKeyword_2_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_2_3()));
-		match_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()));
+		match_State_INITKeyword_0_0_0_or_InitKeyword_0_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getINITKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getInitKeyword_0_0_1()));
+		match_State_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getPropsKeyword_3_0_1()));
+		match_State_STATEKeyword_1_0_or_StateKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getSTATEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getStateKeyword_1_1()));
+		match_State_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_4_0_1()));
+		match_State_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getPROPSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getPropsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()));
+		match_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_4_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4_3()));
 		match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIFKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIfKeyword_4_0_1()));
 		match_Transition_ONKeyword_0_0_or_OnKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getONKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getOnKeyword_0_1()));
 		match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSETKeyword_4_2_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSetKeyword_4_2_0_1()));
@@ -116,16 +118,18 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 				emit_Model_____EVENTSKeyword_3_0_0_or_EventsKeyword_3_0_1__a_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
 				emit_Model_____GLOBALKeyword_2_0_0_or_GlobalKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1.equals(syntax))
-				emit_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State_STATEKeyword_0_0_or_StateKeyword_0_1.equals(syntax))
-				emit_State_STATEKeyword_0_0_or_StateKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1.equals(syntax))
-				emit_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q.equals(syntax))
-				emit_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
-				emit_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_INITKeyword_0_0_0_or_InitKeyword_0_0_1.equals(syntax))
+				emit_State_INITKeyword_0_0_0_or_InitKeyword_0_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1.equals(syntax))
+				emit_State_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_STATEKeyword_1_0_or_StateKeyword_1_1.equals(syntax))
+				emit_State_STATEKeyword_1_0_or_StateKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1.equals(syntax))
+				emit_State_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
+				emit_State_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q.equals(syntax))
+				emit_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1.equals(syntax))
 				emit_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Transition_ONKeyword_0_0_or_OnKeyword_0_1.equals(syntax))
@@ -356,6 +360,20 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
+	 *     'INIT' | 'init'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) init=Initial
+	 
+	 * </pre>
+	 */
+	protected void emit_State_INITKeyword_0_0_0_or_InitKeyword_0_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
 	 *     'PROPS' | 'props'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -363,7 +381,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 
 	 * </pre>
 	 */
-	protected void emit_State_PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State_PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -374,10 +392,11 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) name=ID
+	 *     init=Initial (ambiguity) name=ID
 	 
 	 * </pre>
 	 */
-	protected void emit_State_STATEKeyword_0_0_or_StateKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State_STATEKeyword_1_0_or_StateKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -392,7 +411,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 
 	 * </pre>
 	 */
-	protected void emit_State_TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -407,7 +426,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 
 	 * </pre>
 	 */
-	protected void emit_State_____PROPSKeyword_2_0_0_or_PropsKeyword_2_0_1___LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -422,7 +441,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 
 	 * </pre>
 	 */
-	protected void emit_State_____TRANSITIONSKeyword_3_0_0_or_TransitionsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

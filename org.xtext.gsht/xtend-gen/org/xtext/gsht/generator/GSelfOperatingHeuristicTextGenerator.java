@@ -19,11 +19,11 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.ComparisonOperator;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Condition;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Initial;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
-import org.xtext.gsht.gSelfOperatingHeuristicText.VariableReference;
 
 /**
  * Generates code from your model files on save.
@@ -90,7 +90,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         _builder.append("\", ");
         String _value = p.getValue();
         _builder.append(_value, "\t\t");
-        _builder.append(");");
+        _builder.append("\");");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -142,6 +142,34 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("};");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public ");
+    String _name_3 = model.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("() {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<State> _states = model.getStates();
+      for(final State s : _states) {
+        {
+          Initial _init = s.getInit();
+          boolean _notEquals = (!Objects.equal(_init, null));
+          if (_notEquals) {
+            _builder.append("\t\t");
+            _builder.append("currentState = states.get(\"");
+            String _name_4 = s.getName();
+            _builder.append(_name_4, "\t\t");
+            _builder.append("\");");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
     _builder.newLine();
     _builder.newLine();
     _builder.append("    ");
@@ -319,8 +347,8 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                 _builder.newLine();
                 _builder.append("\t\t");
                 _builder.append("setGlobalPropName(\"");
-                VariableReference _currentVar = t.getAssignment().getCurrentVar();
-                _builder.append(_currentVar, "\t\t");
+                String _name_4 = t.getAssignment().getCurrentVar().getVariable().getName();
+                _builder.append(_name_4, "\t\t");
                 _builder.append("\");");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t\t");

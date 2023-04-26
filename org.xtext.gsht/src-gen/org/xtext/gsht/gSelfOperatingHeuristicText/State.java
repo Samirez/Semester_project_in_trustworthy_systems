@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getInit <em>Init</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getLocals <em>Locals</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getTransitions <em>Transitions</em>}</li>
@@ -27,6 +28,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface State extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Init</em>' containment reference.
+   * @see #setInit(Initial)
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage#getState_Init()
+   * @model containment="true"
+   * @generated
+   */
+  Initial getInit();
+
+  /**
+   * Sets the value of the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getInit <em>Init</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init</em>' containment reference.
+   * @see #getInit()
+   * @generated
+   */
+  void setInit(Initial value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

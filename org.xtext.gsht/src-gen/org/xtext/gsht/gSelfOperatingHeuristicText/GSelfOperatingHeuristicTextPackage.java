@@ -130,7 +130,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 10;
+  int VARIABLE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -271,13 +271,22 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int STATE = 3;
 
   /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__INIT = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE__NAME = 0;
+  int STATE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Locals</b></em>' containment reference list.
@@ -286,7 +295,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__LOCALS = 1;
+  int STATE__LOCALS = 2;
 
   /**
    * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -295,7 +304,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__TRANSITIONS = 2;
+  int STATE__TRANSITIONS = 3;
 
   /**
    * The number of structural features of the '<em>State</em>' class.
@@ -304,7 +313,26 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_FEATURE_COUNT = 3;
+  int STATE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitialImpl <em>Initial</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitialImpl
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getInitial()
+   * @generated
+   */
+  int INITIAL = 4;
+
+  /**
+   * The number of structural features of the '<em>Initial</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.AlterImpl <em>Alter</em>}' class.
@@ -314,7 +342,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getAlter()
    * @generated
    */
-  int ALTER = 4;
+  int ALTER = 5;
 
   /**
    * The feature id for the '<em><b>State</b></em>' reference.
@@ -360,7 +388,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 5;
+  int TRANSITION = 6;
 
   /**
    * The feature id for the '<em><b>Event</b></em>' reference.
@@ -415,7 +443,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 6;
+  int EVENT = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -443,7 +471,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 7;
+  int CONDITION = 8;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -489,7 +517,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 8;
+  int ASSIGNMENT = 9;
 
   /**
    * The feature id for the '<em><b>Current Var</b></em>' containment reference.
@@ -526,7 +554,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getVariableReference()
    * @generated
    */
-  int VARIABLE_REFERENCE = 9;
+  int VARIABLE_REFERENCE = 10;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -547,6 +575,25 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int VARIABLE_REFERENCE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl <em>Init State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getInitState()
+   * @generated
+   */
+  int INIT_STATE = 12;
+
+  /**
+   * The number of structural features of the '<em>Init State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INIT_STATE_FEATURE_COUNT = INITIAL_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.DataType <em>Data Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -554,7 +601,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 11;
+  int DATA_TYPE = 13;
 
   /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -564,7 +611,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 12;
+  int COMPARISON_OPERATOR = 14;
 
 
   /**
@@ -663,6 +710,17 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   EClass getState();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.State#getInit()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Init();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -694,6 +752,16 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @generated
    */
   EReference getState_Transitions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Initial <em>Initial</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Initial</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Initial
+   * @generated
+   */
+  EClass getInitial();
 
   /**
    * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Alter <em>Alter</em>}'.
@@ -953,6 +1021,16 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   EAttribute getVariable_Value();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.InitState <em>Init State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Init State</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.InitState
+   * @generated
+   */
+  EClass getInitState();
+
+  /**
    * Returns the meta object for enum '{@link org.xtext.gsht.gSelfOperatingHeuristicText.DataType <em>Data Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1076,6 +1154,14 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
     EClass STATE = eINSTANCE.getState();
 
     /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__INIT = eINSTANCE.getState_Init();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1098,6 +1184,16 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
      * @generated
      */
     EReference STATE__TRANSITIONS = eINSTANCE.getState_Transitions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitialImpl <em>Initial</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitialImpl
+     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getInitial()
+     * @generated
+     */
+    EClass INITIAL = eINSTANCE.getInitial();
 
     /**
      * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.AlterImpl <em>Alter</em>}' class.
@@ -1304,6 +1400,16 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
      * @generated
      */
     EAttribute VARIABLE__VALUE = eINSTANCE.getVariable_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl <em>Init State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl
+     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getInitState()
+     * @generated
+     */
+    EClass INIT_STATE = eINSTANCE.getInitState();
 
     /**
      * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.DataType <em>Data Type</em>}' enum.

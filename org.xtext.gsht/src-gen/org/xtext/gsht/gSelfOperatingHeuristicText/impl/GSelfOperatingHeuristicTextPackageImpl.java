@@ -20,6 +20,8 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextFactory;
 import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
+import org.xtext.gsht.gSelfOperatingHeuristicText.InitState;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Initial;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
@@ -62,6 +64,13 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass initialEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,6 +120,13 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   private EClass variableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass initStateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -293,9 +309,20 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   @Override
+  public EReference getState_Init()
+  {
+    return (EReference)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getState_Name()
   {
-    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -306,7 +333,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
   @Override
   public EReference getState_Locals()
   {
-    return (EReference)stateEClass.getEStructuralFeatures().get(1);
+    return (EReference)stateEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -317,7 +344,18 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
   @Override
   public EReference getState_Transitions()
   {
-    return (EReference)stateEClass.getEStructuralFeatures().get(2);
+    return (EReference)stateEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getInitial()
+  {
+    return initialEClass;
   }
 
   /**
@@ -590,6 +628,17 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   @Override
+  public EClass getInitState()
+  {
+    return initStateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EEnum getDataType()
   {
     return dataTypeEEnum;
@@ -649,9 +698,12 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     localEClass = createEClass(LOCAL);
 
     stateEClass = createEClass(STATE);
+    createEReference(stateEClass, STATE__INIT);
     createEAttribute(stateEClass, STATE__NAME);
     createEReference(stateEClass, STATE__LOCALS);
     createEReference(stateEClass, STATE__TRANSITIONS);
+
+    initialEClass = createEClass(INITIAL);
 
     alterEClass = createEClass(ALTER);
     createEReference(alterEClass, ALTER__STATE);
@@ -683,6 +735,8 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     createEAttribute(variableEClass, VARIABLE__NAME);
     createEAttribute(variableEClass, VARIABLE__TYPE);
     createEAttribute(variableEClass, VARIABLE__VALUE);
+
+    initStateEClass = createEClass(INIT_STATE);
 
     // Create enums
     dataTypeEEnum = createEEnum(DATA_TYPE);
@@ -720,6 +774,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     // Add supertypes to classes
     globalEClass.getESuperTypes().add(this.getVariable());
     localEClass.getESuperTypes().add(this.getVariable());
+    initStateEClass.getESuperTypes().add(this.getInitial());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -734,9 +789,12 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     initEClass(localEClass, Local.class, "Local", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getState_Init(), this.getInitial(), null, "init", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Locals(), this.getLocal(), null, "locals", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(initialEClass, Initial.class, "Initial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(alterEClass, Alter.class, "Alter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAlter_State(), this.getState(), null, "state", null, 0, 1, Alter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -768,6 +826,8 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVariable_Type(), this.getDataType(), "type", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(initStateEClass, InitState.class, "InitState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Initialize enums and add enum literals
     initEEnum(dataTypeEEnum, DataType.class, "DataType");

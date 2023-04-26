@@ -96,6 +96,11 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
         return createStateAdapter();
       }
       @Override
+      public Adapter caseInitial(Initial object)
+      {
+        return createInitialAdapter();
+      }
+      @Override
       public Adapter caseAlter(Alter object)
       {
         return createAlterAdapter();
@@ -129,6 +134,11 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
       public Adapter caseVariable(Variable object)
       {
         return createVariableAdapter();
+      }
+      @Override
+      public Adapter caseInitState(InitState object)
+      {
+        return createInitStateAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -208,6 +218,21 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
    * @generated
    */
   public Adapter createStateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Initial <em>Initial</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Initial
+   * @generated
+   */
+  public Adapter createInitialAdapter()
   {
     return null;
   }
@@ -313,6 +338,21 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
    * @generated
    */
   public Adapter createVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.InitState <em>Init State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.InitState
+   * @generated
+   */
+  public Adapter createInitStateAdapter()
   {
     return null;
   }

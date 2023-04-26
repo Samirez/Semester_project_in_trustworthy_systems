@@ -93,7 +93,7 @@ public class GSelfOperatingHeuristicTextParsingTest {
       _builder.append("}");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("STATE Charging");
+      _builder.append("INIT STATE Charging");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("TRANSITIONS ");
