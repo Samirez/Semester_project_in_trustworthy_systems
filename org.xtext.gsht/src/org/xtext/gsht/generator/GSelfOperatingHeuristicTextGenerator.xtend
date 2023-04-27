@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.gsht.gSelfOperatingHeuristicText.Global
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model
 import org.xtext.gsht.gSelfOperatingHeuristicText.State
 
@@ -69,18 +70,40 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				«ENDFOR»
 			}
 
-		    public void processEvent(String event) {
+	    	public void processEvent(String event) {
+		        printEvent(event);
+		        currentState.setGlobalProps(new HashMap<String, Object>(globalProps));
 		        String nextStateName = currentState.onEvent(event);
 		        if(nextStateName.equals(currentState.getName())) return;
 		        if (currentState.propsReturnerSize() > 0) {
-		            for (String key : currentState.getPropReturner().keySet()) {
-		                globalProps.put(key, currentState.getPropReturnerValue(key));
-		            }
-		            currentState.clearPropReturner();
+		            this.globalProps = new HashMap<String, Object>(currentState.returnGlobalProps());
 		        }
 		        currentState = states.get(nextStateName);
-		    };
+		        printGlobalProps();
+		        printCurrentState(currentState);
+	    	};
 		
+		
+		    private void printEvent(String event) {
+		        System.out.println();
+		        System.out.println("==================================");
+		        System.out.println(String.format("Processing event: '%s'...", event));
+		        System.out.println("==================================");
+		        System.out.println();
+		    }
+		
+		    private void printGlobalProps() {
+		        System.out.println("Global props:");
+		        globalProps.entrySet().forEach(entry -> {
+		            System.out.println(String.format("%s\t%s", entry.getKey(), entry.getValue().toString()));
+		        });
+		        System.out.println();
+		    }
+		
+		    private void printCurrentState(State state) {
+		        System.out.println(String.format("Current state: %s", state.getName()));
+		        state.printState();
+		    }	
 		}
 		'''
 	}
@@ -113,7 +136,11 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				setToState("«t.state.name»");
 				«IF t.condition != null»
 				setHasCondition(true);
+				«IF t.condition.left.variable instanceof Global»
+				setEvaluatedValueName("«t.condition.left.variable.name»", true);
+				«ELSE »
 				setEvaluatedValueName("«t.condition.left.variable.name»");
+				«ENDIF»
 				setOperatorType("«t.condition.operator»");
 				«IF t.condition.right == "TRUE"»
 				setOperatingValue(true);

@@ -3,12 +3,11 @@ package statemachines;
 import java.util.HashMap;
 
 public class GState {
-	
-	private String name;
-    private HashMap<String, Object> props = new HashMap<String, Object>();
-    private HashMap<String, Transition> transitions = new HashMap<String, Transition>();
 
-    private HashMap<String, Object> propReturner = new HashMap<>();
+    private String name;
+    private HashMap<String, Object> props = new HashMap<>();
+    private HashMap<String, Transition> transitions = new HashMap<>();
+    private HashMap<String, Object> tmpGlobalProps = new HashMap<>();
 
     public void setName(String name) {
         this.name = name;
@@ -26,24 +25,28 @@ public class GState {
         transitions.put(event, transition);
     }
 
-    public void setPropReturner(String key, Object value) {
-        propReturner.put(key, value);
+    public void setGlobalProps(HashMap<String, Object> tempPropReturner) {
+        tmpGlobalProps = tempPropReturner;
     }
 
-    public HashMap<String, Object> getPropReturner() {
-        return propReturner;
+    public void setNewGlobalProp(String key, Object value) {
+        tmpGlobalProps.put(key, value);
     }
 
-    public Object getPropReturnerValue(String key) {
-        return propReturner.get(key);
+    public HashMap<String, Object> returnGlobalProps(){
+        return tmpGlobalProps;
+    }
+
+    public Object getEvalGlobalProp(String key) {
+        return tmpGlobalProps.get(key);
     }
 
     public int propsReturnerSize() {
-        return propReturner.size();
+        return tmpGlobalProps.size();
     }
 
-    public void clearPropReturner() {
-        propReturner.clear();
+    public void clearGlobalProps() {
+        tmpGlobalProps.clear();
     }
 
     public Object getProp(String key) {
@@ -57,44 +60,62 @@ public class GState {
     public String onEvent(String event) {
         if (transitions.containsKey(event)) {
             Transition t = transitions.get(event);
+            // Transition can have a condition and a set action
             if (t.hasCondition() && t.hasSetAction()) {
-                return conditionAndSetAction(t.evaluateCondition(props.get(t.getEvaluatedValueName())), t, name);
-            } else if (t.hasCondition()) {
-                return conditionOnly(t);
-            } else if (t.hasSetAction()) {
-                return setActionOnly(t);
-            } else {
-                return t.getToState();
+                if (t.hasEvaluatedGlobalProp()) {
+                    var tmpProp = getEvalGlobalProp(t.getEvaluatedValueName());
+                    if (t.evaluateCondition(tmpProp)) {
+                        setNewGlobalProp(t.getGlobalPropName(), t.getSetValue());
+                        return t.getToState();
+                    } else {
+                        return name;
+                    }
+                } else {
+                    if (t.evaluateCondition(t.getEvaluatedValueName())) {
+                        addProp(t.getGlobalPropName(), t.getSetValue());
+                        return t.getToState();
+                    } else {
+                        return name;
+                    }
+                }
+            }
+            // Transition can have a condition only
+            if (t.hasCondition()) {
+                if (t.hasEvaluatedGlobalProp()) {
+                    var tmpProp = getEvalGlobalProp(t.getEvaluatedValueName());
+                    if (t.evaluateCondition(tmpProp)) {
+                        return t.getToState();
+                    } else {
+                        return name;
+                    }
+                }
+                else {
+                    if (t.evaluateCondition(props.get(t.getEvaluatedValueName()))) {
+                        return t.getToState();
+                    } else {
+                        return name;
+                    }
+                }
+            }
+            // Transition can have a set action only
+            if (t.hasSetAction()) {
+                if (t.hasGlobalPropName()) {
+                    setNewGlobalProp(t.getGlobalPropName(), t.getSetValue());
+                    return t.getToState();
+                }
+                else {
+                    addProp(t.getGlobalPropName(), t.getSetValue());
+                    return t.getToState();
+                }
             }
         }
         return name;
     }
 
-    private String setActionOnly(Transition t) {
-        setPropReturner(t.getEvaluatedValueName(), t.getSetValue());
-        return t.getToState();
-    }
 
-    private String conditionOnly(Transition t) {
-        if (t.evaluateCondition(props.get(t.getEvaluatedValueName()))) {
-            return t.getToState();
-        } else {
-            return name;
-        }
-    }
-
-    private String conditionAndSetAction(boolean t, Transition t1, String name) {
-        if (t) {
-            setPropReturner(t1.getEvaluatedValueName(), t1.getSetValue());
-            return t1.getToState();
-        } else {
-            return name;
-        }
-    }
-    
     public void printState() {
-    	this.props.entrySet().forEach(entry -> {
-    		System.out.println(String.format("%s\t%s", entry.getKey(), entry.getValue().toString()));
-    	});
+        this.props.entrySet().forEach(entry -> {
+            System.out.println(String.format("%s\t%s", entry.getKey(), entry.getValue().toString()));
+        });
     }
 }

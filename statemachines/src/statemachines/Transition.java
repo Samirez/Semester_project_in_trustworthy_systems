@@ -1,7 +1,6 @@
 package statemachines;
 
 public class Transition {
-
 	private String event;
     private String toState;
     private String operatorType;
@@ -9,18 +8,20 @@ public class Transition {
     private String globalPropName;
     private boolean hasCondition = false;
     private boolean hasSetAction = false;
+    private boolean evaluatedGlobalProp = false;
+    private boolean hasGlobalPropName = false;
     private Object operatingValue;
     private Object setValue;
 
     public Transition() {
     }
-    
+
     public void setEvent(String event) {
-    	this.event = event;
+        this.event = event;
     }
-    
+
     public String getEvent() {
-    	return this.event;
+        return this.event;
     }
 
     public void setToState(String toState) {
@@ -37,6 +38,15 @@ public class Transition {
 
     public void setEvaluatedValueName(String evaluatedValueName) {
         this.evaluatedValueName = evaluatedValueName;
+    }
+
+    public void setEvaluatedValueName(String evaluatedValueName, boolean evaluatedGlobalProp) {
+        this.evaluatedValueName = evaluatedValueName;
+        this.evaluatedGlobalProp = evaluatedGlobalProp;
+    }
+
+    public boolean hasEvaluatedGlobalProp() {
+        return evaluatedGlobalProp;
     }
 
     public String getEvaluatedValueName() {
@@ -62,19 +72,23 @@ public class Transition {
     public Object getSetValue() {
         return setValue;
     }
-    
-    public void setGlobalPropName(String globalPropName) {
-    	this.globalPropName = globalPropName;
-    }
-    
-    public String getGlobalPropName() {
-    	return this.globalPropName;
-    }
-    
-	public boolean hasCondition() {
-		return hasCondition;
-	}
 
+    public void setGlobalPropName(String globalPropName) {
+        this.globalPropName = globalPropName;
+        this.hasGlobalPropName = true;
+    }
+
+    public boolean hasGlobalPropName() {
+        return this.hasGlobalPropName;
+    }
+
+    public String getGlobalPropName() {
+        return this.globalPropName;
+    }
+
+    public boolean hasCondition() {
+        return hasCondition;
+    }
 
     public boolean hasSetAction() {
         return hasSetAction;
@@ -89,16 +103,20 @@ public class Transition {
                 return !this.operatingValue.equals(evaluatedValue);
 
             case ">=":
-                return (double)this.operatingValue >= (double)evaluatedValue;
+                //return (double)this.operatingValue >= (double)evaluatedValue;
+                return (double)evaluatedValue >= (double)this.operatingValue;
 
             case ">":
-                return (double)this.operatingValue > (double)evaluatedValue;
+                //return (double)this.operatingValue > (double)evaluatedValue;
+                return (double)evaluatedValue > (double)this.operatingValue;
 
             case "<":
-                return (double)this.operatingValue < (double)evaluatedValue;
+                //return (double)this.operatingValue < (double)evaluatedValue;
+                return (double)evaluatedValue < (double)this.operatingValue;
 
             case "<=":
-                return (double)this.operatingValue <= (double)evaluatedValue;
+                //return (double)this.operatingValue <= (double)evaluatedValue;
+                return (double)evaluatedValue <= (double)this.operatingValue;
 
             default:
                 return false;
