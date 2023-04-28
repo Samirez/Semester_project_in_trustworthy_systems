@@ -227,6 +227,25 @@ ruleModel returns [EObject current=null]
 				)
 			)
 		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getAutomatonAutomatonParserRuleCall_5_0());
+				}
+				lv_automaton_15_0=ruleAutomaton
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					add(
+						$current,
+						"automaton",
+						lv_automaton_15_0,
+						"org.xtext.gsht.GSelfOperatingHeuristicText.Automaton");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -1054,6 +1073,111 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		{
 			newLeafNode(this_DOUBLE_3, grammarAccess.getValueAccess().getDOUBLETerminalRuleCall_3());
 		}
+	)
+;
+
+// Entry rule entryRuleAutomaton
+entryRuleAutomaton returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAutomatonRule()); }
+	iv_ruleAutomaton=ruleAutomaton
+	{ $current=$iv_ruleAutomaton.current; }
+	EOF;
+
+// Rule Automaton
+ruleAutomaton returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='AUTOMATON'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getAutomatonAccess().getAUTOMATONKeyword_0_0());
+			}
+			    |
+			otherlv_1='automaton'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getAutomatonAccess().getAutomatonKeyword_0_1());
+			}
+		)
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getAutomatonAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAutomatonRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_3='{'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAutomatonAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAutomatonAccess().getLocationLocationParserRuleCall_3_0());
+				}
+				lv_location_4_0=ruleLocation
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAutomatonRule());
+					}
+					add(
+						$current,
+						"location",
+						lv_location_4_0,
+						"org.xtext.gsht.GSelfOperatingHeuristicText.Location");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getAutomatonAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleLocation
+entryRuleLocation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLocationRule()); }
+	iv_ruleLocation=ruleLocation
+	{ $current=$iv_ruleLocation.current; }
+	EOF;
+
+// Rule Location
+ruleLocation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getLocationRule());
+				}
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getLocationAccess().getStateStateCrossReference_0());
+			}
+		)
 	)
 ;
 

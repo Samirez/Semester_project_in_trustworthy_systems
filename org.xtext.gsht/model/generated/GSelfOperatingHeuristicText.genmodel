@@ -28,6 +28,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/events"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/alters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/automaton"/>
     </genClasses>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Global"/>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Local"/>
@@ -66,6 +67,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Variable/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Variable/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Variable/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Automaton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Automaton/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Automaton/location"/>
+    </genClasses>
+    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Location">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Location/state"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

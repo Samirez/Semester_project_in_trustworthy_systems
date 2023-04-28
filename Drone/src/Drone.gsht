@@ -4,7 +4,7 @@ DRONE EmergencyDrone
 				Charge as double
 				ErrorCode as String
 				DefibrillatorIsDepleted as boolean
-				//sdfjhsddfdfdfa
+				//sdfjhsddfdfdsadfaxa
 			}
 			
 			EVENTS
@@ -137,3 +137,10 @@ DRONE EmergencyDrone
 				{
 					ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorIsDepleted = TRUE
 				}
+			AUTOMATON A
+			{
+				Charging
+				Standby
+			}
+				
+			

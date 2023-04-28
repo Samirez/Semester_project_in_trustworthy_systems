@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.gsht.gSelfOperatingHeuristicText.Alter;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Automaton;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
@@ -39,6 +40,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.State;
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getStates <em>States</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getAlters <em>Alters</em>}</li>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getAutomaton <em>Automaton</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +106,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Alter> alters;
+
+  /**
+   * The cached value of the '{@link #getAutomaton() <em>Automaton</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAutomaton()
+   * @generated
+   * @ordered
+   */
+  protected EList<Automaton> automaton;
 
   /**
    * <!-- begin-user-doc -->
@@ -217,6 +229,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<Automaton> getAutomaton()
+  {
+    if (automaton == null)
+    {
+      automaton = new EObjectContainmentEList<Automaton>(Automaton.class, this, GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON);
+    }
+    return automaton;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -229,6 +256,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
       case GSelfOperatingHeuristicTextPackage.MODEL__ALTERS:
         return ((InternalEList<?>)getAlters()).basicRemove(otherEnd, msgs);
+      case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
+        return ((InternalEList<?>)getAutomaton()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -253,6 +282,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getStates();
       case GSelfOperatingHeuristicTextPackage.MODEL__ALTERS:
         return getAlters();
+      case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
+        return getAutomaton();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -287,6 +318,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getAlters().clear();
         getAlters().addAll((Collection<? extends Alter>)newValue);
         return;
+      case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
+        getAutomaton().clear();
+        getAutomaton().addAll((Collection<? extends Automaton>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -316,6 +351,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case GSelfOperatingHeuristicTextPackage.MODEL__ALTERS:
         getAlters().clear();
         return;
+      case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
+        getAutomaton().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -340,6 +378,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return states != null && !states.isEmpty();
       case GSelfOperatingHeuristicTextPackage.MODEL__ALTERS:
         return alters != null && !alters.isEmpty();
+      case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
+        return automaton != null && !automaton.isEmpty();
     }
     return super.eIsSet(featureID);
   }

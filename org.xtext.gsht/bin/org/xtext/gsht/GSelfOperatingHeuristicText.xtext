@@ -17,6 +17,10 @@ Model:
 	'}')*
 
 	(states+=State | alters+=Alter)*
+	
+	(automaton+=Automaton)*	
+	
+	
 ;
 
 
@@ -92,6 +96,18 @@ terminal BOOL returns ecore::EBoolean:
 
 terminal DOUBLE returns ecore::EDouble:
     ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;
+    
+Automaton:
+	('AUTOMATON' | 'automaton') name=ID
+	'{'
+    	(location+=Location)*
+    	
+	'}'
+;
+
+Location:
+	state=[State]
+;
     
 
 

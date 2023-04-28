@@ -28,6 +28,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	protected AbstractElementAlias match_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1;
 	protected AbstractElementAlias match_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
 	protected AbstractElementAlias match_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q;
+	protected AbstractElementAlias match_Automaton_AUTOMATONKeyword_0_0_or_AutomatonKeyword_0_1;
 	protected AbstractElementAlias match_Global_ASKeyword_1_0_or_AsKeyword_1_1;
 	protected AbstractElementAlias match_Local_ASKeyword_1_0_or_AsKeyword_1_1;
 	protected AbstractElementAlias match_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1;
@@ -56,6 +57,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 		match_Alter_TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getTransitionsKeyword_4_0_1()));
 		match_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getPROPSKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getPropsKeyword_3_0_1())), new TokenAlias(false, false, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getRightCurlyBracketKeyword_3_3()));
 		match_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAlterAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getTransitionsKeyword_4_0_1())), new TokenAlias(false, false, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAlterAccess().getRightCurlyBracketKeyword_4_3()));
+		match_Automaton_AUTOMATONKeyword_0_0_or_AutomatonKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAutomatonAccess().getAUTOMATONKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getAutomatonAccess().getAutomatonKeyword_0_1()));
 		match_Global_ASKeyword_1_0_or_AsKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGlobalAccess().getASKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getGlobalAccess().getAsKeyword_1_1()));
 		match_Local_ASKeyword_1_0_or_AsKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLocalAccess().getASKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getLocalAccess().getAsKeyword_1_1()));
 		match_Model_DRONEKeyword_0_0_or_DroneKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getDRONEKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getDroneKeyword_0_1()));
@@ -100,6 +102,8 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 				emit_Alter_____PROPSKeyword_3_0_0_or_PropsKeyword_3_0_1___LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q.equals(syntax))
 				emit_Alter_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Automaton_AUTOMATONKeyword_0_0_or_AutomatonKeyword_0_1.equals(syntax))
+				emit_Automaton_AUTOMATONKeyword_0_0_or_AutomatonKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Global_ASKeyword_1_0_or_AsKeyword_1_1.equals(syntax))
 				emit_Global_ASKeyword_1_0_or_AsKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Local_ASKeyword_1_0_or_AsKeyword_1_1.equals(syntax))
@@ -230,6 +234,20 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
+	 *     'AUTOMATON' | 'automaton'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) name=ID
+	 
+	 * </pre>
+	 */
+	protected void emit_Automaton_AUTOMATONKeyword_0_0_or_AutomatonKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
 	 *     'AS' | 'as'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -322,12 +340,15 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 * This ambiguous syntax occurs at:
 	 *     events+=Event '}' (ambiguity) (rule end)
 	 *     events+=Event '}' (ambiguity) alters+=Alter
+	 *     events+=Event '}' (ambiguity) automaton+=Automaton
 	 *     events+=Event '}' (ambiguity) states+=State
 	 *     globals+=Global '}' (ambiguity) (rule end)
 	 *     globals+=Global '}' (ambiguity) alters+=Alter
+	 *     globals+=Global '}' (ambiguity) automaton+=Automaton
 	 *     globals+=Global '}' (ambiguity) states+=State
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) (rule end)
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) alters+=Alter
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) automaton+=Automaton
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) states+=State
 	 
 	 * </pre>
@@ -345,6 +366,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *     name=ID (ambiguity) ('EVENTS' | 'events')* '{' ('}' ('EVENTS' | 'events')* '{')* events+=Event
 	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* (rule end)
 	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* alters+=Alter
+	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* automaton+=Automaton
 	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* states+=State
 	 
 	 * </pre>

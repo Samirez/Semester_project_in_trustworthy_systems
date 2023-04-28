@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Model#getEvents <em>Events</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Model#getStates <em>States</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Model#getAlters <em>Alters</em>}</li>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Model#getAutomaton <em>Automaton</em>}</li>
  * </ul>
  *
  * @see org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage#getModel()
@@ -98,5 +99,17 @@ public interface Model extends EObject
    * @generated
    */
   EList<Alter> getAlters();
+
+  /**
+   * Returns the value of the '<em><b>Automaton</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Automaton</em>' containment reference list.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage#getModel_Automaton()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Automaton> getAutomaton();
 
 } // Model

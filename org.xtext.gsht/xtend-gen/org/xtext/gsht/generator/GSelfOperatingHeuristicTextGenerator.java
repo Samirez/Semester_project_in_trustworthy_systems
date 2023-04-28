@@ -13,9 +13,11 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Alter;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Automaton;
 import org.xtext.gsht.gSelfOperatingHeuristicText.DataType;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Location;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
@@ -204,90 +206,102 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
   public void generateUppaal(final Model model, final IFileSystemAccess2 fsa) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.newLine();
-    _builder.append("process A(){");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("state ");
-    _builder.newLine();
     {
-      EList<State> _states = model.getStates();
-      boolean _hasElements = false;
-      for(final State state : _states) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(",", "\t\t");
-        }
-        _builder.append("\t\t");
-        String _name = state.getName();
-        _builder.append(_name, "\t\t");
+      EList<Automaton> _automaton = model.getAutomaton();
+      for(final Automaton automaton : _automaton) {
+        _builder.append("process ");
+        String _name = automaton.getName();
+        _builder.append(_name);
+        _builder.append(" {");
         _builder.newLineIfNotEmpty();
-      }
-      if (_hasElements) {
-        _builder.append(";", "\t\t");
-      }
-    }
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("init ");
-    String _name_1 = model.getStates().get(0).getName();
-    _builder.append(_name_1, "\t\t");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("trans\t");
-    _builder.newLine();
-    {
-      EList<State> _states_1 = model.getStates();
-      boolean _hasElements_1 = false;
-      for(final State state_1 : _states_1) {
-        if (!_hasElements_1) {
-          _hasElements_1 = true;
-        }
+        _builder.append("\t");
+        _builder.append("state");
+        _builder.newLine();
         {
-          if (((!state_1.getTransitions().isEmpty()) && (state_1 != model.getStates().get(0)))) {
-            _builder.append("\t\t");
-            _builder.append(",");
-            _builder.newLine();
-          }
-        }
-        {
-          EList<Transition> _transitions = state_1.getTransitions();
-          boolean _hasElements_2 = false;
-          for(final Transition transition : _transitions) {
-            if (!_hasElements_2) {
-              _hasElements_2 = true;
+          EList<Location> _location = automaton.getLocation();
+          boolean _hasElements = false;
+          for(final Location location : _location) {
+            if (!_hasElements) {
+              _hasElements = true;
             } else {
               _builder.appendImmediate(",", "\t\t");
             }
             _builder.append("\t\t");
-            String _name_2 = state_1.getName();
-            _builder.append(_name_2, "\t\t");
-            _builder.append(" -> ");
-            String _name_3 = transition.getState().getName();
-            _builder.append(_name_3, "\t\t");
-            _builder.append(" {}\t");
+            String _name_1 = location.getState().getName();
+            _builder.append(_name_1, "\t\t");
             _builder.newLineIfNotEmpty();
           }
+          if (_hasElements) {
+            _builder.append(";", "\t\t");
+          }
         }
-      }
-      if (_hasElements_1) {
-        _builder.append(";", "\t\t");
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("init ");
+        String _name_2 = automaton.getLocation().get(0).getState().getName();
+        _builder.append(_name_2, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("trans");
+        _builder.newLine();
+        {
+          EList<Location> _location_1 = automaton.getLocation();
+          boolean _hasElements_1 = false;
+          for(final Location location_1 : _location_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            }
+            _builder.append("\t\t");
+            State state = location_1.getState();
+            _builder.newLineIfNotEmpty();
+            {
+              if (((!state.getTransitions().isEmpty()) && (location_1 != automaton.getLocation().get(0)))) {
+                _builder.append("\t\t");
+                _builder.append(",");
+                _builder.newLine();
+              }
+            }
+            {
+              EList<Transition> _transitions = state.getTransitions();
+              boolean _hasElements_2 = false;
+              for(final Transition transition : _transitions) {
+                if (!_hasElements_2) {
+                  _hasElements_2 = true;
+                } else {
+                  _builder.appendImmediate(",", "\t\t");
+                }
+                _builder.append("\t\t");
+                String _name_3 = state.getName();
+                _builder.append(_name_3, "\t\t");
+                _builder.append(" -> ");
+                String _name_4 = transition.getState().getName();
+                _builder.append(_name_4, "\t\t");
+                _builder.append(" {}\t");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+          if (_hasElements_1) {
+            _builder.append(";", "\t\t");
+          }
+        }
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
       }
     }
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("system A");
+    {
+      EList<Automaton> _automaton_1 = model.getAutomaton();
+      for(final Automaton automaton_1 : _automaton_1) {
+        _builder.append("system ");
+        String _name_5 = automaton_1.getName();
+        _builder.append(_name_5);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     CharSequence context = _builder;
     String _plus = (model + ".xta");
     fsa.generateFile(_plus, context);

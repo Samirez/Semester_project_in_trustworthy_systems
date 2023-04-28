@@ -131,6 +131,16 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
         return createVariableAdapter();
       }
       @Override
+      public Adapter caseAutomaton(Automaton object)
+      {
+        return createAutomatonAdapter();
+      }
+      @Override
+      public Adapter caseLocation(Location object)
+      {
+        return createLocationAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -313,6 +323,36 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
    * @generated
    */
   public Adapter createVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton <em>Automaton</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Automaton
+   * @generated
+   */
+  public Adapter createAutomatonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Location <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Location
+   * @generated
+   */
+  public Adapter createLocationAdapter()
   {
     return null;
   }
