@@ -75,13 +75,28 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 	}
 	
 	def void generateUppaal(Model model, IFileSystemAccess2 fsa){
-		
+
 		var CharSequence context = '''
+		
 		process A(){
 			state 
-			«FOR state: model.states SEPARATOR ',' AFTER ';'»
+				«FOR state: model.states SEPARATOR ',' AFTER ';'»
 				«state.name»
-			«ENDFOR»
+				«ENDFOR»
+				
+				init «model.states.get(0).name»;
+			trans	
+				«FOR state: model.states AFTER ';'»
+				«IF (!state.transitions.isEmpty() && state !== model.states.get(0))» 
+				,
+				«ENDIF»	
+				«FOR transition: state.transitions SEPARATOR ','»
+				«state.name» -> «transition.state.name» {}	
+				«ENDFOR»		
+				«ENDFOR»
+				
+				
+			
 		
 		}
 		

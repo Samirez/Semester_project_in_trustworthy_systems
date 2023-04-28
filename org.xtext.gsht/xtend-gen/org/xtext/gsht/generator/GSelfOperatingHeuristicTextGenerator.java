@@ -204,6 +204,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
   public void generateUppaal(final Model model, final IFileSystemAccess2 fsa) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
     _builder.append("process A(){");
     _builder.newLine();
     _builder.append("\t");
@@ -216,17 +217,72 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(",", "\t");
+          _builder.appendImmediate(",", "\t\t");
         }
-        _builder.append("\t");
+        _builder.append("\t\t");
         String _name = state.getName();
-        _builder.append(_name, "\t");
+        _builder.append(_name, "\t\t");
         _builder.newLineIfNotEmpty();
       }
       if (_hasElements) {
-        _builder.append(";", "\t");
+        _builder.append(";", "\t\t");
       }
     }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("init ");
+    String _name_1 = model.getStates().get(0).getName();
+    _builder.append(_name_1, "\t\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("trans\t");
+    _builder.newLine();
+    {
+      EList<State> _states_1 = model.getStates();
+      boolean _hasElements_1 = false;
+      for(final State state_1 : _states_1) {
+        if (!_hasElements_1) {
+          _hasElements_1 = true;
+        }
+        {
+          if (((!state_1.getTransitions().isEmpty()) && (state_1 != model.getStates().get(0)))) {
+            _builder.append("\t\t");
+            _builder.append(",");
+            _builder.newLine();
+          }
+        }
+        {
+          EList<Transition> _transitions = state_1.getTransitions();
+          boolean _hasElements_2 = false;
+          for(final Transition transition : _transitions) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t");
+            }
+            _builder.append("\t\t");
+            String _name_2 = state_1.getName();
+            _builder.append(_name_2, "\t\t");
+            _builder.append(" -> ");
+            String _name_3 = transition.getState().getName();
+            _builder.append(_name_3, "\t\t");
+            _builder.append(" {}\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+      if (_hasElements_1) {
+        _builder.append(";", "\t\t");
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

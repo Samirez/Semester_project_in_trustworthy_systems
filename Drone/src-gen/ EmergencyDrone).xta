@@ -1,16 +1,46 @@
+
 process A(){
 	state 
-	Charging,
-	Standby,
-	Airborne,
-	Arrived,
-	Landed,
-	Returning,
-	Returned,
-	Maintenance,
-	Failed,
-	Defibrillation
-;
+		Charging,
+		Standby,
+		Airborne,
+		Arrived,
+		Landed,
+		Returning,
+		Returned,
+		Maintenance,
+		Failed,
+		Defibrillation
+;		
+		init Charging;
+	trans	
+		Charging -> Standby {}	
+		,
+		Standby -> Airborne {}	,
+		Standby -> Failed {}	
+		,
+		Airborne -> Arrived {}	,
+		Airborne -> Returning {}	,
+		Airborne -> Failed {}	
+		,
+		Arrived -> Landed {}	,
+		Arrived -> Returning {}	,
+		Arrived -> Failed {}	
+		,
+		Landed -> Returning {}	,
+		Landed -> Failed {}	
+		,
+		Returning -> Returned {}	,
+		Returning -> Failed {}	
+		,
+		Returned -> Maintenance {}	,
+		Returned -> Charging {}	
+		,
+		Defibrillation -> Landed {}	
+;		
+		
+	
+
 }
 
 system A
