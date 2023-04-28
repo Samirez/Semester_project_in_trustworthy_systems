@@ -1,0 +1,10 @@
+process a() {
+
+state A0, A1, A2, A3;
+
+init A0;
+
+trans A0 -> A1 {};
+}
+
+system A
