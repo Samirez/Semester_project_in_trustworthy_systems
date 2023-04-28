@@ -33,6 +33,10 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
       this.generateFile(it, fsa);
     };
     IteratorExtensions.<Model>forEach(Iterators.<Model>filter(resource.getAllContents(), Model.class), _function);
+    final Procedure1<Model> _function_1 = (Model it) -> {
+      this.generateUppaal(it, fsa);
+    };
+    IteratorExtensions.<Model>forEach(Iterators.<Model>filter(resource.getAllContents(), Model.class), _function_1);
   }
 
   public void generateFile(final Model model, final IFileSystemAccess2 fsa) {
@@ -196,5 +200,40 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     return _builder;
+  }
+
+  public void generateUppaal(final Model model, final IFileSystemAccess2 fsa) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("process A(){");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("state ");
+    _builder.newLine();
+    {
+      EList<State> _states = model.getStates();
+      boolean _hasElements = false;
+      for(final State state : _states) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(",", "\t");
+        }
+        _builder.append("\t");
+        String _name = state.getName();
+        _builder.append(_name, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+      if (_hasElements) {
+        _builder.append(";", "\t");
+      }
+    }
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("system A");
+    CharSequence context = _builder;
+    String _plus = (model + ".xta");
+    fsa.generateFile(_plus, context);
   }
 }

@@ -19,6 +19,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(Model)).forEach[it.generateFile(fsa)]
+		resource.allContents.filter(typeof(Model)).forEach[it.generateUppaal(fsa)]
 	}
 		
 	def void generateFile(Model model, IFileSystemAccess2 fsa){
@@ -72,4 +73,25 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		}
 		'''
 	}
+	
+	def void generateUppaal(Model model, IFileSystemAccess2 fsa){
+		
+		var CharSequence context = '''
+		process A(){
+			state 
+			«FOR state: model.states SEPARATOR ',' AFTER ';'»
+				«state.name»
+			«ENDFOR»
+		
+		}
+		
+		system A'''
+		
+
+		
+		fsa.generateFile(model+'.xta', context)
+		
+		
+	}
+
 }

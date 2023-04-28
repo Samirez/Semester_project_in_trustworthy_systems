@@ -1,0 +1,16 @@
+process A(){
+	state 
+	Charging,
+	Standby,
+	Airborne,
+	Arrived,
+	Landed,
+	Returning,
+	Returned,
+	Maintenance,
+	Failed,
+	Defibrillation
+;
+}
+
+system A
