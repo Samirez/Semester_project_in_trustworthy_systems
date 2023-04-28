@@ -64,7 +64,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 			
 			public «model.name»() {
 				«FOR s : model.states»
-				«IF s.init != null»
+				«IF s.init»
 				currentState = states.get("«s.name»");
 				«ENDIF»
 				«ENDFOR»

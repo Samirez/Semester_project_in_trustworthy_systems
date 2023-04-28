@@ -3,7 +3,10 @@
  */
 package org.xtext.gsht.validation;
 
+import org.eclipse.xtext.validation.Check;
 
+import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
+import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage;
 /**
  * This class contains custom validation rules. 
  *
@@ -21,5 +24,21 @@ public class GSelfOperatingHeuristicTextValidator extends AbstractGSelfOperating
 //					INVALID_NAME);
 //		}
 //	}
+	
+	@Check
+	public void checkNotMultipleInit(Model model) {
+		int count = 0;
+		for (org.xtext.gsht.gSelfOperatingHeuristicText.State state : model.getStates()) {
+			if (state.isInit()) {
+				count++;
+			}
+		}
+		if ( count > 1 ) {
+			error("Initial has to be unique", GSelfOperatingHeuristicTextPackage.Literals.MODEL__STATES);
+			//error ("bad", , GSelfOperatingHeuristicTextPackage.Literals.STATE__INIT, -1);
+			
+            return;
+		}
+	}
 	
 }
