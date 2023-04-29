@@ -301,7 +301,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		
 		//State:
 		//    (('INIT' | 'init') init?=Initial)?
-		//    //({InitState}('INIT' | 'init'))?
 		//    ('STATE' | 'state') name=ID
 		//    (('PROPS' | 'props')
 		//    '{'
@@ -317,7 +316,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		@Override public ParserRule getRule() { return rule; }
 		
 		//(('INIT' | 'init') init?=Initial)?
-		////({InitState}('INIT' | 'init'))?
 		//('STATE' | 'state') name=ID
 		//(('PROPS' | 'props')
 		//'{'
@@ -349,7 +347,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//Initial
 		public RuleCall getInitInitialParserRuleCall_0_1_0() { return cInitInitialParserRuleCall_0_1_0; }
 		
-		////({InitState}('INIT' | 'init'))?
 		//('STATE' | 'state')
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -1063,7 +1060,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	
 	//State:
 	//    (('INIT' | 'init') init?=Initial)?
-	//    //({InitState}('INIT' | 'init'))?
 	//    ('STATE' | 'state') name=ID
 	//    (('PROPS' | 'props')
 	//    '{'

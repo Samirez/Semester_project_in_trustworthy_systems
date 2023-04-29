@@ -27,7 +27,6 @@ Local:
 
 State:
 	(('INIT' | 'init') init?=Initial)?
-	//({InitState}('INIT' | 'init'))?
 	('STATE' | 'state') name=ID
 	(('PROPS' | 'props')
 	'{'
