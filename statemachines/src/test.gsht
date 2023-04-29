@@ -1,0 +1,37 @@
+drone ThreeStates
+
+global
+{
+	Status as String = "Initial State"
+}
+
+events 
+{
+	GoToState1
+	GoToState2
+	GoToState3
+}
+
+init state State1
+
+	transitions
+	{
+		on GoToState2 to State2 set Status = "State 2"
+	}
+
+
+state State2
+
+	transitions
+	{
+		on GoToState3 to State3 set Status = "State 3"
+	}
+
+
+state State3
+
+	transitions
+	{
+		on GoToState1 to State1 set Status = "State 1 again"
+	}
+	
