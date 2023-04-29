@@ -1,13 +1,88 @@
-process A {
+process A(	
+chan &BatteryCharged,
+chan &MissionReceived,
+chan &StandbyFailure,
+chan &FlyToTarget,
+chan &AbortMission,
+chan &AirborneFailure,
+chan &Landing,
+chan &AbortMission,
+chan &ArrivedFailure,
+chan &TakingOff,
+chan &LandedFailure,
+chan &HasReturned,
+chan &ReturningFailure,
+chan &DefibrillatorDepleted,
+chan &DefibrillatorNotDepleted,
+chan &DefibrillatorUsed
+){
 	state
 		Charging,
-		Standby
+		Standby,
+		Airborne,
+		Arrived,
+		Landed,
+		Returning,
+		Returned,
+		Maintenance,
+		Failed,
+		Defibrillation
 ;		
-		init Charging
+		init Charging;
+		
 	trans
-		Charging -> Standby {}	
-		,
-		Standby -> Airborne {}	,
-		Standby -> Failed {}	
+		Charging ->Standby { },
+		Standby ->Airborne { },
+		Standby ->Failed { },
+		Airborne ->Arrived { },
+		Airborne ->Returning { },
+		Airborne ->Failed { },
+		Arrived ->Landed { },
+		Arrived ->Returning { },
+		Arrived ->Failed { },
+		Landed ->Returning { },
+		Landed ->Failed { },
+		Returning ->Returned { },
+		Returning ->Failed { },
+		Returned ->Maintenance { },
+		Returned ->Charging { },
+		Defibrillation ->Landed { }
 ;		}
-system A;
+
+chan BatteryCharged;
+chan MissionReceived;
+chan StandbyFailure;
+chan FlyToTarget;
+chan AbortMission;
+chan AirborneFailure;
+chan Landing;
+chan ArrivedFailure;
+chan TakingOff;
+chan LandedFailure;
+chan HasReturned;
+chan ReturningFailure;
+chan DefibrillatorDepleted;
+chan DefibrillatorNotDepleted;
+chan DefibrillatorReady;
+chan DefibrillatorUsed;
+
+A1 = A(
+BatteryCharged, 
+MissionReceived, 
+StandbyFailure, 
+FlyToTarget, 
+AbortMission, 
+AirborneFailure, 
+Landing, 
+AbortMission, 
+ArrivedFailure, 
+TakingOff, 
+LandedFailure, 
+HasReturned, 
+ReturningFailure, 
+DefibrillatorDepleted, 
+DefibrillatorNotDepleted, 
+DefibrillatorUsed 
+);
+
+system A1;

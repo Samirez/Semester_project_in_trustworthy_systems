@@ -12,7 +12,7 @@
 		private String ArrivedFailure = "ArrivedFailure";
 		private String TakingOff = "TakingOff";
 		private String LandedFailure = "LandedFailure";
-		private String Returned = "Returned";
+		private String HasReturned = "HasReturned";
 		private String ReturningFailure = "ReturningFailure";
 		private String DefibrillatorDepleted = "DefibrillatorDepleted";
 		private String DefibrillatorNotDepleted = "DefibrillatorNotDepleted";
@@ -182,7 +182,7 @@
 				this.Error = name;
 			}
 			public void onEvent(String event) {
-				if (Returned.Equals(event)) {
+				if (HasReturned.Equals(event)) {
 					this.currentState = Returned
 				}
 				if (ReturningFailure.Equals(event)) {
@@ -232,5 +232,4 @@
 			}	
 		}
 		
-		org.xtext.gsht.gSelfOperatingHeuristicText.impl.AlterImpl@150a3abb;
 }

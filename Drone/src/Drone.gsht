@@ -4,7 +4,6 @@ DRONE EmergencyDrone
 				Charge as double
 				ErrorCode as String
 				DefibrillatorIsDepleted as boolean
-				//sdfjhsddfdfdsadfaxa
 			}
 			
 			EVENTS
@@ -24,7 +23,7 @@ DRONE EmergencyDrone
 				TakingOff
 				LandedFailure
 				    
-				Returned
+				HasReturned
 				ReturningFailure
 				    
 				DefibrillatorDepleted
@@ -101,7 +100,7 @@ DRONE EmergencyDrone
 				}
 				TRANSITIONS
 				{
-					ON Returned TO Returned IF ArrivedAtBase == TRUE
+					ON HasReturned TO Returned IF ArrivedAtBase == TRUE
 					ON ReturningFailure TO Failed IF Error == True SET ErrorCode = 'Returning Failure'
 				}
 			
@@ -117,17 +116,6 @@ DRONE EmergencyDrone
 			STATE Failed
 			
 			
-			
-			ALTER STATE Landed
-				PROPS
-				{
-					DefibrillatorIsReady as boolean
-				}
-				TRANSITIONS
-				{
-					ON DefibrillatorReady TO Defibrillation IF DefibrillatorIsReady == TRUE
-				}
-			
 			STATE Defibrillation
 				PROPS
 				{
@@ -141,6 +129,14 @@ DRONE EmergencyDrone
 			{
 				Charging
 				Standby
+				Airborne
+				Arrived
+				Landed
+				Returning
+				Returned
+				Maintenance
+				Failed
+				Defibrillation
 			}
 				
 			
