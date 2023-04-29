@@ -39,6 +39,12 @@ public class GSelfOperatingHeuristicTextValidator extends AbstractGSelfOperating
 			
             return;
 		}
+		if ( count < 1 ) {
+			error("There is no Initial state", GSelfOperatingHeuristicTextPackage.Literals.MODEL__STATES);
+			//error ("bad", , GSelfOperatingHeuristicTextPackage.Literals.STATE__INIT, -1);
+			
+            return;
+		}
 	}
 	
 }
