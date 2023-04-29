@@ -271,7 +271,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int STATE = 3;
 
   /**
-   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * The feature id for the '<em><b>Init</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -710,15 +710,15 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   EClass getState();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getInit <em>Init</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#isInit <em>Init</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Init</em>'.
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.State#getInit()
+   * @return the meta object for the attribute '<em>Init</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.State#isInit()
    * @see #getState()
    * @generated
    */
-  EReference getState_Init();
+  EAttribute getState_Init();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.gsht.gSelfOperatingHeuristicText.State#getName <em>Name</em>}'.
@@ -1154,12 +1154,12 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
     EClass STATE = eINSTANCE.getState();
 
     /**
-     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Init</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATE__INIT = eINSTANCE.getState_Init();
+    EAttribute STATE__INIT = eINSTANCE.getState_Init();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

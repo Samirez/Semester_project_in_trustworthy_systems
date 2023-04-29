@@ -32,7 +32,7 @@
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Global"/>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Local"/>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//State">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//State/init"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//State/init"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//State/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//State/locals"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//State/transitions"/>

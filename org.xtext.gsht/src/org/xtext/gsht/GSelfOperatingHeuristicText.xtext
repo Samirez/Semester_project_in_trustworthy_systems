@@ -61,7 +61,7 @@ Alter:
 ;
 
 Transition:
-	('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?;
+	('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition)? (('SET' | 'set') assignment=Assignment)?;
 
 Event:
     name=ID;

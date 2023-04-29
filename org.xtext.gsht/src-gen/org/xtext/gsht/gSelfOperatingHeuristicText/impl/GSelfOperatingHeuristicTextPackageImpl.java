@@ -309,9 +309,9 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   @Override
-  public EReference getState_Init()
+  public EAttribute getState_Init()
   {
-    return (EReference)stateEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -698,7 +698,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     localEClass = createEClass(LOCAL);
 
     stateEClass = createEClass(STATE);
-    createEReference(stateEClass, STATE__INIT);
+    createEAttribute(stateEClass, STATE__INIT);
     createEAttribute(stateEClass, STATE__NAME);
     createEReference(stateEClass, STATE__LOCALS);
     createEReference(stateEClass, STATE__TRANSITIONS);
@@ -789,7 +789,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     initEClass(localEClass, Local.class, "Local", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getState_Init(), this.getInitial(), null, "init", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getState_Init(), ecorePackage.getEBoolean(), "init", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Locals(), this.getLocal(), null, "locals", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

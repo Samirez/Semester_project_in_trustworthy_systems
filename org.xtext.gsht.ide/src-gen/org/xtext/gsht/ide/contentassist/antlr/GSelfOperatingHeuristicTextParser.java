@@ -48,7 +48,7 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getTransitionAccess().getAlternatives_0(), "rule__Transition__Alternatives_0");
 			builder.put(grammarAccess.getTransitionAccess().getAlternatives_2(), "rule__Transition__Alternatives_2");
 			builder.put(grammarAccess.getTransitionAccess().getAlternatives_4_0(), "rule__Transition__Alternatives_4_0");
-			builder.put(grammarAccess.getTransitionAccess().getAlternatives_4_2_0(), "rule__Transition__Alternatives_4_2_0");
+			builder.put(grammarAccess.getTransitionAccess().getAlternatives_5_0(), "rule__Transition__Alternatives_5_0");
 			builder.put(grammarAccess.getVariableAccess().getAlternatives(), "rule__Variable__Alternatives");
 			builder.put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 			builder.put(grammarAccess.getDataTypeAccess().getAlternatives(), "rule__DataType__Alternatives");
@@ -67,7 +67,7 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getAlterAccess().getGroup_4(), "rule__Alter__Group_4__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup_4(), "rule__Transition__Group_4__0");
-			builder.put(grammarAccess.getTransitionAccess().getGroup_4_2(), "rule__Transition__Group_4_2__0");
+			builder.put(grammarAccess.getTransitionAccess().getGroup_5(), "rule__Transition__Group_5__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
 			builder.put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
@@ -91,7 +91,7 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getTransitionAccess().getEventAssignment_1(), "rule__Transition__EventAssignment_1");
 			builder.put(grammarAccess.getTransitionAccess().getStateAssignment_3(), "rule__Transition__StateAssignment_3");
 			builder.put(grammarAccess.getTransitionAccess().getConditionAssignment_4_1(), "rule__Transition__ConditionAssignment_4_1");
-			builder.put(grammarAccess.getTransitionAccess().getAssignmentAssignment_4_2_1(), "rule__Transition__AssignmentAssignment_4_2_1");
+			builder.put(grammarAccess.getTransitionAccess().getAssignmentAssignment_5_1(), "rule__Transition__AssignmentAssignment_5_1");
 			builder.put(grammarAccess.getEventAccess().getNameAssignment(), "rule__Event__NameAssignment");
 			builder.put(grammarAccess.getConditionAccess().getLeftAssignment_0(), "rule__Condition__LeftAssignment_0");
 			builder.put(grammarAccess.getConditionAccess().getOperatorAssignment_1(), "rule__Condition__OperatorAssignment_1");

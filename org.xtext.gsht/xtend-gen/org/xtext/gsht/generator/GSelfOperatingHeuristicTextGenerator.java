@@ -19,7 +19,6 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.ComparisonOperator;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Condition;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
-import org.xtext.gsht.gSelfOperatingHeuristicText.Initial;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
@@ -55,9 +54,9 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("package gsht;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import statemachines.GState;");
+    _builder.append("import org.GState;");
     _builder.newLine();
-    _builder.append("import statemachines.Transition;");
+    _builder.append("import org.Transition;");
     _builder.newLine();
     _builder.append("import java.util.ArrayList;");
     _builder.newLine();
@@ -91,7 +90,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         _builder.append("\", ");
         String _value = p.getValue();
         _builder.append(_value, "\t\t");
-        _builder.append("\");");
+        _builder.append(");");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -156,9 +155,8 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
       EList<State> _states = model.getStates();
       for(final State s : _states) {
         {
-          Initial _init = s.getInit();
-          boolean _notEquals = (!Objects.equal(_init, null));
-          if (_notEquals) {
+          boolean _isInit = s.isInit();
+          if (_isInit) {
             _builder.append("\t\t");
             _builder.append("currentState = states.get(\"");
             String _name_4 = s.getName();
@@ -186,7 +184,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("String nextStateName = currentState.onEvent(event);");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("if(nextStateName.equals(currentState.getName())) return;");
+    _builder.append("//if(nextStateName.equals(currentState.getName())) return;");
     _builder.newLine();
     _builder.append("        ");
     _builder.append("if (currentState.propsReturnerSize() > 0) {");
@@ -256,7 +254,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("private void printCurrentState(State state) {");
+    _builder.append("private void printCurrentState(GState state) {");
     _builder.newLine();
     _builder.append("        ");
     _builder.append("System.out.println(String.format(\"Current state: %s\", state.getName()));");

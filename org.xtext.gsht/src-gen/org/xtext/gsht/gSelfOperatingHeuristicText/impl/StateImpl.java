@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage;
-import org.xtext.gsht.gSelfOperatingHeuristicText.Initial;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
@@ -33,7 +32,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.StateImpl#getInit <em>Init</em>}</li>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.StateImpl#isInit <em>Init</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.StateImpl#getLocals <em>Locals</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.StateImpl#getTransitions <em>Transitions</em>}</li>
@@ -44,14 +43,24 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
 public class StateImpl extends MinimalEObjectImpl.Container implements State
 {
   /**
-   * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference.
+   * The default value of the '{@link #isInit() <em>Init</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInit()
+   * @see #isInit()
    * @generated
    * @ordered
    */
-  protected Initial init;
+  protected static final boolean INIT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isInit() <em>Init</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isInit()
+   * @generated
+   * @ordered
+   */
+  protected boolean init = INIT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -120,7 +129,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
    * @generated
    */
   @Override
-  public Initial getInit()
+  public boolean isInit()
   {
     return init;
   }
@@ -130,38 +139,13 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInit(Initial newInit, NotificationChain msgs)
+  @Override
+  public void setInit(boolean newInit)
   {
-    Initial oldInit = init;
+    boolean oldInit = init;
     init = newInit;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GSelfOperatingHeuristicTextPackage.STATE__INIT, oldInit, newInit);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setInit(Initial newInit)
-  {
-    if (newInit != init)
-    {
-      NotificationChain msgs = null;
-      if (init != null)
-        msgs = ((InternalEObject)init).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GSelfOperatingHeuristicTextPackage.STATE__INIT, null, msgs);
-      if (newInit != null)
-        msgs = ((InternalEObject)newInit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GSelfOperatingHeuristicTextPackage.STATE__INIT, null, msgs);
-      msgs = basicSetInit(newInit, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GSelfOperatingHeuristicTextPackage.STATE__INIT, newInit, newInit));
+      eNotify(new ENotificationImpl(this, Notification.SET, GSelfOperatingHeuristicTextPackage.STATE__INIT, oldInit, init));
   }
 
   /**
@@ -229,8 +213,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case GSelfOperatingHeuristicTextPackage.STATE__INIT:
-        return basicSetInit(null, msgs);
       case GSelfOperatingHeuristicTextPackage.STATE__LOCALS:
         return ((InternalEList<?>)getLocals()).basicRemove(otherEnd, msgs);
       case GSelfOperatingHeuristicTextPackage.STATE__TRANSITIONS:
@@ -250,7 +232,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     switch (featureID)
     {
       case GSelfOperatingHeuristicTextPackage.STATE__INIT:
-        return getInit();
+        return isInit();
       case GSelfOperatingHeuristicTextPackage.STATE__NAME:
         return getName();
       case GSelfOperatingHeuristicTextPackage.STATE__LOCALS:
@@ -273,7 +255,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     switch (featureID)
     {
       case GSelfOperatingHeuristicTextPackage.STATE__INIT:
-        setInit((Initial)newValue);
+        setInit((Boolean)newValue);
         return;
       case GSelfOperatingHeuristicTextPackage.STATE__NAME:
         setName((String)newValue);
@@ -301,7 +283,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     switch (featureID)
     {
       case GSelfOperatingHeuristicTextPackage.STATE__INIT:
-        setInit((Initial)null);
+        setInit(INIT_EDEFAULT);
         return;
       case GSelfOperatingHeuristicTextPackage.STATE__NAME:
         setName(NAME_EDEFAULT);
@@ -327,7 +309,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     switch (featureID)
     {
       case GSelfOperatingHeuristicTextPackage.STATE__INIT:
-        return init != null;
+        return init != INIT_EDEFAULT;
       case GSelfOperatingHeuristicTextPackage.STATE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case GSelfOperatingHeuristicTextPackage.STATE__LOCALS:
@@ -349,7 +331,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
+    result.append(" (init: ");
+    result.append(init);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

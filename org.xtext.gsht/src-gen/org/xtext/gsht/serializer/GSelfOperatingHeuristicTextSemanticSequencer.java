@@ -251,7 +251,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (init=Initial? name=ID locals+=Local* transitions+=Transition*)
+	 *     (init?=Initial? name=ID locals+=Local* transitions+=Transition*)
 	 * </pre>
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {

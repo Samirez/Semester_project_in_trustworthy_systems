@@ -300,7 +300,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
 		//State:
-		//    (('INIT' | 'init') init=Initial)?
+		//    (('INIT' | 'init') init?=Initial)?
 		//    //({InitState}('INIT' | 'init'))?
 		//    ('STATE' | 'state') name=ID
 		//    (('PROPS' | 'props')
@@ -316,7 +316,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(('INIT' | 'init') init=Initial)?
+		//(('INIT' | 'init') init?=Initial)?
 		////({InitState}('INIT' | 'init'))?
 		//('STATE' | 'state') name=ID
 		//(('PROPS' | 'props')
@@ -331,7 +331,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//)?
 		public Group getGroup() { return cGroup; }
 		
-		//(('INIT' | 'init') init=Initial)?
+		//(('INIT' | 'init') init?=Initial)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//('INIT' | 'init')
@@ -343,7 +343,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'init'
 		public Keyword getInitKeyword_0_0_1() { return cInitKeyword_0_0_1; }
 		
-		//init=Initial
+		//init?=Initial
 		public Assignment getInitAssignment_0_1() { return cInitAssignment_0_1; }
 		
 		//Initial
@@ -594,18 +594,18 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Keyword cIfKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
 		private final Assignment cConditionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cConditionConditionParserRuleCall_4_1_0 = (RuleCall)cConditionAssignment_4_1.eContents().get(0);
-		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Alternatives cAlternatives_4_2_0 = (Alternatives)cGroup_4_2.eContents().get(0);
-		private final Keyword cSETKeyword_4_2_0_0 = (Keyword)cAlternatives_4_2_0.eContents().get(0);
-		private final Keyword cSetKeyword_4_2_0_1 = (Keyword)cAlternatives_4_2_0.eContents().get(1);
-		private final Assignment cAssignmentAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final RuleCall cAssignmentAssignmentParserRuleCall_4_2_1_0 = (RuleCall)cAssignmentAssignment_4_2_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_5_0 = (Alternatives)cGroup_5.eContents().get(0);
+		private final Keyword cSETKeyword_5_0_0 = (Keyword)cAlternatives_5_0.eContents().get(0);
+		private final Keyword cSetKeyword_5_0_1 = (Keyword)cAlternatives_5_0.eContents().get(1);
+		private final Assignment cAssignmentAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cAssignmentAssignmentParserRuleCall_5_1_0 = (RuleCall)cAssignmentAssignment_5_1.eContents().get(0);
 		
 		//Transition:
-		//    ('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?;
+		//    ('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition)? (('SET' | 'set') assignment=Assignment)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?
+		//('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition)? (('SET' | 'set') assignment=Assignment)?
 		public Group getGroup() { return cGroup; }
 		
 		//('ON' | 'on')
@@ -644,7 +644,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//ID
 		public RuleCall getStateStateIDTerminalRuleCall_3_0_1() { return cStateStateIDTerminalRuleCall_3_0_1; }
 		
-		//(('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?
+		//(('IF' | 'if' ) condition=Condition)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//('IF' | 'if' )
@@ -656,29 +656,29 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'if'
 		public Keyword getIfKeyword_4_0_1() { return cIfKeyword_4_0_1; }
 		
-		//condition=Condition?
+		//condition=Condition
 		public Assignment getConditionAssignment_4_1() { return cConditionAssignment_4_1; }
 		
 		//Condition
 		public RuleCall getConditionConditionParserRuleCall_4_1_0() { return cConditionConditionParserRuleCall_4_1_0; }
 		
 		//(('SET' | 'set') assignment=Assignment)?
-		public Group getGroup_4_2() { return cGroup_4_2; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//('SET' | 'set')
-		public Alternatives getAlternatives_4_2_0() { return cAlternatives_4_2_0; }
+		public Alternatives getAlternatives_5_0() { return cAlternatives_5_0; }
 		
 		//'SET'
-		public Keyword getSETKeyword_4_2_0_0() { return cSETKeyword_4_2_0_0; }
+		public Keyword getSETKeyword_5_0_0() { return cSETKeyword_5_0_0; }
 		
 		//'set'
-		public Keyword getSetKeyword_4_2_0_1() { return cSetKeyword_4_2_0_1; }
+		public Keyword getSetKeyword_5_0_1() { return cSetKeyword_5_0_1; }
 		
 		//assignment=Assignment
-		public Assignment getAssignmentAssignment_4_2_1() { return cAssignmentAssignment_4_2_1; }
+		public Assignment getAssignmentAssignment_5_1() { return cAssignmentAssignment_5_1; }
 		
 		//Assignment
-		public RuleCall getAssignmentAssignmentParserRuleCall_4_2_1_0() { return cAssignmentAssignmentParserRuleCall_4_2_1_0; }
+		public RuleCall getAssignmentAssignmentParserRuleCall_5_1_0() { return cAssignmentAssignmentParserRuleCall_5_1_0; }
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Event");
@@ -1062,7 +1062,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//State:
-	//    (('INIT' | 'init') init=Initial)?
+	//    (('INIT' | 'init') init?=Initial)?
 	//    //({InitState}('INIT' | 'init'))?
 	//    ('STATE' | 'state') name=ID
 	//    (('PROPS' | 'props')
@@ -1117,7 +1117,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	}
 	
 	//Transition:
-	//    ('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?;
+	//    ('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition)? (('SET' | 'set') assignment=Assignment)?;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}

@@ -451,7 +451,7 @@ ruleState returns [EObject current=null]
 						set(
 							$current,
 							"init",
-							lv_init_2_0,
+							lv_init_2_0 != null,
 							"org.xtext.gsht.GSelfOperatingHeuristicText.Initial");
 						afterParserOrEnumRuleCall();
 					}
@@ -822,39 +822,39 @@ ruleTransition returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)?
+			)
+		)?
+		(
+			(
+				otherlv_9='SET'
+				{
+					newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getSETKeyword_5_0_0());
+				}
+				    |
+				otherlv_10='set'
+				{
+					newLeafNode(otherlv_10, grammarAccess.getTransitionAccess().getSetKeyword_5_0_1());
+				}
+			)
 			(
 				(
-					otherlv_9='SET'
 					{
-						newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getSETKeyword_4_2_0_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_5_1_0());
 					}
-					    |
-					otherlv_10='set'
+					lv_assignment_11_0=ruleAssignment
 					{
-						newLeafNode(otherlv_10, grammarAccess.getTransitionAccess().getSetKeyword_4_2_0_1());
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransitionRule());
+						}
+						set(
+							$current,
+							"assignment",
+							lv_assignment_11_0,
+							"org.xtext.gsht.GSelfOperatingHeuristicText.Assignment");
+						afterParserOrEnumRuleCall();
 					}
 				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_4_2_1_0());
-						}
-						lv_assignment_11_0=ruleAssignment
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransitionRule());
-							}
-							set(
-								$current,
-								"assignment",
-								lv_assignment_11_0,
-								"org.xtext.gsht.GSelfOperatingHeuristicText.Assignment");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
+			)
 		)?
 	)
 ;

@@ -2346,9 +2346,9 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     // $ANTLR end "rule__Transition__Alternatives_4_0"
 
 
-    // $ANTLR start "rule__Transition__Alternatives_4_2_0"
-    // InternalGSelfOperatingHeuristicText.g:741:1: rule__Transition__Alternatives_4_2_0 : ( ( 'SET' ) | ( 'set' ) );
-    public final void rule__Transition__Alternatives_4_2_0() throws RecognitionException {
+    // $ANTLR start "rule__Transition__Alternatives_5_0"
+    // InternalGSelfOperatingHeuristicText.g:741:1: rule__Transition__Alternatives_5_0 : ( ( 'SET' ) | ( 'set' ) );
+    public final void rule__Transition__Alternatives_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -2376,9 +2376,9 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
                     // InternalGSelfOperatingHeuristicText.g:746:2: ( 'SET' )
                     // InternalGSelfOperatingHeuristicText.g:747:3: 'SET'
                     {
-                     before(grammarAccess.getTransitionAccess().getSETKeyword_4_2_0_0()); 
+                     before(grammarAccess.getTransitionAccess().getSETKeyword_5_0_0()); 
                     match(input,37,FOLLOW_2); 
-                     after(grammarAccess.getTransitionAccess().getSETKeyword_4_2_0_0()); 
+                     after(grammarAccess.getTransitionAccess().getSETKeyword_5_0_0()); 
 
                     }
 
@@ -2391,9 +2391,9 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
                     // InternalGSelfOperatingHeuristicText.g:752:2: ( 'set' )
                     // InternalGSelfOperatingHeuristicText.g:753:3: 'set'
                     {
-                     before(grammarAccess.getTransitionAccess().getSetKeyword_4_2_0_1()); 
+                     before(grammarAccess.getTransitionAccess().getSetKeyword_5_0_1()); 
                     match(input,38,FOLLOW_2); 
-                     after(grammarAccess.getTransitionAccess().getSetKeyword_4_2_0_1()); 
+                     after(grammarAccess.getTransitionAccess().getSetKeyword_5_0_1()); 
 
                     }
 
@@ -2414,7 +2414,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__Alternatives_4_2_0"
+    // $ANTLR end "rule__Transition__Alternatives_5_0"
 
 
     // $ANTLR start "rule__Value__Alternatives"
@@ -7618,17 +7618,22 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Transition__Group__4"
-    // InternalGSelfOperatingHeuristicText.g:2370:1: rule__Transition__Group__4 : rule__Transition__Group__4__Impl ;
+    // InternalGSelfOperatingHeuristicText.g:2370:1: rule__Transition__Group__4 : rule__Transition__Group__4__Impl rule__Transition__Group__5 ;
     public final void rule__Transition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2374:1: ( rule__Transition__Group__4__Impl )
-            // InternalGSelfOperatingHeuristicText.g:2375:2: rule__Transition__Group__4__Impl
+            // InternalGSelfOperatingHeuristicText.g:2374:1: ( rule__Transition__Group__4__Impl rule__Transition__Group__5 )
+            // InternalGSelfOperatingHeuristicText.g:2375:2: rule__Transition__Group__4__Impl rule__Transition__Group__5
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_22);
             rule__Transition__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Transition__Group__5();
 
             state._fsp--;
 
@@ -7651,20 +7656,20 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Transition__Group__4__Impl"
-    // InternalGSelfOperatingHeuristicText.g:2381:1: rule__Transition__Group__4__Impl : ( ( rule__Transition__Group_4__0 )? ) ;
+    // InternalGSelfOperatingHeuristicText.g:2382:1: rule__Transition__Group__4__Impl : ( ( rule__Transition__Group_4__0 )? ) ;
     public final void rule__Transition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2385:1: ( ( ( rule__Transition__Group_4__0 )? ) )
-            // InternalGSelfOperatingHeuristicText.g:2386:1: ( ( rule__Transition__Group_4__0 )? )
+            // InternalGSelfOperatingHeuristicText.g:2386:1: ( ( ( rule__Transition__Group_4__0 )? ) )
+            // InternalGSelfOperatingHeuristicText.g:2387:1: ( ( rule__Transition__Group_4__0 )? )
             {
-            // InternalGSelfOperatingHeuristicText.g:2386:1: ( ( rule__Transition__Group_4__0 )? )
-            // InternalGSelfOperatingHeuristicText.g:2387:2: ( rule__Transition__Group_4__0 )?
+            // InternalGSelfOperatingHeuristicText.g:2387:1: ( ( rule__Transition__Group_4__0 )? )
+            // InternalGSelfOperatingHeuristicText.g:2388:2: ( rule__Transition__Group_4__0 )?
             {
              before(grammarAccess.getTransitionAccess().getGroup_4()); 
-            // InternalGSelfOperatingHeuristicText.g:2388:2: ( rule__Transition__Group_4__0 )?
+            // InternalGSelfOperatingHeuristicText.g:2389:2: ( rule__Transition__Group_4__0 )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -7673,7 +7678,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
             }
             switch (alt37) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:2388:3: rule__Transition__Group_4__0
+                    // InternalGSelfOperatingHeuristicText.g:2389:3: rule__Transition__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Transition__Group_4__0();
@@ -7708,17 +7713,108 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     // $ANTLR end "rule__Transition__Group__4__Impl"
 
 
+    // $ANTLR start "rule__Transition__Group__5"
+    // InternalGSelfOperatingHeuristicText.g:2397:1: rule__Transition__Group__5 : rule__Transition__Group__5__Impl ;
+    public final void rule__Transition__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGSelfOperatingHeuristicText.g:2401:1: ( rule__Transition__Group__5__Impl )
+            // InternalGSelfOperatingHeuristicText.g:2402:2: rule__Transition__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Transition__Group__5__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Transition__Group__5"
+
+
+    // $ANTLR start "rule__Transition__Group__5__Impl"
+    // InternalGSelfOperatingHeuristicText.g:2408:1: rule__Transition__Group__5__Impl : ( ( rule__Transition__Group_5__0 )? ) ;
+    public final void rule__Transition__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGSelfOperatingHeuristicText.g:2412:1: ( ( ( rule__Transition__Group_5__0 )? ) )
+            // InternalGSelfOperatingHeuristicText.g:2413:1: ( ( rule__Transition__Group_5__0 )? )
+            {
+            // InternalGSelfOperatingHeuristicText.g:2413:1: ( ( rule__Transition__Group_5__0 )? )
+            // InternalGSelfOperatingHeuristicText.g:2414:2: ( rule__Transition__Group_5__0 )?
+            {
+             before(grammarAccess.getTransitionAccess().getGroup_5()); 
+            // InternalGSelfOperatingHeuristicText.g:2415:2: ( rule__Transition__Group_5__0 )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
+
+            if ( ((LA38_0>=37 && LA38_0<=38)) ) {
+                alt38=1;
+            }
+            switch (alt38) {
+                case 1 :
+                    // InternalGSelfOperatingHeuristicText.g:2415:3: rule__Transition__Group_5__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Transition__Group_5__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getTransitionAccess().getGroup_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Transition__Group__5__Impl"
+
+
     // $ANTLR start "rule__Transition__Group_4__0"
-    // InternalGSelfOperatingHeuristicText.g:2397:1: rule__Transition__Group_4__0 : rule__Transition__Group_4__0__Impl rule__Transition__Group_4__1 ;
+    // InternalGSelfOperatingHeuristicText.g:2424:1: rule__Transition__Group_4__0 : rule__Transition__Group_4__0__Impl rule__Transition__Group_4__1 ;
     public final void rule__Transition__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2401:1: ( rule__Transition__Group_4__0__Impl rule__Transition__Group_4__1 )
-            // InternalGSelfOperatingHeuristicText.g:2402:2: rule__Transition__Group_4__0__Impl rule__Transition__Group_4__1
+            // InternalGSelfOperatingHeuristicText.g:2428:1: ( rule__Transition__Group_4__0__Impl rule__Transition__Group_4__1 )
+            // InternalGSelfOperatingHeuristicText.g:2429:2: rule__Transition__Group_4__0__Impl rule__Transition__Group_4__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_3);
             rule__Transition__Group_4__0__Impl();
 
             state._fsp--;
@@ -7747,21 +7843,21 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Transition__Group_4__0__Impl"
-    // InternalGSelfOperatingHeuristicText.g:2409:1: rule__Transition__Group_4__0__Impl : ( ( rule__Transition__Alternatives_4_0 ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:2436:1: rule__Transition__Group_4__0__Impl : ( ( rule__Transition__Alternatives_4_0 ) ) ;
     public final void rule__Transition__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2413:1: ( ( ( rule__Transition__Alternatives_4_0 ) ) )
-            // InternalGSelfOperatingHeuristicText.g:2414:1: ( ( rule__Transition__Alternatives_4_0 ) )
+            // InternalGSelfOperatingHeuristicText.g:2440:1: ( ( ( rule__Transition__Alternatives_4_0 ) ) )
+            // InternalGSelfOperatingHeuristicText.g:2441:1: ( ( rule__Transition__Alternatives_4_0 ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:2414:1: ( ( rule__Transition__Alternatives_4_0 ) )
-            // InternalGSelfOperatingHeuristicText.g:2415:2: ( rule__Transition__Alternatives_4_0 )
+            // InternalGSelfOperatingHeuristicText.g:2441:1: ( ( rule__Transition__Alternatives_4_0 ) )
+            // InternalGSelfOperatingHeuristicText.g:2442:2: ( rule__Transition__Alternatives_4_0 )
             {
              before(grammarAccess.getTransitionAccess().getAlternatives_4_0()); 
-            // InternalGSelfOperatingHeuristicText.g:2416:2: ( rule__Transition__Alternatives_4_0 )
-            // InternalGSelfOperatingHeuristicText.g:2416:3: rule__Transition__Alternatives_4_0
+            // InternalGSelfOperatingHeuristicText.g:2443:2: ( rule__Transition__Alternatives_4_0 )
+            // InternalGSelfOperatingHeuristicText.g:2443:3: rule__Transition__Alternatives_4_0
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Alternatives_4_0();
@@ -7794,22 +7890,17 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Transition__Group_4__1"
-    // InternalGSelfOperatingHeuristicText.g:2424:1: rule__Transition__Group_4__1 : rule__Transition__Group_4__1__Impl rule__Transition__Group_4__2 ;
+    // InternalGSelfOperatingHeuristicText.g:2451:1: rule__Transition__Group_4__1 : rule__Transition__Group_4__1__Impl ;
     public final void rule__Transition__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2428:1: ( rule__Transition__Group_4__1__Impl rule__Transition__Group_4__2 )
-            // InternalGSelfOperatingHeuristicText.g:2429:2: rule__Transition__Group_4__1__Impl rule__Transition__Group_4__2
+            // InternalGSelfOperatingHeuristicText.g:2455:1: ( rule__Transition__Group_4__1__Impl )
+            // InternalGSelfOperatingHeuristicText.g:2456:2: rule__Transition__Group_4__1__Impl
             {
-            pushFollow(FOLLOW_23);
-            rule__Transition__Group_4__1__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Transition__Group_4__2();
+            rule__Transition__Group_4__1__Impl();
 
             state._fsp--;
 
@@ -7832,38 +7923,27 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
 
 
     // $ANTLR start "rule__Transition__Group_4__1__Impl"
-    // InternalGSelfOperatingHeuristicText.g:2436:1: rule__Transition__Group_4__1__Impl : ( ( rule__Transition__ConditionAssignment_4_1 )? ) ;
+    // InternalGSelfOperatingHeuristicText.g:2462:1: rule__Transition__Group_4__1__Impl : ( ( rule__Transition__ConditionAssignment_4_1 ) ) ;
     public final void rule__Transition__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2440:1: ( ( ( rule__Transition__ConditionAssignment_4_1 )? ) )
-            // InternalGSelfOperatingHeuristicText.g:2441:1: ( ( rule__Transition__ConditionAssignment_4_1 )? )
+            // InternalGSelfOperatingHeuristicText.g:2466:1: ( ( ( rule__Transition__ConditionAssignment_4_1 ) ) )
+            // InternalGSelfOperatingHeuristicText.g:2467:1: ( ( rule__Transition__ConditionAssignment_4_1 ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:2441:1: ( ( rule__Transition__ConditionAssignment_4_1 )? )
-            // InternalGSelfOperatingHeuristicText.g:2442:2: ( rule__Transition__ConditionAssignment_4_1 )?
+            // InternalGSelfOperatingHeuristicText.g:2467:1: ( ( rule__Transition__ConditionAssignment_4_1 ) )
+            // InternalGSelfOperatingHeuristicText.g:2468:2: ( rule__Transition__ConditionAssignment_4_1 )
             {
              before(grammarAccess.getTransitionAccess().getConditionAssignment_4_1()); 
-            // InternalGSelfOperatingHeuristicText.g:2443:2: ( rule__Transition__ConditionAssignment_4_1 )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:2469:2: ( rule__Transition__ConditionAssignment_4_1 )
+            // InternalGSelfOperatingHeuristicText.g:2469:3: rule__Transition__ConditionAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Transition__ConditionAssignment_4_1();
 
-            if ( (LA38_0==RULE_ID) ) {
-                alt38=1;
-            }
-            switch (alt38) {
-                case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:2443:3: rule__Transition__ConditionAssignment_4_1
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Transition__ConditionAssignment_4_1();
+            state._fsp--;
 
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
@@ -7889,114 +7969,23 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     // $ANTLR end "rule__Transition__Group_4__1__Impl"
 
 
-    // $ANTLR start "rule__Transition__Group_4__2"
-    // InternalGSelfOperatingHeuristicText.g:2451:1: rule__Transition__Group_4__2 : rule__Transition__Group_4__2__Impl ;
-    public final void rule__Transition__Group_4__2() throws RecognitionException {
+    // $ANTLR start "rule__Transition__Group_5__0"
+    // InternalGSelfOperatingHeuristicText.g:2478:1: rule__Transition__Group_5__0 : rule__Transition__Group_5__0__Impl rule__Transition__Group_5__1 ;
+    public final void rule__Transition__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2455:1: ( rule__Transition__Group_4__2__Impl )
-            // InternalGSelfOperatingHeuristicText.g:2456:2: rule__Transition__Group_4__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Transition__Group_4__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Transition__Group_4__2"
-
-
-    // $ANTLR start "rule__Transition__Group_4__2__Impl"
-    // InternalGSelfOperatingHeuristicText.g:2462:1: rule__Transition__Group_4__2__Impl : ( ( rule__Transition__Group_4_2__0 )? ) ;
-    public final void rule__Transition__Group_4__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGSelfOperatingHeuristicText.g:2466:1: ( ( ( rule__Transition__Group_4_2__0 )? ) )
-            // InternalGSelfOperatingHeuristicText.g:2467:1: ( ( rule__Transition__Group_4_2__0 )? )
-            {
-            // InternalGSelfOperatingHeuristicText.g:2467:1: ( ( rule__Transition__Group_4_2__0 )? )
-            // InternalGSelfOperatingHeuristicText.g:2468:2: ( rule__Transition__Group_4_2__0 )?
-            {
-             before(grammarAccess.getTransitionAccess().getGroup_4_2()); 
-            // InternalGSelfOperatingHeuristicText.g:2469:2: ( rule__Transition__Group_4_2__0 )?
-            int alt39=2;
-            int LA39_0 = input.LA(1);
-
-            if ( ((LA39_0>=37 && LA39_0<=38)) ) {
-                alt39=1;
-            }
-            switch (alt39) {
-                case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:2469:3: rule__Transition__Group_4_2__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Transition__Group_4_2__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getTransitionAccess().getGroup_4_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Transition__Group_4__2__Impl"
-
-
-    // $ANTLR start "rule__Transition__Group_4_2__0"
-    // InternalGSelfOperatingHeuristicText.g:2478:1: rule__Transition__Group_4_2__0 : rule__Transition__Group_4_2__0__Impl rule__Transition__Group_4_2__1 ;
-    public final void rule__Transition__Group_4_2__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalGSelfOperatingHeuristicText.g:2482:1: ( rule__Transition__Group_4_2__0__Impl rule__Transition__Group_4_2__1 )
-            // InternalGSelfOperatingHeuristicText.g:2483:2: rule__Transition__Group_4_2__0__Impl rule__Transition__Group_4_2__1
+            // InternalGSelfOperatingHeuristicText.g:2482:1: ( rule__Transition__Group_5__0__Impl rule__Transition__Group_5__1 )
+            // InternalGSelfOperatingHeuristicText.g:2483:2: rule__Transition__Group_5__0__Impl rule__Transition__Group_5__1
             {
             pushFollow(FOLLOW_3);
-            rule__Transition__Group_4_2__0__Impl();
+            rule__Transition__Group_5__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Transition__Group_4_2__1();
+            rule__Transition__Group_5__1();
 
             state._fsp--;
 
@@ -8015,35 +8004,35 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__Group_4_2__0"
+    // $ANTLR end "rule__Transition__Group_5__0"
 
 
-    // $ANTLR start "rule__Transition__Group_4_2__0__Impl"
-    // InternalGSelfOperatingHeuristicText.g:2490:1: rule__Transition__Group_4_2__0__Impl : ( ( rule__Transition__Alternatives_4_2_0 ) ) ;
-    public final void rule__Transition__Group_4_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Transition__Group_5__0__Impl"
+    // InternalGSelfOperatingHeuristicText.g:2490:1: rule__Transition__Group_5__0__Impl : ( ( rule__Transition__Alternatives_5_0 ) ) ;
+    public final void rule__Transition__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2494:1: ( ( ( rule__Transition__Alternatives_4_2_0 ) ) )
-            // InternalGSelfOperatingHeuristicText.g:2495:1: ( ( rule__Transition__Alternatives_4_2_0 ) )
+            // InternalGSelfOperatingHeuristicText.g:2494:1: ( ( ( rule__Transition__Alternatives_5_0 ) ) )
+            // InternalGSelfOperatingHeuristicText.g:2495:1: ( ( rule__Transition__Alternatives_5_0 ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:2495:1: ( ( rule__Transition__Alternatives_4_2_0 ) )
-            // InternalGSelfOperatingHeuristicText.g:2496:2: ( rule__Transition__Alternatives_4_2_0 )
+            // InternalGSelfOperatingHeuristicText.g:2495:1: ( ( rule__Transition__Alternatives_5_0 ) )
+            // InternalGSelfOperatingHeuristicText.g:2496:2: ( rule__Transition__Alternatives_5_0 )
             {
-             before(grammarAccess.getTransitionAccess().getAlternatives_4_2_0()); 
-            // InternalGSelfOperatingHeuristicText.g:2497:2: ( rule__Transition__Alternatives_4_2_0 )
-            // InternalGSelfOperatingHeuristicText.g:2497:3: rule__Transition__Alternatives_4_2_0
+             before(grammarAccess.getTransitionAccess().getAlternatives_5_0()); 
+            // InternalGSelfOperatingHeuristicText.g:2497:2: ( rule__Transition__Alternatives_5_0 )
+            // InternalGSelfOperatingHeuristicText.g:2497:3: rule__Transition__Alternatives_5_0
             {
             pushFollow(FOLLOW_2);
-            rule__Transition__Alternatives_4_2_0();
+            rule__Transition__Alternatives_5_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTransitionAccess().getAlternatives_4_2_0()); 
+             after(grammarAccess.getTransitionAccess().getAlternatives_5_0()); 
 
             }
 
@@ -8062,21 +8051,21 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__Group_4_2__0__Impl"
+    // $ANTLR end "rule__Transition__Group_5__0__Impl"
 
 
-    // $ANTLR start "rule__Transition__Group_4_2__1"
-    // InternalGSelfOperatingHeuristicText.g:2505:1: rule__Transition__Group_4_2__1 : rule__Transition__Group_4_2__1__Impl ;
-    public final void rule__Transition__Group_4_2__1() throws RecognitionException {
+    // $ANTLR start "rule__Transition__Group_5__1"
+    // InternalGSelfOperatingHeuristicText.g:2505:1: rule__Transition__Group_5__1 : rule__Transition__Group_5__1__Impl ;
+    public final void rule__Transition__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2509:1: ( rule__Transition__Group_4_2__1__Impl )
-            // InternalGSelfOperatingHeuristicText.g:2510:2: rule__Transition__Group_4_2__1__Impl
+            // InternalGSelfOperatingHeuristicText.g:2509:1: ( rule__Transition__Group_5__1__Impl )
+            // InternalGSelfOperatingHeuristicText.g:2510:2: rule__Transition__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Transition__Group_4_2__1__Impl();
+            rule__Transition__Group_5__1__Impl();
 
             state._fsp--;
 
@@ -8095,35 +8084,35 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__Group_4_2__1"
+    // $ANTLR end "rule__Transition__Group_5__1"
 
 
-    // $ANTLR start "rule__Transition__Group_4_2__1__Impl"
-    // InternalGSelfOperatingHeuristicText.g:2516:1: rule__Transition__Group_4_2__1__Impl : ( ( rule__Transition__AssignmentAssignment_4_2_1 ) ) ;
-    public final void rule__Transition__Group_4_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Transition__Group_5__1__Impl"
+    // InternalGSelfOperatingHeuristicText.g:2516:1: rule__Transition__Group_5__1__Impl : ( ( rule__Transition__AssignmentAssignment_5_1 ) ) ;
+    public final void rule__Transition__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGSelfOperatingHeuristicText.g:2520:1: ( ( ( rule__Transition__AssignmentAssignment_4_2_1 ) ) )
-            // InternalGSelfOperatingHeuristicText.g:2521:1: ( ( rule__Transition__AssignmentAssignment_4_2_1 ) )
+            // InternalGSelfOperatingHeuristicText.g:2520:1: ( ( ( rule__Transition__AssignmentAssignment_5_1 ) ) )
+            // InternalGSelfOperatingHeuristicText.g:2521:1: ( ( rule__Transition__AssignmentAssignment_5_1 ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:2521:1: ( ( rule__Transition__AssignmentAssignment_4_2_1 ) )
-            // InternalGSelfOperatingHeuristicText.g:2522:2: ( rule__Transition__AssignmentAssignment_4_2_1 )
+            // InternalGSelfOperatingHeuristicText.g:2521:1: ( ( rule__Transition__AssignmentAssignment_5_1 ) )
+            // InternalGSelfOperatingHeuristicText.g:2522:2: ( rule__Transition__AssignmentAssignment_5_1 )
             {
-             before(grammarAccess.getTransitionAccess().getAssignmentAssignment_4_2_1()); 
-            // InternalGSelfOperatingHeuristicText.g:2523:2: ( rule__Transition__AssignmentAssignment_4_2_1 )
-            // InternalGSelfOperatingHeuristicText.g:2523:3: rule__Transition__AssignmentAssignment_4_2_1
+             before(grammarAccess.getTransitionAccess().getAssignmentAssignment_5_1()); 
+            // InternalGSelfOperatingHeuristicText.g:2523:2: ( rule__Transition__AssignmentAssignment_5_1 )
+            // InternalGSelfOperatingHeuristicText.g:2523:3: rule__Transition__AssignmentAssignment_5_1
             {
             pushFollow(FOLLOW_2);
-            rule__Transition__AssignmentAssignment_4_2_1();
+            rule__Transition__AssignmentAssignment_5_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTransitionAccess().getAssignmentAssignment_4_2_1()); 
+             after(grammarAccess.getTransitionAccess().getAssignmentAssignment_5_1()); 
 
             }
 
@@ -8142,7 +8131,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__Group_4_2__1__Impl"
+    // $ANTLR end "rule__Transition__Group_5__1__Impl"
 
 
     // $ANTLR start "rule__Condition__Group__0"
@@ -8155,7 +8144,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
             // InternalGSelfOperatingHeuristicText.g:2536:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
             // InternalGSelfOperatingHeuristicText.g:2537:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_23);
             rule__Condition__Group__0__Impl();
 
             state._fsp--;
@@ -9492,9 +9481,9 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     // $ANTLR end "rule__Transition__ConditionAssignment_4_1"
 
 
-    // $ANTLR start "rule__Transition__AssignmentAssignment_4_2_1"
-    // InternalGSelfOperatingHeuristicText.g:3021:1: rule__Transition__AssignmentAssignment_4_2_1 : ( ruleAssignment ) ;
-    public final void rule__Transition__AssignmentAssignment_4_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Transition__AssignmentAssignment_5_1"
+    // InternalGSelfOperatingHeuristicText.g:3021:1: rule__Transition__AssignmentAssignment_5_1 : ( ruleAssignment ) ;
+    public final void rule__Transition__AssignmentAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -9505,13 +9494,13 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
             // InternalGSelfOperatingHeuristicText.g:3026:2: ( ruleAssignment )
             // InternalGSelfOperatingHeuristicText.g:3027:3: ruleAssignment
             {
-             before(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_4_2_1_0()); 
+             before(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
             ruleAssignment();
 
             state._fsp--;
 
-             after(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_4_2_1_0()); 
+             after(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_5_1_0()); 
 
             }
 
@@ -9530,7 +9519,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__AssignmentAssignment_4_2_1"
+    // $ANTLR end "rule__Transition__AssignmentAssignment_5_1"
 
 
     // $ANTLR start "rule__Event__NameAssignment"
@@ -9845,8 +9834,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalC
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000180000002L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000600000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000001800000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000006000000100L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0007F00000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000007800000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0007F00000000000L});
 
 }

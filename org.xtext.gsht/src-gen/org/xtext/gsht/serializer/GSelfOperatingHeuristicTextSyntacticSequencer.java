@@ -44,9 +44,8 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	protected AbstractElementAlias match_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q;
 	protected AbstractElementAlias match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1;
 	protected AbstractElementAlias match_Transition_ONKeyword_0_0_or_OnKeyword_0_1;
-	protected AbstractElementAlias match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1;
+	protected AbstractElementAlias match_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1;
 	protected AbstractElementAlias match_Transition_TOKeyword_2_0_or_ToKeyword_2_1;
-	protected AbstractElementAlias match_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -73,9 +72,8 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 		match_State_____TRANSITIONSKeyword_4_0_0_or_TransitionsKeyword_4_0_1___LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStateAccess().getTRANSITIONSKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getStateAccess().getTransitionsKeyword_4_0_1())), new TokenAlias(false, false, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4_3()));
 		match_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIFKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIfKeyword_4_0_1()));
 		match_Transition_ONKeyword_0_0_or_OnKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getONKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getOnKeyword_0_1()));
-		match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSETKeyword_4_2_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSetKeyword_4_2_0_1()));
+		match_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSETKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSetKeyword_5_0_1()));
 		match_Transition_TOKeyword_2_0_or_ToKeyword_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getTOKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getToKeyword_2_1()));
-		match_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIFKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getIfKeyword_4_0_1()));
 	}
 	
 	@Override
@@ -134,12 +132,10 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 				emit_Transition_IFKeyword_4_0_0_or_IfKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Transition_ONKeyword_0_0_or_OnKeyword_0_1.equals(syntax))
 				emit_Transition_ONKeyword_0_0_or_OnKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1.equals(syntax))
-				emit_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1.equals(syntax))
+				emit_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Transition_TOKeyword_2_0_or_ToKeyword_2_1.equals(syntax))
 				emit_Transition_TOKeyword_2_0_or_ToKeyword_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q.equals(syntax))
-				emit_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -363,7 +359,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *     'INIT' | 'init'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) init=Initial
+	 *     (rule start) (ambiguity) init?=Initial
 	 
 	 * </pre>
 	 */
@@ -392,7 +388,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) name=ID
-	 *     init=Initial (ambiguity) name=ID
+	 *     init?=Initial (ambiguity) name=ID
 	 
 	 * </pre>
 	 */
@@ -451,7 +447,6 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *     'IF' | 'if'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     state=[State|ID] (ambiguity) ('SET' | 'set') assignment=Assignment
 	 *     state=[State|ID] (ambiguity) condition=Condition
 	 
 	 * </pre>
@@ -481,11 +476,11 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     condition=Condition (ambiguity) assignment=Assignment
-	 *     state=[State|ID] ('IF' | 'if') (ambiguity) assignment=Assignment
+	 *     state=[State|ID] (ambiguity) assignment=Assignment
 	 
 	 * </pre>
 	 */
-	protected void emit_Transition_SETKeyword_4_2_0_0_or_SetKeyword_4_2_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -500,20 +495,6 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 * </pre>
 	 */
 	protected void emit_Transition_TOKeyword_2_0_or_ToKeyword_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     ('IF' | 'if')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     state=[State|ID] (ambiguity) (rule end)
-	 
-	 * </pre>
-	 */
-	protected void emit_Transition___IFKeyword_4_0_0_or_IfKeyword_4_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
