@@ -110,7 +110,9 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				System.out.println(String.format("Current state: %s", state.getName()));
 				state.printState();
 			}
-			
+			public State getCurrentState() {
+			    return currentState;
+			}
 		}
 		'''
 	}
