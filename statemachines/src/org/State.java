@@ -21,6 +21,8 @@ public class State {
         props.put(key, value);
     }
 
+    public Object getProp(String key) { return props.get(key); }
+
     public void addTransition(String event, Transition transition) {
         transitions.put(event, transition);
     }
