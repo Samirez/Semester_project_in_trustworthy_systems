@@ -212,15 +212,27 @@ public class VerificationGenerator extends AbstractGenerator {
   public void generateUppaal(final Model model, final IFileSystemAccess2 fsa) {
     EList<Automaton> automata = model.getAutomaton();
     StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Global> _globals = model.getGlobals();
-      for(final Global global : _globals) {
+    ArrayList<String> globals = new ArrayList<String>();
+    _builder.newLineIfNotEmpty();
+    EList<Global> _globals = model.getGlobals();
+    for (final Global global : _globals) {
+      {
         DataType _type = global.getType();
-        _builder.append(_type);
-        _builder.append(" ");
+        String _plus = (_type + " ");
         String _name = global.getName();
-        _builder.append(_name);
-        _builder.append(";");
+        String _plus_1 = (_plus + _name);
+        String g = (_plus_1 + ";");
+        boolean _contains = g.contains("String");
+        boolean _not = (!_contains);
+        if (_not) {
+          globals.add(g);
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      for(final String global_1 : globals) {
+        _builder.append(global_1);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -232,8 +244,8 @@ public class VerificationGenerator extends AbstractGenerator {
         ArrayList<String> edges = new ArrayList<String>();
         _builder.newLineIfNotEmpty();
         _builder.append("process ");
-        String _name_1 = automaton.getName();
-        _builder.append(_name_1);
+        String _name = automaton.getName();
+        _builder.append(_name);
         _builder.append("(\t");
         _builder.newLineIfNotEmpty();
         EList<Location> _location = automaton.getLocation();
@@ -267,13 +279,13 @@ public class VerificationGenerator extends AbstractGenerator {
         for (final Location location_1 : _location_1) {
           EList<Local> _locals = location_1.getState().getLocals();
           for (final Local prop : _locals) {
+            String _name_1 = prop.getName();
+            DataType _type = prop.getType();
+            String _plus = (_type + " ");
             String _name_2 = prop.getName();
-            DataType _type_1 = prop.getType();
-            String _plus = (_type_1 + " ");
-            String _name_3 = prop.getName();
-            String _plus_1 = (_plus + _name_3);
+            String _plus_1 = (_plus + _name_2);
             String _plus_2 = (_plus_1 + ";");
-            propsMap.put(_name_2, _plus_2);
+            propsMap.put(_name_1, _plus_2);
           }
         }
         _builder.newLineIfNotEmpty();
@@ -302,8 +314,8 @@ public class VerificationGenerator extends AbstractGenerator {
               _builder.appendImmediate(",", "\t\t");
             }
             _builder.append("\t\t");
-            String _name_4 = location_2.getState().getName();
-            _builder.append(_name_4, "\t\t");
+            String _name_3 = location_2.getState().getName();
+            _builder.append(_name_3, "\t\t");
             _builder.newLineIfNotEmpty();
           }
           if (_hasElements_1) {
@@ -314,8 +326,8 @@ public class VerificationGenerator extends AbstractGenerator {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("init ");
-        String _name_5 = automaton.getLocation().get(0).getState().getName();
-        _builder.append(_name_5, "\t\t");
+        String _name_4 = automaton.getLocation().get(0).getState().getName();
+        _builder.append(_name_4, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
@@ -336,16 +348,16 @@ public class VerificationGenerator extends AbstractGenerator {
               EList<Transition> _transitions_1 = state.getTransitions();
               for (final Transition transition_1 : _transitions_1) {
                 {
-                  String _name_6 = state.getName();
-                  String _plus_3 = (_name_6 + " -> ");
-                  String _name_7 = transition_1.getState().getName();
-                  String _plus_4 = (_plus_3 + _name_7);
+                  String _name_5 = state.getName();
+                  String _plus_3 = (_name_5 + " -> ");
+                  String _name_6 = transition_1.getState().getName();
+                  String _plus_4 = (_plus_3 + _name_6);
                   String edge = (_plus_4 + "{");
                   Condition condition = transition_1.getCondition();
                   if ((condition != null)) {
                     String _edge = edge;
-                    String _name_8 = condition.getLeft().getVariable().getName();
-                    String _plus_5 = (" guard " + _name_8);
+                    String _name_7 = condition.getLeft().getVariable().getName();
+                    String _plus_5 = (" guard " + _name_7);
                     ComparisonOperator _operator = condition.getOperator();
                     String _plus_6 = (_plus_5 + _operator);
                     String _lowerCase = condition.getRight().toLowerCase();
@@ -354,8 +366,8 @@ public class VerificationGenerator extends AbstractGenerator {
                     edge = (_edge + _plus_8);
                   }
                   String _edge_1 = edge;
-                  String _name_9 = transition_1.getEvent().getName();
-                  String _plus_9 = (" sync " + _name_9);
+                  String _name_8 = transition_1.getEvent().getName();
+                  String _plus_9 = (" sync " + _name_8);
                   String _plus_10 = (_plus_9 + "!;");
                   edge = (_edge_1 + _plus_10);
                   String _edge_2 = edge;
@@ -394,8 +406,8 @@ public class VerificationGenerator extends AbstractGenerator {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
         _builder.append("chan ");
-        String _name_6 = event.getName();
-        _builder.append(_name_6);
+        String _name_5 = event.getName();
+        _builder.append(_name_5);
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
@@ -413,11 +425,11 @@ public class VerificationGenerator extends AbstractGenerator {
           }
         }
         _builder.newLineIfNotEmpty();
+        String _name_6 = automaton_1.getName();
+        _builder.append(_name_6);
+        _builder.append("1 = ");
         String _name_7 = automaton_1.getName();
         _builder.append(_name_7);
-        _builder.append("1 = ");
-        String _name_8 = automaton_1.getName();
-        _builder.append(_name_8);
         _builder.append("(");
         _builder.newLineIfNotEmpty();
         {
@@ -442,8 +454,8 @@ public class VerificationGenerator extends AbstractGenerator {
       EList<Automaton> _automaton = model.getAutomaton();
       for(final Automaton automaton_2 : _automaton) {
         _builder.append("system ");
-        String _name_9 = automaton_2.getName();
-        _builder.append(_name_9);
+        String _name_8 = automaton_2.getName();
+        _builder.append(_name_8);
         _builder.append("1;");
         _builder.newLineIfNotEmpty();
       }

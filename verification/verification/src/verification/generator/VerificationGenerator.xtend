@@ -82,8 +82,17 @@ class VerificationGenerator extends AbstractGenerator {
 		
 		
 		var CharSequence context = '''
-		«FOR global: model.globals»
-		«global.type» «global.name»;
+		«var globals = new ArrayList()»
+		«
+		for (global: model.globals){
+			var g = global.type + " " + global.name + ";";
+			if(!g.contains("String")){
+				globals.add(g)
+			}
+		}
+		»
+		«FOR global: globals»
+		«global»
 		«ENDFOR»
 		
 		«FOR automaton: automata»
