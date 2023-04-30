@@ -25,5 +25,16 @@ Export-Package: org.xtext.gsht.gSelfOperatingHeuristicText,
  org.xtext.gsht.parser.antlr.internal,
  org.xtext.gsht.gSelfOperatingHeuristicText.util,
  org.xtext.gsht.validation,
- org.xtext.gsht.scoping
+ org.xtext.gsht.scoping,
+ verification.scoping,
+ verification.verification,
+ verification.verification.impl,
+ verification.validation,
+ verification.parser.antlr.internal,
+ verification.services,
+ verification.serializer,
+ verification,
+ verification.generator,
+ verification.verification.util,
+ verification.parser.antlr
 Import-Package: org.apache.log4j

@@ -5,7 +5,6 @@ DRONE EmergencyDrone
 				ErrorCode as String
 				DefibrillatorIsDepleted as boolean
 			}
-			//jknwsdskhfgdfg
 			EVENTS
 			{
 				BatteryCharged

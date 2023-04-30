@@ -20,5 +20,7 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.xtext.gsht.ui.internal,
  org.xtext.gsht.ui.quickfix,
- org.xtext.gsht.ui.contentassist
+ org.xtext.gsht.ui.contentassist,
+ verification.ui.contentassist,
+ verification.ui.quickfix
 Bundle-Activator: org.xtext.gsht.ui.internal.GshtActivator

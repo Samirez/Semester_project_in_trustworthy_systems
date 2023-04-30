@@ -58,7 +58,7 @@ chan &DefibrillatorUsed
 		Returning -> Failed{ guard Error==true; sync ReturningFailure!; },
 		Returned -> Maintenance{ guard DefibrillatorIsDepleted==true; sync DefibrillatorDepleted!; },
 		Returned -> Charging{ guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; },
-		Defibrillation -> Landed{ guard DefibrillatorIsUsed==true; sync DefibrillatorUsed!; assign DefibrillatorIsDepleted = TRUE; }
+		Defibrillation -> Landed{ guard DefibrillatorIsUsed==true; sync DefibrillatorUsed!; assign DefibrillatorIsDepleted = true; }
 ;		}
 
 chan BatteryCharged;

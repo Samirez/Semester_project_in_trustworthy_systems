@@ -156,7 +156,7 @@ class VerificationGenerator extends AbstractGenerator {
 						if(assignment !== null){
 							var type = assignment.currentVar.variable.type + "";
 							if(!type.contains("String")){
-								edge += " assign " + assignment.currentVar.variable.name + " = " + assignment.value + ";"
+								edge += " assign " + assignment.currentVar.variable.name + " = " + assignment.value.toLowerCase() + ";"
 							}
 						}
 						

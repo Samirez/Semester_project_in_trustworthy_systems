@@ -404,8 +404,8 @@ public class VerificationGenerator extends AbstractGenerator {
                       String _name_7 = assignment.getCurrentVar().getVariable().getName();
                       String _plus_8 = (" assign " + _name_7);
                       String _plus_9 = (_plus_8 + " = ");
-                      String _value = assignment.getValue();
-                      String _plus_10 = (_plus_9 + _value);
+                      String _lowerCase_1 = assignment.getValue().toLowerCase();
+                      String _plus_10 = (_plus_9 + _lowerCase_1);
                       String _plus_11 = (_plus_10 + ";");
                       edge = (_edge_2 + _plus_11);
                     }
