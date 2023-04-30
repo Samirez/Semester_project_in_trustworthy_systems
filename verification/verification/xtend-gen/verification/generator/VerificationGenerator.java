@@ -15,8 +15,11 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import verification.verification.Alter;
 import verification.verification.Automaton;
+import verification.verification.ComparisonOperator;
+import verification.verification.Condition;
 import verification.verification.DataType;
 import verification.verification.Event;
+import verification.verification.Global;
 import verification.verification.Local;
 import verification.verification.Location;
 import verification.verification.Model;
@@ -209,14 +212,27 @@ public class VerificationGenerator extends AbstractGenerator {
     EList<Automaton> automata = model.getAutomaton();
     StringConcatenation _builder = new StringConcatenation();
     {
+      EList<Global> _globals = model.getGlobals();
+      for(final Global global : _globals) {
+        DataType _type = global.getType();
+        _builder.append(_type);
+        _builder.append(" ");
+        String _name = global.getName();
+        _builder.append(_name);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    {
       for(final Automaton automaton : automata) {
         ArrayList<String> channels = new ArrayList<String>();
         _builder.newLineIfNotEmpty();
         ArrayList<String> edges = new ArrayList<String>();
         _builder.newLineIfNotEmpty();
         _builder.append("process ");
-        String _name = automaton.getName();
-        _builder.append(_name);
+        String _name_1 = automaton.getName();
+        _builder.append(_name_1);
         _builder.append("(\t");
         _builder.newLineIfNotEmpty();
         EList<Location> _location = automaton.getLocation();
@@ -255,8 +271,8 @@ public class VerificationGenerator extends AbstractGenerator {
               _builder.appendImmediate(",", "\t\t");
             }
             _builder.append("\t\t");
-            String _name_1 = location_1.getState().getName();
-            _builder.append(_name_1, "\t\t");
+            String _name_2 = location_1.getState().getName();
+            _builder.append(_name_2, "\t\t");
             _builder.newLineIfNotEmpty();
           }
           if (_hasElements_1) {
@@ -267,8 +283,8 @@ public class VerificationGenerator extends AbstractGenerator {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("init ");
-        String _name_2 = automaton.getLocation().get(0).getState().getName();
-        _builder.append(_name_2, "\t\t");
+        String _name_3 = automaton.getLocation().get(0).getState().getName();
+        _builder.append(_name_3, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
@@ -288,12 +304,33 @@ public class VerificationGenerator extends AbstractGenerator {
             if (_not) {
               EList<Transition> _transitions_1 = state.getTransitions();
               for (final Transition transition_1 : _transitions_1) {
-                String _name_3 = state.getName();
-                String _plus = (_name_3 + " ->");
-                String _name_4 = transition_1.getState().getName();
-                String _plus_1 = (_plus + _name_4);
-                String _plus_2 = (_plus_1 + " { }");
-                edges.add(_plus_2);
+                {
+                  String _name_4 = state.getName();
+                  String _plus = (_name_4 + " -> ");
+                  String _name_5 = transition_1.getState().getName();
+                  String _plus_1 = (_plus + _name_5);
+                  String edge = (_plus_1 + "{");
+                  Condition condition = transition_1.getCondition();
+                  if ((condition != null)) {
+                    String _edge = edge;
+                    String _name_6 = condition.getLeft().getVariable().getName();
+                    String _plus_2 = (" guard " + _name_6);
+                    ComparisonOperator _operator = condition.getOperator();
+                    String _plus_3 = (_plus_2 + _operator);
+                    String _lowerCase = condition.getRight().toLowerCase();
+                    String _plus_4 = (_plus_3 + _lowerCase);
+                    String _plus_5 = (_plus_4 + ";");
+                    edge = (_edge + _plus_5);
+                  }
+                  String _edge_1 = edge;
+                  String _name_7 = transition_1.getEvent().getName();
+                  String _plus_6 = (" sync " + _name_7);
+                  String _plus_7 = (_plus_6 + "!;");
+                  edge = (_edge_1 + _plus_7);
+                  String _edge_2 = edge;
+                  String _plus_8 = edge = (_edge_2 + " }");
+                  edges.add(_plus_8);
+                }
               }
             }
             _builder.append("\t\t");
@@ -326,8 +363,8 @@ public class VerificationGenerator extends AbstractGenerator {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
         _builder.append("chan ");
-        String _name_5 = event.getName();
-        _builder.append(_name_5);
+        String _name_4 = event.getName();
+        _builder.append(_name_4);
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
@@ -345,11 +382,11 @@ public class VerificationGenerator extends AbstractGenerator {
           }
         }
         _builder.newLineIfNotEmpty();
+        String _name_5 = automaton_1.getName();
+        _builder.append(_name_5);
+        _builder.append("1 = ");
         String _name_6 = automaton_1.getName();
         _builder.append(_name_6);
-        _builder.append("1 = ");
-        String _name_7 = automaton_1.getName();
-        _builder.append(_name_7);
         _builder.append("(");
         _builder.newLineIfNotEmpty();
         {
@@ -374,14 +411,14 @@ public class VerificationGenerator extends AbstractGenerator {
       EList<Automaton> _automaton = model.getAutomaton();
       for(final Automaton automaton_2 : _automaton) {
         _builder.append("system ");
-        String _name_8 = automaton_2.getName();
-        _builder.append(_name_8);
+        String _name_7 = automaton_2.getName();
+        _builder.append(_name_7);
         _builder.append("1;");
         _builder.newLineIfNotEmpty();
       }
     }
     CharSequence context = _builder;
-    String _plus_3 = (model + ".xta");
-    fsa.generateFile(_plus_3, context);
+    String _plus = (model + ".xta");
+    fsa.generateFile(_plus, context);
   }
 }

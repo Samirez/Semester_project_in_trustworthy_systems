@@ -82,6 +82,10 @@ class VerificationGenerator extends AbstractGenerator {
 		
 		
 		var CharSequence context = '''
+		«FOR global: model.globals»
+		«global.type» «global.name»;
+		«ENDFOR»
+		
 		«FOR automaton: automata»
 		«var channels = new ArrayList()»
 		«var edges = new ArrayList()»
@@ -110,7 +114,11 @@ class VerificationGenerator extends AbstractGenerator {
 				«
 				if(!state.transitions.isEmpty()){
 					for(transition : state.transitions){
-						edges.add(state.name + " ->" + transition.state.name + " { }")
+						var edge = state.name + " -> " + transition.state.name + "{"
+						var condition = transition.condition
+						if(condition !== null){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
+						edge += " sync " + transition.event.name + "!;"
+						edges.add(edge += " }")
 					}	
 				}
 				»		

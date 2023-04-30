@@ -1,39 +1,57 @@
-int variable; 
+double Charge;
+String ErrorCode;
+boolean DefibrillatorIsDepleted;
 
-process A(	 chan &BatteryCharged, chan &MissionReceived, chan &StandbyFailure, chan &FlyToTarget, chan &AbortMission, chan &AirborneFailure, chan &Landing, chan &AbortMission, chan &ArrivedFailure, chan &TakingOff, chan &LandedFailure, chan &HasReturned, chan &ReturningFailure, chan &DefibrillatorDepleted, chan &DefibrillatorNotDepleted, chan &DefibrillatorUsed) {
-
-state
-    Charging,
-    Standby,
-    Airborne,
-    Arrived,
-    Landed,
-    Returning,
-    Returned,
-    Maintenance,
-    Failed,
-    Defibrillation;
-init
-    Charging;
-trans
-    Charging -> Standby { guard variable == 2; sync AbortMission!; assign variable = 3; },
-    Standby -> Airborne { },
-    Standby -> Failed { },
-    Airborne -> Arrived { },
-    Airborne -> Returning { },
-    Airborne -> Failed { },
-    Arrived -> Landed { },
-    Arrived -> Returning { },
-    Arrived -> Failed { },
-    Landed -> Returning { },
-    Landed -> Failed { },
-    Returning -> Returned { },
-    Returning -> Failed { },
-    Returned -> Maintenance { },
-    Returned -> Charging { },
-    Defibrillation -> Landed { };
-}
-
+process A(	
+chan &BatteryCharged,
+chan &MissionReceived,
+chan &StandbyFailure,
+chan &FlyToTarget,
+chan &AbortMission,
+chan &AirborneFailure,
+chan &Landing,
+chan &AbortMission,
+chan &ArrivedFailure,
+chan &TakingOff,
+chan &LandedFailure,
+chan &HasReturned,
+chan &ReturningFailure,
+chan &DefibrillatorDepleted,
+chan &DefibrillatorNotDepleted,
+chan &DefibrillatorUsed
+){
+	state
+		Charging,
+		Standby,
+		Airborne,
+		Arrived,
+		Landed,
+		Returning,
+		Returned,
+		Maintenance,
+		Failed,
+		Defibrillation
+;		
+		init Charging;
+		
+	trans
+		Charging -> Standby{ guard Charge>=0.7; sync BatteryCharged!; },
+		Standby -> Airborne{ guard ReceivedMission==true; sync MissionReceived!; },
+		Standby -> Failed{ guard Error==true; sync StandbyFailure!; },
+		Airborne -> Arrived{ guard ArrivedAtCoordinates==true; sync FlyToTarget!; },
+		Airborne -> Returning{ guard Abort==true; sync AbortMission!; },
+		Airborne -> Failed{ guard Error==true; sync AirborneFailure!; },
+		Arrived -> Landed{ guard FoundLandingPlace==true; sync Landing!; },
+		Arrived -> Returning{ guard Abort==true; sync AbortMission!; },
+		Arrived -> Failed{ guard Error==true; sync ArrivedFailure!; },
+		Landed -> Returning{ guard Recall==true; sync TakingOff!; },
+		Landed -> Failed{ guard Error==true; sync LandedFailure!; },
+		Returning -> Returned{ guard ArrivedAtBase==true; sync HasReturned!; },
+		Returning -> Failed{ guard Error==true; sync ReturningFailure!; },
+		Returned -> Maintenance{ guard DefibrillatorIsDepleted==true; sync DefibrillatorDepleted!; },
+		Returned -> Charging{ guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; },
+		Defibrillation -> Landed{ guard DefibrillatorIsUsed==true; sync DefibrillatorUsed!; }
+;		}
 
 chan BatteryCharged;
 chan MissionReceived;
