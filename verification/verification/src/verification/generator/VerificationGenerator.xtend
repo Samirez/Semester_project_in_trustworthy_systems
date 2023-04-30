@@ -85,9 +85,14 @@ class VerificationGenerator extends AbstractGenerator {
 		«var globals = new ArrayList()»
 		«
 		for (global: model.globals){
-			var g = global.type + " " + global.name + ";";
-			if(!g.contains("String")){
-				globals.add(g)
+			var type = global.type + ""
+			if(type != "String"){
+				if(type == "boolean"){
+					globals.add("bool " + global.name + ";")
+				}else{
+					globals.add(type + " " + global.name + ";")
+				}
+				
 			}
 		}
 		»
@@ -113,7 +118,15 @@ class VerificationGenerator extends AbstractGenerator {
 			«var propsMap = new HashMap<String, String>()»
 			«for(location :automaton.location){
 				for(prop : location.state.locals){
-					propsMap.put(prop.name, prop.type + " " + prop.name + ";")
+					var type = prop.type + ""
+					if(type != "String"){
+						if(type == "boolean"){
+							propsMap.put(prop.name, "bool " + prop.name + ";")
+						}else {
+							propsMap.put(prop.name, type + " " + prop.name + ";")
+						}
+					}
+					
 				}
 			}»
 			«var props = propsMap.values().toArray()»

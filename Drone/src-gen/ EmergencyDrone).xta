@@ -1,5 +1,5 @@
 double Charge;
-boolean DefibrillatorIsDepleted;
+bool DefibrillatorIsDepleted;
 
 process A(	
 chan &BatteryCharged,
@@ -19,14 +19,14 @@ chan &DefibrillatorDepleted,
 chan &DefibrillatorNotDepleted,
 chan &DefibrillatorUsed
 ){
-	boolean ArrivedAtCoordinates;
-	boolean Abort;
-	boolean ArrivedAtBase;
-	boolean ReceivedMission;
-	boolean Error;
-	boolean Recall;
-	boolean FoundLandingPlace;
-	boolean DefibrillatorIsUsed;
+	bool ArrivedAtCoordinates;
+	bool Abort;
+	bool ArrivedAtBase;
+	bool ReceivedMission;
+	bool Error;
+	bool Recall;
+	bool FoundLandingPlace;
+	bool DefibrillatorIsUsed;
 	
 	state
 		Charging,

@@ -3,6 +3,7 @@
  */
 package verification.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -219,14 +220,21 @@ public class VerificationGenerator extends AbstractGenerator {
     for (final Global global : _globals) {
       {
         DataType _type = global.getType();
-        String _plus = (_type + " ");
-        String _name = global.getName();
-        String _plus_1 = (_plus + _name);
-        String g = (_plus_1 + ";");
-        boolean _contains = g.contains("String");
-        boolean _not = (!_contains);
-        if (_not) {
-          globals.add(g);
+        String type = (_type + "");
+        boolean _notEquals = (!Objects.equal(type, "String"));
+        if (_notEquals) {
+          boolean _equals = Objects.equal(type, "boolean");
+          if (_equals) {
+            String _name = global.getName();
+            String _plus = ("bool " + _name);
+            String _plus_1 = (_plus + ";");
+            globals.add(_plus_1);
+          } else {
+            String _name_1 = global.getName();
+            String _plus_2 = ((type + " ") + _name_1);
+            String _plus_3 = (_plus_2 + ";");
+            globals.add(_plus_3);
+          }
         }
       }
     }
@@ -280,13 +288,27 @@ public class VerificationGenerator extends AbstractGenerator {
         for (final Location location_1 : _location_1) {
           EList<Local> _locals = location_1.getState().getLocals();
           for (final Local prop : _locals) {
-            String _name_1 = prop.getName();
-            DataType _type = prop.getType();
-            String _plus = (_type + " ");
-            String _name_2 = prop.getName();
-            String _plus_1 = (_plus + _name_2);
-            String _plus_2 = (_plus_1 + ";");
-            propsMap.put(_name_1, _plus_2);
+            {
+              DataType _type = prop.getType();
+              String type = (_type + "");
+              boolean _notEquals = (!Objects.equal(type, "String"));
+              if (_notEquals) {
+                boolean _equals = Objects.equal(type, "boolean");
+                if (_equals) {
+                  String _name_1 = prop.getName();
+                  String _name_2 = prop.getName();
+                  String _plus = ("bool " + _name_2);
+                  String _plus_1 = (_plus + ";");
+                  propsMap.put(_name_1, _plus_1);
+                } else {
+                  String _name_3 = prop.getName();
+                  String _name_4 = prop.getName();
+                  String _plus_2 = ((type + " ") + _name_4);
+                  String _plus_3 = (_plus_2 + ";");
+                  propsMap.put(_name_3, _plus_3);
+                }
+              }
+            }
           }
         }
         _builder.newLineIfNotEmpty();
@@ -315,8 +337,8 @@ public class VerificationGenerator extends AbstractGenerator {
               _builder.appendImmediate(",", "\t\t");
             }
             _builder.append("\t\t");
-            String _name_3 = location_2.getState().getName();
-            _builder.append(_name_3, "\t\t");
+            String _name_1 = location_2.getState().getName();
+            _builder.append(_name_1, "\t\t");
             _builder.newLineIfNotEmpty();
           }
           if (_hasElements_1) {
@@ -327,8 +349,8 @@ public class VerificationGenerator extends AbstractGenerator {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("init ");
-        String _name_4 = automaton.getLocation().get(0).getState().getName();
-        _builder.append(_name_4, "\t\t");
+        String _name_2 = automaton.getLocation().get(0).getState().getName();
+        _builder.append(_name_2, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
@@ -349,48 +371,48 @@ public class VerificationGenerator extends AbstractGenerator {
               EList<Transition> _transitions_1 = state.getTransitions();
               for (final Transition transition_1 : _transitions_1) {
                 {
-                  String _name_5 = state.getName();
-                  String _plus_3 = (_name_5 + " -> ");
-                  String _name_6 = transition_1.getState().getName();
-                  String _plus_4 = (_plus_3 + _name_6);
-                  String edge = (_plus_4 + "{");
+                  String _name_3 = state.getName();
+                  String _plus = (_name_3 + " -> ");
+                  String _name_4 = transition_1.getState().getName();
+                  String _plus_1 = (_plus + _name_4);
+                  String edge = (_plus_1 + "{");
                   Condition condition = transition_1.getCondition();
                   if ((condition != null)) {
                     String _edge = edge;
-                    String _name_7 = condition.getLeft().getVariable().getName();
-                    String _plus_5 = (" guard " + _name_7);
+                    String _name_5 = condition.getLeft().getVariable().getName();
+                    String _plus_2 = (" guard " + _name_5);
                     ComparisonOperator _operator = condition.getOperator();
-                    String _plus_6 = (_plus_5 + _operator);
+                    String _plus_3 = (_plus_2 + _operator);
                     String _lowerCase = condition.getRight().toLowerCase();
-                    String _plus_7 = (_plus_6 + _lowerCase);
-                    String _plus_8 = (_plus_7 + ";");
-                    edge = (_edge + _plus_8);
+                    String _plus_4 = (_plus_3 + _lowerCase);
+                    String _plus_5 = (_plus_4 + ";");
+                    edge = (_edge + _plus_5);
                   }
                   String _edge_1 = edge;
-                  String _name_8 = transition_1.getEvent().getName();
-                  String _plus_9 = (" sync " + _name_8);
-                  String _plus_10 = (_plus_9 + "!;");
-                  edge = (_edge_1 + _plus_10);
+                  String _name_6 = transition_1.getEvent().getName();
+                  String _plus_6 = (" sync " + _name_6);
+                  String _plus_7 = (_plus_6 + "!;");
+                  edge = (_edge_1 + _plus_7);
                   Assignment assignment = transition_1.getAssignment();
                   if ((assignment != null)) {
-                    DataType _type_1 = assignment.getCurrentVar().getVariable().getType();
-                    String type = (_type_1 + "");
+                    DataType _type = assignment.getCurrentVar().getVariable().getType();
+                    String type = (_type + "");
                     boolean _contains = type.contains("String");
                     boolean _not_1 = (!_contains);
                     if (_not_1) {
                       String _edge_2 = edge;
-                      String _name_9 = assignment.getCurrentVar().getVariable().getName();
-                      String _plus_11 = (" assign " + _name_9);
-                      String _plus_12 = (_plus_11 + " = ");
+                      String _name_7 = assignment.getCurrentVar().getVariable().getName();
+                      String _plus_8 = (" assign " + _name_7);
+                      String _plus_9 = (_plus_8 + " = ");
                       String _value = assignment.getValue();
-                      String _plus_13 = (_plus_12 + _value);
-                      String _plus_14 = (_plus_13 + ";");
-                      edge = (_edge_2 + _plus_14);
+                      String _plus_10 = (_plus_9 + _value);
+                      String _plus_11 = (_plus_10 + ";");
+                      edge = (_edge_2 + _plus_11);
                     }
                   }
                   String _edge_3 = edge;
-                  String _plus_15 = edge = (_edge_3 + " }");
-                  edges.add(_plus_15);
+                  String _plus_12 = edge = (_edge_3 + " }");
+                  edges.add(_plus_12);
                 }
               }
             }
@@ -424,8 +446,8 @@ public class VerificationGenerator extends AbstractGenerator {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
         _builder.append("chan ");
-        String _name_5 = event.getName();
-        _builder.append(_name_5);
+        String _name_3 = event.getName();
+        _builder.append(_name_3);
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
@@ -443,11 +465,11 @@ public class VerificationGenerator extends AbstractGenerator {
           }
         }
         _builder.newLineIfNotEmpty();
-        String _name_6 = automaton_1.getName();
-        _builder.append(_name_6);
+        String _name_4 = automaton_1.getName();
+        _builder.append(_name_4);
         _builder.append("1 = ");
-        String _name_7 = automaton_1.getName();
-        _builder.append(_name_7);
+        String _name_5 = automaton_1.getName();
+        _builder.append(_name_5);
         _builder.append("(");
         _builder.newLineIfNotEmpty();
         {
@@ -472,14 +494,14 @@ public class VerificationGenerator extends AbstractGenerator {
       EList<Automaton> _automaton = model.getAutomaton();
       for(final Automaton automaton_2 : _automaton) {
         _builder.append("system ");
-        String _name_8 = automaton_2.getName();
-        _builder.append(_name_8);
+        String _name_6 = automaton_2.getName();
+        _builder.append(_name_6);
         _builder.append("1;");
         _builder.newLineIfNotEmpty();
       }
     }
     CharSequence context = _builder;
-    String _plus_3 = (model + ".xta");
-    fsa.generateFile(_plus_3, context);
+    String _plus = (model + ".xta");
+    fsa.generateFile(_plus, context);
   }
 }
