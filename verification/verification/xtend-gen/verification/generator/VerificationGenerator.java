@@ -15,6 +15,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import verification.verification.Alter;
+import verification.verification.Assignment;
 import verification.verification.Automaton;
 import verification.verification.ComparisonOperator;
 import verification.verification.Condition;
@@ -370,9 +371,26 @@ public class VerificationGenerator extends AbstractGenerator {
                   String _plus_9 = (" sync " + _name_8);
                   String _plus_10 = (_plus_9 + "!;");
                   edge = (_edge_1 + _plus_10);
-                  String _edge_2 = edge;
-                  String _plus_11 = edge = (_edge_2 + " }");
-                  edges.add(_plus_11);
+                  Assignment assignment = transition_1.getAssignment();
+                  if ((assignment != null)) {
+                    DataType _type_1 = assignment.getCurrentVar().getVariable().getType();
+                    String type = (_type_1 + "");
+                    boolean _contains = type.contains("String");
+                    boolean _not_1 = (!_contains);
+                    if (_not_1) {
+                      String _edge_2 = edge;
+                      String _name_9 = assignment.getCurrentVar().getVariable().getName();
+                      String _plus_11 = (" assign " + _name_9);
+                      String _plus_12 = (_plus_11 + " = ");
+                      String _value = assignment.getValue();
+                      String _plus_13 = (_plus_12 + _value);
+                      String _plus_14 = (_plus_13 + ";");
+                      edge = (_edge_2 + _plus_14);
+                    }
+                  }
+                  String _edge_3 = edge;
+                  String _plus_15 = edge = (_edge_3 + " }");
+                  edges.add(_plus_15);
                 }
               }
             }

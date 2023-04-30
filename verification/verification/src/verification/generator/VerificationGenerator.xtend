@@ -138,6 +138,15 @@ class VerificationGenerator extends AbstractGenerator {
 						var condition = transition.condition
 						if(condition !== null){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
 						edge += " sync " + transition.event.name + "!;"
+						/*assign */
+						var assignment = transition.assignment;
+						if(assignment !== null){
+							var type = assignment.currentVar.variable.type + "";
+							if(!type.contains("String")){
+								edge += " assign " + assignment.currentVar.variable.name + " = " + assignment.value + ";"
+							}
+						}
+						
 						edges.add(edge += " }")
 					}	
 				}
