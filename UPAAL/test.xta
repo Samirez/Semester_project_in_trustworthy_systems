@@ -1,20 +1,22 @@
-process A(chan &BatteryCharged, chan &MissionReceived, chan &StandbyFailure, chan &FlyToTarget, chan &AbortMission, chan &AirborneFailure, chan &Landing, chan &AbortMission, chan  &ArrivedFailure, chan &TakingOff, chan &LandedFailure, chan &Returned, chan &ReturningFailure, chan &DefibrillatorDepleted, chan &DefibrillatorNotDepleted, chan &TakingOff, chan &LandedFailure, chan &DefibrillatorUsed) {
+int variable; 
+
+process A(	 chan &BatteryCharged, chan &MissionReceived, chan &StandbyFailure, chan &FlyToTarget, chan &AbortMission, chan &AirborneFailure, chan &Landing, chan &AbortMission, chan &ArrivedFailure, chan &TakingOff, chan &LandedFailure, chan &HasReturned, chan &ReturningFailure, chan &DefibrillatorDepleted, chan &DefibrillatorNotDepleted, chan &DefibrillatorUsed) {
 
 state
     Charging,
     Standby,
     Airborne,
     Arrived,
+    Landed,
     Returning,
     Returned,
     Maintenance,
     Failed,
-    Landed,
     Defibrillation;
 init
     Charging;
 trans
-    Charging -> Standby { },
+    Charging -> Standby { guard variable == 2; sync AbortMission!; assign variable = 3; },
     Standby -> Airborne { },
     Standby -> Failed { },
     Airborne -> Arrived { },
@@ -29,11 +31,8 @@ trans
     Returning -> Failed { },
     Returned -> Maintenance { },
     Returned -> Charging { },
-    Landed -> Returning { },
-    Landed -> Failed { },
     Defibrillation -> Landed { };
 }
-
 
 
 chan BatteryCharged;
@@ -46,32 +45,30 @@ chan Landing;
 chan ArrivedFailure;
 chan TakingOff;
 chan LandedFailure;
-chan Returned;
+chan HasReturned;
 chan ReturningFailure;
 chan DefibrillatorDepleted;
 chan DefibrillatorNotDepleted;
 chan DefibrillatorReady;
 chan DefibrillatorUsed;
 
-A1 = A( 
-BatteryCharged,
-MissionReceived,
-StandbyFailure,
-FlyToTarget,
-AbortMission,
-AirborneFailure,
-Landing,
-AbortMission,
-ArrivedFailure,
-TakingOff,
-LandedFailure,
-Returned,
-ReturningFailure,
-DefibrillatorDepleted,
-DefibrillatorNotDepleted,
-TakingOff,
-LandedFailure,
-DefibrillatorUsed
+A1 = A(
+BatteryCharged, 
+MissionReceived, 
+StandbyFailure, 
+FlyToTarget, 
+AbortMission, 
+AirborneFailure, 
+Landing, 
+AbortMission, 
+ArrivedFailure, 
+TakingOff, 
+LandedFailure, 
+HasReturned, 
+ReturningFailure, 
+DefibrillatorDepleted, 
+DefibrillatorNotDepleted, 
+DefibrillatorUsed 
 );
 
 system A1;

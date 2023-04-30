@@ -1,53 +1,39 @@
-process A(	
-chan &BatteryCharged,
-chan &MissionReceived,
-chan &StandbyFailure,
-chan &FlyToTarget,
-chan &AbortMission,
-chan &AirborneFailure,
-chan &Landing,
-chan &AbortMission,
-chan &ArrivedFailure,
-chan &TakingOff,
-chan &LandedFailure,
-chan &HasReturned,
-chan &ReturningFailure,
-chan &DefibrillatorDepleted,
-chan &DefibrillatorNotDepleted,
-chan &DefibrillatorUsed
-){
-	state
-		Charging,
-		Standby,
-		Airborne,
-		Arrived,
-		Landed,
-		Returning,
-		Returned,
-		Maintenance,
-		Failed,
-		Defibrillation
-;		
-		init Charging;
-		
-	trans
-		Charging ->Standby { },
-		Standby ->Airborne { },
-		Standby ->Failed { },
-		Airborne ->Arrived { },
-		Airborne ->Returning { },
-		Airborne ->Failed { },
-		Arrived ->Landed { },
-		Arrived ->Returning { },
-		Arrived ->Failed { },
-		Landed ->Returning { },
-		Landed ->Failed { },
-		Returning ->Returned { },
-		Returning ->Failed { },
-		Returned ->Maintenance { },
-		Returned ->Charging { },
-		Defibrillation ->Landed { }
-;		}
+int variable; 
+
+process A(	 chan &BatteryCharged, chan &MissionReceived, chan &StandbyFailure, chan &FlyToTarget, chan &AbortMission, chan &AirborneFailure, chan &Landing, chan &AbortMission, chan &ArrivedFailure, chan &TakingOff, chan &LandedFailure, chan &HasReturned, chan &ReturningFailure, chan &DefibrillatorDepleted, chan &DefibrillatorNotDepleted, chan &DefibrillatorUsed) {
+
+state
+    Charging,
+    Standby,
+    Airborne,
+    Arrived,
+    Landed,
+    Returning,
+    Returned,
+    Maintenance,
+    Failed,
+    Defibrillation;
+init
+    Charging;
+trans
+    Charging -> Standby { guard variable == 2; sync AbortMission!; assign variable = 3; },
+    Standby -> Airborne { },
+    Standby -> Failed { },
+    Airborne -> Arrived { },
+    Airborne -> Returning { },
+    Airborne -> Failed { },
+    Arrived -> Landed { },
+    Arrived -> Returning { },
+    Arrived -> Failed { },
+    Landed -> Returning { },
+    Landed -> Failed { },
+    Returning -> Returned { },
+    Returning -> Failed { },
+    Returned -> Maintenance { },
+    Returned -> Charging { },
+    Defibrillation -> Landed { };
+}
+
 
 chan BatteryCharged;
 chan MissionReceived;
