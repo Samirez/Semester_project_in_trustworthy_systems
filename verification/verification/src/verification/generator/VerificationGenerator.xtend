@@ -9,8 +9,8 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import verification.verification.Model
 import verification.verification.State
-import org.eclipse.emf.common.util.EList
 import java.util.ArrayList
+import java.util.HashMap
 
 /**
  * Generates code from your model files on save.
@@ -101,6 +101,17 @@ class VerificationGenerator extends AbstractGenerator {
 		chan &«chan»
 		«ENDFOR»
 		){
+			«var propsMap = new HashMap<String, String>()»
+			«for(location :automaton.location){
+				for(prop : location.state.locals){
+					propsMap.put(prop.name, prop.type + " " + prop.name + ";")
+				}
+			}»
+			«var props = propsMap.values().toArray()»
+			«FOR prop : props»
+			«prop»
+			«ENDFOR»
+			
 			state
 				«FOR location: automaton.location SEPARATOR ',' AFTER ';'»
 					«location.state.name»

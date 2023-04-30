@@ -20,6 +20,15 @@ chan &DefibrillatorDepleted,
 chan &DefibrillatorNotDepleted,
 chan &DefibrillatorUsed
 ){
+	boolean ArrivedAtCoordinates;
+	boolean Abort;
+	boolean ArrivedAtBase;
+	boolean ReceivedMission;
+	boolean Error;
+	boolean Recall;
+	boolean FoundLandingPlace;
+	boolean DefibrillatorIsUsed;
+	
 	state
 		Charging,
 		Standby,
