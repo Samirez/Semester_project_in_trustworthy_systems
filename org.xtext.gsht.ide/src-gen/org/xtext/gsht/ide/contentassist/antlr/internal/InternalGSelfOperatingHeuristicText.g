@@ -374,31 +374,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleLocation
-entryRuleLocation
-:
-{ before(grammarAccess.getLocationRule()); }
-	 ruleLocation
-{ after(grammarAccess.getLocationRule()); } 
-	 EOF 
-;
-
-// Rule Location
-ruleLocation 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getLocationAccess().getStateAssignment()); }
-		(rule__Location__StateAssignment)
-		{ after(grammarAccess.getLocationAccess().getStateAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Rule DataType
 ruleDataType
 	@init {
@@ -2888,9 +2863,9 @@ rule__Automaton__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAutomatonAccess().getLocationAssignment_3()); }
-	(rule__Automaton__LocationAssignment_3)*
-	{ after(grammarAccess.getAutomatonAccess().getLocationAssignment_3()); }
+	{ before(grammarAccess.getAutomatonAccess().getStatesAssignment_3()); }
+	(rule__Automaton__StatesAssignment_3)*
+	{ after(grammarAccess.getAutomatonAccess().getStatesAssignment_3()); }
 )
 ;
 finally {
@@ -3405,34 +3380,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Automaton__LocationAssignment_3
+rule__Automaton__StatesAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getAutomatonAccess().getLocationLocationParserRuleCall_3_0()); }
-		ruleLocation
-		{ after(grammarAccess.getAutomatonAccess().getLocationLocationParserRuleCall_3_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Location__StateAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getLocationAccess().getStateStateCrossReference_0()); }
+		{ before(grammarAccess.getAutomatonAccess().getStatesStateCrossReference_3_0()); }
 		(
-			{ before(grammarAccess.getLocationAccess().getStateStateIDTerminalRuleCall_0_1()); }
+			{ before(grammarAccess.getAutomatonAccess().getStatesStateIDTerminalRuleCall_3_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getLocationAccess().getStateStateIDTerminalRuleCall_0_1()); }
+			{ after(grammarAccess.getAutomatonAccess().getStatesStateIDTerminalRuleCall_3_0_1()); }
 		)
-		{ after(grammarAccess.getLocationAccess().getStateStateCrossReference_0()); }
+		{ after(grammarAccess.getAutomatonAccess().getStatesStateCrossReference_3_0()); }
 	)
 ;
 finally {

@@ -6,7 +6,6 @@ global
 	ErrorCode as String = "Operational"
 	DefibrillatorIsDepleted as boolean = false
 }
-
 events
 {
 	BatteryCharged
@@ -19,7 +18,7 @@ events
 	ArrivedFailure
 	TakingOff
 	LandedFailure
-	Returned
+	HasReturned
 	ReturningFailure
 	DefibrillatorDepleted
 	DefibrillatorNotDepleted
@@ -94,7 +93,7 @@ state Returning
 	}
 	transitions
 	{
-		on Returned to Returned if ArrivedAtBase == TRUE
+		on HasReturned to Returned if ArrivedAtBase == TRUE
 		on ReturningFailure to Failed if Error == TRUE set ErrorCode = "Returning Failure"
 	}
 			
@@ -110,16 +109,15 @@ state Maintenance
 state Failed
 
 AUTOMATON A
-            {
-                Charging
-                Standby
-                Airborne
-                Arrived
-                Landed
-                Returning
-                Returned
-                Maintenance
-                Failed
-                
-            }
-	 
+			{
+				Charging
+				Standby
+				Airborne
+				Arrived
+				Landed
+				Returning
+				Returned
+				Maintenance
+				Failed
+				
+			}

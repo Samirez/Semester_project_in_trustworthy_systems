@@ -842,21 +842,22 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLocationAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLocationLocationParserRuleCall_3_0 = (RuleCall)cLocationAssignment_3.eContents().get(0);
+		private final Assignment cStatesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cStatesStateCrossReference_3_0 = (CrossReference)cStatesAssignment_3.eContents().get(0);
+		private final RuleCall cStatesStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStatesStateCrossReference_3_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Automaton:
 		//    ('AUTOMATON' | 'automaton') name=ID
 		//    '{'
-		//        (location+=Location)*
+		//        states+=[State]*
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//('AUTOMATON' | 'automaton') name=ID
 		//'{'
-		//    (location+=Location)*
+		//    states+=[State]*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -878,34 +879,17 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//(location+=Location)*
-		public Assignment getLocationAssignment_3() { return cLocationAssignment_3; }
+		//states+=[State]*
+		public Assignment getStatesAssignment_3() { return cStatesAssignment_3; }
 		
-		//Location
-		public RuleCall getLocationLocationParserRuleCall_3_0() { return cLocationLocationParserRuleCall_3_0; }
+		//[State]
+		public CrossReference getStatesStateCrossReference_3_0() { return cStatesStateCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getStatesStateIDTerminalRuleCall_3_0_1() { return cStatesStateIDTerminalRuleCall_3_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class LocationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Location");
-		private final Assignment cStateAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cStateStateCrossReference_0 = (CrossReference)cStateAssignment.eContents().get(0);
-		private final RuleCall cStateStateIDTerminalRuleCall_0_1 = (RuleCall)cStateStateCrossReference_0.eContents().get(1);
-		
-		//Location:
-		//    state=[State]
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//state=[State]
-		public Assignment getStateAssignment() { return cStateAssignment; }
-		
-		//[State]
-		public CrossReference getStateStateCrossReference_0() { return cStateStateCrossReference_0; }
-		
-		//ID
-		public RuleCall getStateStateIDTerminalRuleCall_0_1() { return cStateStateIDTerminalRuleCall_0_1; }
 	}
 	
 	public class DataTypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
@@ -1046,7 +1030,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	private final TerminalRule tBOOL;
 	private final TerminalRule tDOUBLE;
 	private final AutomatonElements pAutomaton;
-	private final LocationElements pLocation;
 	
 	private final Grammar grammar;
 	
@@ -1076,7 +1059,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		this.tBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.BOOL");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.DOUBLE");
 		this.pAutomaton = new AutomatonElements();
-		this.pLocation = new LocationElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1313,7 +1295,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	//Automaton:
 	//    ('AUTOMATON' | 'automaton') name=ID
 	//    '{'
-	//        (location+=Location)*
+	//        states+=[State]*
 	//    '}'
 	//;
 	public AutomatonElements getAutomatonAccess() {
@@ -1322,17 +1304,6 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	
 	public ParserRule getAutomatonRule() {
 		return getAutomatonAccess().getRule();
-	}
-	
-	//Location:
-	//    state=[State]
-	//;
-	public LocationElements getLocationAccess() {
-		return pLocation;
-	}
-	
-	public ParserRule getLocationRule() {
-		return getLocationAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

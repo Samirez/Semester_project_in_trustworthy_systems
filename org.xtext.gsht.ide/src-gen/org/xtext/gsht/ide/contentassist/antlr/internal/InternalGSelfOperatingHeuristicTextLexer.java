@@ -982,10 +982,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3442:10: ( ( '0' .. '9' )+ )
-            // InternalGSelfOperatingHeuristicText.g:3442:12: ( '0' .. '9' )+
+            // InternalGSelfOperatingHeuristicText.g:3402:10: ( ( '0' .. '9' )+ )
+            // InternalGSelfOperatingHeuristicText.g:3402:12: ( '0' .. '9' )+
             {
-            // InternalGSelfOperatingHeuristicText.g:3442:12: ( '0' .. '9' )+
+            // InternalGSelfOperatingHeuristicText.g:3402:12: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -999,7 +999,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:3442:13: '0' .. '9'
+            	    // InternalGSelfOperatingHeuristicText.g:3402:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1031,10 +1031,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_BOOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3444:11: ( ( ( 'TRUE' | 'true' | 'True' ) | ( 'FALSE' | 'false' | 'False' ) ) )
-            // InternalGSelfOperatingHeuristicText.g:3444:13: ( ( 'TRUE' | 'true' | 'True' ) | ( 'FALSE' | 'false' | 'False' ) )
+            // InternalGSelfOperatingHeuristicText.g:3404:11: ( ( ( 'TRUE' | 'true' | 'True' ) | ( 'FALSE' | 'false' | 'False' ) ) )
+            // InternalGSelfOperatingHeuristicText.g:3404:13: ( ( 'TRUE' | 'true' | 'True' ) | ( 'FALSE' | 'false' | 'False' ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:3444:13: ( ( 'TRUE' | 'true' | 'True' ) | ( 'FALSE' | 'false' | 'False' ) )
+            // InternalGSelfOperatingHeuristicText.g:3404:13: ( ( 'TRUE' | 'true' | 'True' ) | ( 'FALSE' | 'false' | 'False' ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1052,9 +1052,9 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:3444:14: ( 'TRUE' | 'true' | 'True' )
+                    // InternalGSelfOperatingHeuristicText.g:3404:14: ( 'TRUE' | 'true' | 'True' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:3444:14: ( 'TRUE' | 'true' | 'True' )
+                    // InternalGSelfOperatingHeuristicText.g:3404:14: ( 'TRUE' | 'true' | 'True' )
                     int alt2=3;
                     int LA2_0 = input.LA(1);
 
@@ -1085,7 +1085,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:3444:15: 'TRUE'
+                            // InternalGSelfOperatingHeuristicText.g:3404:15: 'TRUE'
                             {
                             match("TRUE"); 
 
@@ -1093,7 +1093,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:3444:22: 'true'
+                            // InternalGSelfOperatingHeuristicText.g:3404:22: 'true'
                             {
                             match("true"); 
 
@@ -1101,7 +1101,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                             }
                             break;
                         case 3 :
-                            // InternalGSelfOperatingHeuristicText.g:3444:29: 'True'
+                            // InternalGSelfOperatingHeuristicText.g:3404:29: 'True'
                             {
                             match("True"); 
 
@@ -1115,9 +1115,9 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:3444:37: ( 'FALSE' | 'false' | 'False' )
+                    // InternalGSelfOperatingHeuristicText.g:3404:37: ( 'FALSE' | 'false' | 'False' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:3444:37: ( 'FALSE' | 'false' | 'False' )
+                    // InternalGSelfOperatingHeuristicText.g:3404:37: ( 'FALSE' | 'false' | 'False' )
                     int alt3=3;
                     int LA3_0 = input.LA(1);
 
@@ -1148,7 +1148,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:3444:38: 'FALSE'
+                            // InternalGSelfOperatingHeuristicText.g:3404:38: 'FALSE'
                             {
                             match("FALSE"); 
 
@@ -1156,7 +1156,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:3444:46: 'false'
+                            // InternalGSelfOperatingHeuristicText.g:3404:46: 'false'
                             {
                             match("false"); 
 
@@ -1164,7 +1164,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                             }
                             break;
                         case 3 :
-                            // InternalGSelfOperatingHeuristicText.g:3444:54: 'False'
+                            // InternalGSelfOperatingHeuristicText.g:3404:54: 'False'
                             {
                             match("False"); 
 
@@ -1196,10 +1196,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_DOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3446:13: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+ )? )
-            // InternalGSelfOperatingHeuristicText.g:3446:15: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+ )?
+            // InternalGSelfOperatingHeuristicText.g:3406:13: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+ )? )
+            // InternalGSelfOperatingHeuristicText.g:3406:15: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+ )?
             {
-            // InternalGSelfOperatingHeuristicText.g:3446:15: ( '0' .. '9' )+
+            // InternalGSelfOperatingHeuristicText.g:3406:15: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -1213,7 +1213,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:3446:16: '0' .. '9'
+            	    // InternalGSelfOperatingHeuristicText.g:3406:16: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1230,7 +1230,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // InternalGSelfOperatingHeuristicText.g:3446:31: ( '0' .. '9' )*
+            // InternalGSelfOperatingHeuristicText.g:3406:31: ( '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -1243,7 +1243,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:3446:32: '0' .. '9'
+            	    // InternalGSelfOperatingHeuristicText.g:3406:32: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1255,7 +1255,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalGSelfOperatingHeuristicText.g:3446:43: ( ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+ )?
+            // InternalGSelfOperatingHeuristicText.g:3406:43: ( ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+ )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1264,7 +1264,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:3446:44: ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+
+                    // InternalGSelfOperatingHeuristicText.g:3406:44: ( 'E' | 'e' ) ( '+' | '-' )? ( '0' .. '9' )+
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -1275,7 +1275,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // InternalGSelfOperatingHeuristicText.g:3446:54: ( '+' | '-' )?
+                    // InternalGSelfOperatingHeuristicText.g:3406:54: ( '+' | '-' )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -1301,7 +1301,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                     }
 
-                    // InternalGSelfOperatingHeuristicText.g:3446:65: ( '0' .. '9' )+
+                    // InternalGSelfOperatingHeuristicText.g:3406:65: ( '0' .. '9' )+
                     int cnt8=0;
                     loop8:
                     do {
@@ -1315,7 +1315,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:3446:66: '0' .. '9'
+                    	    // InternalGSelfOperatingHeuristicText.g:3406:66: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1353,10 +1353,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3448:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalGSelfOperatingHeuristicText.g:3448:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalGSelfOperatingHeuristicText.g:3408:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalGSelfOperatingHeuristicText.g:3408:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalGSelfOperatingHeuristicText.g:3448:11: ( '^' )?
+            // InternalGSelfOperatingHeuristicText.g:3408:11: ( '^' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1365,7 +1365,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:3448:11: '^'
+                    // InternalGSelfOperatingHeuristicText.g:3408:11: '^'
                     {
                     match('^'); 
 
@@ -1383,7 +1383,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalGSelfOperatingHeuristicText.g:3448:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalGSelfOperatingHeuristicText.g:3408:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop11:
             do {
                 int alt11=2;
@@ -1432,10 +1432,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3450:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalGSelfOperatingHeuristicText.g:3450:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalGSelfOperatingHeuristicText.g:3410:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalGSelfOperatingHeuristicText.g:3410:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalGSelfOperatingHeuristicText.g:3450:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalGSelfOperatingHeuristicText.g:3410:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1453,10 +1453,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:3450:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalGSelfOperatingHeuristicText.g:3410:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalGSelfOperatingHeuristicText.g:3450:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalGSelfOperatingHeuristicText.g:3410:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop12:
                     do {
                         int alt12=3;
@@ -1472,7 +1472,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:3450:21: '\\\\' .
+                    	    // InternalGSelfOperatingHeuristicText.g:3410:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1480,7 +1480,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalGSelfOperatingHeuristicText.g:3450:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalGSelfOperatingHeuristicText.g:3410:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1505,10 +1505,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:3450:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalGSelfOperatingHeuristicText.g:3410:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalGSelfOperatingHeuristicText.g:3450:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalGSelfOperatingHeuristicText.g:3410:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop13:
                     do {
                         int alt13=3;
@@ -1524,7 +1524,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:3450:54: '\\\\' .
+                    	    // InternalGSelfOperatingHeuristicText.g:3410:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1532,7 +1532,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalGSelfOperatingHeuristicText.g:3450:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalGSelfOperatingHeuristicText.g:3410:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1575,12 +1575,12 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3452:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalGSelfOperatingHeuristicText.g:3452:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalGSelfOperatingHeuristicText.g:3412:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalGSelfOperatingHeuristicText.g:3412:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalGSelfOperatingHeuristicText.g:3452:24: ( options {greedy=false; } : . )*
+            // InternalGSelfOperatingHeuristicText.g:3412:24: ( options {greedy=false; } : . )*
             loop15:
             do {
                 int alt15=2;
@@ -1605,7 +1605,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:3452:52: .
+            	    // InternalGSelfOperatingHeuristicText.g:3412:52: .
             	    {
             	    matchAny(); 
 
@@ -1635,12 +1635,12 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3454:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalGSelfOperatingHeuristicText.g:3454:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalGSelfOperatingHeuristicText.g:3414:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalGSelfOperatingHeuristicText.g:3414:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalGSelfOperatingHeuristicText.g:3454:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalGSelfOperatingHeuristicText.g:3414:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop16:
             do {
                 int alt16=2;
@@ -1653,7 +1653,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
 
                 switch (alt16) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:3454:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalGSelfOperatingHeuristicText.g:3414:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1673,7 +1673,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalGSelfOperatingHeuristicText.g:3454:40: ( ( '\\r' )? '\\n' )?
+            // InternalGSelfOperatingHeuristicText.g:3414:40: ( ( '\\r' )? '\\n' )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -1682,9 +1682,9 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
             }
             switch (alt18) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:3454:41: ( '\\r' )? '\\n'
+                    // InternalGSelfOperatingHeuristicText.g:3414:41: ( '\\r' )? '\\n'
                     {
-                    // InternalGSelfOperatingHeuristicText.g:3454:41: ( '\\r' )?
+                    // InternalGSelfOperatingHeuristicText.g:3414:41: ( '\\r' )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -1693,7 +1693,7 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:3454:41: '\\r'
+                            // InternalGSelfOperatingHeuristicText.g:3414:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1725,10 +1725,10 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3456:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalGSelfOperatingHeuristicText.g:3456:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalGSelfOperatingHeuristicText.g:3416:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalGSelfOperatingHeuristicText.g:3416:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalGSelfOperatingHeuristicText.g:3456:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalGSelfOperatingHeuristicText.g:3416:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt19=0;
             loop19:
             do {
@@ -1782,8 +1782,8 @@ public class InternalGSelfOperatingHeuristicTextLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGSelfOperatingHeuristicText.g:3458:16: ( . )
-            // InternalGSelfOperatingHeuristicText.g:3458:18: .
+            // InternalGSelfOperatingHeuristicText.g:3418:16: ( . )
+            // InternalGSelfOperatingHeuristicText.g:3418:18: .
             {
             matchAny(); 
 

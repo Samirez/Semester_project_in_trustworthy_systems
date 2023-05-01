@@ -1,0 +1,7 @@
+
+
+chan GoToState1;
+chan GoToState2;
+chan GoToState3;
+
+

@@ -3138,7 +3138,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleAutomaton"
-    // InternalGSelfOperatingHeuristicText.g:1141:1: ruleAutomaton returns [EObject current=null] : ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_location_4_0= ruleLocation ) )* otherlv_5= '}' ) ;
+    // InternalGSelfOperatingHeuristicText.g:1141:1: ruleAutomaton returns [EObject current=null] : ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' ) ;
     public final EObject ruleAutomaton() throws RecognitionException {
         EObject current = null;
 
@@ -3146,19 +3146,18 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         Token otherlv_1=null;
         Token lv_name_2_0=null;
         Token otherlv_3=null;
+        Token otherlv_4=null;
         Token otherlv_5=null;
-        EObject lv_location_4_0 = null;
-
 
 
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1147:2: ( ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_location_4_0= ruleLocation ) )* otherlv_5= '}' ) )
-            // InternalGSelfOperatingHeuristicText.g:1148:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_location_4_0= ruleLocation ) )* otherlv_5= '}' )
+            // InternalGSelfOperatingHeuristicText.g:1147:2: ( ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' ) )
+            // InternalGSelfOperatingHeuristicText.g:1148:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' )
             {
-            // InternalGSelfOperatingHeuristicText.g:1148:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_location_4_0= ruleLocation ) )* otherlv_5= '}' )
-            // InternalGSelfOperatingHeuristicText.g:1149:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_location_4_0= ruleLocation ) )* otherlv_5= '}'
+            // InternalGSelfOperatingHeuristicText.g:1148:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' )
+            // InternalGSelfOperatingHeuristicText.g:1149:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}'
             {
             // InternalGSelfOperatingHeuristicText.g:1149:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' )
             int alt36=2;
@@ -3230,7 +3229,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             			newLeafNode(otherlv_3, grammarAccess.getAutomatonAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalGSelfOperatingHeuristicText.g:1182:3: ( (lv_location_4_0= ruleLocation ) )*
+            // InternalGSelfOperatingHeuristicText.g:1182:3: ( (otherlv_4= RULE_ID ) )*
             loop37:
             do {
                 int alt37=2;
@@ -3243,29 +3242,19 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                 switch (alt37) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:1183:4: (lv_location_4_0= ruleLocation )
+            	    // InternalGSelfOperatingHeuristicText.g:1183:4: (otherlv_4= RULE_ID )
             	    {
-            	    // InternalGSelfOperatingHeuristicText.g:1183:4: (lv_location_4_0= ruleLocation )
-            	    // InternalGSelfOperatingHeuristicText.g:1184:5: lv_location_4_0= ruleLocation
+            	    // InternalGSelfOperatingHeuristicText.g:1183:4: (otherlv_4= RULE_ID )
+            	    // InternalGSelfOperatingHeuristicText.g:1184:5: otherlv_4= RULE_ID
             	    {
-
-            	    					newCompositeNode(grammarAccess.getAutomatonAccess().getLocationLocationParserRuleCall_3_0());
-            	    				
-            	    pushFollow(FOLLOW_6);
-            	    lv_location_4_0=ruleLocation();
-
-            	    state._fsp--;
-
 
             	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getAutomatonRule());
+            	    						current = createModelElement(grammarAccess.getAutomatonRule());
             	    					}
-            	    					add(
-            	    						current,
-            	    						"location",
-            	    						lv_location_4_0,
-            	    						"org.xtext.gsht.GSelfOperatingHeuristicText.Location");
-            	    					afterParserOrEnumRuleCall();
+            	    				
+            	    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_6); 
+
+            	    					newLeafNode(otherlv_4, grammarAccess.getAutomatonAccess().getStatesStateCrossReference_3_0());
             	    				
 
             	    }
@@ -3305,98 +3294,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
     // $ANTLR end "ruleAutomaton"
 
 
-    // $ANTLR start "entryRuleLocation"
-    // InternalGSelfOperatingHeuristicText.g:1209:1: entryRuleLocation returns [EObject current=null] : iv_ruleLocation= ruleLocation EOF ;
-    public final EObject entryRuleLocation() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleLocation = null;
-
-
-        try {
-            // InternalGSelfOperatingHeuristicText.g:1209:49: (iv_ruleLocation= ruleLocation EOF )
-            // InternalGSelfOperatingHeuristicText.g:1210:2: iv_ruleLocation= ruleLocation EOF
-            {
-             newCompositeNode(grammarAccess.getLocationRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleLocation=ruleLocation();
-
-            state._fsp--;
-
-             current =iv_ruleLocation; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleLocation"
-
-
-    // $ANTLR start "ruleLocation"
-    // InternalGSelfOperatingHeuristicText.g:1216:1: ruleLocation returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
-    public final EObject ruleLocation() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalGSelfOperatingHeuristicText.g:1222:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1223:2: ( (otherlv_0= RULE_ID ) )
-            {
-            // InternalGSelfOperatingHeuristicText.g:1223:2: ( (otherlv_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:1224:3: (otherlv_0= RULE_ID )
-            {
-            // InternalGSelfOperatingHeuristicText.g:1224:3: (otherlv_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:1225:4: otherlv_0= RULE_ID
-            {
-
-            				if (current==null) {
-            					current = createModelElement(grammarAccess.getLocationRule());
-            				}
-            			
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_2); 
-
-            				newLeafNode(otherlv_0, grammarAccess.getLocationAccess().getStateStateCrossReference_0());
-            			
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleLocation"
-
-
     // $ANTLR start "ruleDataType"
-    // InternalGSelfOperatingHeuristicText.g:1239:1: ruleDataType returns [Enumerator current=null] : ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:1203:1: ruleDataType returns [Enumerator current=null] : ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) ;
     public final Enumerator ruleDataType() throws RecognitionException {
         Enumerator current = null;
 
@@ -3410,10 +3309,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1245:2: ( ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1246:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
+            // InternalGSelfOperatingHeuristicText.g:1209:2: ( ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1210:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1246:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
+            // InternalGSelfOperatingHeuristicText.g:1210:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
             int alt38=5;
             switch ( input.LA(1) ) {
             case 44:
@@ -3450,10 +3349,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             switch (alt38) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:1247:3: (enumLiteral_0= '??' )
+                    // InternalGSelfOperatingHeuristicText.g:1211:3: (enumLiteral_0= '??' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1247:3: (enumLiteral_0= '??' )
-                    // InternalGSelfOperatingHeuristicText.g:1248:4: enumLiteral_0= '??'
+                    // InternalGSelfOperatingHeuristicText.g:1211:3: (enumLiteral_0= '??' )
+                    // InternalGSelfOperatingHeuristicText.g:1212:4: enumLiteral_0= '??'
                     {
                     enumLiteral_0=(Token)match(input,44,FOLLOW_2); 
 
@@ -3467,10 +3366,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:1255:3: (enumLiteral_1= 'int' )
+                    // InternalGSelfOperatingHeuristicText.g:1219:3: (enumLiteral_1= 'int' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1255:3: (enumLiteral_1= 'int' )
-                    // InternalGSelfOperatingHeuristicText.g:1256:4: enumLiteral_1= 'int'
+                    // InternalGSelfOperatingHeuristicText.g:1219:3: (enumLiteral_1= 'int' )
+                    // InternalGSelfOperatingHeuristicText.g:1220:4: enumLiteral_1= 'int'
                     {
                     enumLiteral_1=(Token)match(input,45,FOLLOW_2); 
 
@@ -3484,10 +3383,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 3 :
-                    // InternalGSelfOperatingHeuristicText.g:1263:3: (enumLiteral_2= 'boolean' )
+                    // InternalGSelfOperatingHeuristicText.g:1227:3: (enumLiteral_2= 'boolean' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1263:3: (enumLiteral_2= 'boolean' )
-                    // InternalGSelfOperatingHeuristicText.g:1264:4: enumLiteral_2= 'boolean'
+                    // InternalGSelfOperatingHeuristicText.g:1227:3: (enumLiteral_2= 'boolean' )
+                    // InternalGSelfOperatingHeuristicText.g:1228:4: enumLiteral_2= 'boolean'
                     {
                     enumLiteral_2=(Token)match(input,46,FOLLOW_2); 
 
@@ -3501,10 +3400,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 4 :
-                    // InternalGSelfOperatingHeuristicText.g:1271:3: (enumLiteral_3= 'double' )
+                    // InternalGSelfOperatingHeuristicText.g:1235:3: (enumLiteral_3= 'double' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1271:3: (enumLiteral_3= 'double' )
-                    // InternalGSelfOperatingHeuristicText.g:1272:4: enumLiteral_3= 'double'
+                    // InternalGSelfOperatingHeuristicText.g:1235:3: (enumLiteral_3= 'double' )
+                    // InternalGSelfOperatingHeuristicText.g:1236:4: enumLiteral_3= 'double'
                     {
                     enumLiteral_3=(Token)match(input,47,FOLLOW_2); 
 
@@ -3518,10 +3417,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 5 :
-                    // InternalGSelfOperatingHeuristicText.g:1279:3: (enumLiteral_4= 'String' )
+                    // InternalGSelfOperatingHeuristicText.g:1243:3: (enumLiteral_4= 'String' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1279:3: (enumLiteral_4= 'String' )
-                    // InternalGSelfOperatingHeuristicText.g:1280:4: enumLiteral_4= 'String'
+                    // InternalGSelfOperatingHeuristicText.g:1243:3: (enumLiteral_4= 'String' )
+                    // InternalGSelfOperatingHeuristicText.g:1244:4: enumLiteral_4= 'String'
                     {
                     enumLiteral_4=(Token)match(input,48,FOLLOW_2); 
 
@@ -3557,7 +3456,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleComparisonOperator"
-    // InternalGSelfOperatingHeuristicText.g:1290:1: ruleComparisonOperator returns [Enumerator current=null] : ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:1254:1: ruleComparisonOperator returns [Enumerator current=null] : ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) ;
     public final Enumerator ruleComparisonOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -3573,10 +3472,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1296:2: ( ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1297:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
+            // InternalGSelfOperatingHeuristicText.g:1260:2: ( ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1261:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1297:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
+            // InternalGSelfOperatingHeuristicText.g:1261:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
             int alt39=7;
             switch ( input.LA(1) ) {
             case 49:
@@ -3623,10 +3522,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             switch (alt39) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:1298:3: (enumLiteral_0= '\\u00A4\\u00A4' )
+                    // InternalGSelfOperatingHeuristicText.g:1262:3: (enumLiteral_0= '\\u00A4\\u00A4' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1298:3: (enumLiteral_0= '\\u00A4\\u00A4' )
-                    // InternalGSelfOperatingHeuristicText.g:1299:4: enumLiteral_0= '\\u00A4\\u00A4'
+                    // InternalGSelfOperatingHeuristicText.g:1262:3: (enumLiteral_0= '\\u00A4\\u00A4' )
+                    // InternalGSelfOperatingHeuristicText.g:1263:4: enumLiteral_0= '\\u00A4\\u00A4'
                     {
                     enumLiteral_0=(Token)match(input,49,FOLLOW_2); 
 
@@ -3640,10 +3539,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:1306:3: (enumLiteral_1= '!=' )
+                    // InternalGSelfOperatingHeuristicText.g:1270:3: (enumLiteral_1= '!=' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1306:3: (enumLiteral_1= '!=' )
-                    // InternalGSelfOperatingHeuristicText.g:1307:4: enumLiteral_1= '!='
+                    // InternalGSelfOperatingHeuristicText.g:1270:3: (enumLiteral_1= '!=' )
+                    // InternalGSelfOperatingHeuristicText.g:1271:4: enumLiteral_1= '!='
                     {
                     enumLiteral_1=(Token)match(input,50,FOLLOW_2); 
 
@@ -3657,10 +3556,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 3 :
-                    // InternalGSelfOperatingHeuristicText.g:1314:3: (enumLiteral_2= '==' )
+                    // InternalGSelfOperatingHeuristicText.g:1278:3: (enumLiteral_2= '==' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1314:3: (enumLiteral_2= '==' )
-                    // InternalGSelfOperatingHeuristicText.g:1315:4: enumLiteral_2= '=='
+                    // InternalGSelfOperatingHeuristicText.g:1278:3: (enumLiteral_2= '==' )
+                    // InternalGSelfOperatingHeuristicText.g:1279:4: enumLiteral_2= '=='
                     {
                     enumLiteral_2=(Token)match(input,51,FOLLOW_2); 
 
@@ -3674,10 +3573,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 4 :
-                    // InternalGSelfOperatingHeuristicText.g:1322:3: (enumLiteral_3= '>' )
+                    // InternalGSelfOperatingHeuristicText.g:1286:3: (enumLiteral_3= '>' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1322:3: (enumLiteral_3= '>' )
-                    // InternalGSelfOperatingHeuristicText.g:1323:4: enumLiteral_3= '>'
+                    // InternalGSelfOperatingHeuristicText.g:1286:3: (enumLiteral_3= '>' )
+                    // InternalGSelfOperatingHeuristicText.g:1287:4: enumLiteral_3= '>'
                     {
                     enumLiteral_3=(Token)match(input,52,FOLLOW_2); 
 
@@ -3691,10 +3590,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 5 :
-                    // InternalGSelfOperatingHeuristicText.g:1330:3: (enumLiteral_4= '<' )
+                    // InternalGSelfOperatingHeuristicText.g:1294:3: (enumLiteral_4= '<' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1330:3: (enumLiteral_4= '<' )
-                    // InternalGSelfOperatingHeuristicText.g:1331:4: enumLiteral_4= '<'
+                    // InternalGSelfOperatingHeuristicText.g:1294:3: (enumLiteral_4= '<' )
+                    // InternalGSelfOperatingHeuristicText.g:1295:4: enumLiteral_4= '<'
                     {
                     enumLiteral_4=(Token)match(input,53,FOLLOW_2); 
 
@@ -3708,10 +3607,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 6 :
-                    // InternalGSelfOperatingHeuristicText.g:1338:3: (enumLiteral_5= '>=' )
+                    // InternalGSelfOperatingHeuristicText.g:1302:3: (enumLiteral_5= '>=' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1338:3: (enumLiteral_5= '>=' )
-                    // InternalGSelfOperatingHeuristicText.g:1339:4: enumLiteral_5= '>='
+                    // InternalGSelfOperatingHeuristicText.g:1302:3: (enumLiteral_5= '>=' )
+                    // InternalGSelfOperatingHeuristicText.g:1303:4: enumLiteral_5= '>='
                     {
                     enumLiteral_5=(Token)match(input,54,FOLLOW_2); 
 
@@ -3725,10 +3624,10 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 7 :
-                    // InternalGSelfOperatingHeuristicText.g:1346:3: (enumLiteral_6= '<=' )
+                    // InternalGSelfOperatingHeuristicText.g:1310:3: (enumLiteral_6= '<=' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1346:3: (enumLiteral_6= '<=' )
-                    // InternalGSelfOperatingHeuristicText.g:1347:4: enumLiteral_6= '<='
+                    // InternalGSelfOperatingHeuristicText.g:1310:3: (enumLiteral_6= '<=' )
+                    // InternalGSelfOperatingHeuristicText.g:1311:4: enumLiteral_6= '<='
                     {
                     enumLiteral_6=(Token)match(input,55,FOLLOW_2); 
 

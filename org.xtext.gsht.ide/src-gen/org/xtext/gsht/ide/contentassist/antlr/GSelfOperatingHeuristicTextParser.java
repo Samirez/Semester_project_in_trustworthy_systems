@@ -103,8 +103,7 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getAssignmentAccess().getValueAssignment_2(), "rule__Assignment__ValueAssignment_2");
 			builder.put(grammarAccess.getVariableReferenceAccess().getVariableAssignment(), "rule__VariableReference__VariableAssignment");
 			builder.put(grammarAccess.getAutomatonAccess().getNameAssignment_1(), "rule__Automaton__NameAssignment_1");
-			builder.put(grammarAccess.getAutomatonAccess().getLocationAssignment_3(), "rule__Automaton__LocationAssignment_3");
-			builder.put(grammarAccess.getLocationAccess().getStateAssignment(), "rule__Location__StateAssignment");
+			builder.put(grammarAccess.getAutomatonAccess().getStatesAssignment_3(), "rule__Automaton__StatesAssignment_3");
 		}
 	}
 	

@@ -18,7 +18,7 @@ Model:
 
 	(states+=State | alters+=Alter)*
 	
-	(automaton+=Automaton)*	
+	(automaton+=Automaton)*
 	
 	
 ;
@@ -105,11 +105,9 @@ terminal DOUBLE returns ecore::EDouble:
 Automaton:
 	('AUTOMATON' | 'automaton') name=ID
 	'{'
-    	(location+=Location)*
+    	states+=[State]*
     	
 	'}'
 ;
 
-Location:
-	state=[State]
-;
+

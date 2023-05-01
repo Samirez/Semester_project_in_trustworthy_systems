@@ -30,7 +30,7 @@ public class EmergencyDrone {
 			add("ArrivedFailure");
 			add("TakingOff");
 			add("LandedFailure");
-			add("Returned");
+			add("HasReturned");
 			add("ReturningFailure");
 			add("DefibrillatorDepleted");
 			add("DefibrillatorNotDepleted");
@@ -195,9 +195,9 @@ public class EmergencyDrone {
 					setName("Returning");
 					addProp("ArrivedAtBase", true);
 					addProp("Error", false);
-					addTransition("Returned", new Transition() {
+					addTransition("HasReturned", new Transition() {
 						{
-							setEvent("Returned");
+							setEvent("HasReturned");
 							setToState("Returned");
 							setHasCondition(true);
 							setEvaluatedValueName("ArrivedAtBase");

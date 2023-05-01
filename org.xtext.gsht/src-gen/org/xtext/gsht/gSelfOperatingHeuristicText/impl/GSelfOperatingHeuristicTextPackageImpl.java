@@ -24,7 +24,6 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
 import org.xtext.gsht.gSelfOperatingHeuristicText.InitState;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Initial;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
-import org.xtext.gsht.gSelfOperatingHeuristicText.Location;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
@@ -129,13 +128,6 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   private EClass automatonEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass locationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -677,31 +669,9 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   @Override
-  public EReference getAutomaton_Location()
+  public EReference getAutomaton_States()
   {
     return (EReference)automatonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getLocation()
-  {
-    return locationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getLocation_State()
-  {
-    return (EReference)locationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -821,10 +791,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
 
     automatonEClass = createEClass(AUTOMATON);
     createEAttribute(automatonEClass, AUTOMATON__NAME);
-    createEReference(automatonEClass, AUTOMATON__LOCATION);
-
-    locationEClass = createEClass(LOCATION);
-    createEReference(locationEClass, LOCATION__STATE);
+    createEReference(automatonEClass, AUTOMATON__STATES);
 
     initStateEClass = createEClass(INIT_STATE);
 
@@ -920,10 +887,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
 
     initEClass(automatonEClass, Automaton.class, "Automaton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAutomaton_Name(), ecorePackage.getEString(), "name", null, 0, 1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAutomaton_Location(), this.getLocation(), null, "location", null, 0, -1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(locationEClass, Location.class, "Location", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLocation_State(), this.getState(), null, "state", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAutomaton_States(), this.getState(), null, "states", null, 0, -1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initStateEClass, InitState.class, "InitState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

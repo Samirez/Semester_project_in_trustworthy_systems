@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getStates <em>States</em>}</li>
  * </ul>
  *
  * @see org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage#getAutomaton()
@@ -49,15 +49,15 @@ public interface Automaton extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Location</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.gsht.gSelfOperatingHeuristicText.Location}.
+   * Returns the value of the '<em><b>States</b></em>' reference list.
+   * The list contents are of type {@link org.xtext.gsht.gSelfOperatingHeuristicText.State}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Location</em>' containment reference list.
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage#getAutomaton_Location()
-   * @model containment="true"
+   * @return the value of the '<em>States</em>' reference list.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage#getAutomaton_States()
+   * @model
    * @generated
    */
-  EList<Location> getLocation();
+  EList<State> getStates();
 
 } // Automaton

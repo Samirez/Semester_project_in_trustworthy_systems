@@ -12,8 +12,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Model
 import org.xtext.gsht.gSelfOperatingHeuristicText.State
 import java.util.ArrayList
 import java.util.HashMap
-
-
+import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -183,11 +182,15 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 	}
 	
 	def void generateUppaal(Model model, IFileSystemAccess2 fsa){
-		var automata = model.automaton
-		
+		var automata = new HashMap<String, List<State>>();/*checks how many templates should be made */
+		if(!model.automaton.isEmpty()){
+			for (a : model.automaton){automata.put(a.name, a.states)}			
+		}else{
+			automata.put(model.name, model.states)
+		}
 		
 		var CharSequence context = '''
-		«var globals = new ArrayList()»
+		«var globals = new ArrayList() /*adding global variables */»
 		«
 		for (global: model.globals){
 			var type = global.type + ""
@@ -205,13 +208,14 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		«global»
 		«ENDFOR»
 		
-		«FOR automaton: automata»
+		«FOR automaton: automata.keySet()»
 		«var channels = new ArrayList()»
 		«var edges = new ArrayList()»
-		process «automaton.name»(	
+		«var locations = automata.get(automaton)»
+		process «automaton»(	
 		« /*saving all events into channels */
-		for(location:automaton.location){
-			for(transition: location.state.transitions){
+		for(location : automata.get(automaton)){
+			for(transition: location.transitions){
 				channels.add(transition.event.name)
 			}
 		}
@@ -221,8 +225,8 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		«ENDFOR»
 		){
 			«var propsMap = new HashMap<String, String>()»
-			«for(location :automaton.location){
-				for(prop : location.state.locals){
+			«for(location : locations){
+				for(prop : location.locals){
 					var type = prop.type + ""
 					if(type != "String"){
 						if(type == "boolean"){
@@ -240,19 +244,18 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 			«ENDFOR»
 			
 			state
-				«FOR location: automaton.location SEPARATOR ',' AFTER ';'»
-					«location.state.name»
+				«FOR location: locations SEPARATOR ',' AFTER ';'»
+					«location.name»
 				«ENDFOR»
 				
-				init «automaton.location.get(0).state.name»;
+				init «locations.get(0).name»;
 				
 			trans
-				«FOR location: automaton.location»
-				«var state = location.state»
+				«FOR location: locations»
 				«
-				if(!state.transitions.isEmpty()){
-					for(transition : state.transitions){
-						var edge = state.name + " -> " + transition.state.name + "{"
+				if(!location.transitions.isEmpty()){
+					for(transition : location.transitions){
+						var edge = location.name + " -> " + transition.state.name + "{"
 						var condition = transition.condition
 						if(condition !== null){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
 						edge += " sync " + transition.event.name + "!;"
@@ -280,16 +283,16 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		chan «event.name»;
 		«ENDFOR»
 		
-		«FOR automaton: automata»
+		«FOR automaton: automata.keySet()»
 		«var channels = new ArrayList()»
 		« /*saving all events into channels */
-			for(location:automaton.location){
-				for(transition: location.state.transitions){
+			for(location:automata.get(automaton)){
+				for(transition: location.transitions){
 					channels.add(transition.event.name)
 				}
 			}
 		»
-		«automaton.name»1 = «automaton.name»(
+		«automaton»1 = «automaton»(
 		«FOR chan: channels SEPARATOR ','»
 		«chan» 
 		«ENDFOR»

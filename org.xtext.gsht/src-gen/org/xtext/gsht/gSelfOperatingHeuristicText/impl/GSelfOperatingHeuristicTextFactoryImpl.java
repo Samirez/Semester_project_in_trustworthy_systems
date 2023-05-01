@@ -79,7 +79,6 @@ public class GSelfOperatingHeuristicTextFactoryImpl extends EFactoryImpl impleme
       case GSelfOperatingHeuristicTextPackage.VARIABLE_REFERENCE: return createVariableReference();
       case GSelfOperatingHeuristicTextPackage.VARIABLE: return createVariable();
       case GSelfOperatingHeuristicTextPackage.AUTOMATON: return createAutomaton();
-      case GSelfOperatingHeuristicTextPackage.LOCATION: return createLocation();
       case GSelfOperatingHeuristicTextPackage.INIT_STATE: return createInitState();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -278,18 +277,6 @@ public class GSelfOperatingHeuristicTextFactoryImpl extends EFactoryImpl impleme
   {
     AutomatonImpl automaton = new AutomatonImpl();
     return automaton;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Location createLocation()
-  {
-    LocationImpl location = new LocationImpl();
-    return location;
   }
 
   /**

@@ -6,22 +6,19 @@ package org.xtext.gsht.gSelfOperatingHeuristicText.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.xtext.gsht.gSelfOperatingHeuristicText.Automaton;
 import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPackage;
-import org.xtext.gsht.gSelfOperatingHeuristicText.Location;
+import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Location;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.AutomatonImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.AutomatonImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.AutomatonImpl#getStates <em>States</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,14 +57,14 @@ public class AutomatonImpl extends MinimalEObjectImpl.Container implements Autom
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference list.
+   * The cached value of the '{@link #getStates() <em>States</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLocation()
+   * @see #getStates()
    * @generated
    * @ordered
    */
-  protected EList<Location> location;
+  protected EList<State> states;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,29 +118,13 @@ public class AutomatonImpl extends MinimalEObjectImpl.Container implements Autom
    * @generated
    */
   @Override
-  public EList<Location> getLocation()
+  public EList<State> getStates()
   {
-    if (location == null)
+    if (states == null)
     {
-      location = new EObjectContainmentEList<Location>(Location.class, this, GSelfOperatingHeuristicTextPackage.AUTOMATON__LOCATION);
+      states = new EObjectResolvingEList<State>(State.class, this, GSelfOperatingHeuristicTextPackage.AUTOMATON__STATES);
     }
-    return location;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GSelfOperatingHeuristicTextPackage.AUTOMATON__LOCATION:
-        return ((InternalEList<?>)getLocation()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return states;
   }
 
   /**
@@ -158,8 +139,8 @@ public class AutomatonImpl extends MinimalEObjectImpl.Container implements Autom
     {
       case GSelfOperatingHeuristicTextPackage.AUTOMATON__NAME:
         return getName();
-      case GSelfOperatingHeuristicTextPackage.AUTOMATON__LOCATION:
-        return getLocation();
+      case GSelfOperatingHeuristicTextPackage.AUTOMATON__STATES:
+        return getStates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,9 +159,9 @@ public class AutomatonImpl extends MinimalEObjectImpl.Container implements Autom
       case GSelfOperatingHeuristicTextPackage.AUTOMATON__NAME:
         setName((String)newValue);
         return;
-      case GSelfOperatingHeuristicTextPackage.AUTOMATON__LOCATION:
-        getLocation().clear();
-        getLocation().addAll((Collection<? extends Location>)newValue);
+      case GSelfOperatingHeuristicTextPackage.AUTOMATON__STATES:
+        getStates().clear();
+        getStates().addAll((Collection<? extends State>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,8 +180,8 @@ public class AutomatonImpl extends MinimalEObjectImpl.Container implements Autom
       case GSelfOperatingHeuristicTextPackage.AUTOMATON__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case GSelfOperatingHeuristicTextPackage.AUTOMATON__LOCATION:
-        getLocation().clear();
+      case GSelfOperatingHeuristicTextPackage.AUTOMATON__STATES:
+        getStates().clear();
         return;
     }
     super.eUnset(featureID);
@@ -218,8 +199,8 @@ public class AutomatonImpl extends MinimalEObjectImpl.Container implements Autom
     {
       case GSelfOperatingHeuristicTextPackage.AUTOMATON__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case GSelfOperatingHeuristicTextPackage.AUTOMATON__LOCATION:
-        return location != null && !location.isEmpty();
+      case GSelfOperatingHeuristicTextPackage.AUTOMATON__STATES:
+        return states != null && !states.isEmpty();
     }
     return super.eIsSet(featureID);
   }

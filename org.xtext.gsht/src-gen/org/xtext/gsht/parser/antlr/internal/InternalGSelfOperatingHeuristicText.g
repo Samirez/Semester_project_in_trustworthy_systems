@@ -1182,19 +1182,13 @@ ruleAutomaton returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAutomatonAccess().getLocationLocationParserRuleCall_3_0());
-				}
-				lv_location_4_0=ruleLocation
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAutomatonRule());
+						$current = createModelElement(grammarAccess.getAutomatonRule());
 					}
-					add(
-						$current,
-						"location",
-						lv_location_4_0,
-						"org.xtext.gsht.GSelfOperatingHeuristicText.Location");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getAutomatonAccess().getStatesStateCrossReference_3_0());
 				}
 			)
 		)*
@@ -1202,36 +1196,6 @@ ruleAutomaton returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getAutomatonAccess().getRightCurlyBracketKeyword_4());
 		}
-	)
-;
-
-// Entry rule entryRuleLocation
-entryRuleLocation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getLocationRule()); }
-	iv_ruleLocation=ruleLocation
-	{ $current=$iv_ruleLocation.current; }
-	EOF;
-
-// Rule Location
-ruleLocation returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getLocationRule());
-				}
-			}
-			otherlv_0=RULE_ID
-			{
-				newLeafNode(otherlv_0, grammarAccess.getLocationAccess().getStateStateCrossReference_0());
-			}
-		)
 	)
 ;
 

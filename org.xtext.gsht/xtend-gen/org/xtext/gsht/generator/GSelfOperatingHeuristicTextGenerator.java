@@ -7,6 +7,8 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -24,7 +26,6 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.DataType;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Event;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
-import org.xtext.gsht.gSelfOperatingHeuristicText.Location;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
@@ -500,7 +501,17 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
   }
 
   public void generateUppaal(final Model model, final IFileSystemAccess2 fsa) {
-    EList<Automaton> automata = model.getAutomaton();
+    HashMap<String, List<State>> automata = new HashMap<String, List<State>>();
+    boolean _isEmpty = model.getAutomaton().isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      EList<Automaton> _automaton = model.getAutomaton();
+      for (final Automaton a : _automaton) {
+        automata.put(a.getName(), a.getStates());
+      }
+    } else {
+      automata.put(model.getName(), model.getStates());
+    }
     StringConcatenation _builder = new StringConcatenation();
     ArrayList<String> globals = new ArrayList<String>();
     _builder.newLineIfNotEmpty();
@@ -535,19 +546,21 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
-      for(final Automaton automaton : automata) {
+      Set<String> _keySet = automata.keySet();
+      for(final String automaton : _keySet) {
         ArrayList<String> channels = new ArrayList<String>();
         _builder.newLineIfNotEmpty();
         ArrayList<String> edges = new ArrayList<String>();
         _builder.newLineIfNotEmpty();
+        List<State> locations = automata.get(automaton);
+        _builder.newLineIfNotEmpty();
         _builder.append("process ");
-        String _name = automaton.getName();
-        _builder.append(_name);
+        _builder.append(automaton);
         _builder.append("(\t");
         _builder.newLineIfNotEmpty();
-        EList<Location> _location = automaton.getLocation();
-        for (final Location location : _location) {
-          EList<Transition> _transitions = location.getState().getTransitions();
+        List<State> _get = automata.get(automaton);
+        for (final State location : _get) {
+          EList<Transition> _transitions = location.getTransitions();
           for (final Transition transition : _transitions) {
             channels.add(transition.getEvent().getName());
           }
@@ -572,9 +585,8 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         HashMap<String, String> propsMap = new HashMap<String, String>();
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
-        EList<Location> _location_1 = automaton.getLocation();
-        for (final Location location_1 : _location_1) {
-          EList<Local> _locals = location_1.getState().getLocals();
+        for (final State location_1 : locations) {
+          EList<Local> _locals = location_1.getLocals();
           for (final Local prop : _locals) {
             {
               DataType _type = prop.getType();
@@ -583,17 +595,17 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
               if (_notEquals) {
                 boolean _equals = Objects.equal(type, "boolean");
                 if (_equals) {
+                  String _name = prop.getName();
                   String _name_1 = prop.getName();
-                  String _name_2 = prop.getName();
-                  String _plus = ("bool " + _name_2);
+                  String _plus = ("bool " + _name_1);
                   String _plus_1 = (_plus + ";");
-                  propsMap.put(_name_1, _plus_1);
+                  propsMap.put(_name, _plus_1);
                 } else {
+                  String _name_2 = prop.getName();
                   String _name_3 = prop.getName();
-                  String _name_4 = prop.getName();
-                  String _plus_2 = ((type + " ") + _name_4);
+                  String _plus_2 = ((type + " ") + _name_3);
                   String _plus_3 = (_plus_2 + ";");
-                  propsMap.put(_name_3, _plus_3);
+                  propsMap.put(_name_2, _plus_3);
                 }
               }
             }
@@ -616,17 +628,16 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         _builder.append("state");
         _builder.newLine();
         {
-          EList<Location> _location_2 = automaton.getLocation();
           boolean _hasElements_1 = false;
-          for(final Location location_2 : _location_2) {
+          for(final State location_2 : locations) {
             if (!_hasElements_1) {
               _hasElements_1 = true;
             } else {
               _builder.appendImmediate(",", "\t\t");
             }
             _builder.append("\t\t");
-            String _name_1 = location_2.getState().getName();
-            _builder.append(_name_1, "\t\t");
+            String _name = location_2.getName();
+            _builder.append(_name, "\t\t");
             _builder.newLineIfNotEmpty();
           }
           if (_hasElements_1) {
@@ -637,8 +648,8 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("init ");
-        String _name_2 = automaton.getLocation().get(0).getState().getName();
-        _builder.append(_name_2, "\t\t");
+        String _name_1 = locations.get(0).getName();
+        _builder.append(_name_1, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
@@ -647,28 +658,24 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
         _builder.append("trans");
         _builder.newLine();
         {
-          EList<Location> _location_3 = automaton.getLocation();
-          for(final Location location_3 : _location_3) {
+          for(final State location_3 : locations) {
             _builder.append("\t\t");
-            State state = location_3.getState();
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            boolean _isEmpty = state.getTransitions().isEmpty();
-            boolean _not = (!_isEmpty);
-            if (_not) {
-              EList<Transition> _transitions_1 = state.getTransitions();
+            boolean _isEmpty_1 = location_3.getTransitions().isEmpty();
+            boolean _not_1 = (!_isEmpty_1);
+            if (_not_1) {
+              EList<Transition> _transitions_1 = location_3.getTransitions();
               for (final Transition transition_1 : _transitions_1) {
                 {
-                  String _name_3 = state.getName();
-                  String _plus = (_name_3 + " -> ");
-                  String _name_4 = transition_1.getState().getName();
-                  String _plus_1 = (_plus + _name_4);
+                  String _name_2 = location_3.getName();
+                  String _plus = (_name_2 + " -> ");
+                  String _name_3 = transition_1.getState().getName();
+                  String _plus_1 = (_plus + _name_3);
                   String edge = (_plus_1 + "{");
                   Condition condition = transition_1.getCondition();
                   if ((condition != null)) {
                     String _edge = edge;
-                    String _name_5 = condition.getLeft().getVariable().getName();
-                    String _plus_2 = (" guard " + _name_5);
+                    String _name_4 = condition.getLeft().getVariable().getName();
+                    String _plus_2 = (" guard " + _name_4);
                     ComparisonOperator _operator = condition.getOperator();
                     String _plus_3 = (_plus_2 + _operator);
                     String _lowerCase = condition.getRight().toLowerCase();
@@ -677,8 +684,8 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                     edge = (_edge + _plus_5);
                   }
                   String _edge_1 = edge;
-                  String _name_6 = transition_1.getEvent().getName();
-                  String _plus_6 = (" sync " + _name_6);
+                  String _name_5 = transition_1.getEvent().getName();
+                  String _plus_6 = (" sync " + _name_5);
                   String _plus_7 = (_plus_6 + "!;");
                   edge = (_edge_1 + _plus_7);
                   Assignment assignment = transition_1.getAssignment();
@@ -686,11 +693,11 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                     DataType _type = assignment.getCurrentVar().getVariable().getType();
                     String type = (_type + "");
                     boolean _contains = type.contains("String");
-                    boolean _not_1 = (!_contains);
-                    if (_not_1) {
+                    boolean _not_2 = (!_contains);
+                    if (_not_2) {
                       String _edge_2 = edge;
-                      String _name_7 = assignment.getCurrentVar().getVariable().getName();
-                      String _plus_8 = (" assign " + _name_7);
+                      String _name_6 = assignment.getCurrentVar().getVariable().getName();
+                      String _plus_8 = (" assign " + _name_6);
                       String _plus_9 = (_plus_8 + " = ");
                       String _lowerCase_1 = assignment.getValue().toLowerCase();
                       String _plus_10 = (_plus_9 + _lowerCase_1);
@@ -734,30 +741,29 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
         _builder.append("chan ");
-        String _name_3 = event.getName();
-        _builder.append(_name_3);
+        String _name_2 = event.getName();
+        _builder.append(_name_2);
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.newLine();
     {
-      for(final Automaton automaton_1 : automata) {
+      Set<String> _keySet_1 = automata.keySet();
+      for(final String automaton_1 : _keySet_1) {
         ArrayList<String> channels_1 = new ArrayList<String>();
         _builder.newLineIfNotEmpty();
-        EList<Location> _location_4 = automaton_1.getLocation();
-        for (final Location location_4 : _location_4) {
-          EList<Transition> _transitions_2 = location_4.getState().getTransitions();
+        List<State> _get_1 = automata.get(automaton_1);
+        for (final State location_4 : _get_1) {
+          EList<Transition> _transitions_2 = location_4.getTransitions();
           for (final Transition transition_2 : _transitions_2) {
             channels_1.add(transition_2.getEvent().getName());
           }
         }
         _builder.newLineIfNotEmpty();
-        String _name_4 = automaton_1.getName();
-        _builder.append(_name_4);
+        _builder.append(automaton_1);
         _builder.append("1 = ");
-        String _name_5 = automaton_1.getName();
-        _builder.append(_name_5);
+        _builder.append(automaton_1);
         _builder.append("(");
         _builder.newLineIfNotEmpty();
         {
@@ -779,11 +785,11 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
-      EList<Automaton> _automaton = model.getAutomaton();
-      for(final Automaton automaton_2 : _automaton) {
+      EList<Automaton> _automaton_1 = model.getAutomaton();
+      for(final Automaton automaton_2 : _automaton_1) {
         _builder.append("system ");
-        String _name_6 = automaton_2.getName();
-        _builder.append(_name_6);
+        String _name_3 = automaton_2.getName();
+        _builder.append(_name_3);
         _builder.append("1;");
         _builder.newLineIfNotEmpty();
       }

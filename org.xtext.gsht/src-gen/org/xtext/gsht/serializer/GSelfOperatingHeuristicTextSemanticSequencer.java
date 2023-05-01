@@ -23,7 +23,6 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPac
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
 import org.xtext.gsht.gSelfOperatingHeuristicText.InitState;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Local;
-import org.xtext.gsht.gSelfOperatingHeuristicText.Location;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
@@ -67,9 +66,6 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 				return; 
 			case GSelfOperatingHeuristicTextPackage.LOCAL:
 				sequence_Local(context, (Local) semanticObject); 
-				return; 
-			case GSelfOperatingHeuristicTextPackage.LOCATION:
-				sequence_Location(context, (Location) semanticObject); 
 				return; 
 			case GSelfOperatingHeuristicTextPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -131,7 +127,7 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Automaton returns Automaton
 	 *
 	 * Constraint:
-	 *     (name=ID location+=Location*)
+	 *     (name=ID states+=[State|ID]*)
 	 * </pre>
 	 */
 	protected void sequence_Automaton(ISerializationContext context, Automaton semanticObject) {
@@ -249,26 +245,6 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 		feeder.accept(grammarAccess.getLocalAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getLocalAccess().getTypeDataTypeEnumRuleCall_2_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getLocalAccess().getValueValueParserRuleCall_4_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Location returns Location
-	 *
-	 * Constraint:
-	 *     state=[State|ID]
-	 * </pre>
-	 */
-	protected void sequence_Location(ISerializationContext context, Location semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.LOCATION__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GSelfOperatingHeuristicTextPackage.Literals.LOCATION__STATE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLocationAccess().getStateStateIDTerminalRuleCall_0_1(), semanticObject.eGet(GSelfOperatingHeuristicTextPackage.Literals.LOCATION__STATE, false));
 		feeder.finish();
 	}
 	

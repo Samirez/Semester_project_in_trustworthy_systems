@@ -603,13 +603,13 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int AUTOMATON__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Location</b></em>' containment reference list.
+   * The feature id for the '<em><b>States</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AUTOMATON__LOCATION = 1;
+  int AUTOMATON__STATES = 1;
 
   /**
    * The number of structural features of the '<em>Automaton</em>' class.
@@ -621,34 +621,6 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int AUTOMATON_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.LocationImpl <em>Location</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.LocationImpl
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getLocation()
-   * @generated
-   */
-  int LOCATION = 13;
-
-  /**
-   * The feature id for the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCATION__STATE = 0;
-
-  /**
-   * The number of structural features of the '<em>Location</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCATION_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl <em>Init State</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -656,7 +628,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getInitState()
    * @generated
    */
-  int INIT_STATE = 14;
+  int INIT_STATE = 13;
 
   /**
    * The number of structural features of the '<em>Init State</em>' class.
@@ -675,7 +647,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 15;
+  int DATA_TYPE = 14;
 
   /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -685,7 +657,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 16;
+  int COMPARISON_OPERATOR = 15;
 
 
   /**
@@ -1127,36 +1099,15 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   EAttribute getAutomaton_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getLocation <em>Location</em>}'.
+   * Returns the meta object for the reference list '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getStates <em>States</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Location</em>'.
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getLocation()
+   * @return the meta object for the reference list '<em>States</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Automaton#getStates()
    * @see #getAutomaton()
    * @generated
    */
-  EReference getAutomaton_Location();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Location <em>Location</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Location</em>'.
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Location
-   * @generated
-   */
-  EClass getLocation();
-
-  /**
-   * Returns the meta object for the reference '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Location#getState <em>State</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>State</em>'.
-   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Location#getState()
-   * @see #getLocation()
-   * @generated
-   */
-  EReference getLocation_State();
+  EReference getAutomaton_States();
 
   /**
    * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.InitState <em>Init State</em>}'.
@@ -1566,30 +1517,12 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
     EAttribute AUTOMATON__NAME = eINSTANCE.getAutomaton_Name();
 
     /**
-     * The meta object literal for the '<em><b>Location</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>States</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference AUTOMATON__LOCATION = eINSTANCE.getAutomaton_Location();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.LocationImpl <em>Location</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.LocationImpl
-     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getLocation()
-     * @generated
-     */
-    EClass LOCATION = eINSTANCE.getLocation();
-
-    /**
-     * The meta object literal for the '<em><b>State</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOCATION__STATE = eINSTANCE.getLocation_State();
+    EReference AUTOMATON__STATES = eINSTANCE.getAutomaton_States();
 
     /**
      * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl <em>Init State</em>}' class.
