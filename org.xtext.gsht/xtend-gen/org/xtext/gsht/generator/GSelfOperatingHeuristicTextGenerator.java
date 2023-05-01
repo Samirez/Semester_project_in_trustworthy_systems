@@ -195,6 +195,17 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("public void setGlobalProp(String key, Object value) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("this.globalProps.put(key, value);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("public void processEvent(String event) {");
     _builder.newLine();
     _builder.append("\t\t");

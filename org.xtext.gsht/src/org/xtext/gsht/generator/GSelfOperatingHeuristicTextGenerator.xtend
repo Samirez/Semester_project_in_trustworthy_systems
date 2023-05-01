@@ -78,6 +78,10 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				this.globalProps = globalProps;
 			}
 			
+			public void setGlobalProp(String key, Object value) {
+				this.globalProps.put(key, value);
+			}
+			
 			public void processEvent(String event) {
 				printEvent(event);
 				currentState.setGlobalProps(new HashMap<>(globalProps));
