@@ -221,7 +221,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		}
 		»
 		«FOR chan: channels SEPARATOR ','»
-		chan &«chan»
+		urgent chan &«chan»
 		«ENDFOR»
 		){
 			«var propsMap = new HashMap<String, String>()»
@@ -280,7 +280,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		«ENDFOR»
 		
 		«FOR event: model.events»
-		chan «event.name»;
+		urgent chan «event.name»;
 		«ENDFOR»
 		
 		«FOR automaton: automata.keySet()»

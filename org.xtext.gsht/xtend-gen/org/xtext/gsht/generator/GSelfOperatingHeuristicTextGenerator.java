@@ -574,7 +574,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
             } else {
               _builder.appendImmediate(",", "");
             }
-            _builder.append("chan &");
+            _builder.append("urgent chan &");
             _builder.append(chan);
             _builder.newLineIfNotEmpty();
           }
@@ -740,7 +740,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
-        _builder.append("chan ");
+        _builder.append("urgent chan ");
         String _name_2 = event.getName();
         _builder.append(_name_2);
         _builder.append(";");

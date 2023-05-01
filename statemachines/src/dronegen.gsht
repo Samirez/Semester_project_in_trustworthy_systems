@@ -6,7 +6,7 @@ global
 	ErrorCode as String = "Operational"
 	DefibrillatorIsDepleted as boolean = false
 }
-events
+events /*jllj */
 {
 	BatteryCharged
 	MissionRecieved

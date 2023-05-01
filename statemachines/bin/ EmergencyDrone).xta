@@ -2,21 +2,21 @@ double Charge;
 bool DefibrillatorIsDepleted;
 
 process A(	
-chan &BatteryCharged,
-chan &MissionRecieved,
-chan &StandbyFailure,
-chan &FlyToTarget,
-chan &AbortMission,
-chan &AirborneFailure,
-chan &Landing,
-chan &AbortMission,
-chan &ArrivedFailure,
-chan &TakingOff,
-chan &LandedFailure,
-chan &HasReturned,
-chan &ReturningFailure,
-chan &DefibrillatorDepleted,
-chan &DefibrillatorNotDepleted
+urgent chan &BatteryCharged,
+urgent chan &MissionRecieved,
+urgent chan &StandbyFailure,
+urgent chan &FlyToTarget,
+urgent chan &AbortMission,
+urgent chan &AirborneFailure,
+urgent chan &Landing,
+urgent chan &AbortMission,
+urgent chan &ArrivedFailure,
+urgent chan &TakingOff,
+urgent chan &LandedFailure,
+urgent chan &HasReturned,
+urgent chan &ReturningFailure,
+urgent chan &DefibrillatorDepleted,
+urgent chan &DefibrillatorNotDepleted
 ){
 	bool ArrivedAtCoordinates;
 	bool Abort;
@@ -57,22 +57,22 @@ chan &DefibrillatorNotDepleted
 		Returned -> Charging{ guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; }
 ;		}
 
-chan BatteryCharged;
-chan MissionRecieved;
-chan StandbyFailure;
-chan FlyToTarget;
-chan AbortMission;
-chan AirborneFailure;
-chan Landing;
-chan ArrivedFailure;
-chan TakingOff;
-chan LandedFailure;
-chan HasReturned;
-chan ReturningFailure;
-chan DefibrillatorDepleted;
-chan DefibrillatorNotDepleted;
-chan DefibrillatorReady;
-chan DefibrillatorUsed;
+urgent chan BatteryCharged;
+urgent chan MissionRecieved;
+urgent chan StandbyFailure;
+urgent chan FlyToTarget;
+urgent chan AbortMission;
+urgent chan AirborneFailure;
+urgent chan Landing;
+urgent chan ArrivedFailure;
+urgent chan TakingOff;
+urgent chan LandedFailure;
+urgent chan HasReturned;
+urgent chan ReturningFailure;
+urgent chan DefibrillatorDepleted;
+urgent chan DefibrillatorNotDepleted;
+urgent chan DefibrillatorReady;
+urgent chan DefibrillatorUsed;
 
 A1 = A(
 BatteryCharged, 
