@@ -10,6 +10,10 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model
 import org.xtext.gsht.gSelfOperatingHeuristicText.State
+import java.util.ArrayList
+import java.util.HashMap
+
+
 
 /**
  * Generates code from your model files on save.
@@ -20,6 +24,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(Model)).forEach[it.generateFile(fsa)]
+		resource.allContents.filter(typeof(Model)).forEach[it.generateUppaal(fsa)]
 	}
 		
 	def void generateFile(Model model, IFileSystemAccess2 fsa){
@@ -175,5 +180,129 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		«ENDFOR»
 		«ENDIF»
 		'''
+	}
+	
+	def void generateUppaal(Model model, IFileSystemAccess2 fsa){
+		var automata = model.automaton
+		
+		
+		var CharSequence context = '''
+		«var globals = new ArrayList()»
+		«
+		for (global: model.globals){
+			var type = global.type + ""
+			if(type != "String"){
+				if(type == "boolean"){
+					globals.add("bool " + global.name + ";")
+				}else{
+					globals.add(type + " " + global.name + ";")
+				}
+				
+			}
+		}
+		»
+		«FOR global: globals»
+		«global»
+		«ENDFOR»
+		
+		«FOR automaton: automata»
+		«var channels = new ArrayList()»
+		«var edges = new ArrayList()»
+		process «automaton.name»(	
+		« /*saving all events into channels */
+		for(location:automaton.location){
+			for(transition: location.state.transitions){
+				channels.add(transition.event.name)
+			}
+		}
+		»
+		«FOR chan: channels SEPARATOR ','»
+		chan &«chan»
+		«ENDFOR»
+		){
+			«var propsMap = new HashMap<String, String>()»
+			«for(location :automaton.location){
+				for(prop : location.state.locals){
+					var type = prop.type + ""
+					if(type != "String"){
+						if(type == "boolean"){
+							propsMap.put(prop.name, "bool " + prop.name + ";")
+						}else {
+							propsMap.put(prop.name, type + " " + prop.name + ";")
+						}
+					}
+					
+				}
+			}»
+			«var props = propsMap.values().toArray()»
+			«FOR prop : props»
+			«prop»
+			«ENDFOR»
+			
+			state
+				«FOR location: automaton.location SEPARATOR ',' AFTER ';'»
+					«location.state.name»
+				«ENDFOR»
+				
+				init «automaton.location.get(0).state.name»;
+				
+			trans
+				«FOR location: automaton.location»
+				«var state = location.state»
+				«
+				if(!state.transitions.isEmpty()){
+					for(transition : state.transitions){
+						var edge = state.name + " -> " + transition.state.name + "{"
+						var condition = transition.condition
+						if(condition !== null){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
+						edge += " sync " + transition.event.name + "!;"
+						/*assign */
+						var assignment = transition.assignment;
+						if(assignment !== null){
+							var type = assignment.currentVar.variable.type + "";
+							if(!type.contains("String")){
+								edge += " assign " + assignment.currentVar.variable.name + " = " + assignment.value.toLowerCase() + ";"
+							}
+						}
+						
+						edges.add(edge += " }")
+					}	
+				}
+				»		
+				«ENDFOR»
+				«FOR edge: edges SEPARATOR ',' AFTER ';'»
+				«edge»
+				«ENDFOR»
+				}
+		«ENDFOR»
+		
+		«FOR event: model.events»
+		chan «event.name»;
+		«ENDFOR»
+		
+		«FOR automaton: automata»
+		«var channels = new ArrayList()»
+		« /*saving all events into channels */
+			for(location:automaton.location){
+				for(transition: location.state.transitions){
+					channels.add(transition.event.name)
+				}
+			}
+		»
+		«automaton.name»1 = «automaton.name»(
+		«FOR chan: channels SEPARATOR ','»
+		«chan» 
+		«ENDFOR»
+		);
+		«ENDFOR»
+		
+		«FOR automaton: model.automaton»
+		system «automaton.name»1;
+		«ENDFOR»
+		'''
+		
+		fsa.generateFile(model+'.xta', context)
+		
+		
 	}
 }

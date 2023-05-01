@@ -259,38 +259,52 @@ public class EmergencyDrone {
 	public EmergencyDrone() {
 		currentState = states.get("Charging");
 	}
+	
+	public HashMap<String, Object> getGlobalProps() {
+		return globalProps;
+	}
+	
+	public void setGlobalProps(HashMap<String, Object> globalProps) {
+		this.globalProps = globalProps;
+	}
+	
+	public void setGlobalProp(String key, Object value) {
+		this.globalProps.put(key, value);
+	}
+	
+	public void processEvent(String event) {
+		printEvent(event);
+		currentState.setGlobalProps(new HashMap<>(globalProps));
+		String nextStateName = currentState.onEvent(event);
+		if (currentState.getGlobalPropsSize() > 0) {
+			this.globalProps = new HashMap<>(currentState.returnGlobalProps());
+		}
+		currentState = states.get(nextStateName);
+		printGlobalProps();
+		printCurrentState(currentState);
+	};
 
-    		public void processEvent(String event) {
-        		printEvent(event);
-        		currentState.setGlobalProps(new HashMap<>(globalProps));
-        		String nextStateName = currentState.onEvent(event);
-        		if (currentState.getGlobalPropsSize() > 0) {
-            		this.globalProps = new HashMap<>(currentState.returnGlobalProps());
-        		}
-        		currentState = states.get(nextStateName);
-        		printGlobalProps();
-        		printCurrentState(currentState);
-    		};
+	private void printEvent(String event) {
+		System.out.println();
+		System.out.println("==================================");
+		System.out.println(String.format("Processing event: '%s'...", event));
+		System.out.println("==================================");
+		System.out.println();
+	}
 
-    		private void printEvent(String event) {
-        		System.out.println();
-        		System.out.println("==================================");
-        		System.out.println(String.format("Processing event: '%s'...", event));
-        		System.out.println("==================================");
-        		System.out.println();
-    		}
+	private void printGlobalProps() {
+		System.out.println("Global props:");
+		globalProps.entrySet().forEach(entry -> {
+			System.out.println(String.format("%s\t%s", entry.getKey(), entry.getValue().toString()));
+		});
+		System.out.println();
+	}
 
-    		private void printGlobalProps() {
-        		System.out.println("Global props:");
-        		globalProps.entrySet().forEach(entry -> {
-            		System.out.println(String.format("%s\t%s", entry.getKey(), entry.getValue().toString()));
-        		});
-        		System.out.println();
-    		}
-
-    		private void printCurrentState(State state) {
-        		System.out.println(String.format("Current state: %s", state.getName()));
-        		state.printState();
-    		}
-    		
+	private void printCurrentState(State state) {
+		System.out.println(String.format("Current state: %s", state.getName()));
+		state.printState();
+	}
+	public State getCurrentState() {
+	    return currentState;
+	}
 }

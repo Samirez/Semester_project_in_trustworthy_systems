@@ -12,6 +12,8 @@
         eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="alters" upperBound="-1"
         eType="#//Alter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="automaton" upperBound="-1"
+        eType="#//Automaton" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Global" eSuperTypes="#//Variable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Local" eSuperTypes="#//Variable"/>
@@ -76,6 +78,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Automaton">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
+        eType="#//Location" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitState" eSuperTypes="#//Initial"/>
 </ecore:EPackage>

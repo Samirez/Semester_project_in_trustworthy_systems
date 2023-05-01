@@ -1,0 +1,95 @@
+double Charge;
+bool DefibrillatorIsDepleted;
+
+process A(	
+chan &BatteryCharged,
+chan &MissionRecieved,
+chan &StandbyFailure,
+chan &FlyToTarget,
+chan &AbortMission,
+chan &AirborneFailure,
+chan &Landing,
+chan &AbortMission,
+chan &ArrivedFailure,
+chan &TakingOff,
+chan &LandedFailure,
+chan &Returned,
+chan &ReturningFailure,
+chan &DefibrillatorDepleted,
+chan &DefibrillatorNotDepleted
+){
+	bool ArrivedAtCoordinates;
+	bool Abort;
+	bool ArrivedAtBase;
+	bool ReceivedMission;
+	bool Error;
+	bool Recall;
+	bool FoundLandingPlace;
+	
+	state
+		Charging,
+		Standby,
+		Airborne,
+		Arrived,
+		Landed,
+		Returning,
+		Returned,
+		Maintenance,
+		Failed
+;		
+		init Charging;
+		
+	trans
+		Charging -> Standby{ guard Charge>=0.7; sync BatteryCharged!; },
+		Standby -> Airborne{ guard ReceivedMission==true; sync MissionRecieved!; },
+		Standby -> Failed{ guard Error==true; sync StandbyFailure!; },
+		Airborne -> Arrived{ guard ArrivedAtCoordinates==true; sync FlyToTarget!; },
+		Airborne -> Returning{ guard Abort==true; sync AbortMission!; },
+		Airborne -> Failed{ guard Error==true; sync AirborneFailure!; },
+		Arrived -> Landed{ guard FoundLandingPlace==true; sync Landing!; },
+		Arrived -> Returning{ guard Abort==true; sync AbortMission!; },
+		Arrived -> Failed{ guard Error==true; sync ArrivedFailure!; },
+		Landed -> Returning{ guard Recall==true; sync TakingOff!; },
+		Landed -> Failed{ guard Error==true; sync LandedFailure!; },
+		Returning -> Returned{ guard ArrivedAtBase==true; sync Returned!; },
+		Returning -> Failed{ guard Error==true; sync ReturningFailure!; },
+		Returned -> Maintenance{ guard DefibrillatorIsDepleted==true; sync DefibrillatorDepleted!; },
+		Returned -> Charging{ guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; }
+;		}
+
+chan BatteryCharged;
+chan MissionRecieved;
+chan StandbyFailure;
+chan FlyToTarget;
+chan AbortMission;
+chan AirborneFailure;
+chan Landing;
+chan ArrivedFailure;
+chan TakingOff;
+chan LandedFailure;
+chan Returned;
+chan ReturningFailure;
+chan DefibrillatorDepleted;
+chan DefibrillatorNotDepleted;
+chan DefibrillatorReady;
+chan DefibrillatorUsed;
+
+A1 = A(
+BatteryCharged, 
+MissionRecieved, 
+StandbyFailure, 
+FlyToTarget, 
+AbortMission, 
+AirborneFailure, 
+Landing, 
+AbortMission, 
+ArrivedFailure, 
+TakingOff, 
+LandedFailure, 
+Returned, 
+ReturningFailure, 
+DefibrillatorDepleted, 
+DefibrillatorNotDepleted 
+);
+
+system A1;
