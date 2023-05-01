@@ -13,14 +13,7 @@ class testOne {
 	@Test
 	public void failToReachStateStandby() {
 		EmergencyDrone m = new EmergencyDrone();
-		HashMap<String, Object> globalProps = new HashMap<>() {
-			{
-			put("Charge", 0.1);
-			put("ErrorCode", "Operational");
-			put("DefibrillatorIsDepleted", false);
-			}
-		};
-		m.setGlobalProps(globalProps);
+		m.setGlobalProp("Charge", 0.1);
 		m.processEvent("BatteryCharged");
 		assertEquals("Charging",m.getCurrentState().getName());
 	}

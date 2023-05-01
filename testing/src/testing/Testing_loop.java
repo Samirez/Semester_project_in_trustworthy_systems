@@ -112,14 +112,7 @@ class Testing_loop {
 		m.processEvent("Returned");
 		assertEquals("Returned",m.getCurrentState().getName());
 		
-		HashMap<String, Object> globalProps = new HashMap<>() {
-			{
-			put("Charge", 0.1);
-			put("ErrorCode", "Operational");
-			put("DefibrillatorIsDepleted", true);
-			}
-		};
-		m.setGlobalProps(globalProps);
+		m.setGlobalProp("DefibrillatorIsDepleted", true);
 		
 		m.processEvent("DefibrillatorDepleted");
 		assertEquals("Maintenance",m.getCurrentState().getName());
