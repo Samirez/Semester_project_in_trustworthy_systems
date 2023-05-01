@@ -1,0 +1,43 @@
+DRONE EmergencyDrone
+			GLOBAL 
+			{
+				Charge as double
+				ErrorCode as String
+				DefibrillatorIsDepleted as boolean
+			}
+			EVENTS
+			{
+				BatteryCharged
+				
+				MissionReceived
+				StandbyFailure
+				    
+				FlyToTarget
+				AbortMission
+				AirborneFailure
+				    
+				Landing
+				ArrivedFailure
+				    
+				TakingOff
+				LandedFailure
+				    
+				HasReturned
+				ReturningFailure
+				    
+				DefibrillatorDepleted
+				DefibrillatorNotDepleted
+				
+				DefibrillatorReady
+														
+				DefibrillatorUsed
+			}
+			
+			STATE Charging
+				TRANSITIONS 
+				{
+					ON BatteryCharged TO Standby 
+				}
+			
+			STATE Standby
+				
