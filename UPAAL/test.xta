@@ -4,6 +4,7 @@ bool DefibrillatorIsDepleted = false;
 process A(	  urgent chan &BatteryCharged,  urgent chan &MissionReceived,  urgent chan &StandbyFailure,  urgent chan &FlyToTarget,  urgent chan &AbortMission,  urgent chan &AirborneFailure,  urgent chan &Landing,  urgent chan &AbortMission,  urgent chan &ArrivedFailure,  urgent chan &TakingOff,  urgent chan &LandedFailure,  urgent chan &HasReturned,  urgent chan &ReturningFailure,  urgent chan &DefibrillatorDepleted,  urgent chan &DefibrillatorNotDepleted,  urgent chan &DefibrillatorUsed) {
 
 
+
 	bool ArrivedAtCoordinates = true;
 	bool Abort = false;
 	bool ArrivedAtBase = true;
@@ -43,6 +44,7 @@ trans
 
 process B( urgent chan &BatteryCharged,  urgent chan &MissionReceived,  urgent chan &StandbyFailure,  urgent chan &FlyToTarget,  urgent chan &AbortMission,  urgent chan &AirborneFailure,  urgent chan &Landing,  urgent chan &AbortMission,  urgent chan &ArrivedFailure,  urgent chan &TakingOff,  urgent chan &LandedFailure,  urgent chan &HasReturned,  urgent chan &ReturningFailure,  urgent chan &DefibrillatorDepleted,  urgent chan &DefibrillatorNotDepleted,  urgent chan &DefibrillatorUsed) {
 
+
     bool ArrivedAtCoordinates = true;
 	bool Abort = false;
 	bool ArrivedAtBase = true;
@@ -79,6 +81,7 @@ trans
     Returned -> Maintenance { guard DefibrillatorIsDepleted==true; sync DefibrillatorDepleted!; },
     Returned -> Charging { guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; };
 }
+
 
 
 
