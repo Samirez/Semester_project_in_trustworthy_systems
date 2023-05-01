@@ -501,6 +501,10 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
   }
 
   public void generateUppaal(final Model model, final IFileSystemAccess2 fsa) {
+    ArrayList<String> systems = new ArrayList<String>();
+    HashMap<String, String> templates = new HashMap<String, String>();
+    templates.put("Send", "!");
+    templates.put("Receive", "?");
     HashMap<String, List<State>> automata = new HashMap<String, List<State>>();
     boolean _isEmpty = model.getAutomaton().isEmpty();
     boolean _not = (!_isEmpty);
@@ -546,194 +550,204 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
-      Set<String> _keySet = automata.keySet();
-      for(final String automaton : _keySet) {
-        ArrayList<String> channels = new ArrayList<String>();
-        _builder.newLineIfNotEmpty();
-        ArrayList<String> edges = new ArrayList<String>();
-        _builder.newLineIfNotEmpty();
-        List<State> locations = automata.get(automaton);
-        _builder.newLineIfNotEmpty();
-        _builder.append("process ");
-        _builder.append(automaton);
-        _builder.append("(\t");
-        _builder.newLineIfNotEmpty();
-        List<State> _get = automata.get(automaton);
-        for (final State location : _get) {
-          EList<Transition> _transitions = location.getTransitions();
-          for (final Transition transition : _transitions) {
-            channels.add(transition.getEvent().getName());
-          }
-        }
-        _builder.newLineIfNotEmpty();
+      Set<String> _keySet = templates.keySet();
+      for(final String temp : _keySet) {
         {
-          boolean _hasElements = false;
-          for(final String chan : channels) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            _builder.append("urgent chan &");
-            _builder.append(chan);
+          Set<String> _keySet_1 = automata.keySet();
+          for(final String automaton : _keySet_1) {
+            ArrayList<String> channels = new ArrayList<String>();
             _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("){");
-        _builder.newLine();
-        _builder.append("\t");
-        HashMap<String, String> propsMap = new HashMap<String, String>();
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        for (final State location_1 : locations) {
-          EList<Local> _locals = location_1.getLocals();
-          for (final Local prop : _locals) {
-            {
-              DataType _type = prop.getType();
-              String type = (_type + "");
-              boolean _notEquals = (!Objects.equal(type, "String"));
-              if (_notEquals) {
-                boolean _equals = Objects.equal(type, "boolean");
-                if (_equals) {
-                  String _name = prop.getName();
-                  String _name_1 = prop.getName();
-                  String _plus = ("bool " + _name_1);
-                  String _plus_1 = (_plus + ";");
-                  propsMap.put(_name, _plus_1);
-                } else {
-                  String _name_2 = prop.getName();
-                  String _name_3 = prop.getName();
-                  String _plus_2 = ((type + " ") + _name_3);
-                  String _plus_3 = (_plus_2 + ";");
-                  propsMap.put(_name_2, _plus_3);
-                }
+            ArrayList<String> edges = new ArrayList<String>();
+            _builder.newLineIfNotEmpty();
+            List<State> locations = automata.get(automaton);
+            _builder.newLineIfNotEmpty();
+            _builder.append("process ");
+            _builder.append((automaton + temp));
+            _builder.append("(\t");
+            _builder.newLineIfNotEmpty();
+            List<State> _get = automata.get(automaton);
+            for (final State location : _get) {
+              EList<Transition> _transitions = location.getTransitions();
+              for (final Transition transition : _transitions) {
+                channels.add(transition.getEvent().getName());
               }
             }
-          }
-        }
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        Object[] props = propsMap.values().toArray();
-        _builder.newLineIfNotEmpty();
-        {
-          for(final Object prop_1 : props) {
-            _builder.append("\t");
-            _builder.append(prop_1, "\t");
             _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("\t");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("state");
-        _builder.newLine();
-        {
-          boolean _hasElements_1 = false;
-          for(final State location_2 : locations) {
-            if (!_hasElements_1) {
-              _hasElements_1 = true;
-            } else {
-              _builder.appendImmediate(",", "\t\t");
+            {
+              boolean _hasElements = false;
+              for(final String chan : channels) {
+                if (!_hasElements) {
+                  _hasElements = true;
+                } else {
+                  _builder.appendImmediate(",", "");
+                }
+                _builder.append("urgent chan &");
+                _builder.append(chan);
+                _builder.newLineIfNotEmpty();
+              }
             }
-            _builder.append("\t\t");
-            String _name = location_2.getName();
-            _builder.append(_name, "\t\t");
+            _builder.append("){");
+            _builder.newLine();
+            _builder.append("\t");
+            HashMap<String, String> propsMap = new HashMap<String, String>();
             _builder.newLineIfNotEmpty();
-          }
-          if (_hasElements_1) {
-            _builder.append(";", "\t\t");
-          }
-        }
-        _builder.append("\t\t");
-        _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("init ");
-        String _name_1 = locations.get(0).getName();
-        _builder.append(_name_1, "\t\t");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("trans");
-        _builder.newLine();
-        {
-          for(final State location_3 : locations) {
-            _builder.append("\t\t");
-            boolean _isEmpty_1 = location_3.getTransitions().isEmpty();
-            boolean _not_1 = (!_isEmpty_1);
-            if (_not_1) {
-              EList<Transition> _transitions_1 = location_3.getTransitions();
-              for (final Transition transition_1 : _transitions_1) {
+            _builder.append("\t");
+            for (final State location_1 : locations) {
+              EList<Local> _locals = location_1.getLocals();
+              for (final Local prop : _locals) {
                 {
-                  String _name_2 = location_3.getName();
-                  String _plus = (_name_2 + " -> ");
-                  String _name_3 = transition_1.getState().getName();
-                  String _plus_1 = (_plus + _name_3);
-                  String edge = (_plus_1 + "{");
-                  Condition condition = transition_1.getCondition();
-                  if ((condition != null)) {
-                    String _edge = edge;
-                    String _name_4 = condition.getLeft().getVariable().getName();
-                    String _plus_2 = (" guard " + _name_4);
-                    ComparisonOperator _operator = condition.getOperator();
-                    String _plus_3 = (_plus_2 + _operator);
-                    String _lowerCase = condition.getRight().toLowerCase();
-                    String _plus_4 = (_plus_3 + _lowerCase);
-                    String _plus_5 = (_plus_4 + ";");
-                    edge = (_edge + _plus_5);
-                  }
-                  String _edge_1 = edge;
-                  String _name_5 = transition_1.getEvent().getName();
-                  String _plus_6 = (" sync " + _name_5);
-                  String _plus_7 = (_plus_6 + "!;");
-                  edge = (_edge_1 + _plus_7);
-                  Assignment assignment = transition_1.getAssignment();
-                  if ((assignment != null)) {
-                    DataType _type = assignment.getCurrentVar().getVariable().getType();
-                    String type = (_type + "");
-                    boolean _contains = type.contains("String");
-                    boolean _not_2 = (!_contains);
-                    if (_not_2) {
-                      String _edge_2 = edge;
-                      String _name_6 = assignment.getCurrentVar().getVariable().getName();
-                      String _plus_8 = (" assign " + _name_6);
-                      String _plus_9 = (_plus_8 + " = ");
-                      String _lowerCase_1 = assignment.getValue().toLowerCase();
-                      String _plus_10 = (_plus_9 + _lowerCase_1);
-                      String _plus_11 = (_plus_10 + ";");
-                      edge = (_edge_2 + _plus_11);
+                  DataType _type = prop.getType();
+                  String type = (_type + "");
+                  boolean _notEquals = (!Objects.equal(type, "String"));
+                  if (_notEquals) {
+                    boolean _equals = Objects.equal(type, "boolean");
+                    if (_equals) {
+                      propsMap.put(prop.getName(), "bool");
+                    } else {
+                      boolean _equals_1 = Objects.equal(type, "double");
+                      if (_equals_1) {
+                      } else {
+                        String _name = prop.getName();
+                        String _name_1 = prop.getName();
+                        String _plus = ((type + " ") + _name_1);
+                        String _plus_1 = (_plus + " = ");
+                        String _value = prop.getValue();
+                        String _plus_2 = (_plus_1 + _value);
+                        String _plus_3 = (_plus_2 + ";");
+                        propsMap.put(_name, _plus_3);
+                      }
                     }
                   }
-                  String _edge_3 = edge;
-                  String _plus_12 = edge = (_edge_3 + " }");
-                  edges.add(_plus_12);
                 }
               }
             }
-            _builder.append("\t\t");
             _builder.newLineIfNotEmpty();
-          }
-        }
-        {
-          boolean _hasElements_2 = false;
-          for(final String edge : edges) {
-            if (!_hasElements_2) {
-              _hasElements_2 = true;
-            } else {
-              _builder.appendImmediate(",", "\t\t");
+            _builder.append("\t");
+            Object[] props = propsMap.values().toArray();
+            _builder.newLineIfNotEmpty();
+            {
+              for(final Object prop_1 : props) {
+                _builder.append("\t");
+                _builder.append(prop_1, "\t");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append("\t");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("state");
+            _builder.newLine();
+            {
+              boolean _hasElements_1 = false;
+              for(final State location_2 : locations) {
+                if (!_hasElements_1) {
+                  _hasElements_1 = true;
+                } else {
+                  _builder.appendImmediate(",", "\t\t");
+                }
+                _builder.append("\t\t");
+                String _name = location_2.getName();
+                _builder.append(_name, "\t\t");
+                _builder.newLineIfNotEmpty();
+              }
+              if (_hasElements_1) {
+                _builder.append(";", "\t\t");
+              }
             }
             _builder.append("\t\t");
-            _builder.append(edge, "\t\t");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("init ");
+            String _name_1 = locations.get(0).getName();
+            _builder.append(_name_1, "\t\t");
+            _builder.append(";");
             _builder.newLineIfNotEmpty();
-          }
-          if (_hasElements_2) {
-            _builder.append(";", "\t\t");
+            _builder.append("\t\t");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("trans");
+            _builder.newLine();
+            {
+              for(final State location_3 : locations) {
+                _builder.append("\t\t");
+                boolean _isEmpty_1 = location_3.getTransitions().isEmpty();
+                boolean _not_1 = (!_isEmpty_1);
+                if (_not_1) {
+                  EList<Transition> _transitions_1 = location_3.getTransitions();
+                  for (final Transition transition_1 : _transitions_1) {
+                    {
+                      String _name_2 = location_3.getName();
+                      String _plus = (_name_2 + " -> ");
+                      String _name_3 = transition_1.getState().getName();
+                      String _plus_1 = (_plus + _name_3);
+                      String edge = (_plus_1 + "{");
+                      Condition condition = transition_1.getCondition();
+                      if ((condition != null)) {
+                        String _edge = edge;
+                        String _name_4 = condition.getLeft().getVariable().getName();
+                        String _plus_2 = (" guard " + _name_4);
+                        ComparisonOperator _operator = condition.getOperator();
+                        String _plus_3 = (_plus_2 + _operator);
+                        String _lowerCase = condition.getRight().toLowerCase();
+                        String _plus_4 = (_plus_3 + _lowerCase);
+                        String _plus_5 = (_plus_4 + ";");
+                        edge = (_edge + _plus_5);
+                      }
+                      String _edge_1 = edge;
+                      String _name_5 = transition_1.getEvent().getName();
+                      String _plus_6 = (" sync " + _name_5);
+                      String _get_1 = templates.get(temp);
+                      String _plus_7 = (_plus_6 + _get_1);
+                      String _plus_8 = (_plus_7 + ";");
+                      edge = (_edge_1 + _plus_8);
+                      Assignment assignment = transition_1.getAssignment();
+                      if ((assignment != null)) {
+                        DataType _type = assignment.getCurrentVar().getVariable().getType();
+                        String type = (_type + "");
+                        boolean _contains = type.contains("String");
+                        boolean _not_2 = (!_contains);
+                        if (_not_2) {
+                          String _edge_2 = edge;
+                          String _name_6 = assignment.getCurrentVar().getVariable().getName();
+                          String _plus_9 = (" assign " + _name_6);
+                          String _plus_10 = (_plus_9 + " = ");
+                          String _lowerCase_1 = assignment.getValue().toLowerCase();
+                          String _plus_11 = (_plus_10 + _lowerCase_1);
+                          String _plus_12 = (_plus_11 + ";");
+                          edge = (_edge_2 + _plus_12);
+                        }
+                      }
+                      String _edge_3 = edge;
+                      String _plus_13 = edge = (_edge_3 + " }");
+                      edges.add(_plus_13);
+                    }
+                  }
+                }
+                _builder.append("\t\t");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              boolean _hasElements_2 = false;
+              for(final String edge : edges) {
+                if (!_hasElements_2) {
+                  _hasElements_2 = true;
+                } else {
+                  _builder.appendImmediate(",", "\t\t");
+                }
+                _builder.append("\t\t");
+                _builder.append(edge, "\t\t");
+                _builder.newLineIfNotEmpty();
+              }
+              if (_hasElements_2) {
+                _builder.append(";", "\t\t");
+              }
+            }
+            _builder.append("\t\t");
+            _builder.append("}");
+            _builder.newLine();
           }
         }
-        _builder.append("\t\t");
-        _builder.append("}");
-        _builder.newLine();
       }
     }
     _builder.newLine();
@@ -749,51 +763,70 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
-      Set<String> _keySet_1 = automata.keySet();
-      for(final String automaton_1 : _keySet_1) {
-        ArrayList<String> channels_1 = new ArrayList<String>();
-        _builder.newLineIfNotEmpty();
-        List<State> _get_1 = automata.get(automaton_1);
-        for (final State location_4 : _get_1) {
-          EList<Transition> _transitions_2 = location_4.getTransitions();
-          for (final Transition transition_2 : _transitions_2) {
-            channels_1.add(transition_2.getEvent().getName());
-          }
-        }
-        _builder.newLineIfNotEmpty();
-        _builder.append(automaton_1);
-        _builder.append("1 = ");
-        _builder.append(automaton_1);
-        _builder.append("(");
-        _builder.newLineIfNotEmpty();
+      Set<String> _keySet_2 = templates.keySet();
+      for(final String temp_1 : _keySet_2) {
         {
-          boolean _hasElements_3 = false;
-          for(final String chan_1 : channels_1) {
-            if (!_hasElements_3) {
-              _hasElements_3 = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            _builder.append(chan_1);
-            _builder.append(" ");
+          Set<String> _keySet_3 = automata.keySet();
+          for(final String automaton_1 : _keySet_3) {
+            ArrayList<String> channels_1 = new ArrayList<String>();
             _builder.newLineIfNotEmpty();
+            List<State> _get_1 = automata.get(automaton_1);
+            for (final State location_4 : _get_1) {
+              EList<Transition> _transitions_2 = location_4.getTransitions();
+              for (final Transition transition_2 : _transitions_2) {
+                channels_1.add(transition_2.getEvent().getName());
+              }
+            }
+            _builder.newLineIfNotEmpty();
+            _builder.append((automaton_1 + temp_1));
+            _builder.append("1 = ");
+            _builder.append((automaton_1 + temp_1));
+            _builder.append("(");
+            _builder.newLineIfNotEmpty();
+            {
+              boolean _hasElements_3 = false;
+              for(final String chan_1 : channels_1) {
+                if (!_hasElements_3) {
+                  _hasElements_3 = true;
+                } else {
+                  _builder.appendImmediate(",", "");
+                }
+                _builder.append(chan_1);
+                _builder.append(" ");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append(");");
+            _builder.newLine();
           }
         }
-        _builder.append(");");
-        _builder.newLine();
       }
     }
+    Set<String> _keySet_4 = templates.keySet();
+    for (final String temp_2 : _keySet_4) {
+      Set<String> _keySet_5 = automata.keySet();
+      for (final String automaton_2 : _keySet_5) {
+        systems.add(((automaton_2 + temp_2) + Integer.valueOf(1)));
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("system ");
     _builder.newLine();
     {
-      EList<Automaton> _automaton_1 = model.getAutomaton();
-      for(final Automaton automaton_2 : _automaton_1) {
-        _builder.append("system ");
-        String _name_3 = automaton_2.getName();
-        _builder.append(_name_3);
-        _builder.append("1;");
+      boolean _hasElements_4 = false;
+      for(final String sys : systems) {
+        if (!_hasElements_4) {
+          _hasElements_4 = true;
+        } else {
+          _builder.appendImmediate(",", "");
+        }
+        _builder.append(sys);
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append(";");
+    _builder.newLine();
     CharSequence context = _builder;
     String _plus = (model + ".xta");
     fsa.generateFile(_plus, context);

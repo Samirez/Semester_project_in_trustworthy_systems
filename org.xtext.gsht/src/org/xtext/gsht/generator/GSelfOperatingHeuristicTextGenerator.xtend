@@ -182,6 +182,9 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 	}
 	
 	def void generateUppaal(Model model, IFileSystemAccess2 fsa){
+		var systems = new ArrayList()
+		var templates = new HashMap<String, String>();
+		templates.put('Send','!');templates.put('Receive','?');
 		var automata = new HashMap<String, List<State>>();/*checks how many templates should be made */
 		if(!model.automaton.isEmpty()){
 			for (a : model.automaton){automata.put(a.name, a.states)}			
@@ -208,11 +211,12 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		«global»
 		«ENDFOR»
 		
+		«FOR temp: templates.keySet()»
 		«FOR automaton: automata.keySet()»
 		«var channels = new ArrayList()»
 		«var edges = new ArrayList()»
 		«var locations = automata.get(automaton)»
-		process «automaton»(	
+		process «automaton + temp»(	
 		« /*saving all events into channels */
 		for(location : automata.get(automaton)){
 			for(transition: location.transitions){
@@ -230,9 +234,11 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 					var type = prop.type + ""
 					if(type != "String"){
 						if(type == "boolean"){
-							propsMap.put(prop.name, "bool " + prop.name + ";")
+							propsMap.put(prop.name, "bool")
+						}else if (type == "double"){
+							
 						}else {
-							propsMap.put(prop.name, type + " " + prop.name + ";")
+							propsMap.put(prop.name, type + " " + prop.name + ' = ' + prop.value + ";")
 						}
 					}
 					
@@ -258,7 +264,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 						var edge = location.name + " -> " + transition.state.name + "{"
 						var condition = transition.condition
 						if(condition !== null){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
-						edge += " sync " + transition.event.name + "!;"
+						edge += " sync " + transition.event.name + templates.get(temp) + ';'
 						/*assign */
 						var assignment = transition.assignment;
 						if(assignment !== null){
@@ -278,11 +284,13 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				«ENDFOR»
 				}
 		«ENDFOR»
+		«ENDFOR»
 		
 		«FOR event: model.events»
 		urgent chan «event.name»;
 		«ENDFOR»
 		
+		«FOR temp : templates.keySet()»
 		«FOR automaton: automata.keySet()»
 		«var channels = new ArrayList()»
 		« /*saving all events into channels */
@@ -292,16 +300,24 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 				}
 			}
 		»
-		«automaton»1 = «automaton»(
+		«automaton + temp»1 = «automaton + temp»(
 		«FOR chan: channels SEPARATOR ','»
 		«chan» 
 		«ENDFOR»
 		);
 		«ENDFOR»
-		
-		«FOR automaton: model.automaton»
-		system «automaton.name»1;
 		«ENDFOR»
+		«for (temp: templates.keySet()){
+			for (automaton: automata.keySet()){
+				systems.add(automaton + temp +1 )
+			}
+		}»
+		
+		system 
+		«FOR sys: systems SEPARATOR ','»
+		«sys»
+		«ENDFOR»
+		;
 		'''
 		
 		fsa.generateFile(model+'.xta', context)
