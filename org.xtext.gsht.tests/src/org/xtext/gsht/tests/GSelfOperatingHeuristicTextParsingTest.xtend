@@ -25,33 +25,30 @@ class GSelfOperatingHeuristicTextParsingTest {
 			DRONE EmergencyDrone
 			GLOBAL 
 			{
-				Charge as double
-				ErrorCode as String
-				DefibrillatorIsDepleted as boolean
+				Charge as double = 0.9
+				ErrorCode as String = "Operational"
+				DefibrillatorIsDepleted as boolean = false
 			}
 			
-			EVENT BatteryCharged
+			EVENTS 
+			{
+				BatteryCharged
+				MissionReceived
+				StandbyFailure
+			   	FlyToTarget
+				AbortMission
+				AirborneFailure
+				Landing
+				ArrivedFailure
+			    TakingOff
+				LandedFailure
+			    Returned
+				ReturningFailure
+			    DefibrillatorDepleted
+				DefibrillatorNotDepleted
+			}
 			
-			EVENT MissionReceived
-			EVENT StandbyFailure
-			    
-			EVENT FlyToTarget
-			EVENT AbortMission
-			EVENT AirborneFailure
-			    
-			EVENT Landing
-			EVENT ArrivedFailure
-			    
-			EVENT TakingOff
-			EVENT LandedFailure
-			    
-			EVENT Returned
-			EVENT ReturningFailure
-			    
-			EVENT DefibrillatorDepleted
-			EVENT DefibrillatorNotDepleted
-			
-			STATE Charging
+			INIT STATE Charging
 				TRANSITIONS 
 				{
 					ON BatteryCharged TO Standby IF Charge >= 0.7
@@ -60,8 +57,8 @@ class GSelfOperatingHeuristicTextParsingTest {
 			STATE Standby
 				PROPS
 				{
-					ReceivedMission as boolean
-					Error as boolean
+					ReceivedMission as boolean = false
+					Error as boolean = false
 				}
 				TRANSITIONS
 				{
@@ -72,9 +69,9 @@ class GSelfOperatingHeuristicTextParsingTest {
 			STATE Airborne
 				PROPS
 				{
-					ArrivedAtCoordinates as boolean
-					Abort as boolean
-					Error as boolean
+					ArrivedAtCoordinates as boolean = false
+					Abort as boolean = false
+					Error as boolean = false
 				}
 				TRANSITIONS
 				{
@@ -86,9 +83,9 @@ class GSelfOperatingHeuristicTextParsingTest {
 			STATE Arrived
 				PROPS
 				{
-					FoundLandingPlace as boolean
-					Abort as boolean
-					Error as boolean
+					FoundLandingPlace as boolean = false
+					Abort as boolean = false
+					Error as boolean = false
 					}
 				TRANSITIONS
 				{
@@ -100,8 +97,8 @@ class GSelfOperatingHeuristicTextParsingTest {
 			STATE Landed
 				PROPS
 				{
-					Recall as boolean
-					Error as boolean
+					Recall as boolean = true
+					Error as boolean = false
 				}
 				TRANSITIONS
 				{
@@ -112,8 +109,8 @@ class GSelfOperatingHeuristicTextParsingTest {
 			STATE Returning
 				PROPS
 				{
-					ArrivedAtBase as boolean
-					Error as boolean
+					ArrivedAtBase as boolean = false
+					Error as boolean = false
 				}
 				TRANSITIONS
 				{
@@ -128,33 +125,6 @@ class GSelfOperatingHeuristicTextParsingTest {
 					ON DefibrillatorNotDepleted TO Charging IF DefibrillatorIsDepleted == FALSE
 				}
 			
-			STATE Maintenance
-			
-			STATE Failed
-			
-			EVENT DefibrillatorReady
-										
-			EVENT DefibrillatorUsed
-			
-			ALTER STATE Landed
-				PROPS
-				{
-					DefibrillatorIsReady as boolean
-				}
-				TRANSITIONS
-				{
-					ON DefibrillatorReady TO Defibrillation IF DefibrillatorIsReady == TRUE
-				}
-			
-			STATE Defibrillation
-				PROPS
-				{
-					DefibrillatorIsUsed as boolean
-				}
-				TRANSITIONS
-				{
-					ON DefibrillatorUsed TO Landed IF DefibrillatorIsUsed == TRUE SET DefibrillatorIsDepleted = TRUE
-				}
 		''')
 		println(EmfFormatter.objToStr(result))
 		//Assertions.assertNotNull(result)

@@ -1,0 +1,158 @@
+int Charge = 9;
+bool DefibrillatorIsDepleted = false;
+
+process A(	  urgent chan &BatteryCharged,  urgent chan &MissionReceived,  urgent chan &StandbyFailure,  urgent chan &FlyToTarget,  urgent chan &AbortMission,  urgent chan &AirborneFailure,  urgent chan &Landing,  urgent chan &AbortMission,  urgent chan &ArrivedFailure,  urgent chan &TakingOff,  urgent chan &LandedFailure,  urgent chan &HasReturned,  urgent chan &ReturningFailure,  urgent chan &DefibrillatorDepleted,  urgent chan &DefibrillatorNotDepleted,  urgent chan &DefibrillatorUsed) {
+
+
+	bool ArrivedAtCoordinates = true;
+	bool Abort = false;
+	bool ArrivedAtBase = true;
+	bool ReceivedMission = true;
+	bool Error = true;
+	bool Recall = true;
+	bool FoundLandingPlace = true ;
+state
+    Charging,
+    Standby,
+    Airborne,
+    Arrived,
+    Landed,
+    Returning,
+    Returned,
+    Maintenance,
+    Failed;
+init
+    Charging;
+trans
+    Charging -> Standby { guard Charge>=7; sync BatteryCharged?; },
+    Standby -> Airborne { guard ReceivedMission==true; sync MissionReceived?; },
+    Standby -> Failed { guard Error==true; sync StandbyFailure?; },
+    Airborne -> Arrived { guard ArrivedAtCoordinates==true; sync FlyToTarget?; },
+    Airborne -> Returning { guard Abort==true; sync AbortMission?; },
+    Airborne -> Failed { guard Error==true; sync AirborneFailure?; },
+    Arrived -> Landed { guard FoundLandingPlace==true; sync Landing?; },
+    Arrived -> Returning { guard Abort==true; sync AbortMission?; },
+    Arrived -> Failed { guard Error==true; sync ArrivedFailure?; },
+    Landed -> Returning { guard Recall==true; sync TakingOff?; },
+    Landed -> Failed { guard Error==true; sync LandedFailure?; },
+    Returning -> Returned { guard ArrivedAtBase==true; sync HasReturned?; },
+    Returning -> Failed { guard Error==true; sync ReturningFailure?; },
+    Returned -> Maintenance { guard DefibrillatorIsDepleted==true; sync DefibrillatorDepleted?; },
+    Returned -> Charging { guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted?; };
+}
+
+process B( urgent chan &BatteryCharged,  urgent chan &MissionReceived,  urgent chan &StandbyFailure,  urgent chan &FlyToTarget,  urgent chan &AbortMission,  urgent chan &AirborneFailure,  urgent chan &Landing,  urgent chan &AbortMission,  urgent chan &ArrivedFailure,  urgent chan &TakingOff,  urgent chan &LandedFailure,  urgent chan &HasReturned,  urgent chan &ReturningFailure,  urgent chan &DefibrillatorDepleted,  urgent chan &DefibrillatorNotDepleted,  urgent chan &DefibrillatorUsed) {
+
+    bool ArrivedAtCoordinates = true;
+	bool Abort = false;
+	bool ArrivedAtBase = true;
+	bool ReceivedMission = true;
+	bool Error = true;
+	bool Recall = true;
+	bool FoundLandingPlace = true ;
+state
+    Charging,
+    Standby,
+    Airborne,
+    Arrived,
+    Landed,
+    Returning,
+    Returned,
+    Maintenance,
+    Failed;
+init
+    Charging;
+trans
+    Charging -> Standby { guard Charge>=7; sync BatteryCharged!; },
+    Standby -> Airborne { guard ReceivedMission==true; sync MissionReceived!; },
+    Standby -> Failed { guard Error==true; sync StandbyFailure!; },
+    Airborne -> Arrived { guard ArrivedAtCoordinates==true; sync FlyToTarget!; },
+    Airborne -> Returning { guard Abort==true; sync AbortMission!; },
+    Airborne -> Failed { guard Error==true; sync AirborneFailure!; },
+    Arrived -> Landed { guard FoundLandingPlace==true; sync Landing!; },
+    Arrived -> Returning { guard Abort==true; sync AbortMission!; },
+    Arrived -> Failed { guard Error==true; sync ArrivedFailure!; },
+    Landed -> Returning { guard Recall==true; sync TakingOff!; },
+    Landed -> Failed { guard Error==true; sync LandedFailure!; },
+    Returning -> Returned { guard ArrivedAtBase==true; sync HasReturned!; },
+    Returning -> Failed { guard Error==true; sync ReturningFailure!; },
+    Returned -> Maintenance { guard DefibrillatorIsDepleted==true; sync DefibrillatorDepleted!; },
+    Returned -> Charging { guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; };
+}
+
+
+
+urgent chan BatteryCharged;
+urgent chan MissionReceived;
+urgent chan StandbyFailure;
+urgent chan FlyToTarget;
+urgent chan AbortMission;
+urgent chan AirborneFailure;
+urgent chan Landing;
+urgent chan ArrivedFailure;
+urgent chan TakingOff;
+urgent chan LandedFailure;
+urgent chan HasReturned;
+urgent chan ReturningFailure;
+urgent chan DefibrillatorDepleted;
+urgent chan DefibrillatorNotDepleted;
+urgent chan DefibrillatorReady;
+urgent chan DefibrillatorUsed;
+
+A1 = A(
+BatteryCharged, 
+MissionReceived, 
+StandbyFailure, 
+FlyToTarget, 
+AbortMission, 
+AirborneFailure, 
+Landing, 
+AbortMission, 
+ArrivedFailure, 
+TakingOff, 
+LandedFailure, 
+HasReturned, 
+ReturningFailure, 
+DefibrillatorDepleted, 
+DefibrillatorNotDepleted, 
+DefibrillatorUsed 
+);
+
+B1 = B(
+
+BatteryCharged, 
+
+MissionReceived, 
+
+StandbyFailure, 
+
+FlyToTarget, 
+
+AbortMission, 
+
+AirborneFailure, 
+
+Landing, 
+
+AbortMission, 
+
+ArrivedFailure, 
+
+TakingOff, 
+
+LandedFailure, 
+
+HasReturned, 
+
+ReturningFailure, 
+
+DefibrillatorDepleted, 
+
+DefibrillatorNotDepleted, 
+
+DefibrillatorUsed 
+
+);
+
+
+system A1, B1;

@@ -17,15 +17,20 @@ Model:
 	'}')*
 
 	(states+=State | alters+=Alter)*
+	
+	(automaton+=Automaton)*	
+	
+	
 ;
 
 
 Global:
-	name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+	name=ID ('AS' | 'as') type=DataType '=' value=Value;
 Local:
-	name=ID ('AS' | 'as') type=DataType ('=' value=STRING)?;
+	name=ID ('AS' | 'as') type=DataType '=' value=Value;
 
 State:
+	(('INIT' | 'init') init?=Initial)?
 	('STATE' | 'state') name=ID
 	(('PROPS' | 'props')
 	'{'
@@ -38,6 +43,10 @@ State:
 		(transitions+=Transition)*	
 	'}'
 	)?
+;
+
+Initial:
+	{InitState}
 ;
 
 Alter:
@@ -55,7 +64,7 @@ Alter:
 ;
 
 Transition:
-	('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition? (('SET' | 'set') assignment=Assignment)? )?;
+	('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition)? (('SET' | 'set') assignment=Assignment)?;
 
 Event:
     name=ID;
@@ -93,34 +102,14 @@ terminal BOOL returns ecore::EBoolean:
 terminal DOUBLE returns ecore::EDouble:
     ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;
     
-
-
-
-
-//ON BatteryCharged TO Standby IF Charge >= 0.7
-/* 
-conditionElement:
-	name=VariableReference (operator=ComparisonOperator) exp=Expression
-;
-Expression:
-	or=Or
-;
-Or returns Expression:
-	And ({Or.left=current} "or" right=And)*;
-And returns Expression:
-	Equality ({And.left=current} "and" right=Equality)*;
-Equality returns Expression:
-	Comparison ({Equality.left=current} op=("==" | "!=") right=Comparison)*;
-Comparison returns Expression:
-	Primary ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=Primary)*
-;
-Primary returns Expression:
-	'(' Expression ')' |
-	{Not} "not" expression=Primary |
-	Atomic
+Automaton:
+	('AUTOMATON' | 'automaton') name=ID
+	'{'
+    	(location+=Location)*
+    	
+	'}'
 ;
 
-Atomic returns Expression: 
-	{BoolConstant} value=('true' | 'false')
+Location:
+	state=[State]
 ;
-*/
