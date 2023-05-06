@@ -19,8 +19,6 @@ Model:
 	(states+=State | alters+=Alter)*
 	
 	(automaton+=Automaton)*
-	
-	
 ;
 
 

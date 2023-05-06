@@ -199,7 +199,9 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 			var type = global.type + ""
 			if(type != "String"){
 				if(type == "boolean"){
-					globals.add("bool " + global.name + ";")
+					globals.add("bool " + global.name + " = " + global.value.toLowerCase() + " ;")
+				}else if(type == "double"){
+					globals.add("int " + global.name + " = " + global.value.replace(".", "") + " ;")
 				}else{
 					globals.add(type + " " + global.name + ";")
 				}
@@ -225,7 +227,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		}
 		»
 		«FOR chan: channels SEPARATOR ','»
-		urgent chan &«chan»
+		chan &«chan»
 		«ENDFOR»
 		){
 			«var propsMap = new HashMap<String, String>()»
@@ -234,9 +236,9 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 					var type = prop.type + ""
 					if(type != "String"){
 						if(type == "boolean"){
-							propsMap.put(prop.name, "bool")
+							propsMap.put(prop.name, "bool" + " " + prop.name + ' = ' + prop.value + ";")
 						}else if (type == "double"){
-							
+							propsMap.put(prop.name, "int" + " " + prop.name + ' = ' + prop.value.replace(".", "") + ";")
 						}else {
 							propsMap.put(prop.name, type + " " + prop.name + ' = ' + prop.value + ";")
 						}
@@ -263,7 +265,8 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 					for(transition : location.transitions){
 						var edge = location.name + " -> " + transition.state.name + "{"
 						var condition = transition.condition
-						if(condition !== null){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
+						if(condition !== null && condition.right !== "double"){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
+						else if(condition !== null && condition.right == "double"){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.replace(".", "") +";"}
 						edge += " sync " + transition.event.name + templates.get(temp) + ';'
 						/*assign */
 						var assignment = transition.assignment;
@@ -287,7 +290,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		«ENDFOR»
 		
 		«FOR event: model.events»
-		urgent chan «event.name»;
+		chan «event.name»;
 		«ENDFOR»
 		
 		«FOR temp : templates.keySet()»

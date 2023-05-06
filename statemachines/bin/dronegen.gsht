@@ -5,7 +5,7 @@ global
 	Charge as double = 0.9
 	ErrorCode as String = "Operational"
 	DefibrillatorIsDepleted as boolean = false
-} /*dsfsdxcfadsdf */
+} 
 events 
 {
 	BatteryCharged

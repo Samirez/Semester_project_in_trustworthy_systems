@@ -1,7 +1,7 @@
 int Charge = 9;
 bool DefibrillatorIsDepleted = false;
 
-process A(	  urgent chan &BatteryCharged,  urgent chan &MissionReceived,  urgent chan &StandbyFailure,  urgent chan &FlyToTarget,  urgent chan &AbortMission,  urgent chan &AirborneFailure,  urgent chan &Landing,  urgent chan &AbortMission,  urgent chan &ArrivedFailure,  urgent chan &TakingOff,  urgent chan &LandedFailure,  urgent chan &HasReturned,  urgent chan &ReturningFailure,  urgent chan &DefibrillatorDepleted,  urgent chan &DefibrillatorNotDepleted,  urgent chan &DefibrillatorUsed) {
+process A(	   chan &BatteryCharged,   chan &MissionReceived,   chan &StandbyFailure,   chan &FlyToTarget,   chan &AbortMission,   chan &AirborneFailure,   chan &Landing,   chan &AbortMission,   chan &ArrivedFailure,   chan &TakingOff,   chan &LandedFailure,   chan &HasReturned,   chan &ReturningFailure,   chan &DefibrillatorDepleted,   chan &DefibrillatorNotDepleted,   chan &DefibrillatorUsed) {
 
 
 
@@ -42,7 +42,7 @@ trans
     Returned -> Charging { guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted?; };
 }
 
-process B( urgent chan &BatteryCharged,  urgent chan &MissionReceived,  urgent chan &StandbyFailure,  urgent chan &FlyToTarget,  urgent chan &AbortMission,  urgent chan &AirborneFailure,  urgent chan &Landing,  urgent chan &AbortMission,  urgent chan &ArrivedFailure,  urgent chan &TakingOff,  urgent chan &LandedFailure,  urgent chan &HasReturned,  urgent chan &ReturningFailure,  urgent chan &DefibrillatorDepleted,  urgent chan &DefibrillatorNotDepleted,  urgent chan &DefibrillatorUsed) {
+process B(  chan &BatteryCharged,   chan &MissionReceived,   chan &StandbyFailure,   chan &FlyToTarget,   chan &AbortMission,   chan &AirborneFailure,   chan &Landing,   chan &AbortMission,   chan &ArrivedFailure,   chan &TakingOff,   chan &LandedFailure,   chan &HasReturned,   chan &ReturningFailure,   chan &DefibrillatorDepleted,   chan &DefibrillatorNotDepleted,   chan &DefibrillatorUsed) {
 
 
     bool ArrivedAtCoordinates = true;
@@ -85,22 +85,22 @@ trans
 
 
 
-urgent chan BatteryCharged;
-urgent chan MissionReceived;
-urgent chan StandbyFailure;
-urgent chan FlyToTarget;
-urgent chan AbortMission;
-urgent chan AirborneFailure;
-urgent chan Landing;
-urgent chan ArrivedFailure;
-urgent chan TakingOff;
-urgent chan LandedFailure;
-urgent chan HasReturned;
-urgent chan ReturningFailure;
-urgent chan DefibrillatorDepleted;
-urgent chan DefibrillatorNotDepleted;
-urgent chan DefibrillatorReady;
-urgent chan DefibrillatorUsed;
+ chan BatteryCharged;
+ chan MissionReceived;
+ chan StandbyFailure;
+ chan FlyToTarget;
+ chan AbortMission;
+ chan AirborneFailure;
+ chan Landing;
+ chan ArrivedFailure;
+ chan TakingOff;
+ chan LandedFailure;
+ chan HasReturned;
+ chan ReturningFailure;
+ chan DefibrillatorDepleted;
+ chan DefibrillatorNotDepleted;
+ chan DefibrillatorReady;
+ chan DefibrillatorUsed;
 
 A1 = A(
 BatteryCharged, 

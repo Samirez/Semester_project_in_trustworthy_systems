@@ -1,30 +1,30 @@
-double Charge;
-bool DefibrillatorIsDepleted;
+int Charge = 09 ;
+bool DefibrillatorIsDepleted = false ;
 
 process AReceive(	
-urgent chan &BatteryCharged,
-urgent chan &MissionRecieved,
-urgent chan &StandbyFailure,
-urgent chan &FlyToTarget,
-urgent chan &AbortMission,
-urgent chan &AirborneFailure,
-urgent chan &Landing,
-urgent chan &AbortMission,
-urgent chan &ArrivedFailure,
-urgent chan &TakingOff,
-urgent chan &LandedFailure,
-urgent chan &HasReturned,
-urgent chan &ReturningFailure,
-urgent chan &DefibrillatorDepleted,
-urgent chan &DefibrillatorNotDepleted
+chan &BatteryCharged,
+chan &MissionRecieved,
+chan &StandbyFailure,
+chan &FlyToTarget,
+chan &AbortMission,
+chan &AirborneFailure,
+chan &Landing,
+chan &AbortMission,
+chan &ArrivedFailure,
+chan &TakingOff,
+chan &LandedFailure,
+chan &HasReturned,
+chan &ReturningFailure,
+chan &DefibrillatorDepleted,
+chan &DefibrillatorNotDepleted
 ){
-	bool
-	bool
-	bool
-	bool
-	bool
-	bool
-	bool
+	bool ArrivedAtCoordinates = true;
+	bool Abort = false;
+	bool ArrivedAtBase = true;
+	bool ReceivedMission = true;
+	bool Error = false;
+	bool Recall = true;
+	bool FoundLandingPlace = true;
 	
 	state
 		Charging,
@@ -57,29 +57,29 @@ urgent chan &DefibrillatorNotDepleted
 		Returned -> Charging{ guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted?; }
 ;		}
 process ASend(	
-urgent chan &BatteryCharged,
-urgent chan &MissionRecieved,
-urgent chan &StandbyFailure,
-urgent chan &FlyToTarget,
-urgent chan &AbortMission,
-urgent chan &AirborneFailure,
-urgent chan &Landing,
-urgent chan &AbortMission,
-urgent chan &ArrivedFailure,
-urgent chan &TakingOff,
-urgent chan &LandedFailure,
-urgent chan &HasReturned,
-urgent chan &ReturningFailure,
-urgent chan &DefibrillatorDepleted,
-urgent chan &DefibrillatorNotDepleted
+chan &BatteryCharged,
+chan &MissionRecieved,
+chan &StandbyFailure,
+chan &FlyToTarget,
+chan &AbortMission,
+chan &AirborneFailure,
+chan &Landing,
+chan &AbortMission,
+chan &ArrivedFailure,
+chan &TakingOff,
+chan &LandedFailure,
+chan &HasReturned,
+chan &ReturningFailure,
+chan &DefibrillatorDepleted,
+chan &DefibrillatorNotDepleted
 ){
-	bool
-	bool
-	bool
-	bool
-	bool
-	bool
-	bool
+	bool ArrivedAtCoordinates = true;
+	bool Abort = false;
+	bool ArrivedAtBase = true;
+	bool ReceivedMission = true;
+	bool Error = false;
+	bool Recall = true;
+	bool FoundLandingPlace = true;
 	
 	state
 		Charging,
@@ -112,22 +112,22 @@ urgent chan &DefibrillatorNotDepleted
 		Returned -> Charging{ guard DefibrillatorIsDepleted==false; sync DefibrillatorNotDepleted!; }
 ;		}
 
-urgent chan BatteryCharged;
-urgent chan MissionRecieved;
-urgent chan StandbyFailure;
-urgent chan FlyToTarget;
-urgent chan AbortMission;
-urgent chan AirborneFailure;
-urgent chan Landing;
-urgent chan ArrivedFailure;
-urgent chan TakingOff;
-urgent chan LandedFailure;
-urgent chan HasReturned;
-urgent chan ReturningFailure;
-urgent chan DefibrillatorDepleted;
-urgent chan DefibrillatorNotDepleted;
-urgent chan DefibrillatorReady;
-urgent chan DefibrillatorUsed;
+chan BatteryCharged;
+chan MissionRecieved;
+chan StandbyFailure;
+chan FlyToTarget;
+chan AbortMission;
+chan AirborneFailure;
+chan Landing;
+chan ArrivedFailure;
+chan TakingOff;
+chan LandedFailure;
+chan HasReturned;
+chan ReturningFailure;
+chan DefibrillatorDepleted;
+chan DefibrillatorNotDepleted;
+chan DefibrillatorReady;
+chan DefibrillatorUsed;
 
 AReceive1 = AReceive(
 BatteryCharged, 

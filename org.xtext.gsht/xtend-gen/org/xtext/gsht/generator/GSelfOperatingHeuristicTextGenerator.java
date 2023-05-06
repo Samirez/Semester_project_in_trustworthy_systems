@@ -530,13 +530,27 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
           if (_equals) {
             String _name = global.getName();
             String _plus = ("bool " + _name);
-            String _plus_1 = (_plus + ";");
-            globals.add(_plus_1);
-          } else {
-            String _name_1 = global.getName();
-            String _plus_2 = ((type + " ") + _name_1);
-            String _plus_3 = (_plus_2 + ";");
+            String _plus_1 = (_plus + " = ");
+            String _lowerCase = global.getValue().toLowerCase();
+            String _plus_2 = (_plus_1 + _lowerCase);
+            String _plus_3 = (_plus_2 + " ;");
             globals.add(_plus_3);
+          } else {
+            boolean _equals_1 = Objects.equal(type, "double");
+            if (_equals_1) {
+              String _name_1 = global.getName();
+              String _plus_4 = ("int " + _name_1);
+              String _plus_5 = (_plus_4 + " = ");
+              String _replace = global.getValue().replace(".", "");
+              String _plus_6 = (_plus_5 + _replace);
+              String _plus_7 = (_plus_6 + " ;");
+              globals.add(_plus_7);
+            } else {
+              String _name_2 = global.getName();
+              String _plus_8 = ((type + " ") + _name_2);
+              String _plus_9 = (_plus_8 + ";");
+              globals.add(_plus_9);
+            }
           }
         }
       }
@@ -581,7 +595,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                 } else {
                   _builder.appendImmediate(",", "");
                 }
-                _builder.append("urgent chan &");
+                _builder.append("chan &");
                 _builder.append(chan);
                 _builder.newLineIfNotEmpty();
               }
@@ -602,19 +616,34 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                   if (_notEquals) {
                     boolean _equals = Objects.equal(type, "boolean");
                     if (_equals) {
-                      propsMap.put(prop.getName(), "bool");
+                      String _name = prop.getName();
+                      String _name_1 = prop.getName();
+                      String _plus = (("bool" + " ") + _name_1);
+                      String _plus_1 = (_plus + " = ");
+                      String _value = prop.getValue();
+                      String _plus_2 = (_plus_1 + _value);
+                      String _plus_3 = (_plus_2 + ";");
+                      propsMap.put(_name, _plus_3);
                     } else {
                       boolean _equals_1 = Objects.equal(type, "double");
                       if (_equals_1) {
+                        String _name_2 = prop.getName();
+                        String _name_3 = prop.getName();
+                        String _plus_4 = (("int" + " ") + _name_3);
+                        String _plus_5 = (_plus_4 + " = ");
+                        String _replace = prop.getValue().replace(".", "");
+                        String _plus_6 = (_plus_5 + _replace);
+                        String _plus_7 = (_plus_6 + ";");
+                        propsMap.put(_name_2, _plus_7);
                       } else {
-                        String _name = prop.getName();
-                        String _name_1 = prop.getName();
-                        String _plus = ((type + " ") + _name_1);
-                        String _plus_1 = (_plus + " = ");
-                        String _value = prop.getValue();
-                        String _plus_2 = (_plus_1 + _value);
-                        String _plus_3 = (_plus_2 + ";");
-                        propsMap.put(_name, _plus_3);
+                        String _name_4 = prop.getName();
+                        String _name_5 = prop.getName();
+                        String _plus_8 = ((type + " ") + _name_5);
+                        String _plus_9 = (_plus_8 + " = ");
+                        String _value_1 = prop.getValue();
+                        String _plus_10 = (_plus_9 + _value_1);
+                        String _plus_11 = (_plus_10 + ";");
+                        propsMap.put(_name_4, _plus_11);
                       }
                     }
                   }
@@ -682,7 +711,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                       String _plus_1 = (_plus + _name_3);
                       String edge = (_plus_1 + "{");
                       Condition condition = transition_1.getCondition();
-                      if ((condition != null)) {
+                      if (((condition != null) && (condition.getRight() != "double"))) {
                         String _edge = edge;
                         String _name_4 = condition.getLeft().getVariable().getName();
                         String _plus_2 = (" guard " + _name_4);
@@ -692,14 +721,26 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                         String _plus_4 = (_plus_3 + _lowerCase);
                         String _plus_5 = (_plus_4 + ";");
                         edge = (_edge + _plus_5);
+                      } else {
+                        if (((condition != null) && Objects.equal(condition.getRight(), "double"))) {
+                          String _edge_1 = edge;
+                          String _name_5 = condition.getLeft().getVariable().getName();
+                          String _plus_6 = (" guard " + _name_5);
+                          ComparisonOperator _operator_1 = condition.getOperator();
+                          String _plus_7 = (_plus_6 + _operator_1);
+                          String _replace = condition.getRight().replace(".", "");
+                          String _plus_8 = (_plus_7 + _replace);
+                          String _plus_9 = (_plus_8 + ";");
+                          edge = (_edge_1 + _plus_9);
+                        }
                       }
-                      String _edge_1 = edge;
-                      String _name_5 = transition_1.getEvent().getName();
-                      String _plus_6 = (" sync " + _name_5);
+                      String _edge_2 = edge;
+                      String _name_6 = transition_1.getEvent().getName();
+                      String _plus_10 = (" sync " + _name_6);
                       String _get_1 = templates.get(temp);
-                      String _plus_7 = (_plus_6 + _get_1);
-                      String _plus_8 = (_plus_7 + ";");
-                      edge = (_edge_1 + _plus_8);
+                      String _plus_11 = (_plus_10 + _get_1);
+                      String _plus_12 = (_plus_11 + ";");
+                      edge = (_edge_2 + _plus_12);
                       Assignment assignment = transition_1.getAssignment();
                       if ((assignment != null)) {
                         DataType _type = assignment.getCurrentVar().getVariable().getType();
@@ -707,19 +748,19 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                         boolean _contains = type.contains("String");
                         boolean _not_2 = (!_contains);
                         if (_not_2) {
-                          String _edge_2 = edge;
-                          String _name_6 = assignment.getCurrentVar().getVariable().getName();
-                          String _plus_9 = (" assign " + _name_6);
-                          String _plus_10 = (_plus_9 + " = ");
+                          String _edge_3 = edge;
+                          String _name_7 = assignment.getCurrentVar().getVariable().getName();
+                          String _plus_13 = (" assign " + _name_7);
+                          String _plus_14 = (_plus_13 + " = ");
                           String _lowerCase_1 = assignment.getValue().toLowerCase();
-                          String _plus_11 = (_plus_10 + _lowerCase_1);
-                          String _plus_12 = (_plus_11 + ";");
-                          edge = (_edge_2 + _plus_12);
+                          String _plus_15 = (_plus_14 + _lowerCase_1);
+                          String _plus_16 = (_plus_15 + ";");
+                          edge = (_edge_3 + _plus_16);
                         }
                       }
-                      String _edge_3 = edge;
-                      String _plus_13 = edge = (_edge_3 + " }");
-                      edges.add(_plus_13);
+                      String _edge_4 = edge;
+                      String _plus_17 = edge = (_edge_4 + " }");
+                      edges.add(_plus_17);
                     }
                   }
                 }
@@ -754,7 +795,7 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     {
       EList<Event> _events = model.getEvents();
       for(final Event event : _events) {
-        _builder.append("urgent chan ");
+        _builder.append("chan ");
         String _name_2 = event.getName();
         _builder.append(_name_2);
         _builder.append(";");
