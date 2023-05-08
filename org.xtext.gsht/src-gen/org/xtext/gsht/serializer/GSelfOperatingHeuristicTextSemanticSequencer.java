@@ -27,6 +27,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
 import org.xtext.gsht.gSelfOperatingHeuristicText.VariableReference;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers;
 import org.xtext.gsht.services.GSelfOperatingHeuristicTextGrammarAccess;
 
 @SuppressWarnings("all")
@@ -78,6 +79,9 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 				return; 
 			case GSelfOperatingHeuristicTextPackage.VARIABLE_REFERENCE:
 				sequence_VariableReference(context, (VariableReference) semanticObject); 
+				return; 
+			case GSelfOperatingHeuristicTextPackage.VERIFIERS:
+				sequence_Verifiers(context, (Verifiers) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -255,7 +259,14 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=ID globals+=Global* events+=Event* (states+=State | alters+=Alter)* automaton+=Automaton*)
+	 *     (
+	 *         name=ID 
+	 *         globals+=Global* 
+	 *         events+=Event* 
+	 *         (states+=State | alters+=Alter)* 
+	 *         automaton+=Automaton* 
+	 *         verifiers+=Verifiers?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -308,6 +319,20 @@ public class GSelfOperatingHeuristicTextSemanticSequencer extends AbstractDelega
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVariableReferenceAccess().getVariableVariableIDTerminalRuleCall_0_1(), semanticObject.eGet(GSelfOperatingHeuristicTextPackage.Literals.VARIABLE_REFERENCE__VARIABLE, false));
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Verifiers returns Verifiers
+	 *
+	 * Constraint:
+	 *     verifier+=STRING+
+	 * </pre>
+	 */
+	protected void sequence_Verifiers(ISerializationContext context, Verifiers semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

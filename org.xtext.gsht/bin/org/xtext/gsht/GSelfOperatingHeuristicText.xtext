@@ -19,6 +19,8 @@ Model:
 	(states+=State | alters+=Alter)*
 	
 	(automaton+=Automaton)*
+	
+	(verifiers+=Verifiers)?
 ;
 
 
@@ -104,6 +106,14 @@ Automaton:
 	('AUTOMATON' | 'automaton') name=ID
 	'{'
     	states+=[State]*
+    	
+	'}'
+;
+
+Verifiers:
+	('VERIFIERS' | 'verifiers')
+	'{'
+    	verifier+=STRING*
     	
 	'}'
 ;

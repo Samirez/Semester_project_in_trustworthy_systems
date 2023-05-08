@@ -123,13 +123,22 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int MODEL__AUTOMATON = 5;
 
   /**
+   * The feature id for the '<em><b>Verifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__VERIFIERS = 6;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 6;
+  int MODEL_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.VariableImpl <em>Variable</em>}' class.
@@ -621,6 +630,34 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   int AUTOMATON_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.VerifiersImpl <em>Verifiers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.VerifiersImpl
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getVerifiers()
+   * @generated
+   */
+  int VERIFIERS = 13;
+
+  /**
+   * The feature id for the '<em><b>Verifier</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERIFIERS__VERIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Verifiers</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERIFIERS_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl <em>Init State</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -628,7 +665,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getInitState()
    * @generated
    */
-  int INIT_STATE = 13;
+  int INIT_STATE = 14;
 
   /**
    * The number of structural features of the '<em>Init State</em>' class.
@@ -647,7 +684,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 14;
+  int DATA_TYPE = 15;
 
   /**
    * The meta object id for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -657,7 +694,7 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 15;
+  int COMPARISON_OPERATOR = 16;
 
 
   /**
@@ -735,6 +772,17 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
    * @generated
    */
   EReference getModel_Automaton();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Model#getVerifiers <em>Verifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Verifiers</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Model#getVerifiers()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Verifiers();
 
   /**
    * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Global <em>Global</em>}'.
@@ -1110,6 +1158,27 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
   EReference getAutomaton_States();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers <em>Verifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Verifiers</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers
+   * @generated
+   */
+  EClass getVerifiers();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers#getVerifier <em>Verifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Verifier</em>'.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers#getVerifier()
+   * @see #getVerifiers()
+   * @generated
+   */
+  EAttribute getVerifiers_Verifier();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.InitState <em>Init State</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1219,6 +1288,14 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
      * @generated
      */
     EReference MODEL__AUTOMATON = eINSTANCE.getModel_Automaton();
+
+    /**
+     * The meta object literal for the '<em><b>Verifiers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__VERIFIERS = eINSTANCE.getModel_Verifiers();
 
     /**
      * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.GlobalImpl <em>Global</em>}' class.
@@ -1523,6 +1600,24 @@ public interface GSelfOperatingHeuristicTextPackage extends EPackage
      * @generated
      */
     EReference AUTOMATON__STATES = eINSTANCE.getAutomaton_States();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.VerifiersImpl <em>Verifiers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.VerifiersImpl
+     * @see org.xtext.gsht.gSelfOperatingHeuristicText.impl.GSelfOperatingHeuristicTextPackageImpl#getVerifiers()
+     * @generated
+     */
+    EClass VERIFIERS = eINSTANCE.getVerifiers();
+
+    /**
+     * The meta object literal for the '<em><b>Verifier</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VERIFIERS__VERIFIER = eINSTANCE.getVerifiers_Verifier();
 
     /**
      * The meta object literal for the '{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.InitStateImpl <em>Init State</em>}' class.

@@ -24,6 +24,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(Model)).forEach[it.generateFile(fsa)]
 		resource.allContents.filter(typeof(Model)).forEach[it.generateUppaal(fsa)]
+		resource.allContents.filter(typeof(Model)).forEach[it.generateVerification(fsa)]
 	}
 		
 	def void generateFile(Model model, IFileSystemAccess2 fsa){
@@ -182,6 +183,7 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 	}
 	
 	def void generateUppaal(Model model, IFileSystemAccess2 fsa){
+
 		var systems = new ArrayList()
 		var templates = new HashMap<String, String>();
 		templates.put('Send','!');templates.put('Receive','?');
@@ -324,6 +326,23 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 		'''
 		
 		fsa.generateFile(model+'.xta', context)
+		
+		
+	}
+	
+	def void generateVerification(Model model, IFileSystemAccess2 fsa){
+
+
+		
+		var CharSequence context = '''
+		«FOR verifiers : model.verifiers»
+		«FOR verifier : verifiers.verifier»
+		«verifier»
+		«ENDFOR»
+		«ENDFOR»
+		'''
+		
+		fsa.generateFile(model+ 'Verifications'+'.q', context)
 		
 		
 	}

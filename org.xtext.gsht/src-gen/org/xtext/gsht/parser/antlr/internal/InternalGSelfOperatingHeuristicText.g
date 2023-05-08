@@ -246,6 +246,25 @@ ruleModel returns [EObject current=null]
 				}
 			)
 		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getVerifiersVerifiersParserRuleCall_6_0());
+				}
+				lv_verifiers_16_0=ruleVerifiers
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					add(
+						$current,
+						"verifiers",
+						lv_verifiers_16_0,
+						"org.xtext.gsht.GSelfOperatingHeuristicText.Verifiers");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -1195,6 +1214,62 @@ ruleAutomaton returns [EObject current=null]
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getAutomatonAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleVerifiers
+entryRuleVerifiers returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getVerifiersRule()); }
+	iv_ruleVerifiers=ruleVerifiers
+	{ $current=$iv_ruleVerifiers.current; }
+	EOF;
+
+// Rule Verifiers
+ruleVerifiers returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='VERIFIERS'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getVerifiersAccess().getVERIFIERSKeyword_0_0());
+			}
+			    |
+			otherlv_1='verifiers'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getVerifiersAccess().getVerifiersKeyword_0_1());
+			}
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getVerifiersAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				lv_verifier_3_0=RULE_STRING
+				{
+					newLeafNode(lv_verifier_3_0, grammarAccess.getVerifiersAccess().getVerifierSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVerifiersRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"verifier",
+						lv_verifier_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)*
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getVerifiersAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;

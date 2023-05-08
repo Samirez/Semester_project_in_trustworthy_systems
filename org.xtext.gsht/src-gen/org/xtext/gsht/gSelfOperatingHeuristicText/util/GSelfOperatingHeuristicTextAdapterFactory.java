@@ -141,6 +141,11 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
         return createAutomatonAdapter();
       }
       @Override
+      public Adapter caseVerifiers(Verifiers object)
+      {
+        return createVerifiersAdapter();
+      }
+      @Override
       public Adapter caseInitState(InitState object)
       {
         return createInitStateAdapter();
@@ -358,6 +363,21 @@ public class GSelfOperatingHeuristicTextAdapterFactory extends AdapterFactoryImp
    * @generated
    */
   public Adapter createAutomatonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers <em>Verifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers
+   * @generated
+   */
+  public Adapter createVerifiersAdapter()
   {
     return null;
   }

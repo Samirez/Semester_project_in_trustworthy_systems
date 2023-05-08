@@ -29,6 +29,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/alters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/automaton"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Model/verifiers"/>
     </genClasses>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Global"/>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Local"/>
@@ -73,6 +74,9 @@
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Automaton">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Automaton/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GSelfOperatingHeuristicText.ecore#//Automaton/states"/>
+    </genClasses>
+    <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//Verifiers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GSelfOperatingHeuristicText.ecore#//Verifiers/verifier"/>
     </genClasses>
     <genClasses ecoreClass="GSelfOperatingHeuristicText.ecore#//InitState"/>
   </genPackages>

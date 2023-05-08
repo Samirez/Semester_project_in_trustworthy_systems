@@ -47,6 +47,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	protected AbstractElementAlias match_Transition_ONKeyword_0_0_or_OnKeyword_0_1;
 	protected AbstractElementAlias match_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1;
 	protected AbstractElementAlias match_Transition_TOKeyword_2_0_or_ToKeyword_2_1;
+	protected AbstractElementAlias match_Verifiers_VERIFIERSKeyword_0_0_or_VerifiersKeyword_0_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -76,6 +77,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 		match_Transition_ONKeyword_0_0_or_OnKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getONKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getOnKeyword_0_1()));
 		match_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSETKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getSetKeyword_5_0_1()));
 		match_Transition_TOKeyword_2_0_or_ToKeyword_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransitionAccess().getTOKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getTransitionAccess().getToKeyword_2_1()));
+		match_Verifiers_VERIFIERSKeyword_0_0_or_VerifiersKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getVerifiersAccess().getVERIFIERSKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getVerifiersAccess().getVerifiersKeyword_0_1()));
 	}
 	
 	@Override
@@ -140,6 +142,8 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 				emit_Transition_SETKeyword_5_0_0_or_SetKeyword_5_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Transition_TOKeyword_2_0_or_ToKeyword_2_1.equals(syntax))
 				emit_Transition_TOKeyword_2_0_or_ToKeyword_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Verifiers_VERIFIERSKeyword_0_0_or_VerifiersKeyword_0_1.equals(syntax))
+				emit_Verifiers_VERIFIERSKeyword_0_0_or_VerifiersKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -342,14 +346,17 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *     events+=Event '}' (ambiguity) alters+=Alter
 	 *     events+=Event '}' (ambiguity) automaton+=Automaton
 	 *     events+=Event '}' (ambiguity) states+=State
+	 *     events+=Event '}' (ambiguity) verifiers+=Verifiers
 	 *     globals+=Global '}' (ambiguity) (rule end)
 	 *     globals+=Global '}' (ambiguity) alters+=Alter
 	 *     globals+=Global '}' (ambiguity) automaton+=Automaton
 	 *     globals+=Global '}' (ambiguity) states+=State
+	 *     globals+=Global '}' (ambiguity) verifiers+=Verifiers
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) (rule end)
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) alters+=Alter
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) automaton+=Automaton
 	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) states+=State
+	 *     name=ID (('GLOBAL' | 'global') '{' '}')? (ambiguity) verifiers+=Verifiers
 	 
 	 * </pre>
 	 */
@@ -368,6 +375,7 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* alters+=Alter
 	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* automaton+=Automaton
 	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* states+=State
+	 *     name=ID (ambiguity) (('EVENTS' | 'events')* '{' '}')* verifiers+=Verifiers
 	 
 	 * </pre>
 	 */
@@ -517,6 +525,21 @@ public class GSelfOperatingHeuristicTextSyntacticSequencer extends AbstractSynta
 	 * </pre>
 	 */
 	protected void emit_Transition_TOKeyword_2_0_or_ToKeyword_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'VERIFIERS' | 'verifiers'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '{' '}' (rule start)
+	 *     (rule start) (ambiguity) '{' verifier+=STRING
+	 
+	 * </pre>
+	 */
+	protected void emit_Verifiers_VERIFIERSKeyword_0_0_or_VerifiersKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

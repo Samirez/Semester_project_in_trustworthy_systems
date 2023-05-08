@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_BOOL", "RULE_STRING", "RULE_INT", "RULE_DOUBLE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'DRONE'", "'drone'", "'GLOBAL'", "'global'", "'{'", "'}'", "'EVENTS'", "'events'", "'AS'", "'as'", "'='", "'INIT'", "'init'", "'STATE'", "'state'", "'PROPS'", "'props'", "'TRANSITIONS'", "'transitions'", "'ALTER'", "'alter'", "'ON'", "'on'", "'TO'", "'to'", "'IF'", "'if'", "'SET'", "'set'", "'AUTOMATON'", "'automaton'", "'??'", "'int'", "'boolean'", "'double'", "'String'", "'\\u00A4\\u00A4'", "'!='", "'=='", "'>'", "'<'", "'>='", "'<='"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_BOOL", "RULE_STRING", "RULE_INT", "RULE_DOUBLE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'DRONE'", "'drone'", "'GLOBAL'", "'global'", "'{'", "'}'", "'EVENTS'", "'events'", "'AS'", "'as'", "'='", "'INIT'", "'init'", "'STATE'", "'state'", "'PROPS'", "'props'", "'TRANSITIONS'", "'transitions'", "'ALTER'", "'alter'", "'ON'", "'on'", "'TO'", "'to'", "'IF'", "'if'", "'SET'", "'set'", "'AUTOMATON'", "'automaton'", "'VERIFIERS'", "'verifiers'", "'??'", "'int'", "'boolean'", "'double'", "'String'", "'\\u00A4\\u00A4'", "'!='", "'=='", "'>'", "'<'", "'>='", "'<='"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -31,7 +31,9 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__55=55;
+    public static final int T__56=56;
     public static final int T__13=13;
+    public static final int T__57=57;
     public static final int T__14=14;
     public static final int T__51=51;
     public static final int T__52=52;
@@ -154,7 +156,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleModel"
-    // InternalGSelfOperatingHeuristicText.g:72:1: ruleModel returns [EObject current=null] : ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ) ;
+    // InternalGSelfOperatingHeuristicText.g:72:1: ruleModel returns [EObject current=null] : ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ( (lv_verifiers_16_0= ruleVerifiers ) )? ) ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
@@ -179,16 +181,18 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
         EObject lv_automaton_15_0 = null;
 
+        EObject lv_verifiers_16_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:78:2: ( ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ) )
-            // InternalGSelfOperatingHeuristicText.g:79:2: ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* )
+            // InternalGSelfOperatingHeuristicText.g:78:2: ( ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ( (lv_verifiers_16_0= ruleVerifiers ) )? ) )
+            // InternalGSelfOperatingHeuristicText.g:79:2: ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ( (lv_verifiers_16_0= ruleVerifiers ) )? )
             {
-            // InternalGSelfOperatingHeuristicText.g:79:2: ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* )
-            // InternalGSelfOperatingHeuristicText.g:80:3: (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )*
+            // InternalGSelfOperatingHeuristicText.g:79:2: ( (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ( (lv_verifiers_16_0= ruleVerifiers ) )? )
+            // InternalGSelfOperatingHeuristicText.g:80:3: (otherlv_0= 'DRONE' | otherlv_1= 'drone' ) ( (lv_name_2_0= RULE_ID ) ) ( (otherlv_3= 'GLOBAL' | otherlv_4= 'global' ) otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal ) )* otherlv_7= '}' )? ( (otherlv_8= 'EVENTS' | otherlv_9= 'events' )* otherlv_10= '{' ( (lv_events_11_0= ruleEvent ) )* otherlv_12= '}' )* ( ( (lv_states_13_0= ruleState ) ) | ( (lv_alters_14_0= ruleAlter ) ) )* ( (lv_automaton_15_0= ruleAutomaton ) )* ( (lv_verifiers_16_0= ruleVerifiers ) )?
             {
             // InternalGSelfOperatingHeuristicText.g:80:3: (otherlv_0= 'DRONE' | otherlv_1= 'drone' )
             int alt1=2;
@@ -636,6 +640,48 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                 }
             } while (true);
 
+            // InternalGSelfOperatingHeuristicText.g:249:3: ( (lv_verifiers_16_0= ruleVerifiers ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( ((LA10_0>=44 && LA10_0<=45)) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // InternalGSelfOperatingHeuristicText.g:250:4: (lv_verifiers_16_0= ruleVerifiers )
+                    {
+                    // InternalGSelfOperatingHeuristicText.g:250:4: (lv_verifiers_16_0= ruleVerifiers )
+                    // InternalGSelfOperatingHeuristicText.g:251:5: lv_verifiers_16_0= ruleVerifiers
+                    {
+
+                    					newCompositeNode(grammarAccess.getModelAccess().getVerifiersVerifiersParserRuleCall_6_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_verifiers_16_0=ruleVerifiers();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getModelRule());
+                    					}
+                    					add(
+                    						current,
+                    						"verifiers",
+                    						lv_verifiers_16_0,
+                    						"org.xtext.gsht.GSelfOperatingHeuristicText.Verifiers");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -659,7 +705,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleGlobal"
-    // InternalGSelfOperatingHeuristicText.g:253:1: entryRuleGlobal returns [EObject current=null] : iv_ruleGlobal= ruleGlobal EOF ;
+    // InternalGSelfOperatingHeuristicText.g:272:1: entryRuleGlobal returns [EObject current=null] : iv_ruleGlobal= ruleGlobal EOF ;
     public final EObject entryRuleGlobal() throws RecognitionException {
         EObject current = null;
 
@@ -667,8 +713,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:253:47: (iv_ruleGlobal= ruleGlobal EOF )
-            // InternalGSelfOperatingHeuristicText.g:254:2: iv_ruleGlobal= ruleGlobal EOF
+            // InternalGSelfOperatingHeuristicText.g:272:47: (iv_ruleGlobal= ruleGlobal EOF )
+            // InternalGSelfOperatingHeuristicText.g:273:2: iv_ruleGlobal= ruleGlobal EOF
             {
              newCompositeNode(grammarAccess.getGlobalRule()); 
             pushFollow(FOLLOW_1);
@@ -695,7 +741,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleGlobal"
-    // InternalGSelfOperatingHeuristicText.g:260:1: ruleGlobal returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:279:1: ruleGlobal returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) ;
     public final EObject ruleGlobal() throws RecognitionException {
         EObject current = null;
 
@@ -712,17 +758,17 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:266:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) )
-            // InternalGSelfOperatingHeuristicText.g:267:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:285:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) )
+            // InternalGSelfOperatingHeuristicText.g:286:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:267:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
-            // InternalGSelfOperatingHeuristicText.g:268:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:286:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:287:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:268:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:269:4: (lv_name_0_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:287:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:288:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:269:4: (lv_name_0_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:270:5: lv_name_0_0= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:288:4: (lv_name_0_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:289:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_11); 
 
@@ -744,25 +790,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:286:3: (otherlv_1= 'AS' | otherlv_2= 'as' )
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:305:3: (otherlv_1= 'AS' | otherlv_2= 'as' )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0==21) ) {
-                alt10=1;
+            if ( (LA11_0==21) ) {
+                alt11=1;
             }
-            else if ( (LA10_0==22) ) {
-                alt10=2;
+            else if ( (LA11_0==22) ) {
+                alt11=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:287:4: otherlv_1= 'AS'
+                    // InternalGSelfOperatingHeuristicText.g:306:4: otherlv_1= 'AS'
                     {
                     otherlv_1=(Token)match(input,21,FOLLOW_12); 
 
@@ -772,7 +818,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:292:4: otherlv_2= 'as'
+                    // InternalGSelfOperatingHeuristicText.g:311:4: otherlv_2= 'as'
                     {
                     otherlv_2=(Token)match(input,22,FOLLOW_12); 
 
@@ -784,11 +830,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:297:3: ( (lv_type_3_0= ruleDataType ) )
-            // InternalGSelfOperatingHeuristicText.g:298:4: (lv_type_3_0= ruleDataType )
+            // InternalGSelfOperatingHeuristicText.g:316:3: ( (lv_type_3_0= ruleDataType ) )
+            // InternalGSelfOperatingHeuristicText.g:317:4: (lv_type_3_0= ruleDataType )
             {
-            // InternalGSelfOperatingHeuristicText.g:298:4: (lv_type_3_0= ruleDataType )
-            // InternalGSelfOperatingHeuristicText.g:299:5: lv_type_3_0= ruleDataType
+            // InternalGSelfOperatingHeuristicText.g:317:4: (lv_type_3_0= ruleDataType )
+            // InternalGSelfOperatingHeuristicText.g:318:5: lv_type_3_0= ruleDataType
             {
 
             					newCompositeNode(grammarAccess.getGlobalAccess().getTypeDataTypeEnumRuleCall_2_0());
@@ -819,11 +865,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             			newLeafNode(otherlv_4, grammarAccess.getGlobalAccess().getEqualsSignKeyword_3());
             		
-            // InternalGSelfOperatingHeuristicText.g:320:3: ( (lv_value_5_0= ruleValue ) )
-            // InternalGSelfOperatingHeuristicText.g:321:4: (lv_value_5_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:339:3: ( (lv_value_5_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:340:4: (lv_value_5_0= ruleValue )
             {
-            // InternalGSelfOperatingHeuristicText.g:321:4: (lv_value_5_0= ruleValue )
-            // InternalGSelfOperatingHeuristicText.g:322:5: lv_value_5_0= ruleValue
+            // InternalGSelfOperatingHeuristicText.g:340:4: (lv_value_5_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:341:5: lv_value_5_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getGlobalAccess().getValueValueParserRuleCall_4_0());
@@ -873,7 +919,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleLocal"
-    // InternalGSelfOperatingHeuristicText.g:343:1: entryRuleLocal returns [EObject current=null] : iv_ruleLocal= ruleLocal EOF ;
+    // InternalGSelfOperatingHeuristicText.g:362:1: entryRuleLocal returns [EObject current=null] : iv_ruleLocal= ruleLocal EOF ;
     public final EObject entryRuleLocal() throws RecognitionException {
         EObject current = null;
 
@@ -881,8 +927,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:343:46: (iv_ruleLocal= ruleLocal EOF )
-            // InternalGSelfOperatingHeuristicText.g:344:2: iv_ruleLocal= ruleLocal EOF
+            // InternalGSelfOperatingHeuristicText.g:362:46: (iv_ruleLocal= ruleLocal EOF )
+            // InternalGSelfOperatingHeuristicText.g:363:2: iv_ruleLocal= ruleLocal EOF
             {
              newCompositeNode(grammarAccess.getLocalRule()); 
             pushFollow(FOLLOW_1);
@@ -909,7 +955,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleLocal"
-    // InternalGSelfOperatingHeuristicText.g:350:1: ruleLocal returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:369:1: ruleLocal returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) ;
     public final EObject ruleLocal() throws RecognitionException {
         EObject current = null;
 
@@ -926,17 +972,17 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:356:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) )
-            // InternalGSelfOperatingHeuristicText.g:357:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:375:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) ) )
+            // InternalGSelfOperatingHeuristicText.g:376:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:357:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
-            // InternalGSelfOperatingHeuristicText.g:358:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:376:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:377:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'AS' | otherlv_2= 'as' ) ( (lv_type_3_0= ruleDataType ) ) otherlv_4= '=' ( (lv_value_5_0= ruleValue ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:358:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:359:4: (lv_name_0_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:377:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:378:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:359:4: (lv_name_0_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:360:5: lv_name_0_0= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:378:4: (lv_name_0_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:379:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_11); 
 
@@ -958,25 +1004,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:376:3: (otherlv_1= 'AS' | otherlv_2= 'as' )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:395:3: (otherlv_1= 'AS' | otherlv_2= 'as' )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==21) ) {
-                alt11=1;
+            if ( (LA12_0==21) ) {
+                alt12=1;
             }
-            else if ( (LA11_0==22) ) {
-                alt11=2;
+            else if ( (LA12_0==22) ) {
+                alt12=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:377:4: otherlv_1= 'AS'
+                    // InternalGSelfOperatingHeuristicText.g:396:4: otherlv_1= 'AS'
                     {
                     otherlv_1=(Token)match(input,21,FOLLOW_12); 
 
@@ -986,7 +1032,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:382:4: otherlv_2= 'as'
+                    // InternalGSelfOperatingHeuristicText.g:401:4: otherlv_2= 'as'
                     {
                     otherlv_2=(Token)match(input,22,FOLLOW_12); 
 
@@ -998,11 +1044,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:387:3: ( (lv_type_3_0= ruleDataType ) )
-            // InternalGSelfOperatingHeuristicText.g:388:4: (lv_type_3_0= ruleDataType )
+            // InternalGSelfOperatingHeuristicText.g:406:3: ( (lv_type_3_0= ruleDataType ) )
+            // InternalGSelfOperatingHeuristicText.g:407:4: (lv_type_3_0= ruleDataType )
             {
-            // InternalGSelfOperatingHeuristicText.g:388:4: (lv_type_3_0= ruleDataType )
-            // InternalGSelfOperatingHeuristicText.g:389:5: lv_type_3_0= ruleDataType
+            // InternalGSelfOperatingHeuristicText.g:407:4: (lv_type_3_0= ruleDataType )
+            // InternalGSelfOperatingHeuristicText.g:408:5: lv_type_3_0= ruleDataType
             {
 
             					newCompositeNode(grammarAccess.getLocalAccess().getTypeDataTypeEnumRuleCall_2_0());
@@ -1033,11 +1079,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             			newLeafNode(otherlv_4, grammarAccess.getLocalAccess().getEqualsSignKeyword_3());
             		
-            // InternalGSelfOperatingHeuristicText.g:410:3: ( (lv_value_5_0= ruleValue ) )
-            // InternalGSelfOperatingHeuristicText.g:411:4: (lv_value_5_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:429:3: ( (lv_value_5_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:430:4: (lv_value_5_0= ruleValue )
             {
-            // InternalGSelfOperatingHeuristicText.g:411:4: (lv_value_5_0= ruleValue )
-            // InternalGSelfOperatingHeuristicText.g:412:5: lv_value_5_0= ruleValue
+            // InternalGSelfOperatingHeuristicText.g:430:4: (lv_value_5_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:431:5: lv_value_5_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getLocalAccess().getValueValueParserRuleCall_4_0());
@@ -1087,7 +1133,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleState"
-    // InternalGSelfOperatingHeuristicText.g:433:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalGSelfOperatingHeuristicText.g:452:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -1095,8 +1141,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:433:46: (iv_ruleState= ruleState EOF )
-            // InternalGSelfOperatingHeuristicText.g:434:2: iv_ruleState= ruleState EOF
+            // InternalGSelfOperatingHeuristicText.g:452:46: (iv_ruleState= ruleState EOF )
+            // InternalGSelfOperatingHeuristicText.g:453:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -1123,7 +1169,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleState"
-    // InternalGSelfOperatingHeuristicText.g:440:1: ruleState returns [EObject current=null] : ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? ) ;
+    // InternalGSelfOperatingHeuristicText.g:459:1: ruleState returns [EObject current=null] : ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -1151,42 +1197,42 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:446:2: ( ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? ) )
-            // InternalGSelfOperatingHeuristicText.g:447:2: ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? )
+            // InternalGSelfOperatingHeuristicText.g:465:2: ( ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? ) )
+            // InternalGSelfOperatingHeuristicText.g:466:2: ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? )
             {
-            // InternalGSelfOperatingHeuristicText.g:447:2: ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? )
-            // InternalGSelfOperatingHeuristicText.g:448:3: ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )?
+            // InternalGSelfOperatingHeuristicText.g:466:2: ( ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )? )
+            // InternalGSelfOperatingHeuristicText.g:467:3: ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )? (otherlv_3= 'STATE' | otherlv_4= 'state' ) ( (lv_name_5_0= RULE_ID ) ) ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )? ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )?
             {
-            // InternalGSelfOperatingHeuristicText.g:448:3: ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:467:3: ( (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) ) )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( ((LA13_0>=24 && LA13_0<=25)) ) {
-                alt13=1;
+            if ( ((LA14_0>=24 && LA14_0<=25)) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:449:4: (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) )
+                    // InternalGSelfOperatingHeuristicText.g:468:4: (otherlv_0= 'INIT' | otherlv_1= 'init' ) ( (lv_init_2_0= ruleInitial ) )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:449:4: (otherlv_0= 'INIT' | otherlv_1= 'init' )
-                    int alt12=2;
-                    int LA12_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:468:4: (otherlv_0= 'INIT' | otherlv_1= 'init' )
+                    int alt13=2;
+                    int LA13_0 = input.LA(1);
 
-                    if ( (LA12_0==24) ) {
-                        alt12=1;
+                    if ( (LA13_0==24) ) {
+                        alt13=1;
                     }
-                    else if ( (LA12_0==25) ) {
-                        alt12=2;
+                    else if ( (LA13_0==25) ) {
+                        alt13=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 12, 0, input);
+                            new NoViableAltException("", 13, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt12) {
+                    switch (alt13) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:450:5: otherlv_0= 'INIT'
+                            // InternalGSelfOperatingHeuristicText.g:469:5: otherlv_0= 'INIT'
                             {
                             otherlv_0=(Token)match(input,24,FOLLOW_15); 
 
@@ -1196,7 +1242,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:455:5: otherlv_1= 'init'
+                            // InternalGSelfOperatingHeuristicText.g:474:5: otherlv_1= 'init'
                             {
                             otherlv_1=(Token)match(input,25,FOLLOW_15); 
 
@@ -1208,11 +1254,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     }
 
-                    // InternalGSelfOperatingHeuristicText.g:460:4: ( (lv_init_2_0= ruleInitial ) )
-                    // InternalGSelfOperatingHeuristicText.g:461:5: (lv_init_2_0= ruleInitial )
+                    // InternalGSelfOperatingHeuristicText.g:479:4: ( (lv_init_2_0= ruleInitial ) )
+                    // InternalGSelfOperatingHeuristicText.g:480:5: (lv_init_2_0= ruleInitial )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:461:5: (lv_init_2_0= ruleInitial )
-                    // InternalGSelfOperatingHeuristicText.g:462:6: lv_init_2_0= ruleInitial
+                    // InternalGSelfOperatingHeuristicText.g:480:5: (lv_init_2_0= ruleInitial )
+                    // InternalGSelfOperatingHeuristicText.g:481:6: lv_init_2_0= ruleInitial
                     {
 
                     						newCompositeNode(grammarAccess.getStateAccess().getInitInitialParserRuleCall_0_1_0());
@@ -1245,25 +1291,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:480:3: (otherlv_3= 'STATE' | otherlv_4= 'state' )
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:499:3: (otherlv_3= 'STATE' | otherlv_4= 'state' )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==26) ) {
-                alt14=1;
+            if ( (LA15_0==26) ) {
+                alt15=1;
             }
-            else if ( (LA14_0==27) ) {
-                alt14=2;
+            else if ( (LA15_0==27) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:481:4: otherlv_3= 'STATE'
+                    // InternalGSelfOperatingHeuristicText.g:500:4: otherlv_3= 'STATE'
                     {
                     otherlv_3=(Token)match(input,26,FOLLOW_3); 
 
@@ -1273,7 +1319,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:486:4: otherlv_4= 'state'
+                    // InternalGSelfOperatingHeuristicText.g:505:4: otherlv_4= 'state'
                     {
                     otherlv_4=(Token)match(input,27,FOLLOW_3); 
 
@@ -1285,11 +1331,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:491:3: ( (lv_name_5_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:492:4: (lv_name_5_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:510:3: ( (lv_name_5_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:511:4: (lv_name_5_0= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:492:4: (lv_name_5_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:493:5: lv_name_5_0= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:511:4: (lv_name_5_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:512:5: lv_name_5_0= RULE_ID
             {
             lv_name_5_0=(Token)match(input,RULE_ID,FOLLOW_16); 
 
@@ -1311,36 +1357,36 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:509:3: ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:528:3: ( (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}' )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( ((LA17_0>=28 && LA17_0<=29)) ) {
-                alt17=1;
+            if ( ((LA18_0>=28 && LA18_0<=29)) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:510:4: (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}'
+                    // InternalGSelfOperatingHeuristicText.g:529:4: (otherlv_6= 'PROPS' | otherlv_7= 'props' ) otherlv_8= '{' ( (lv_locals_9_0= ruleLocal ) )* otherlv_10= '}'
                     {
-                    // InternalGSelfOperatingHeuristicText.g:510:4: (otherlv_6= 'PROPS' | otherlv_7= 'props' )
-                    int alt15=2;
-                    int LA15_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:529:4: (otherlv_6= 'PROPS' | otherlv_7= 'props' )
+                    int alt16=2;
+                    int LA16_0 = input.LA(1);
 
-                    if ( (LA15_0==28) ) {
-                        alt15=1;
+                    if ( (LA16_0==28) ) {
+                        alt16=1;
                     }
-                    else if ( (LA15_0==29) ) {
-                        alt15=2;
+                    else if ( (LA16_0==29) ) {
+                        alt16=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 15, 0, input);
+                            new NoViableAltException("", 16, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt15) {
+                    switch (alt16) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:511:5: otherlv_6= 'PROPS'
+                            // InternalGSelfOperatingHeuristicText.g:530:5: otherlv_6= 'PROPS'
                             {
                             otherlv_6=(Token)match(input,28,FOLLOW_5); 
 
@@ -1350,7 +1396,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:516:5: otherlv_7= 'props'
+                            // InternalGSelfOperatingHeuristicText.g:535:5: otherlv_7= 'props'
                             {
                             otherlv_7=(Token)match(input,29,FOLLOW_5); 
 
@@ -1366,23 +1412,23 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     				newLeafNode(otherlv_8, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1());
                     			
-                    // InternalGSelfOperatingHeuristicText.g:525:4: ( (lv_locals_9_0= ruleLocal ) )*
-                    loop16:
+                    // InternalGSelfOperatingHeuristicText.g:544:4: ( (lv_locals_9_0= ruleLocal ) )*
+                    loop17:
                     do {
-                        int alt16=2;
-                        int LA16_0 = input.LA(1);
+                        int alt17=2;
+                        int LA17_0 = input.LA(1);
 
-                        if ( (LA16_0==RULE_ID) ) {
-                            alt16=1;
+                        if ( (LA17_0==RULE_ID) ) {
+                            alt17=1;
                         }
 
 
-                        switch (alt16) {
+                        switch (alt17) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:526:5: (lv_locals_9_0= ruleLocal )
+                    	    // InternalGSelfOperatingHeuristicText.g:545:5: (lv_locals_9_0= ruleLocal )
                     	    {
-                    	    // InternalGSelfOperatingHeuristicText.g:526:5: (lv_locals_9_0= ruleLocal )
-                    	    // InternalGSelfOperatingHeuristicText.g:527:6: lv_locals_9_0= ruleLocal
+                    	    // InternalGSelfOperatingHeuristicText.g:545:5: (lv_locals_9_0= ruleLocal )
+                    	    // InternalGSelfOperatingHeuristicText.g:546:6: lv_locals_9_0= ruleLocal
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getStateAccess().getLocalsLocalParserRuleCall_3_2_0());
@@ -1411,7 +1457,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     	    break;
 
                     	default :
-                    	    break loop16;
+                    	    break loop17;
                         }
                     } while (true);
 
@@ -1425,36 +1471,36 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:549:3: ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:568:3: ( (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}' )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( ((LA20_0>=30 && LA20_0<=31)) ) {
-                alt20=1;
+            if ( ((LA21_0>=30 && LA21_0<=31)) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:550:4: (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}'
+                    // InternalGSelfOperatingHeuristicText.g:569:4: (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' ) otherlv_13= '{' ( (lv_transitions_14_0= ruleTransition ) )* otherlv_15= '}'
                     {
-                    // InternalGSelfOperatingHeuristicText.g:550:4: (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' )
-                    int alt18=2;
-                    int LA18_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:569:4: (otherlv_11= 'TRANSITIONS' | otherlv_12= 'transitions' )
+                    int alt19=2;
+                    int LA19_0 = input.LA(1);
 
-                    if ( (LA18_0==30) ) {
-                        alt18=1;
+                    if ( (LA19_0==30) ) {
+                        alt19=1;
                     }
-                    else if ( (LA18_0==31) ) {
-                        alt18=2;
+                    else if ( (LA19_0==31) ) {
+                        alt19=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 18, 0, input);
+                            new NoViableAltException("", 19, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt18) {
+                    switch (alt19) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:551:5: otherlv_11= 'TRANSITIONS'
+                            // InternalGSelfOperatingHeuristicText.g:570:5: otherlv_11= 'TRANSITIONS'
                             {
                             otherlv_11=(Token)match(input,30,FOLLOW_5); 
 
@@ -1464,7 +1510,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:556:5: otherlv_12= 'transitions'
+                            // InternalGSelfOperatingHeuristicText.g:575:5: otherlv_12= 'transitions'
                             {
                             otherlv_12=(Token)match(input,31,FOLLOW_5); 
 
@@ -1480,23 +1526,23 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     				newLeafNode(otherlv_13, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_1());
                     			
-                    // InternalGSelfOperatingHeuristicText.g:565:4: ( (lv_transitions_14_0= ruleTransition ) )*
-                    loop19:
+                    // InternalGSelfOperatingHeuristicText.g:584:4: ( (lv_transitions_14_0= ruleTransition ) )*
+                    loop20:
                     do {
-                        int alt19=2;
-                        int LA19_0 = input.LA(1);
+                        int alt20=2;
+                        int LA20_0 = input.LA(1);
 
-                        if ( ((LA19_0>=34 && LA19_0<=35)) ) {
-                            alt19=1;
+                        if ( ((LA20_0>=34 && LA20_0<=35)) ) {
+                            alt20=1;
                         }
 
 
-                        switch (alt19) {
+                        switch (alt20) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:566:5: (lv_transitions_14_0= ruleTransition )
+                    	    // InternalGSelfOperatingHeuristicText.g:585:5: (lv_transitions_14_0= ruleTransition )
                     	    {
-                    	    // InternalGSelfOperatingHeuristicText.g:566:5: (lv_transitions_14_0= ruleTransition )
-                    	    // InternalGSelfOperatingHeuristicText.g:567:6: lv_transitions_14_0= ruleTransition
+                    	    // InternalGSelfOperatingHeuristicText.g:585:5: (lv_transitions_14_0= ruleTransition )
+                    	    // InternalGSelfOperatingHeuristicText.g:586:6: lv_transitions_14_0= ruleTransition
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_2_0());
@@ -1525,7 +1571,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     	    break;
 
                     	default :
-                    	    break loop19;
+                    	    break loop20;
                         }
                     } while (true);
 
@@ -1562,7 +1608,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleInitial"
-    // InternalGSelfOperatingHeuristicText.g:593:1: entryRuleInitial returns [EObject current=null] : iv_ruleInitial= ruleInitial EOF ;
+    // InternalGSelfOperatingHeuristicText.g:612:1: entryRuleInitial returns [EObject current=null] : iv_ruleInitial= ruleInitial EOF ;
     public final EObject entryRuleInitial() throws RecognitionException {
         EObject current = null;
 
@@ -1570,8 +1616,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:593:48: (iv_ruleInitial= ruleInitial EOF )
-            // InternalGSelfOperatingHeuristicText.g:594:2: iv_ruleInitial= ruleInitial EOF
+            // InternalGSelfOperatingHeuristicText.g:612:48: (iv_ruleInitial= ruleInitial EOF )
+            // InternalGSelfOperatingHeuristicText.g:613:2: iv_ruleInitial= ruleInitial EOF
             {
              newCompositeNode(grammarAccess.getInitialRule()); 
             pushFollow(FOLLOW_1);
@@ -1598,7 +1644,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleInitial"
-    // InternalGSelfOperatingHeuristicText.g:600:1: ruleInitial returns [EObject current=null] : () ;
+    // InternalGSelfOperatingHeuristicText.g:619:1: ruleInitial returns [EObject current=null] : () ;
     public final EObject ruleInitial() throws RecognitionException {
         EObject current = null;
 
@@ -1606,11 +1652,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:606:2: ( () )
-            // InternalGSelfOperatingHeuristicText.g:607:2: ()
+            // InternalGSelfOperatingHeuristicText.g:625:2: ( () )
+            // InternalGSelfOperatingHeuristicText.g:626:2: ()
             {
-            // InternalGSelfOperatingHeuristicText.g:607:2: ()
-            // InternalGSelfOperatingHeuristicText.g:608:3: 
+            // InternalGSelfOperatingHeuristicText.g:626:2: ()
+            // InternalGSelfOperatingHeuristicText.g:627:3: 
             {
 
             			current = forceCreateModelElement(
@@ -1635,7 +1681,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleAlter"
-    // InternalGSelfOperatingHeuristicText.g:617:1: entryRuleAlter returns [EObject current=null] : iv_ruleAlter= ruleAlter EOF ;
+    // InternalGSelfOperatingHeuristicText.g:636:1: entryRuleAlter returns [EObject current=null] : iv_ruleAlter= ruleAlter EOF ;
     public final EObject entryRuleAlter() throws RecognitionException {
         EObject current = null;
 
@@ -1643,8 +1689,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:617:46: (iv_ruleAlter= ruleAlter EOF )
-            // InternalGSelfOperatingHeuristicText.g:618:2: iv_ruleAlter= ruleAlter EOF
+            // InternalGSelfOperatingHeuristicText.g:636:46: (iv_ruleAlter= ruleAlter EOF )
+            // InternalGSelfOperatingHeuristicText.g:637:2: iv_ruleAlter= ruleAlter EOF
             {
              newCompositeNode(grammarAccess.getAlterRule()); 
             pushFollow(FOLLOW_1);
@@ -1671,7 +1717,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleAlter"
-    // InternalGSelfOperatingHeuristicText.g:624:1: ruleAlter returns [EObject current=null] : ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? ) ;
+    // InternalGSelfOperatingHeuristicText.g:643:1: ruleAlter returns [EObject current=null] : ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? ) ;
     public final EObject ruleAlter() throws RecognitionException {
         EObject current = null;
 
@@ -1697,31 +1743,31 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:630:2: ( ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? ) )
-            // InternalGSelfOperatingHeuristicText.g:631:2: ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? )
+            // InternalGSelfOperatingHeuristicText.g:649:2: ( ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? ) )
+            // InternalGSelfOperatingHeuristicText.g:650:2: ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? )
             {
-            // InternalGSelfOperatingHeuristicText.g:631:2: ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? )
-            // InternalGSelfOperatingHeuristicText.g:632:3: (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )?
+            // InternalGSelfOperatingHeuristicText.g:650:2: ( (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )? )
+            // InternalGSelfOperatingHeuristicText.g:651:3: (otherlv_0= 'ALTER' | otherlv_1= 'alter' ) (otherlv_2= 'STATE' | otherlv_3= 'state' ) ( (otherlv_4= RULE_ID ) ) ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )? ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )?
             {
-            // InternalGSelfOperatingHeuristicText.g:632:3: (otherlv_0= 'ALTER' | otherlv_1= 'alter' )
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:651:3: (otherlv_0= 'ALTER' | otherlv_1= 'alter' )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==32) ) {
-                alt21=1;
+            if ( (LA22_0==32) ) {
+                alt22=1;
             }
-            else if ( (LA21_0==33) ) {
-                alt21=2;
+            else if ( (LA22_0==33) ) {
+                alt22=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:633:4: otherlv_0= 'ALTER'
+                    // InternalGSelfOperatingHeuristicText.g:652:4: otherlv_0= 'ALTER'
                     {
                     otherlv_0=(Token)match(input,32,FOLLOW_15); 
 
@@ -1731,7 +1777,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:638:4: otherlv_1= 'alter'
+                    // InternalGSelfOperatingHeuristicText.g:657:4: otherlv_1= 'alter'
                     {
                     otherlv_1=(Token)match(input,33,FOLLOW_15); 
 
@@ -1743,25 +1789,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:643:3: (otherlv_2= 'STATE' | otherlv_3= 'state' )
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:662:3: (otherlv_2= 'STATE' | otherlv_3= 'state' )
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==26) ) {
-                alt22=1;
+            if ( (LA23_0==26) ) {
+                alt23=1;
             }
-            else if ( (LA22_0==27) ) {
-                alt22=2;
+            else if ( (LA23_0==27) ) {
+                alt23=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:644:4: otherlv_2= 'STATE'
+                    // InternalGSelfOperatingHeuristicText.g:663:4: otherlv_2= 'STATE'
                     {
                     otherlv_2=(Token)match(input,26,FOLLOW_3); 
 
@@ -1771,7 +1817,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:649:4: otherlv_3= 'state'
+                    // InternalGSelfOperatingHeuristicText.g:668:4: otherlv_3= 'state'
                     {
                     otherlv_3=(Token)match(input,27,FOLLOW_3); 
 
@@ -1783,11 +1829,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:654:3: ( (otherlv_4= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:655:4: (otherlv_4= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:673:3: ( (otherlv_4= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:674:4: (otherlv_4= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:655:4: (otherlv_4= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:656:5: otherlv_4= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:674:4: (otherlv_4= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:675:5: otherlv_4= RULE_ID
             {
 
             					if (current==null) {
@@ -1804,36 +1850,36 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:667:3: ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:686:3: ( (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}' )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( ((LA25_0>=28 && LA25_0<=29)) ) {
-                alt25=1;
+            if ( ((LA26_0>=28 && LA26_0<=29)) ) {
+                alt26=1;
             }
-            switch (alt25) {
+            switch (alt26) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:668:4: (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}'
+                    // InternalGSelfOperatingHeuristicText.g:687:4: (otherlv_5= 'PROPS' | otherlv_6= 'props' ) otherlv_7= '{' ( (lv_locals_8_0= ruleLocal ) )* otherlv_9= '}'
                     {
-                    // InternalGSelfOperatingHeuristicText.g:668:4: (otherlv_5= 'PROPS' | otherlv_6= 'props' )
-                    int alt23=2;
-                    int LA23_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:687:4: (otherlv_5= 'PROPS' | otherlv_6= 'props' )
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA23_0==28) ) {
-                        alt23=1;
+                    if ( (LA24_0==28) ) {
+                        alt24=1;
                     }
-                    else if ( (LA23_0==29) ) {
-                        alt23=2;
+                    else if ( (LA24_0==29) ) {
+                        alt24=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 23, 0, input);
+                            new NoViableAltException("", 24, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt23) {
+                    switch (alt24) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:669:5: otherlv_5= 'PROPS'
+                            // InternalGSelfOperatingHeuristicText.g:688:5: otherlv_5= 'PROPS'
                             {
                             otherlv_5=(Token)match(input,28,FOLLOW_5); 
 
@@ -1843,7 +1889,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:674:5: otherlv_6= 'props'
+                            // InternalGSelfOperatingHeuristicText.g:693:5: otherlv_6= 'props'
                             {
                             otherlv_6=(Token)match(input,29,FOLLOW_5); 
 
@@ -1859,23 +1905,23 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     				newLeafNode(otherlv_7, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_3_1());
                     			
-                    // InternalGSelfOperatingHeuristicText.g:683:4: ( (lv_locals_8_0= ruleLocal ) )*
-                    loop24:
+                    // InternalGSelfOperatingHeuristicText.g:702:4: ( (lv_locals_8_0= ruleLocal ) )*
+                    loop25:
                     do {
-                        int alt24=2;
-                        int LA24_0 = input.LA(1);
+                        int alt25=2;
+                        int LA25_0 = input.LA(1);
 
-                        if ( (LA24_0==RULE_ID) ) {
-                            alt24=1;
+                        if ( (LA25_0==RULE_ID) ) {
+                            alt25=1;
                         }
 
 
-                        switch (alt24) {
+                        switch (alt25) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:684:5: (lv_locals_8_0= ruleLocal )
+                    	    // InternalGSelfOperatingHeuristicText.g:703:5: (lv_locals_8_0= ruleLocal )
                     	    {
-                    	    // InternalGSelfOperatingHeuristicText.g:684:5: (lv_locals_8_0= ruleLocal )
-                    	    // InternalGSelfOperatingHeuristicText.g:685:6: lv_locals_8_0= ruleLocal
+                    	    // InternalGSelfOperatingHeuristicText.g:703:5: (lv_locals_8_0= ruleLocal )
+                    	    // InternalGSelfOperatingHeuristicText.g:704:6: lv_locals_8_0= ruleLocal
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getAlterAccess().getLocalsLocalParserRuleCall_3_2_0());
@@ -1904,7 +1950,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     	    break;
 
                     	default :
-                    	    break loop24;
+                    	    break loop25;
                         }
                     } while (true);
 
@@ -1918,36 +1964,36 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:707:3: ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:726:3: ( (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}' )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( ((LA28_0>=30 && LA28_0<=31)) ) {
-                alt28=1;
+            if ( ((LA29_0>=30 && LA29_0<=31)) ) {
+                alt29=1;
             }
-            switch (alt28) {
+            switch (alt29) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:708:4: (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}'
+                    // InternalGSelfOperatingHeuristicText.g:727:4: (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' ) otherlv_12= '{' ( (lv_transitions_13_0= ruleTransition ) )* otherlv_14= '}'
                     {
-                    // InternalGSelfOperatingHeuristicText.g:708:4: (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' )
-                    int alt26=2;
-                    int LA26_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:727:4: (otherlv_10= 'TRANSITIONS' | otherlv_11= 'transitions' )
+                    int alt27=2;
+                    int LA27_0 = input.LA(1);
 
-                    if ( (LA26_0==30) ) {
-                        alt26=1;
+                    if ( (LA27_0==30) ) {
+                        alt27=1;
                     }
-                    else if ( (LA26_0==31) ) {
-                        alt26=2;
+                    else if ( (LA27_0==31) ) {
+                        alt27=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 26, 0, input);
+                            new NoViableAltException("", 27, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt26) {
+                    switch (alt27) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:709:5: otherlv_10= 'TRANSITIONS'
+                            // InternalGSelfOperatingHeuristicText.g:728:5: otherlv_10= 'TRANSITIONS'
                             {
                             otherlv_10=(Token)match(input,30,FOLLOW_5); 
 
@@ -1957,7 +2003,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:714:5: otherlv_11= 'transitions'
+                            // InternalGSelfOperatingHeuristicText.g:733:5: otherlv_11= 'transitions'
                             {
                             otherlv_11=(Token)match(input,31,FOLLOW_5); 
 
@@ -1973,23 +2019,23 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     				newLeafNode(otherlv_12, grammarAccess.getAlterAccess().getLeftCurlyBracketKeyword_4_1());
                     			
-                    // InternalGSelfOperatingHeuristicText.g:723:4: ( (lv_transitions_13_0= ruleTransition ) )*
-                    loop27:
+                    // InternalGSelfOperatingHeuristicText.g:742:4: ( (lv_transitions_13_0= ruleTransition ) )*
+                    loop28:
                     do {
-                        int alt27=2;
-                        int LA27_0 = input.LA(1);
+                        int alt28=2;
+                        int LA28_0 = input.LA(1);
 
-                        if ( ((LA27_0>=34 && LA27_0<=35)) ) {
-                            alt27=1;
+                        if ( ((LA28_0>=34 && LA28_0<=35)) ) {
+                            alt28=1;
                         }
 
 
-                        switch (alt27) {
+                        switch (alt28) {
                     	case 1 :
-                    	    // InternalGSelfOperatingHeuristicText.g:724:5: (lv_transitions_13_0= ruleTransition )
+                    	    // InternalGSelfOperatingHeuristicText.g:743:5: (lv_transitions_13_0= ruleTransition )
                     	    {
-                    	    // InternalGSelfOperatingHeuristicText.g:724:5: (lv_transitions_13_0= ruleTransition )
-                    	    // InternalGSelfOperatingHeuristicText.g:725:6: lv_transitions_13_0= ruleTransition
+                    	    // InternalGSelfOperatingHeuristicText.g:743:5: (lv_transitions_13_0= ruleTransition )
+                    	    // InternalGSelfOperatingHeuristicText.g:744:6: lv_transitions_13_0= ruleTransition
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getAlterAccess().getTransitionsTransitionParserRuleCall_4_2_0());
@@ -2018,7 +2064,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     	    break;
 
                     	default :
-                    	    break loop27;
+                    	    break loop28;
                         }
                     } while (true);
 
@@ -2055,7 +2101,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleTransition"
-    // InternalGSelfOperatingHeuristicText.g:751:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // InternalGSelfOperatingHeuristicText.g:770:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2063,8 +2109,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:751:51: (iv_ruleTransition= ruleTransition EOF )
-            // InternalGSelfOperatingHeuristicText.g:752:2: iv_ruleTransition= ruleTransition EOF
+            // InternalGSelfOperatingHeuristicText.g:770:51: (iv_ruleTransition= ruleTransition EOF )
+            // InternalGSelfOperatingHeuristicText.g:771:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -2091,7 +2137,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleTransition"
-    // InternalGSelfOperatingHeuristicText.g:758:1: ruleTransition returns [EObject current=null] : ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? ) ;
+    // InternalGSelfOperatingHeuristicText.g:777:1: ruleTransition returns [EObject current=null] : ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2114,31 +2160,31 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:764:2: ( ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? ) )
-            // InternalGSelfOperatingHeuristicText.g:765:2: ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? )
+            // InternalGSelfOperatingHeuristicText.g:783:2: ( ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? ) )
+            // InternalGSelfOperatingHeuristicText.g:784:2: ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? )
             {
-            // InternalGSelfOperatingHeuristicText.g:765:2: ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? )
-            // InternalGSelfOperatingHeuristicText.g:766:3: (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )?
+            // InternalGSelfOperatingHeuristicText.g:784:2: ( (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )? )
+            // InternalGSelfOperatingHeuristicText.g:785:3: (otherlv_0= 'ON' | otherlv_1= 'on' ) ( (otherlv_2= RULE_ID ) ) (otherlv_3= 'TO' | otherlv_4= 'to' ) ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )? ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )?
             {
-            // InternalGSelfOperatingHeuristicText.g:766:3: (otherlv_0= 'ON' | otherlv_1= 'on' )
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:785:3: (otherlv_0= 'ON' | otherlv_1= 'on' )
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA29_0==34) ) {
-                alt29=1;
+            if ( (LA30_0==34) ) {
+                alt30=1;
             }
-            else if ( (LA29_0==35) ) {
-                alt29=2;
+            else if ( (LA30_0==35) ) {
+                alt30=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
+                    new NoViableAltException("", 30, 0, input);
 
                 throw nvae;
             }
-            switch (alt29) {
+            switch (alt30) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:767:4: otherlv_0= 'ON'
+                    // InternalGSelfOperatingHeuristicText.g:786:4: otherlv_0= 'ON'
                     {
                     otherlv_0=(Token)match(input,34,FOLLOW_3); 
 
@@ -2148,7 +2194,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:772:4: otherlv_1= 'on'
+                    // InternalGSelfOperatingHeuristicText.g:791:4: otherlv_1= 'on'
                     {
                     otherlv_1=(Token)match(input,35,FOLLOW_3); 
 
@@ -2160,11 +2206,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:777:3: ( (otherlv_2= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:778:4: (otherlv_2= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:796:3: ( (otherlv_2= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:797:4: (otherlv_2= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:778:4: (otherlv_2= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:779:5: otherlv_2= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:797:4: (otherlv_2= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:798:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -2181,25 +2227,25 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:790:3: (otherlv_3= 'TO' | otherlv_4= 'to' )
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:809:3: (otherlv_3= 'TO' | otherlv_4= 'to' )
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA30_0==36) ) {
-                alt30=1;
+            if ( (LA31_0==36) ) {
+                alt31=1;
             }
-            else if ( (LA30_0==37) ) {
-                alt30=2;
+            else if ( (LA31_0==37) ) {
+                alt31=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
+                    new NoViableAltException("", 31, 0, input);
 
                 throw nvae;
             }
-            switch (alt30) {
+            switch (alt31) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:791:4: otherlv_3= 'TO'
+                    // InternalGSelfOperatingHeuristicText.g:810:4: otherlv_3= 'TO'
                     {
                     otherlv_3=(Token)match(input,36,FOLLOW_3); 
 
@@ -2209,7 +2255,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:796:4: otherlv_4= 'to'
+                    // InternalGSelfOperatingHeuristicText.g:815:4: otherlv_4= 'to'
                     {
                     otherlv_4=(Token)match(input,37,FOLLOW_3); 
 
@@ -2221,11 +2267,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:801:3: ( (otherlv_5= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:802:4: (otherlv_5= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:820:3: ( (otherlv_5= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:821:4: (otherlv_5= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:802:4: (otherlv_5= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:803:5: otherlv_5= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:821:4: (otherlv_5= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:822:5: otherlv_5= RULE_ID
             {
 
             					if (current==null) {
@@ -2242,36 +2288,36 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:814:3: ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:833:3: ( (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) ) )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( ((LA32_0>=38 && LA32_0<=39)) ) {
-                alt32=1;
+            if ( ((LA33_0>=38 && LA33_0<=39)) ) {
+                alt33=1;
             }
-            switch (alt32) {
+            switch (alt33) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:815:4: (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) )
+                    // InternalGSelfOperatingHeuristicText.g:834:4: (otherlv_6= 'IF' | otherlv_7= 'if' ) ( (lv_condition_8_0= ruleCondition ) )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:815:4: (otherlv_6= 'IF' | otherlv_7= 'if' )
-                    int alt31=2;
-                    int LA31_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:834:4: (otherlv_6= 'IF' | otherlv_7= 'if' )
+                    int alt32=2;
+                    int LA32_0 = input.LA(1);
 
-                    if ( (LA31_0==38) ) {
-                        alt31=1;
+                    if ( (LA32_0==38) ) {
+                        alt32=1;
                     }
-                    else if ( (LA31_0==39) ) {
-                        alt31=2;
+                    else if ( (LA32_0==39) ) {
+                        alt32=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 31, 0, input);
+                            new NoViableAltException("", 32, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt31) {
+                    switch (alt32) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:816:5: otherlv_6= 'IF'
+                            // InternalGSelfOperatingHeuristicText.g:835:5: otherlv_6= 'IF'
                             {
                             otherlv_6=(Token)match(input,38,FOLLOW_3); 
 
@@ -2281,7 +2327,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:821:5: otherlv_7= 'if'
+                            // InternalGSelfOperatingHeuristicText.g:840:5: otherlv_7= 'if'
                             {
                             otherlv_7=(Token)match(input,39,FOLLOW_3); 
 
@@ -2293,11 +2339,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     }
 
-                    // InternalGSelfOperatingHeuristicText.g:826:4: ( (lv_condition_8_0= ruleCondition ) )
-                    // InternalGSelfOperatingHeuristicText.g:827:5: (lv_condition_8_0= ruleCondition )
+                    // InternalGSelfOperatingHeuristicText.g:845:4: ( (lv_condition_8_0= ruleCondition ) )
+                    // InternalGSelfOperatingHeuristicText.g:846:5: (lv_condition_8_0= ruleCondition )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:827:5: (lv_condition_8_0= ruleCondition )
-                    // InternalGSelfOperatingHeuristicText.g:828:6: lv_condition_8_0= ruleCondition
+                    // InternalGSelfOperatingHeuristicText.g:846:5: (lv_condition_8_0= ruleCondition )
+                    // InternalGSelfOperatingHeuristicText.g:847:6: lv_condition_8_0= ruleCondition
                     {
 
                     						newCompositeNode(grammarAccess.getTransitionAccess().getConditionConditionParserRuleCall_4_1_0());
@@ -2330,36 +2376,36 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:846:3: ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:865:3: ( (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) ) )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( ((LA34_0>=40 && LA34_0<=41)) ) {
-                alt34=1;
+            if ( ((LA35_0>=40 && LA35_0<=41)) ) {
+                alt35=1;
             }
-            switch (alt34) {
+            switch (alt35) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:847:4: (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) )
+                    // InternalGSelfOperatingHeuristicText.g:866:4: (otherlv_9= 'SET' | otherlv_10= 'set' ) ( (lv_assignment_11_0= ruleAssignment ) )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:847:4: (otherlv_9= 'SET' | otherlv_10= 'set' )
-                    int alt33=2;
-                    int LA33_0 = input.LA(1);
+                    // InternalGSelfOperatingHeuristicText.g:866:4: (otherlv_9= 'SET' | otherlv_10= 'set' )
+                    int alt34=2;
+                    int LA34_0 = input.LA(1);
 
-                    if ( (LA33_0==40) ) {
-                        alt33=1;
+                    if ( (LA34_0==40) ) {
+                        alt34=1;
                     }
-                    else if ( (LA33_0==41) ) {
-                        alt33=2;
+                    else if ( (LA34_0==41) ) {
+                        alt34=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 33, 0, input);
+                            new NoViableAltException("", 34, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt33) {
+                    switch (alt34) {
                         case 1 :
-                            // InternalGSelfOperatingHeuristicText.g:848:5: otherlv_9= 'SET'
+                            // InternalGSelfOperatingHeuristicText.g:867:5: otherlv_9= 'SET'
                             {
                             otherlv_9=(Token)match(input,40,FOLLOW_3); 
 
@@ -2369,7 +2415,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                             }
                             break;
                         case 2 :
-                            // InternalGSelfOperatingHeuristicText.g:853:5: otherlv_10= 'set'
+                            // InternalGSelfOperatingHeuristicText.g:872:5: otherlv_10= 'set'
                             {
                             otherlv_10=(Token)match(input,41,FOLLOW_3); 
 
@@ -2381,11 +2427,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
                     }
 
-                    // InternalGSelfOperatingHeuristicText.g:858:4: ( (lv_assignment_11_0= ruleAssignment ) )
-                    // InternalGSelfOperatingHeuristicText.g:859:5: (lv_assignment_11_0= ruleAssignment )
+                    // InternalGSelfOperatingHeuristicText.g:877:4: ( (lv_assignment_11_0= ruleAssignment ) )
+                    // InternalGSelfOperatingHeuristicText.g:878:5: (lv_assignment_11_0= ruleAssignment )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:859:5: (lv_assignment_11_0= ruleAssignment )
-                    // InternalGSelfOperatingHeuristicText.g:860:6: lv_assignment_11_0= ruleAssignment
+                    // InternalGSelfOperatingHeuristicText.g:878:5: (lv_assignment_11_0= ruleAssignment )
+                    // InternalGSelfOperatingHeuristicText.g:879:6: lv_assignment_11_0= ruleAssignment
                     {
 
                     						newCompositeNode(grammarAccess.getTransitionAccess().getAssignmentAssignmentParserRuleCall_5_1_0());
@@ -2441,7 +2487,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleEvent"
-    // InternalGSelfOperatingHeuristicText.g:882:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
+    // InternalGSelfOperatingHeuristicText.g:901:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
     public final EObject entryRuleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -2449,8 +2495,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:882:46: (iv_ruleEvent= ruleEvent EOF )
-            // InternalGSelfOperatingHeuristicText.g:883:2: iv_ruleEvent= ruleEvent EOF
+            // InternalGSelfOperatingHeuristicText.g:901:46: (iv_ruleEvent= ruleEvent EOF )
+            // InternalGSelfOperatingHeuristicText.g:902:2: iv_ruleEvent= ruleEvent EOF
             {
              newCompositeNode(grammarAccess.getEventRule()); 
             pushFollow(FOLLOW_1);
@@ -2477,7 +2523,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleEvent"
-    // InternalGSelfOperatingHeuristicText.g:889:1: ruleEvent returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:908:1: ruleEvent returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -2487,14 +2533,14 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:895:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalGSelfOperatingHeuristicText.g:896:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:914:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalGSelfOperatingHeuristicText.g:915:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:896:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:897:3: (lv_name_0_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:915:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:916:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:897:3: (lv_name_0_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:898:4: lv_name_0_0= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:916:3: (lv_name_0_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:917:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2536,7 +2582,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalGSelfOperatingHeuristicText.g:917:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalGSelfOperatingHeuristicText.g:936:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2544,8 +2590,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:917:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalGSelfOperatingHeuristicText.g:918:2: iv_ruleCondition= ruleCondition EOF
+            // InternalGSelfOperatingHeuristicText.g:936:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalGSelfOperatingHeuristicText.g:937:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -2572,7 +2618,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleCondition"
-    // InternalGSelfOperatingHeuristicText.g:924:1: ruleCondition returns [EObject current=null] : ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:943:1: ruleCondition returns [EObject current=null] : ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2587,17 +2633,17 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:930:2: ( ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) ) )
-            // InternalGSelfOperatingHeuristicText.g:931:2: ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:949:2: ( ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) ) )
+            // InternalGSelfOperatingHeuristicText.g:950:2: ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:931:2: ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) )
-            // InternalGSelfOperatingHeuristicText.g:932:3: ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:950:2: ( ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:951:3: ( (lv_left_0_0= ruleVariableReference ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_right_2_0= ruleValue ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:932:3: ( (lv_left_0_0= ruleVariableReference ) )
-            // InternalGSelfOperatingHeuristicText.g:933:4: (lv_left_0_0= ruleVariableReference )
+            // InternalGSelfOperatingHeuristicText.g:951:3: ( (lv_left_0_0= ruleVariableReference ) )
+            // InternalGSelfOperatingHeuristicText.g:952:4: (lv_left_0_0= ruleVariableReference )
             {
-            // InternalGSelfOperatingHeuristicText.g:933:4: (lv_left_0_0= ruleVariableReference )
-            // InternalGSelfOperatingHeuristicText.g:934:5: lv_left_0_0= ruleVariableReference
+            // InternalGSelfOperatingHeuristicText.g:952:4: (lv_left_0_0= ruleVariableReference )
+            // InternalGSelfOperatingHeuristicText.g:953:5: lv_left_0_0= ruleVariableReference
             {
 
             					newCompositeNode(grammarAccess.getConditionAccess().getLeftVariableReferenceParserRuleCall_0_0());
@@ -2624,11 +2670,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:951:3: ( (lv_operator_1_0= ruleComparisonOperator ) )
-            // InternalGSelfOperatingHeuristicText.g:952:4: (lv_operator_1_0= ruleComparisonOperator )
+            // InternalGSelfOperatingHeuristicText.g:970:3: ( (lv_operator_1_0= ruleComparisonOperator ) )
+            // InternalGSelfOperatingHeuristicText.g:971:4: (lv_operator_1_0= ruleComparisonOperator )
             {
-            // InternalGSelfOperatingHeuristicText.g:952:4: (lv_operator_1_0= ruleComparisonOperator )
-            // InternalGSelfOperatingHeuristicText.g:953:5: lv_operator_1_0= ruleComparisonOperator
+            // InternalGSelfOperatingHeuristicText.g:971:4: (lv_operator_1_0= ruleComparisonOperator )
+            // InternalGSelfOperatingHeuristicText.g:972:5: lv_operator_1_0= ruleComparisonOperator
             {
 
             					newCompositeNode(grammarAccess.getConditionAccess().getOperatorComparisonOperatorEnumRuleCall_1_0());
@@ -2655,11 +2701,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:970:3: ( (lv_right_2_0= ruleValue ) )
-            // InternalGSelfOperatingHeuristicText.g:971:4: (lv_right_2_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:989:3: ( (lv_right_2_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:990:4: (lv_right_2_0= ruleValue )
             {
-            // InternalGSelfOperatingHeuristicText.g:971:4: (lv_right_2_0= ruleValue )
-            // InternalGSelfOperatingHeuristicText.g:972:5: lv_right_2_0= ruleValue
+            // InternalGSelfOperatingHeuristicText.g:990:4: (lv_right_2_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:991:5: lv_right_2_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getConditionAccess().getRightValueParserRuleCall_2_0());
@@ -2709,7 +2755,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleAssignment"
-    // InternalGSelfOperatingHeuristicText.g:993:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
+    // InternalGSelfOperatingHeuristicText.g:1012:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
     public final EObject entryRuleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -2717,8 +2763,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:993:51: (iv_ruleAssignment= ruleAssignment EOF )
-            // InternalGSelfOperatingHeuristicText.g:994:2: iv_ruleAssignment= ruleAssignment EOF
+            // InternalGSelfOperatingHeuristicText.g:1012:51: (iv_ruleAssignment= ruleAssignment EOF )
+            // InternalGSelfOperatingHeuristicText.g:1013:2: iv_ruleAssignment= ruleAssignment EOF
             {
              newCompositeNode(grammarAccess.getAssignmentRule()); 
             pushFollow(FOLLOW_1);
@@ -2745,7 +2791,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleAssignment"
-    // InternalGSelfOperatingHeuristicText.g:1000:1: ruleAssignment returns [EObject current=null] : ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:1019:1: ruleAssignment returns [EObject current=null] : ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
     public final EObject ruleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -2759,17 +2805,17 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1006:2: ( ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1007:2: ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1025:2: ( ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1026:2: ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1007:2: ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1008:3: ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:1026:2: ( ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1027:3: ( (lv_currentVar_0_0= ruleVariableReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1008:3: ( (lv_currentVar_0_0= ruleVariableReference ) )
-            // InternalGSelfOperatingHeuristicText.g:1009:4: (lv_currentVar_0_0= ruleVariableReference )
+            // InternalGSelfOperatingHeuristicText.g:1027:3: ( (lv_currentVar_0_0= ruleVariableReference ) )
+            // InternalGSelfOperatingHeuristicText.g:1028:4: (lv_currentVar_0_0= ruleVariableReference )
             {
-            // InternalGSelfOperatingHeuristicText.g:1009:4: (lv_currentVar_0_0= ruleVariableReference )
-            // InternalGSelfOperatingHeuristicText.g:1010:5: lv_currentVar_0_0= ruleVariableReference
+            // InternalGSelfOperatingHeuristicText.g:1028:4: (lv_currentVar_0_0= ruleVariableReference )
+            // InternalGSelfOperatingHeuristicText.g:1029:5: lv_currentVar_0_0= ruleVariableReference
             {
 
             					newCompositeNode(grammarAccess.getAssignmentAccess().getCurrentVarVariableReferenceParserRuleCall_0_0());
@@ -2800,11 +2846,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             			newLeafNode(otherlv_1, grammarAccess.getAssignmentAccess().getEqualsSignKeyword_1());
             		
-            // InternalGSelfOperatingHeuristicText.g:1031:3: ( (lv_value_2_0= ruleValue ) )
-            // InternalGSelfOperatingHeuristicText.g:1032:4: (lv_value_2_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:1050:3: ( (lv_value_2_0= ruleValue ) )
+            // InternalGSelfOperatingHeuristicText.g:1051:4: (lv_value_2_0= ruleValue )
             {
-            // InternalGSelfOperatingHeuristicText.g:1032:4: (lv_value_2_0= ruleValue )
-            // InternalGSelfOperatingHeuristicText.g:1033:5: lv_value_2_0= ruleValue
+            // InternalGSelfOperatingHeuristicText.g:1051:4: (lv_value_2_0= ruleValue )
+            // InternalGSelfOperatingHeuristicText.g:1052:5: lv_value_2_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getAssignmentAccess().getValueValueParserRuleCall_2_0());
@@ -2854,7 +2900,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleVariableReference"
-    // InternalGSelfOperatingHeuristicText.g:1054:1: entryRuleVariableReference returns [EObject current=null] : iv_ruleVariableReference= ruleVariableReference EOF ;
+    // InternalGSelfOperatingHeuristicText.g:1073:1: entryRuleVariableReference returns [EObject current=null] : iv_ruleVariableReference= ruleVariableReference EOF ;
     public final EObject entryRuleVariableReference() throws RecognitionException {
         EObject current = null;
 
@@ -2862,8 +2908,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1054:58: (iv_ruleVariableReference= ruleVariableReference EOF )
-            // InternalGSelfOperatingHeuristicText.g:1055:2: iv_ruleVariableReference= ruleVariableReference EOF
+            // InternalGSelfOperatingHeuristicText.g:1073:58: (iv_ruleVariableReference= ruleVariableReference EOF )
+            // InternalGSelfOperatingHeuristicText.g:1074:2: iv_ruleVariableReference= ruleVariableReference EOF
             {
              newCompositeNode(grammarAccess.getVariableReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -2890,7 +2936,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleVariableReference"
-    // InternalGSelfOperatingHeuristicText.g:1061:1: ruleVariableReference returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:1080:1: ruleVariableReference returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleVariableReference() throws RecognitionException {
         EObject current = null;
 
@@ -2900,14 +2946,14 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1067:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1068:2: ( (otherlv_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:1086:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1087:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1068:2: ( (otherlv_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:1069:3: (otherlv_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:1087:2: ( (otherlv_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:1088:3: (otherlv_0= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:1069:3: (otherlv_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:1070:4: otherlv_0= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:1088:3: (otherlv_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:1089:4: otherlv_0= RULE_ID
             {
 
             				if (current==null) {
@@ -2944,7 +2990,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleValue"
-    // InternalGSelfOperatingHeuristicText.g:1084:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
+    // InternalGSelfOperatingHeuristicText.g:1103:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
     public final String entryRuleValue() throws RecognitionException {
         String current = null;
 
@@ -2952,8 +2998,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1084:45: (iv_ruleValue= ruleValue EOF )
-            // InternalGSelfOperatingHeuristicText.g:1085:2: iv_ruleValue= ruleValue EOF
+            // InternalGSelfOperatingHeuristicText.g:1103:45: (iv_ruleValue= ruleValue EOF )
+            // InternalGSelfOperatingHeuristicText.g:1104:2: iv_ruleValue= ruleValue EOF
             {
              newCompositeNode(grammarAccess.getValueRule()); 
             pushFollow(FOLLOW_1);
@@ -2980,7 +3026,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleValue"
-    // InternalGSelfOperatingHeuristicText.g:1091:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE ) ;
+    // InternalGSelfOperatingHeuristicText.g:1110:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE ) ;
     public final AntlrDatatypeRuleToken ruleValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2993,42 +3039,42 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1097:2: ( (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE ) )
-            // InternalGSelfOperatingHeuristicText.g:1098:2: (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE )
+            // InternalGSelfOperatingHeuristicText.g:1116:2: ( (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE ) )
+            // InternalGSelfOperatingHeuristicText.g:1117:2: (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE )
             {
-            // InternalGSelfOperatingHeuristicText.g:1098:2: (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE )
-            int alt35=4;
+            // InternalGSelfOperatingHeuristicText.g:1117:2: (this_BOOL_0= RULE_BOOL | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT | this_DOUBLE_3= RULE_DOUBLE )
+            int alt36=4;
             switch ( input.LA(1) ) {
             case RULE_BOOL:
                 {
-                alt35=1;
+                alt36=1;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt35=2;
+                alt36=2;
                 }
                 break;
             case RULE_INT:
                 {
-                alt35=3;
+                alt36=3;
                 }
                 break;
             case RULE_DOUBLE:
                 {
-                alt35=4;
+                alt36=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 35, 0, input);
+                    new NoViableAltException("", 36, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt35) {
+            switch (alt36) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:1099:3: this_BOOL_0= RULE_BOOL
+                    // InternalGSelfOperatingHeuristicText.g:1118:3: this_BOOL_0= RULE_BOOL
                     {
                     this_BOOL_0=(Token)match(input,RULE_BOOL,FOLLOW_2); 
 
@@ -3041,7 +3087,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:1107:3: this_STRING_1= RULE_STRING
+                    // InternalGSelfOperatingHeuristicText.g:1126:3: this_STRING_1= RULE_STRING
                     {
                     this_STRING_1=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3054,7 +3100,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 3 :
-                    // InternalGSelfOperatingHeuristicText.g:1115:3: this_INT_2= RULE_INT
+                    // InternalGSelfOperatingHeuristicText.g:1134:3: this_INT_2= RULE_INT
                     {
                     this_INT_2=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -3067,7 +3113,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 4 :
-                    // InternalGSelfOperatingHeuristicText.g:1123:3: this_DOUBLE_3= RULE_DOUBLE
+                    // InternalGSelfOperatingHeuristicText.g:1142:3: this_DOUBLE_3= RULE_DOUBLE
                     {
                     this_DOUBLE_3=(Token)match(input,RULE_DOUBLE,FOLLOW_2); 
 
@@ -3102,7 +3148,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "entryRuleAutomaton"
-    // InternalGSelfOperatingHeuristicText.g:1134:1: entryRuleAutomaton returns [EObject current=null] : iv_ruleAutomaton= ruleAutomaton EOF ;
+    // InternalGSelfOperatingHeuristicText.g:1153:1: entryRuleAutomaton returns [EObject current=null] : iv_ruleAutomaton= ruleAutomaton EOF ;
     public final EObject entryRuleAutomaton() throws RecognitionException {
         EObject current = null;
 
@@ -3110,8 +3156,8 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1134:50: (iv_ruleAutomaton= ruleAutomaton EOF )
-            // InternalGSelfOperatingHeuristicText.g:1135:2: iv_ruleAutomaton= ruleAutomaton EOF
+            // InternalGSelfOperatingHeuristicText.g:1153:50: (iv_ruleAutomaton= ruleAutomaton EOF )
+            // InternalGSelfOperatingHeuristicText.g:1154:2: iv_ruleAutomaton= ruleAutomaton EOF
             {
              newCompositeNode(grammarAccess.getAutomatonRule()); 
             pushFollow(FOLLOW_1);
@@ -3138,7 +3184,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleAutomaton"
-    // InternalGSelfOperatingHeuristicText.g:1141:1: ruleAutomaton returns [EObject current=null] : ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' ) ;
+    // InternalGSelfOperatingHeuristicText.g:1160:1: ruleAutomaton returns [EObject current=null] : ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' ) ;
     public final EObject ruleAutomaton() throws RecognitionException {
         EObject current = null;
 
@@ -3153,31 +3199,31 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1147:2: ( ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' ) )
-            // InternalGSelfOperatingHeuristicText.g:1148:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' )
+            // InternalGSelfOperatingHeuristicText.g:1166:2: ( ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' ) )
+            // InternalGSelfOperatingHeuristicText.g:1167:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' )
             {
-            // InternalGSelfOperatingHeuristicText.g:1148:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' )
-            // InternalGSelfOperatingHeuristicText.g:1149:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}'
+            // InternalGSelfOperatingHeuristicText.g:1167:2: ( (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' )
+            // InternalGSelfOperatingHeuristicText.g:1168:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}'
             {
-            // InternalGSelfOperatingHeuristicText.g:1149:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' )
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            // InternalGSelfOperatingHeuristicText.g:1168:3: (otherlv_0= 'AUTOMATON' | otherlv_1= 'automaton' )
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA36_0==42) ) {
-                alt36=1;
+            if ( (LA37_0==42) ) {
+                alt37=1;
             }
-            else if ( (LA36_0==43) ) {
-                alt36=2;
+            else if ( (LA37_0==43) ) {
+                alt37=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 36, 0, input);
+                    new NoViableAltException("", 37, 0, input);
 
                 throw nvae;
             }
-            switch (alt36) {
+            switch (alt37) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:1150:4: otherlv_0= 'AUTOMATON'
+                    // InternalGSelfOperatingHeuristicText.g:1169:4: otherlv_0= 'AUTOMATON'
                     {
                     otherlv_0=(Token)match(input,42,FOLLOW_3); 
 
@@ -3187,7 +3233,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:1155:4: otherlv_1= 'automaton'
+                    // InternalGSelfOperatingHeuristicText.g:1174:4: otherlv_1= 'automaton'
                     {
                     otherlv_1=(Token)match(input,43,FOLLOW_3); 
 
@@ -3199,11 +3245,11 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             }
 
-            // InternalGSelfOperatingHeuristicText.g:1160:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalGSelfOperatingHeuristicText.g:1161:4: (lv_name_2_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:1179:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalGSelfOperatingHeuristicText.g:1180:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalGSelfOperatingHeuristicText.g:1161:4: (lv_name_2_0= RULE_ID )
-            // InternalGSelfOperatingHeuristicText.g:1162:5: lv_name_2_0= RULE_ID
+            // InternalGSelfOperatingHeuristicText.g:1180:4: (lv_name_2_0= RULE_ID )
+            // InternalGSelfOperatingHeuristicText.g:1181:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
@@ -3229,23 +3275,23 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
             			newLeafNode(otherlv_3, grammarAccess.getAutomatonAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalGSelfOperatingHeuristicText.g:1182:3: ( (otherlv_4= RULE_ID ) )*
-            loop37:
+            // InternalGSelfOperatingHeuristicText.g:1201:3: ( (otherlv_4= RULE_ID ) )*
+            loop38:
             do {
-                int alt37=2;
-                int LA37_0 = input.LA(1);
+                int alt38=2;
+                int LA38_0 = input.LA(1);
 
-                if ( (LA37_0==RULE_ID) ) {
-                    alt37=1;
+                if ( (LA38_0==RULE_ID) ) {
+                    alt38=1;
                 }
 
 
-                switch (alt37) {
+                switch (alt38) {
             	case 1 :
-            	    // InternalGSelfOperatingHeuristicText.g:1183:4: (otherlv_4= RULE_ID )
+            	    // InternalGSelfOperatingHeuristicText.g:1202:4: (otherlv_4= RULE_ID )
             	    {
-            	    // InternalGSelfOperatingHeuristicText.g:1183:4: (otherlv_4= RULE_ID )
-            	    // InternalGSelfOperatingHeuristicText.g:1184:5: otherlv_4= RULE_ID
+            	    // InternalGSelfOperatingHeuristicText.g:1202:4: (otherlv_4= RULE_ID )
+            	    // InternalGSelfOperatingHeuristicText.g:1203:5: otherlv_4= RULE_ID
             	    {
 
             	    					if (current==null) {
@@ -3264,7 +3310,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
             	    break;
 
             	default :
-            	    break loop37;
+            	    break loop38;
                 }
             } while (true);
 
@@ -3294,8 +3340,179 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
     // $ANTLR end "ruleAutomaton"
 
 
+    // $ANTLR start "entryRuleVerifiers"
+    // InternalGSelfOperatingHeuristicText.g:1222:1: entryRuleVerifiers returns [EObject current=null] : iv_ruleVerifiers= ruleVerifiers EOF ;
+    public final EObject entryRuleVerifiers() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleVerifiers = null;
+
+
+        try {
+            // InternalGSelfOperatingHeuristicText.g:1222:50: (iv_ruleVerifiers= ruleVerifiers EOF )
+            // InternalGSelfOperatingHeuristicText.g:1223:2: iv_ruleVerifiers= ruleVerifiers EOF
+            {
+             newCompositeNode(grammarAccess.getVerifiersRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleVerifiers=ruleVerifiers();
+
+            state._fsp--;
+
+             current =iv_ruleVerifiers; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleVerifiers"
+
+
+    // $ANTLR start "ruleVerifiers"
+    // InternalGSelfOperatingHeuristicText.g:1229:1: ruleVerifiers returns [EObject current=null] : ( (otherlv_0= 'VERIFIERS' | otherlv_1= 'verifiers' ) otherlv_2= '{' ( (lv_verifier_3_0= RULE_STRING ) )* otherlv_4= '}' ) ;
+    public final EObject ruleVerifiers() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        Token lv_verifier_3_0=null;
+        Token otherlv_4=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGSelfOperatingHeuristicText.g:1235:2: ( ( (otherlv_0= 'VERIFIERS' | otherlv_1= 'verifiers' ) otherlv_2= '{' ( (lv_verifier_3_0= RULE_STRING ) )* otherlv_4= '}' ) )
+            // InternalGSelfOperatingHeuristicText.g:1236:2: ( (otherlv_0= 'VERIFIERS' | otherlv_1= 'verifiers' ) otherlv_2= '{' ( (lv_verifier_3_0= RULE_STRING ) )* otherlv_4= '}' )
+            {
+            // InternalGSelfOperatingHeuristicText.g:1236:2: ( (otherlv_0= 'VERIFIERS' | otherlv_1= 'verifiers' ) otherlv_2= '{' ( (lv_verifier_3_0= RULE_STRING ) )* otherlv_4= '}' )
+            // InternalGSelfOperatingHeuristicText.g:1237:3: (otherlv_0= 'VERIFIERS' | otherlv_1= 'verifiers' ) otherlv_2= '{' ( (lv_verifier_3_0= RULE_STRING ) )* otherlv_4= '}'
+            {
+            // InternalGSelfOperatingHeuristicText.g:1237:3: (otherlv_0= 'VERIFIERS' | otherlv_1= 'verifiers' )
+            int alt39=2;
+            int LA39_0 = input.LA(1);
+
+            if ( (LA39_0==44) ) {
+                alt39=1;
+            }
+            else if ( (LA39_0==45) ) {
+                alt39=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 39, 0, input);
+
+                throw nvae;
+            }
+            switch (alt39) {
+                case 1 :
+                    // InternalGSelfOperatingHeuristicText.g:1238:4: otherlv_0= 'VERIFIERS'
+                    {
+                    otherlv_0=(Token)match(input,44,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_0, grammarAccess.getVerifiersAccess().getVERIFIERSKeyword_0_0());
+                    			
+
+                    }
+                    break;
+                case 2 :
+                    // InternalGSelfOperatingHeuristicText.g:1243:4: otherlv_1= 'verifiers'
+                    {
+                    otherlv_1=(Token)match(input,45,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getVerifiersAccess().getVerifiersKeyword_0_1());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            otherlv_2=(Token)match(input,17,FOLLOW_23); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getVerifiersAccess().getLeftCurlyBracketKeyword_1());
+            		
+            // InternalGSelfOperatingHeuristicText.g:1252:3: ( (lv_verifier_3_0= RULE_STRING ) )*
+            loop40:
+            do {
+                int alt40=2;
+                int LA40_0 = input.LA(1);
+
+                if ( (LA40_0==RULE_STRING) ) {
+                    alt40=1;
+                }
+
+
+                switch (alt40) {
+            	case 1 :
+            	    // InternalGSelfOperatingHeuristicText.g:1253:4: (lv_verifier_3_0= RULE_STRING )
+            	    {
+            	    // InternalGSelfOperatingHeuristicText.g:1253:4: (lv_verifier_3_0= RULE_STRING )
+            	    // InternalGSelfOperatingHeuristicText.g:1254:5: lv_verifier_3_0= RULE_STRING
+            	    {
+            	    lv_verifier_3_0=(Token)match(input,RULE_STRING,FOLLOW_23); 
+
+            	    					newLeafNode(lv_verifier_3_0, grammarAccess.getVerifiersAccess().getVerifierSTRINGTerminalRuleCall_2_0());
+            	    				
+
+            	    					if (current==null) {
+            	    						current = createModelElement(grammarAccess.getVerifiersRule());
+            	    					}
+            	    					addWithLastConsumed(
+            	    						current,
+            	    						"verifier",
+            	    						lv_verifier_3_0,
+            	    						"org.eclipse.xtext.common.Terminals.STRING");
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop40;
+                }
+            } while (true);
+
+            otherlv_4=(Token)match(input,18,FOLLOW_2); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getVerifiersAccess().getRightCurlyBracketKeyword_3());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleVerifiers"
+
+
     // $ANTLR start "ruleDataType"
-    // InternalGSelfOperatingHeuristicText.g:1203:1: ruleDataType returns [Enumerator current=null] : ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:1278:1: ruleDataType returns [Enumerator current=null] : ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) ;
     public final Enumerator ruleDataType() throws RecognitionException {
         Enumerator current = null;
 
@@ -3309,52 +3526,52 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1209:2: ( ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1210:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
+            // InternalGSelfOperatingHeuristicText.g:1284:2: ( ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1285:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1210:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
-            int alt38=5;
+            // InternalGSelfOperatingHeuristicText.g:1285:2: ( (enumLiteral_0= '??' ) | (enumLiteral_1= 'int' ) | (enumLiteral_2= 'boolean' ) | (enumLiteral_3= 'double' ) | (enumLiteral_4= 'String' ) )
+            int alt41=5;
             switch ( input.LA(1) ) {
-            case 44:
-                {
-                alt38=1;
-                }
-                break;
-            case 45:
-                {
-                alt38=2;
-                }
-                break;
             case 46:
                 {
-                alt38=3;
+                alt41=1;
                 }
                 break;
             case 47:
                 {
-                alt38=4;
+                alt41=2;
                 }
                 break;
             case 48:
                 {
-                alt38=5;
+                alt41=3;
+                }
+                break;
+            case 49:
+                {
+                alt41=4;
+                }
+                break;
+            case 50:
+                {
+                alt41=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 38, 0, input);
+                    new NoViableAltException("", 41, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt38) {
+            switch (alt41) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:1211:3: (enumLiteral_0= '??' )
+                    // InternalGSelfOperatingHeuristicText.g:1286:3: (enumLiteral_0= '??' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1211:3: (enumLiteral_0= '??' )
-                    // InternalGSelfOperatingHeuristicText.g:1212:4: enumLiteral_0= '??'
+                    // InternalGSelfOperatingHeuristicText.g:1286:3: (enumLiteral_0= '??' )
+                    // InternalGSelfOperatingHeuristicText.g:1287:4: enumLiteral_0= '??'
                     {
-                    enumLiteral_0=(Token)match(input,44,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,46,FOLLOW_2); 
 
                     				current = grammarAccess.getDataTypeAccess().getNOTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getDataTypeAccess().getNOTEnumLiteralDeclaration_0());
@@ -3366,12 +3583,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:1219:3: (enumLiteral_1= 'int' )
+                    // InternalGSelfOperatingHeuristicText.g:1294:3: (enumLiteral_1= 'int' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1219:3: (enumLiteral_1= 'int' )
-                    // InternalGSelfOperatingHeuristicText.g:1220:4: enumLiteral_1= 'int'
+                    // InternalGSelfOperatingHeuristicText.g:1294:3: (enumLiteral_1= 'int' )
+                    // InternalGSelfOperatingHeuristicText.g:1295:4: enumLiteral_1= 'int'
                     {
-                    enumLiteral_1=(Token)match(input,45,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,47,FOLLOW_2); 
 
                     				current = grammarAccess.getDataTypeAccess().getINTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getDataTypeAccess().getINTEnumLiteralDeclaration_1());
@@ -3383,12 +3600,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 3 :
-                    // InternalGSelfOperatingHeuristicText.g:1227:3: (enumLiteral_2= 'boolean' )
+                    // InternalGSelfOperatingHeuristicText.g:1302:3: (enumLiteral_2= 'boolean' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1227:3: (enumLiteral_2= 'boolean' )
-                    // InternalGSelfOperatingHeuristicText.g:1228:4: enumLiteral_2= 'boolean'
+                    // InternalGSelfOperatingHeuristicText.g:1302:3: (enumLiteral_2= 'boolean' )
+                    // InternalGSelfOperatingHeuristicText.g:1303:4: enumLiteral_2= 'boolean'
                     {
-                    enumLiteral_2=(Token)match(input,46,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,48,FOLLOW_2); 
 
                     				current = grammarAccess.getDataTypeAccess().getBOOLEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getDataTypeAccess().getBOOLEnumLiteralDeclaration_2());
@@ -3400,12 +3617,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 4 :
-                    // InternalGSelfOperatingHeuristicText.g:1235:3: (enumLiteral_3= 'double' )
+                    // InternalGSelfOperatingHeuristicText.g:1310:3: (enumLiteral_3= 'double' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1235:3: (enumLiteral_3= 'double' )
-                    // InternalGSelfOperatingHeuristicText.g:1236:4: enumLiteral_3= 'double'
+                    // InternalGSelfOperatingHeuristicText.g:1310:3: (enumLiteral_3= 'double' )
+                    // InternalGSelfOperatingHeuristicText.g:1311:4: enumLiteral_3= 'double'
                     {
-                    enumLiteral_3=(Token)match(input,47,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,49,FOLLOW_2); 
 
                     				current = grammarAccess.getDataTypeAccess().getDOUBLEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getDataTypeAccess().getDOUBLEEnumLiteralDeclaration_3());
@@ -3417,12 +3634,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 5 :
-                    // InternalGSelfOperatingHeuristicText.g:1243:3: (enumLiteral_4= 'String' )
+                    // InternalGSelfOperatingHeuristicText.g:1318:3: (enumLiteral_4= 'String' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1243:3: (enumLiteral_4= 'String' )
-                    // InternalGSelfOperatingHeuristicText.g:1244:4: enumLiteral_4= 'String'
+                    // InternalGSelfOperatingHeuristicText.g:1318:3: (enumLiteral_4= 'String' )
+                    // InternalGSelfOperatingHeuristicText.g:1319:4: enumLiteral_4= 'String'
                     {
-                    enumLiteral_4=(Token)match(input,48,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,50,FOLLOW_2); 
 
                     				current = grammarAccess.getDataTypeAccess().getSTRINGEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getDataTypeAccess().getSTRINGEnumLiteralDeclaration_4());
@@ -3456,7 +3673,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
 
 
     // $ANTLR start "ruleComparisonOperator"
-    // InternalGSelfOperatingHeuristicText.g:1254:1: ruleComparisonOperator returns [Enumerator current=null] : ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) ;
+    // InternalGSelfOperatingHeuristicText.g:1329:1: ruleComparisonOperator returns [Enumerator current=null] : ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) ;
     public final Enumerator ruleComparisonOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -3472,62 +3689,62 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
         	enterRule();
 
         try {
-            // InternalGSelfOperatingHeuristicText.g:1260:2: ( ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) )
-            // InternalGSelfOperatingHeuristicText.g:1261:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
+            // InternalGSelfOperatingHeuristicText.g:1335:2: ( ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) ) )
+            // InternalGSelfOperatingHeuristicText.g:1336:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
             {
-            // InternalGSelfOperatingHeuristicText.g:1261:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
-            int alt39=7;
+            // InternalGSelfOperatingHeuristicText.g:1336:2: ( (enumLiteral_0= '\\u00A4\\u00A4' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '==' ) | (enumLiteral_3= '>' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '>=' ) | (enumLiteral_6= '<=' ) )
+            int alt42=7;
             switch ( input.LA(1) ) {
-            case 49:
-                {
-                alt39=1;
-                }
-                break;
-            case 50:
-                {
-                alt39=2;
-                }
-                break;
             case 51:
                 {
-                alt39=3;
+                alt42=1;
                 }
                 break;
             case 52:
                 {
-                alt39=4;
+                alt42=2;
                 }
                 break;
             case 53:
                 {
-                alt39=5;
+                alt42=3;
                 }
                 break;
             case 54:
                 {
-                alt39=6;
+                alt42=4;
                 }
                 break;
             case 55:
                 {
-                alt39=7;
+                alt42=5;
+                }
+                break;
+            case 56:
+                {
+                alt42=6;
+                }
+                break;
+            case 57:
+                {
+                alt42=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 42, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt39) {
+            switch (alt42) {
                 case 1 :
-                    // InternalGSelfOperatingHeuristicText.g:1262:3: (enumLiteral_0= '\\u00A4\\u00A4' )
+                    // InternalGSelfOperatingHeuristicText.g:1337:3: (enumLiteral_0= '\\u00A4\\u00A4' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1262:3: (enumLiteral_0= '\\u00A4\\u00A4' )
-                    // InternalGSelfOperatingHeuristicText.g:1263:4: enumLiteral_0= '\\u00A4\\u00A4'
+                    // InternalGSelfOperatingHeuristicText.g:1337:3: (enumLiteral_0= '\\u00A4\\u00A4' )
+                    // InternalGSelfOperatingHeuristicText.g:1338:4: enumLiteral_0= '\\u00A4\\u00A4'
                     {
-                    enumLiteral_0=(Token)match(input,49,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,51,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getNOT_BOOLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getComparisonOperatorAccess().getNOT_BOOLEnumLiteralDeclaration_0());
@@ -3539,12 +3756,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 2 :
-                    // InternalGSelfOperatingHeuristicText.g:1270:3: (enumLiteral_1= '!=' )
+                    // InternalGSelfOperatingHeuristicText.g:1345:3: (enumLiteral_1= '!=' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1270:3: (enumLiteral_1= '!=' )
-                    // InternalGSelfOperatingHeuristicText.g:1271:4: enumLiteral_1= '!='
+                    // InternalGSelfOperatingHeuristicText.g:1345:3: (enumLiteral_1= '!=' )
+                    // InternalGSelfOperatingHeuristicText.g:1346:4: enumLiteral_1= '!='
                     {
-                    enumLiteral_1=(Token)match(input,50,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,52,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getNOT_EQUALSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getComparisonOperatorAccess().getNOT_EQUALSEnumLiteralDeclaration_1());
@@ -3556,12 +3773,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 3 :
-                    // InternalGSelfOperatingHeuristicText.g:1278:3: (enumLiteral_2= '==' )
+                    // InternalGSelfOperatingHeuristicText.g:1353:3: (enumLiteral_2= '==' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1278:3: (enumLiteral_2= '==' )
-                    // InternalGSelfOperatingHeuristicText.g:1279:4: enumLiteral_2= '=='
+                    // InternalGSelfOperatingHeuristicText.g:1353:3: (enumLiteral_2= '==' )
+                    // InternalGSelfOperatingHeuristicText.g:1354:4: enumLiteral_2= '=='
                     {
-                    enumLiteral_2=(Token)match(input,51,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,53,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getEQUALSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getComparisonOperatorAccess().getEQUALSEnumLiteralDeclaration_2());
@@ -3573,12 +3790,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 4 :
-                    // InternalGSelfOperatingHeuristicText.g:1286:3: (enumLiteral_3= '>' )
+                    // InternalGSelfOperatingHeuristicText.g:1361:3: (enumLiteral_3= '>' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1286:3: (enumLiteral_3= '>' )
-                    // InternalGSelfOperatingHeuristicText.g:1287:4: enumLiteral_3= '>'
+                    // InternalGSelfOperatingHeuristicText.g:1361:3: (enumLiteral_3= '>' )
+                    // InternalGSelfOperatingHeuristicText.g:1362:4: enumLiteral_3= '>'
                     {
-                    enumLiteral_3=(Token)match(input,52,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,54,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getGREATER_THANEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getComparisonOperatorAccess().getGREATER_THANEnumLiteralDeclaration_3());
@@ -3590,12 +3807,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 5 :
-                    // InternalGSelfOperatingHeuristicText.g:1294:3: (enumLiteral_4= '<' )
+                    // InternalGSelfOperatingHeuristicText.g:1369:3: (enumLiteral_4= '<' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1294:3: (enumLiteral_4= '<' )
-                    // InternalGSelfOperatingHeuristicText.g:1295:4: enumLiteral_4= '<'
+                    // InternalGSelfOperatingHeuristicText.g:1369:3: (enumLiteral_4= '<' )
+                    // InternalGSelfOperatingHeuristicText.g:1370:4: enumLiteral_4= '<'
                     {
-                    enumLiteral_4=(Token)match(input,53,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,55,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getLESS_THANEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getComparisonOperatorAccess().getLESS_THANEnumLiteralDeclaration_4());
@@ -3607,12 +3824,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 6 :
-                    // InternalGSelfOperatingHeuristicText.g:1302:3: (enumLiteral_5= '>=' )
+                    // InternalGSelfOperatingHeuristicText.g:1377:3: (enumLiteral_5= '>=' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1302:3: (enumLiteral_5= '>=' )
-                    // InternalGSelfOperatingHeuristicText.g:1303:4: enumLiteral_5= '>='
+                    // InternalGSelfOperatingHeuristicText.g:1377:3: (enumLiteral_5= '>=' )
+                    // InternalGSelfOperatingHeuristicText.g:1378:4: enumLiteral_5= '>='
                     {
-                    enumLiteral_5=(Token)match(input,54,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,56,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getGREATER_THAN_OR_EQUALSEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getComparisonOperatorAccess().getGREATER_THAN_OR_EQUALSEnumLiteralDeclaration_5());
@@ -3624,12 +3841,12 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
                     }
                     break;
                 case 7 :
-                    // InternalGSelfOperatingHeuristicText.g:1310:3: (enumLiteral_6= '<=' )
+                    // InternalGSelfOperatingHeuristicText.g:1385:3: (enumLiteral_6= '<=' )
                     {
-                    // InternalGSelfOperatingHeuristicText.g:1310:3: (enumLiteral_6= '<=' )
-                    // InternalGSelfOperatingHeuristicText.g:1311:4: enumLiteral_6= '<='
+                    // InternalGSelfOperatingHeuristicText.g:1385:3: (enumLiteral_6= '<=' )
+                    // InternalGSelfOperatingHeuristicText.g:1386:4: enumLiteral_6= '<='
                     {
-                    enumLiteral_6=(Token)match(input,55,FOLLOW_2); 
+                    enumLiteral_6=(Token)match(input,57,FOLLOW_2); 
 
                     				current = grammarAccess.getComparisonOperatorAccess().getLESS_THAN_OR_EQUALSEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_6, grammarAccess.getComparisonOperatorAccess().getLESS_THAN_OR_EQUALSEnumLiteralDeclaration_6());
@@ -3669,15 +3886,15 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000C030F1B8002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00003C030F1B8002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000C030F1A0002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00003C030F1A0002L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000001A0000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000C030F000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000C0000000002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00003C030F000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00003C0000000002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0001F00000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0007C00000000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x00000000000001E0L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000000C000000L});
@@ -3687,6 +3904,7 @@ public class InternalGSelfOperatingHeuristicTextParser extends AbstractInternalA
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000003000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x000003C000000002L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00FE000000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x03F8000000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000040040L});
 
 }

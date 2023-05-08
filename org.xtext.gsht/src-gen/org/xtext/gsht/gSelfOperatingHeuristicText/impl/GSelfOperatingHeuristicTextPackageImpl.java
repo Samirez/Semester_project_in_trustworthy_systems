@@ -29,6 +29,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Variable;
 import org.xtext.gsht.gSelfOperatingHeuristicText.VariableReference;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,6 +129,13 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   private EClass automatonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass verifiersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -287,6 +295,17 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
   public EReference getModel_Automaton()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Verifiers()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -680,6 +699,28 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
    * @generated
    */
   @Override
+  public EClass getVerifiers()
+  {
+    return verifiersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVerifiers_Verifier()
+  {
+    return (EAttribute)verifiersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getInitState()
   {
     return initStateEClass;
@@ -745,6 +786,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     createEReference(modelEClass, MODEL__STATES);
     createEReference(modelEClass, MODEL__ALTERS);
     createEReference(modelEClass, MODEL__AUTOMATON);
+    createEReference(modelEClass, MODEL__VERIFIERS);
 
     globalEClass = createEClass(GLOBAL);
 
@@ -792,6 +834,9 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     automatonEClass = createEClass(AUTOMATON);
     createEAttribute(automatonEClass, AUTOMATON__NAME);
     createEReference(automatonEClass, AUTOMATON__STATES);
+
+    verifiersEClass = createEClass(VERIFIERS);
+    createEAttribute(verifiersEClass, VERIFIERS__VERIFIER);
 
     initStateEClass = createEClass(INIT_STATE);
 
@@ -841,6 +886,7 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     initEReference(getModel_States(), this.getState(), null, "states", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Alters(), this.getAlter(), null, "alters", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Automaton(), this.getAutomaton(), null, "automaton", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Verifiers(), this.getVerifiers(), null, "verifiers", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(globalEClass, Global.class, "Global", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -888,6 +934,9 @@ public class GSelfOperatingHeuristicTextPackageImpl extends EPackageImpl impleme
     initEClass(automatonEClass, Automaton.class, "Automaton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAutomaton_Name(), ecorePackage.getEString(), "name", null, 0, 1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAutomaton_States(), this.getState(), null, "states", null, 0, -1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(verifiersEClass, Verifiers.class, "Verifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVerifiers_Verifier(), ecorePackage.getEString(), "verifier", null, 0, -1, Verifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initStateEClass, InitState.class, "InitState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

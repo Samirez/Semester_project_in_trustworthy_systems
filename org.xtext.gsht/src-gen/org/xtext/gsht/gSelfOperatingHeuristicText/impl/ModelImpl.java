@@ -26,6 +26,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.GSelfOperatingHeuristicTextPac
 import org.xtext.gsht.gSelfOperatingHeuristicText.Global;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +42,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.State;
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getStates <em>States</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getAlters <em>Alters</em>}</li>
  *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getAutomaton <em>Automaton</em>}</li>
+ *   <li>{@link org.xtext.gsht.gSelfOperatingHeuristicText.impl.ModelImpl#getVerifiers <em>Verifiers</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,6 +118,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Automaton> automaton;
+
+  /**
+   * The cached value of the '{@link #getVerifiers() <em>Verifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVerifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Verifiers> verifiers;
 
   /**
    * <!-- begin-user-doc -->
@@ -244,6 +256,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<Verifiers> getVerifiers()
+  {
+    if (verifiers == null)
+    {
+      verifiers = new EObjectContainmentEList<Verifiers>(Verifiers.class, this, GSelfOperatingHeuristicTextPackage.MODEL__VERIFIERS);
+    }
+    return verifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -258,6 +285,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getAlters()).basicRemove(otherEnd, msgs);
       case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
         return ((InternalEList<?>)getAutomaton()).basicRemove(otherEnd, msgs);
+      case GSelfOperatingHeuristicTextPackage.MODEL__VERIFIERS:
+        return ((InternalEList<?>)getVerifiers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -284,6 +313,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getAlters();
       case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
         return getAutomaton();
+      case GSelfOperatingHeuristicTextPackage.MODEL__VERIFIERS:
+        return getVerifiers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -322,6 +353,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getAutomaton().clear();
         getAutomaton().addAll((Collection<? extends Automaton>)newValue);
         return;
+      case GSelfOperatingHeuristicTextPackage.MODEL__VERIFIERS:
+        getVerifiers().clear();
+        getVerifiers().addAll((Collection<? extends Verifiers>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -354,6 +389,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
         getAutomaton().clear();
         return;
+      case GSelfOperatingHeuristicTextPackage.MODEL__VERIFIERS:
+        getVerifiers().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -380,6 +418,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return alters != null && !alters.isEmpty();
       case GSelfOperatingHeuristicTextPackage.MODEL__AUTOMATON:
         return automaton != null && !automaton.isEmpty();
+      case GSelfOperatingHeuristicTextPackage.MODEL__VERIFIERS:
+        return verifiers != null && !verifiers.isEmpty();
     }
     return super.eIsSet(featureID);
   }

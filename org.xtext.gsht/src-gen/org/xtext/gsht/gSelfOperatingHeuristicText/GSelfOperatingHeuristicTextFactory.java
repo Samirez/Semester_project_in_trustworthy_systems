@@ -141,6 +141,15 @@ public interface GSelfOperatingHeuristicTextFactory extends EFactory
   Automaton createAutomaton();
 
   /**
+   * Returns a new object of class '<em>Verifiers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Verifiers</em>'.
+   * @generated
+   */
+  Verifiers createVerifiers();
+
+  /**
    * Returns a new object of class '<em>Init State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

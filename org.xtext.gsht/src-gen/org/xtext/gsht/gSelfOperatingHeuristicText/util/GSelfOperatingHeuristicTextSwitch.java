@@ -166,6 +166,13 @@ public class GSelfOperatingHeuristicTextSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GSelfOperatingHeuristicTextPackage.VERIFIERS:
+      {
+        Verifiers verifiers = (Verifiers)theEObject;
+        T result = caseVerifiers(verifiers);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GSelfOperatingHeuristicTextPackage.INIT_STATE:
       {
         InitState initState = (InitState)theEObject;
@@ -382,6 +389,22 @@ public class GSelfOperatingHeuristicTextSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAutomaton(Automaton object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Verifiers</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Verifiers</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVerifiers(Verifiers object)
   {
     return null;
   }

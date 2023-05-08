@@ -57,6 +57,8 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		private final RuleCall cAltersAlterParserRuleCall_4_1_0 = (RuleCall)cAltersAssignment_4_1.eContents().get(0);
 		private final Assignment cAutomatonAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAutomatonAutomatonParserRuleCall_5_0 = (RuleCall)cAutomatonAssignment_5.eContents().get(0);
+		private final Assignment cVerifiersAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cVerifiersVerifiersParserRuleCall_6_0 = (RuleCall)cVerifiersAssignment_6.eContents().get(0);
 		
 		//Model:
 		//    ('DRONE' | 'drone' ) name=ID
@@ -70,6 +72,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//    '}')*
 		//    (states+=State | alters+=Alter)*
 		//    (automaton+=Automaton)*
+		//    (verifiers+=Verifiers)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -84,6 +87,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'}')*
 		//(states+=State | alters+=Alter)*
 		//(automaton+=Automaton)*
+		//(verifiers+=Verifiers)?
 		public Group getGroup() { return cGroup; }
 		
 		//('DRONE' | 'drone' )
@@ -175,6 +179,12 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		
 		//Automaton
 		public RuleCall getAutomatonAutomatonParserRuleCall_5_0() { return cAutomatonAutomatonParserRuleCall_5_0; }
+		
+		//(verifiers+=Verifiers)?
+		public Assignment getVerifiersAssignment_6() { return cVerifiersAssignment_6; }
+		
+		//Verifiers
+		public RuleCall getVerifiersVerifiersParserRuleCall_6_0() { return cVerifiersVerifiersParserRuleCall_6_0; }
 	}
 	public class GlobalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Global");
@@ -891,6 +901,52 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
+	public class VerifiersElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.Verifiers");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cVERIFIERSKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cVerifiersKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cVerifierAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cVerifierSTRINGTerminalRuleCall_2_0 = (RuleCall)cVerifierAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Verifiers:
+		//    ('VERIFIERS' | 'verifiers')
+		//    '{'
+		//        verifier+=STRING*
+		//    '}'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('VERIFIERS' | 'verifiers')
+		//'{'
+		//    verifier+=STRING*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//('VERIFIERS' | 'verifiers')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'VERIFIERS'
+		public Keyword getVERIFIERSKeyword_0_0() { return cVERIFIERSKeyword_0_0; }
+		
+		//'verifiers'
+		public Keyword getVerifiersKeyword_0_1() { return cVerifiersKeyword_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//verifier+=STRING*
+		public Assignment getVerifierAssignment_2() { return cVerifierAssignment_2; }
+		
+		//STRING
+		public RuleCall getVerifierSTRINGTerminalRuleCall_2_0() { return cVerifierSTRINGTerminalRuleCall_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
 	
 	public class DataTypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.DataType");
@@ -1030,6 +1086,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	private final TerminalRule tBOOL;
 	private final TerminalRule tDOUBLE;
 	private final AutomatonElements pAutomaton;
+	private final VerifiersElements pVerifiers;
 	
 	private final Grammar grammar;
 	
@@ -1059,6 +1116,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 		this.tBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.BOOL");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.gsht.GSelfOperatingHeuristicText.DOUBLE");
 		this.pAutomaton = new AutomatonElements();
+		this.pVerifiers = new VerifiersElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1100,6 +1158,7 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	//    '}')*
 	//    (states+=State | alters+=Alter)*
 	//    (automaton+=Automaton)*
+	//    (verifiers+=Verifiers)?
 	//;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -1304,6 +1363,20 @@ public class GSelfOperatingHeuristicTextGrammarAccess extends AbstractElementFin
 	
 	public ParserRule getAutomatonRule() {
 		return getAutomatonAccess().getRule();
+	}
+	
+	//Verifiers:
+	//    ('VERIFIERS' | 'verifiers')
+	//    '{'
+	//        verifier+=STRING*
+	//    '}'
+	//;
+	public VerifiersElements getVerifiersAccess() {
+		return pVerifiers;
+	}
+	
+	public ParserRule getVerifiersRule() {
+		return getVerifiersAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

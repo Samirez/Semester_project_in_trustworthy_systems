@@ -14,6 +14,8 @@
         eType="#//Alter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="automaton" upperBound="-1"
         eType="#//Automaton" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="verifiers" upperBound="-1"
+        eType="#//Verifiers" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Global" eSuperTypes="#//Variable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Local" eSuperTypes="#//Variable"/>
@@ -83,6 +85,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"
         upperBound="-1" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Verifiers">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifier" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitState" eSuperTypes="#//Initial"/>
 </ecore:EPackage>

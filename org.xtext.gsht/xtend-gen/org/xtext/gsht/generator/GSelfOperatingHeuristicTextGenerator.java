@@ -30,6 +30,7 @@ import org.xtext.gsht.gSelfOperatingHeuristicText.Model;
 import org.xtext.gsht.gSelfOperatingHeuristicText.State;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Transition;
 import org.xtext.gsht.gSelfOperatingHeuristicText.Variable;
+import org.xtext.gsht.gSelfOperatingHeuristicText.Verifiers;
 
 /**
  * Generates code from your model files on save.
@@ -48,6 +49,10 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
       this.generateUppaal(it, fsa);
     };
     IteratorExtensions.<Model>forEach(Iterators.<Model>filter(resource.getAllContents(), Model.class), _function_1);
+    final Procedure1<Model> _function_2 = (Model it) -> {
+      this.generateVerification(it, fsa);
+    };
+    IteratorExtensions.<Model>forEach(Iterators.<Model>filter(resource.getAllContents(), Model.class), _function_2);
   }
 
   public void generateFile(final Model model, final IFileSystemAccess2 fsa) {
@@ -871,5 +876,25 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
     CharSequence context = _builder;
     String _plus = (model + ".xta");
     fsa.generateFile(_plus, context);
+  }
+
+  public void generateVerification(final Model model, final IFileSystemAccess2 fsa) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Verifiers> _verifiers = model.getVerifiers();
+      for(final Verifiers verifiers : _verifiers) {
+        {
+          EList<String> _verifier = verifiers.getVerifier();
+          for(final String verifier : _verifier) {
+            _builder.append(verifier);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    CharSequence context = _builder;
+    String _plus = (model + "Verifications");
+    String _plus_1 = (_plus + ".q");
+    fsa.generateFile(_plus_1, context);
   }
 }

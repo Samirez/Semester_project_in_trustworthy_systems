@@ -52,6 +52,7 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getVariableAccess().getAlternatives(), "rule__Variable__Alternatives");
 			builder.put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 			builder.put(grammarAccess.getAutomatonAccess().getAlternatives_0(), "rule__Automaton__Alternatives_0");
+			builder.put(grammarAccess.getVerifiersAccess().getAlternatives_0(), "rule__Verifiers__Alternatives_0");
 			builder.put(grammarAccess.getDataTypeAccess().getAlternatives(), "rule__DataType__Alternatives");
 			builder.put(grammarAccess.getComparisonOperatorAccess().getAlternatives(), "rule__ComparisonOperator__Alternatives");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
@@ -72,12 +73,14 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
 			builder.put(grammarAccess.getAutomatonAccess().getGroup(), "rule__Automaton__Group__0");
+			builder.put(grammarAccess.getVerifiersAccess().getGroup(), "rule__Verifiers__Group__0");
 			builder.put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
 			builder.put(grammarAccess.getModelAccess().getGlobalsAssignment_2_2(), "rule__Model__GlobalsAssignment_2_2");
 			builder.put(grammarAccess.getModelAccess().getEventsAssignment_3_2(), "rule__Model__EventsAssignment_3_2");
 			builder.put(grammarAccess.getModelAccess().getStatesAssignment_4_0(), "rule__Model__StatesAssignment_4_0");
 			builder.put(grammarAccess.getModelAccess().getAltersAssignment_4_1(), "rule__Model__AltersAssignment_4_1");
 			builder.put(grammarAccess.getModelAccess().getAutomatonAssignment_5(), "rule__Model__AutomatonAssignment_5");
+			builder.put(grammarAccess.getModelAccess().getVerifiersAssignment_6(), "rule__Model__VerifiersAssignment_6");
 			builder.put(grammarAccess.getGlobalAccess().getNameAssignment_0(), "rule__Global__NameAssignment_0");
 			builder.put(grammarAccess.getGlobalAccess().getTypeAssignment_2(), "rule__Global__TypeAssignment_2");
 			builder.put(grammarAccess.getGlobalAccess().getValueAssignment_4(), "rule__Global__ValueAssignment_4");
@@ -104,6 +107,7 @@ public class GSelfOperatingHeuristicTextParser extends AbstractContentAssistPars
 			builder.put(grammarAccess.getVariableReferenceAccess().getVariableAssignment(), "rule__VariableReference__VariableAssignment");
 			builder.put(grammarAccess.getAutomatonAccess().getNameAssignment_1(), "rule__Automaton__NameAssignment_1");
 			builder.put(grammarAccess.getAutomatonAccess().getStatesAssignment_3(), "rule__Automaton__StatesAssignment_3");
+			builder.put(grammarAccess.getVerifiersAccess().getVerifierAssignment_2(), "rule__Verifiers__VerifierAssignment_2");
 		}
 	}
 	

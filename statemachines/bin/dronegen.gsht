@@ -121,3 +121,9 @@ AUTOMATON A
 				Failed
 				
 			}
+			
+VERIFIERS{
+	"otfdr"
+	"two"
+	"TREE"
+	}
