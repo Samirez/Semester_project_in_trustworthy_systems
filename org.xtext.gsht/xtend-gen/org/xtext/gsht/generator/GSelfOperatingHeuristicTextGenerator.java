@@ -722,30 +722,18 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                         String _plus_2 = (" guard " + _name_4);
                         ComparisonOperator _operator = condition.getOperator();
                         String _plus_3 = (_plus_2 + _operator);
-                        String _lowerCase = condition.getRight().toLowerCase();
-                        String _plus_4 = (_plus_3 + _lowerCase);
+                        String _replace = condition.getRight().toLowerCase().replace(".", "");
+                        String _plus_4 = (_plus_3 + _replace);
                         String _plus_5 = (_plus_4 + ";");
                         edge = (_edge + _plus_5);
-                      } else {
-                        if (((condition != null) && Objects.equal(condition.getRight(), "double"))) {
-                          String _edge_1 = edge;
-                          String _name_5 = condition.getLeft().getVariable().getName();
-                          String _plus_6 = (" guard " + _name_5);
-                          ComparisonOperator _operator_1 = condition.getOperator();
-                          String _plus_7 = (_plus_6 + _operator_1);
-                          String _replace = condition.getRight().replace(".", "");
-                          String _plus_8 = (_plus_7 + _replace);
-                          String _plus_9 = (_plus_8 + ";");
-                          edge = (_edge_1 + _plus_9);
-                        }
                       }
-                      String _edge_2 = edge;
-                      String _name_6 = transition_1.getEvent().getName();
-                      String _plus_10 = (" sync " + _name_6);
+                      String _edge_1 = edge;
+                      String _name_5 = transition_1.getEvent().getName();
+                      String _plus_6 = (" sync " + _name_5);
                       String _get_1 = templates.get(temp);
-                      String _plus_11 = (_plus_10 + _get_1);
-                      String _plus_12 = (_plus_11 + ";");
-                      edge = (_edge_2 + _plus_12);
+                      String _plus_7 = (_plus_6 + _get_1);
+                      String _plus_8 = (_plus_7 + ";");
+                      edge = (_edge_1 + _plus_8);
                       Assignment assignment = transition_1.getAssignment();
                       if ((assignment != null)) {
                         DataType _type = assignment.getCurrentVar().getVariable().getType();
@@ -753,19 +741,19 @@ public class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
                         boolean _contains = type.contains("String");
                         boolean _not_2 = (!_contains);
                         if (_not_2) {
-                          String _edge_3 = edge;
-                          String _name_7 = assignment.getCurrentVar().getVariable().getName();
-                          String _plus_13 = (" assign " + _name_7);
-                          String _plus_14 = (_plus_13 + " = ");
-                          String _lowerCase_1 = assignment.getValue().toLowerCase();
-                          String _plus_15 = (_plus_14 + _lowerCase_1);
-                          String _plus_16 = (_plus_15 + ";");
-                          edge = (_edge_3 + _plus_16);
+                          String _edge_2 = edge;
+                          String _name_6 = assignment.getCurrentVar().getVariable().getName();
+                          String _plus_9 = (" assign " + _name_6);
+                          String _plus_10 = (_plus_9 + " = ");
+                          String _replace_1 = assignment.getValue().toLowerCase().replace(".", "");
+                          String _plus_11 = (_plus_10 + _replace_1);
+                          String _plus_12 = (_plus_11 + ";");
+                          edge = (_edge_2 + _plus_12);
                         }
                       }
-                      String _edge_4 = edge;
-                      String _plus_17 = edge = (_edge_4 + " }");
-                      edges.add(_plus_17);
+                      String _edge_3 = edge;
+                      String _plus_13 = edge = (_edge_3 + " }");
+                      edges.add(_plus_13);
                     }
                   }
                 }

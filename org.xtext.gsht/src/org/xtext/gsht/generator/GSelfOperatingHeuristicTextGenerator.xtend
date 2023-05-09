@@ -267,15 +267,15 @@ class GSelfOperatingHeuristicTextGenerator extends AbstractGenerator {
 					for(transition : location.transitions){
 						var edge = location.name + " -> " + transition.state.name + "{"
 						var condition = transition.condition
-						if(condition !== null && condition.right !== "double"){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase() +";"}
-						else if(condition !== null && condition.right == "double"){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.replace(".", "") +";"}
+						if(condition !== null && condition.right !== "double"){edge += " guard " + condition.left.variable.name + condition.operator + condition.right.toLowerCase().replace(".", "") +";"}
+						
 						edge += " sync " + transition.event.name + templates.get(temp) + ';'
 						/*assign */
 						var assignment = transition.assignment;
 						if(assignment !== null){
 							var type = assignment.currentVar.variable.type + "";
 							if(!type.contains("String")){
-								edge += " assign " + assignment.currentVar.variable.name + " = " + assignment.value.toLowerCase() + ";"
+								edge += " assign " + assignment.currentVar.variable.name + " = " + assignment.value.toLowerCase().replace(".","") + ";"
 							}
 						}
 						
