@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author asbjorn
+ *
+ */
+module test {
+}

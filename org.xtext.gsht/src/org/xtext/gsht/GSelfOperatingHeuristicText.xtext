@@ -1,0 +1,121 @@
+grammar org.xtext.gsht.GSelfOperatingHeuristicText with org.eclipse.xtext.common.Terminals
+
+generate gSelfOperatingHeuristicText "http://www.xtext.org/gsht/GSelfOperatingHeuristicText"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+	('DRONE' | 'drone' ) name=ID
+	(('GLOBAL' | 'global')
+	'{'
+    	(globals+=Global)*
+    	
+	'}')?
+	 (('EVENTS' | 'events')*
+	'{'
+		(events+=Event)*
+	'}')*
+
+	(states+=State | alters+=Alter)*
+	
+	(automaton+=Automaton)*
+	
+	(verifiers+=Verifiers)?
+;
+
+
+Global:
+	name=ID ('AS' | 'as') type=DataType '=' value=Value;
+Local:
+	name=ID ('AS' | 'as') type=DataType '=' value=Value;
+
+State:
+	(('INIT' | 'init') init?=Initial)?
+	('STATE' | 'state') name=ID
+	(('PROPS' | 'props')
+	'{'
+    	(locals+=Local)*
+    	
+	'}'
+	)?
+	(('TRANSITIONS' | 'transitions')
+	'{'
+		(transitions+=Transition)*	
+	'}'
+	)?
+;
+
+Initial:
+	{InitState}
+;
+
+Alter:
+	('ALTER' | 'alter') ('STATE' | 'state') state=[State]
+	(('PROPS' | 'props')
+	'{'
+    	(locals+=Local)*
+	'}'
+	)?
+	(('TRANSITIONS' | 'transitions')
+	'{'
+		(transitions+=Transition)*	
+	'}'
+	)?
+;
+
+Transition:
+	('ON' | 'on') event=[Event] ('TO' | 'to') state=[State] (('IF' | 'if' ) condition=Condition)? (('SET' | 'set') assignment=Assignment)?;
+
+Event:
+    name=ID;
+
+Condition:
+	left=VariableReference operator=ComparisonOperator right=Value;
+
+Assignment:
+	currentVar=VariableReference '=' value=Value;
+
+enum DataType:
+	NOT='??' | INT='int' | BOOL='boolean' | DOUBLE='double' | STRING='String';
+
+enum ComparisonOperator:
+	NOT_BOOL='¤¤' | NOT_EQUALS='!=' | EQUALS='==' | GREATER_THAN='>' | LESS_THAN='<' | GREATER_THAN_OR_EQUALS='>=' | LESS_THAN_OR_EQUALS='<=';
+	
+	
+VariableReference:
+    variable=[Variable];
+
+Variable:
+    Global | Local;
+    
+Value:
+  BOOL | STRING | INT | DOUBLE;
+  
+ 
+@Override 
+terminal INT returns ecore::EInt:
+    ('0'..'9')+;
+
+terminal BOOL returns ecore::EBoolean:
+    ('TRUE' | 'true' | 'True') | ('FALSE' | 'false' | 'False');
+
+terminal DOUBLE returns ecore::EDouble:
+    ('0'..'9')+ '.' ('0'..'9')* (('E'|'e') ('+'|'-')? ('0'..'9')+)?;
+    
+Automaton:
+	('AUTOMATON' | 'automaton') name=ID
+	'{'
+    	states+=[State]*
+    	
+	'}'
+;
+
+Verifiers:
+	('VERIFIERS' | 'verifiers')
+	'{'
+    	verifier+=STRING*
+    	
+	'}'
+;
+
+

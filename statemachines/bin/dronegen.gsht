@@ -1,0 +1,127 @@
+drone EmergencyDrone
+
+global 
+{
+	Charge as double = 0.9
+	ErrorCode as String = "Operational"
+	DefibrillatorIsDepleted as boolean = false
+} 
+events 
+{
+	BatteryCharged
+	MissionRecieved
+	StandbyFailure
+	FlyToTarget
+	AbortMission
+	AirborneFailure
+	Landing
+	ArrivedFailure
+	TakingOff
+	LandedFailure
+	HasReturned
+	ReturningFailure
+	DefibrillatorDepleted
+	DefibrillatorNotDepleted
+	
+	DefibrillatorReady
+	DefibrillatorUsed
+}
+
+init state Charging
+	transitions
+	{
+		on BatteryCharged to Standby if Charge >= 0.7
+	}
+			
+state Standby
+	props
+	{
+		ReceivedMission as boolean = true
+		Error as boolean = false
+	}
+	transitions
+	{
+		on MissionRecieved to Airborne if ReceivedMission ==  TRUE
+		on StandbyFailure to Failed if Error == TRUE set ErrorCode = "Standby Failure"
+	}
+				
+state Airborne
+	props
+	{
+		ArrivedAtCoordinates as boolean = true
+		Abort as boolean = false
+		Error as boolean = false
+	}
+	transitions
+	{
+		on FlyToTarget to Arrived if ArrivedAtCoordinates == TRUE
+		on AbortMission to Returning if Abort == TRUE
+		on AirborneFailure to Failed if Error == TRUE set ErrorCode = "Airborne Failure"
+	}
+			
+state Arrived
+	props
+	{
+		FoundLandingPlace as boolean = true
+		Abort as boolean = false
+		Error as boolean = false
+	}
+	transitions
+	{
+		on Landing to Landed if FoundLandingPlace == TRUE
+		on AbortMission to  Returning if Abort == TRUE
+		on ArrivedFailure to Failed if Error == TRUE set ErrorCode = "Arrived Failure"
+	}
+			
+state Landed
+	props
+	{
+		Recall as boolean = true
+		Error as boolean = false
+	}
+	transitions
+	{
+		on TakingOff to Returning if Recall == TRUE
+		on LandedFailure to Failed if Error == TRUE set ErrorCode = "Landed Failure"
+	}
+			
+state Returning
+	props
+	{
+		ArrivedAtBase as boolean = true
+		Error as boolean = false
+	}
+	transitions
+	{
+		on HasReturned to Returned if ArrivedAtBase == TRUE
+		on ReturningFailure to Failed if Error == TRUE set ErrorCode = "Returning Failure"
+	}
+			
+state Returned
+	transitions
+	{
+		on DefibrillatorDepleted to Maintenance if DefibrillatorIsDepleted == TRUE
+		on DefibrillatorNotDepleted to Charging if DefibrillatorIsDepleted == FALSE
+	}
+	
+state Maintenance
+			
+state Failed
+
+AUTOMATON A
+			{
+				Charging
+				Standby
+				Airborne
+				Arrived
+				Landed
+				Returning
+				Returned
+				Maintenance
+				Failed
+				
+			}
+			
+VERIFIERS{
+	"A[] not deadlock"
+	}
