@@ -35,7 +35,7 @@ class testOne {
 		m.processEvent("TakingOff");
 		assertEquals("Returning",m.getCurrentState().getName());
 		
-		m.processEvent("Returned");
+		m.processEvent("HasReturned");
 		assertEquals("Returned",m.getCurrentState().getName());
 		
 		m.processEvent("DefibrillatorDepleted");
